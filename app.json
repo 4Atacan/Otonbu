@@ -19,8 +19,10 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
+      "bundler": "metro",
       "favicon": "./assets/favicon.png"
     },
+    "scheme": "otonbu",
     "plugins": [
       [
         "@sentry/react-native/expo",

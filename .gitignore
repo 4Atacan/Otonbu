@@ -33,6 +33,7 @@ yarn-error.*
 # local env files — gizli anahtarlar asla repoya girmez
 .env
 .env.local
+.env.test
 .env*.local
 *.env
 
