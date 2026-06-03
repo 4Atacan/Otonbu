@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(npx expo *)",
+      "Bash(supabase --version)",
+      "PowerShell(npm *)",
+      "PowerShell(New-Item *)",
+      "PowerShell(& \"C:\\\\Users\\\\Ayurd\\\\AppData\\\\Roaming\\\\npm\\\\supabase.ps1\" --version)"
+    ]
+  }
+}

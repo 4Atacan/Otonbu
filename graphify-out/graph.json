@@ -1,0 +1,835 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "settings.json",
+      "file_type": "code",
+      "source_file": ".claude/settings.json",
+      "source_location": "L1",
+      "id": "claude_settings",
+      "community": 7,
+      "norm_label": "settings.json"
+    },
+    {
+      "label": "hooks",
+      "file_type": "code",
+      "source_file": ".claude/settings.json",
+      "source_location": "L2",
+      "id": "claude_settings_hooks",
+      "community": 7,
+      "norm_label": "hooks"
+    },
+    {
+      "label": "PreToolUse",
+      "file_type": "code",
+      "source_file": ".claude/settings.json",
+      "source_location": "L3",
+      "id": "claude_settings_hooks_pretooluse",
+      "community": 7,
+      "norm_label": "pretooluse"
+    },
+    {
+      "label": "CLAUDE.md",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L1",
+      "id": "claude",
+      "community": 0,
+      "norm_label": "claude.md"
+    },
+    {
+      "label": "OTONBU GARAGE \u2014 Proje Talimatlar\u0131",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L1",
+      "id": "claude_otonbu_garage_proje_talimatlar\u0131",
+      "community": 0,
+      "norm_label": "otonbu garage \u2014 proje talimatlar\u0131"
+    },
+    {
+      "label": "\u00dcr\u00fcn \u00f6zeti",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L7",
+      "id": "claude_\u00fcr\u00fcn_\u00f6zeti",
+      "community": 0,
+      "norm_label": "urun ozeti"
+    },
+    {
+      "label": "Teknoloji y\u0131\u011f\u0131n\u0131",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L18",
+      "id": "claude_teknoloji_y\u0131\u011f\u0131n\u0131",
+      "community": 0,
+      "norm_label": "teknoloji y\u0131g\u0131n\u0131"
+    },
+    {
+      "label": "Mutlak kurallar (asla ihlal etme)",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L31",
+      "id": "claude_mutlak_kurallar_asla_ihlal_etme",
+      "community": 0,
+      "norm_label": "mutlak kurallar (asla ihlal etme)"
+    },
+    {
+      "label": "KVKK kararlar\u0131 (\u015femaya g\u00f6m\u00fcl\u00fc, ba\u015ftan uygulan\u0131r)",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L61",
+      "id": "claude_kvkk_kararlar\u0131_\u015femaya_g\u00f6m\u00fcl\u00fc_ba\u015ftan_uygulan\u0131r",
+      "community": 0,
+      "norm_label": "kvkk kararlar\u0131 (semaya gomulu, bastan uygulan\u0131r)"
+    },
+    {
+      "label": "Kod ve \u00e7al\u0131\u015fma konvansiyonlar\u0131",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L74",
+      "id": "claude_kod_ve_\u00e7al\u0131\u015fma_konvansiyonlar\u0131",
+      "community": 0,
+      "norm_label": "kod ve cal\u0131sma konvansiyonlar\u0131"
+    },
+    {
+      "label": "Yap\u0131",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L86",
+      "id": "claude_yap\u0131",
+      "community": 0,
+      "norm_label": "yap\u0131"
+    },
+    {
+      "label": "Ba\u011flam dosyalar\u0131",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L91",
+      "id": "claude_ba\u011flam_dosyalar\u0131",
+      "community": 0,
+      "norm_label": "baglam dosyalar\u0131"
+    },
+    {
+      "label": "graphify",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L95",
+      "id": "claude_graphify",
+      "community": 0,
+      "norm_label": "graphify"
+    },
+    {
+      "label": "IMPLEMENTATION.md",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L1",
+      "id": "implementation",
+      "community": 4,
+      "norm_label": "implementation.md"
+    },
+    {
+      "label": "OTONBU GARAGE \u2014 Uygulama Plan\u0131",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L1",
+      "id": "implementation_otonbu_garage_uygulama_plan\u0131",
+      "community": 4,
+      "norm_label": "otonbu garage \u2014 uygulama plan\u0131"
+    },
+    {
+      "label": "\u00c7al\u0131\u015fma s\u0131ras\u0131 (\u00f6zet)",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L7",
+      "id": "implementation_\u00e7al\u0131\u015fma_s\u0131ras\u0131_\u00f6zet",
+      "community": 4,
+      "norm_label": "cal\u0131sma s\u0131ras\u0131 (ozet)"
+    },
+    {
+      "label": "Faz 0 \u2014 Proje kurulumu",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L21",
+      "id": "implementation_faz_0_proje_kurulumu",
+      "community": 6,
+      "norm_label": "faz 0 \u2014 proje kurulumu"
+    },
+    {
+      "label": "G\u00f6revler",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L23",
+      "id": "implementation_g\u00f6revler",
+      "community": 6,
+      "norm_label": "gorevler"
+    },
+    {
+      "label": "Ortam de\u011fi\u015fkenleri yerle\u015fimi (kritik)",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L33",
+      "id": "implementation_ortam_de\u011fi\u015fkenleri_yerle\u015fimi_kritik",
+      "community": 6,
+      "norm_label": "ortam degiskenleri yerlesimi (kritik)"
+    },
+    {
+      "label": "Kabul kriteri",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L42",
+      "id": "implementation_kabul_kriteri",
+      "community": 6,
+      "norm_label": "kabul kriteri"
+    },
+    {
+      "label": "Faz 1 \u2014 Temel iskelet",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L48",
+      "id": "implementation_faz_1_temel_iskelet",
+      "community": 2,
+      "norm_label": "faz 1 \u2014 temel iskelet"
+    },
+    {
+      "label": "Ortak yard\u0131mc\u0131lar (\u00f6nce bunlar)",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L52",
+      "id": "implementation_ortak_yard\u0131mc\u0131lar_\u00f6nce_bunlar",
+      "community": 2,
+      "norm_label": "ortak yard\u0131mc\u0131lar (once bunlar)"
+    },
+    {
+      "label": "Tablolar",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L68",
+      "id": "implementation_tablolar",
+      "community": 2,
+      "norm_label": "tablolar"
+    },
+    {
+      "label": "RLS politikalar\u0131",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L109",
+      "id": "implementation_rls_politikalar\u0131",
+      "community": 2,
+      "norm_label": "rls politikalar\u0131"
+    },
+    {
+      "label": "Auth g\u00f6revleri (SMS suistimaline kar\u015f\u0131)",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L138",
+      "id": "implementation_auth_g\u00f6revleri_sms_suistimaline_kar\u015f\u0131",
+      "community": 2,
+      "norm_label": "auth gorevleri (sms suistimaline kars\u0131)"
+    },
+    {
+      "label": "Kabul kriteri",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L147",
+      "id": "implementation_kabul_kriteri_147",
+      "community": 2,
+      "norm_label": "kabul kriteri"
+    },
+    {
+      "label": "Faz 2 \u2014 Randevu ak\u0131\u015f\u0131 (yay\u0131nlanabilir MVP)",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L154",
+      "id": "implementation_faz_2_randevu_ak\u0131\u015f\u0131_yay\u0131nlanabilir_mvp",
+      "community": 3,
+      "norm_label": "faz 2 \u2014 randevu ak\u0131s\u0131 (yay\u0131nlanabilir mvp)"
+    },
+    {
+      "label": "Tablolar",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L156",
+      "id": "implementation_tablolar_156",
+      "community": 3,
+      "norm_label": "tablolar"
+    },
+    {
+      "label": "RLS politikalar\u0131",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L205",
+      "id": "implementation_rls_politikalar\u0131_205",
+      "community": 3,
+      "norm_label": "rls politikalar\u0131"
+    },
+    {
+      "label": "Storage g\u00f6revleri (\u00f6nce/sonra foto)",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L253",
+      "id": "implementation_storage_g\u00f6revleri_\u00f6nce_sonra_foto",
+      "community": 3,
+      "norm_label": "storage gorevleri (once/sonra foto)"
+    },
+    {
+      "label": "Fiyat hesab\u0131 (Edge Function \u2014 `fiyat-hesapla`)",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L262",
+      "id": "implementation_fiyat_hesab\u0131_edge_function_fiyat_hesapla",
+      "community": 3,
+      "norm_label": "fiyat hesab\u0131 (edge function \u2014 `fiyat-hesapla`)"
+    },
+    {
+      "label": "Kabul kriteri",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L269",
+      "id": "implementation_kabul_kriteri_269",
+      "community": 3,
+      "norm_label": "kabul kriteri"
+    },
+    {
+      "label": "Faz 3 \u2014 Abonelik + \u00f6deme",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L277",
+      "id": "implementation_faz_3_abonelik_\u00f6deme",
+      "community": 1,
+      "norm_label": "faz 3 \u2014 abonelik + odeme"
+    },
+    {
+      "label": "Tablolar",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L281",
+      "id": "implementation_tablolar_281",
+      "community": 1,
+      "norm_label": "tablolar"
+    },
+    {
+      "label": "RLS politikalar\u0131",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L326",
+      "id": "implementation_rls_politikalar\u0131_326",
+      "community": 1,
+      "norm_label": "rls politikalar\u0131"
+    },
+    {
+      "label": "iyzico \u00f6deme ak\u0131\u015f\u0131 (Edge Functions)",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L359",
+      "id": "implementation_iyzico_\u00f6deme_ak\u0131\u015f\u0131_edge_functions",
+      "community": 1,
+      "norm_label": "iyzico odeme ak\u0131s\u0131 (edge functions)"
+    },
+    {
+      "label": "Abonelik mant\u0131\u011f\u0131 (Edge Functions)",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L369",
+      "id": "implementation_abonelik_mant\u0131\u011f\u0131_edge_functions",
+      "community": 1,
+      "norm_label": "abonelik mant\u0131g\u0131 (edge functions)"
+    },
+    {
+      "label": "Kabul kriteri",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L377",
+      "id": "implementation_kabul_kriteri_377",
+      "community": 1,
+      "norm_label": "kabul kriteri"
+    },
+    {
+      "label": "Faz 4 \u2014 Zenginle\u015ftirme + KVKK tamamlama",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L385",
+      "id": "implementation_faz_4_zenginle\u015ftirme_kvkk_tamamlama",
+      "community": 5,
+      "norm_label": "faz 4 \u2014 zenginlestirme + kvkk tamamlama"
+    },
+    {
+      "label": "Tablolar",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L387",
+      "id": "implementation_tablolar_387",
+      "community": 5,
+      "norm_label": "tablolar"
+    },
+    {
+      "label": "RLS politikalar\u0131",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L421",
+      "id": "implementation_rls_politikalar\u0131_421",
+      "community": 5,
+      "norm_label": "rls politikalar\u0131"
+    },
+    {
+      "label": "KVKK g\u00f6revleri",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L440",
+      "id": "implementation_kvkk_g\u00f6revleri",
+      "community": 5,
+      "norm_label": "kvkk gorevleri"
+    },
+    {
+      "label": "Kabul kriteri",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L451",
+      "id": "implementation_kabul_kriteri_451",
+      "community": 5,
+      "norm_label": "kabul kriteri"
+    },
+    {
+      "label": "Operasyon (t\u00fcm fazlar boyunca)",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L457",
+      "id": "implementation_operasyon_t\u00fcm_fazlar_boyunca",
+      "community": 4,
+      "norm_label": "operasyon (tum fazlar boyunca)"
+    },
+    {
+      "label": "Tekrarlayan kontrol \u2014 her yeni tablo i\u00e7in",
+      "file_type": "document",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L466",
+      "id": "implementation_tekrarlayan_kontrol_her_yeni_tablo_i\u00e7in",
+      "community": 4,
+      "norm_label": "tekrarlayan kontrol \u2014 her yeni tablo icin"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/settings.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "claude_settings",
+      "target": "claude_settings_hooks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/settings.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "claude_settings_hooks",
+      "target": "claude_settings_hooks_pretooluse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "claude",
+      "target": "claude_otonbu_garage_proje_talimatlar\u0131",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "claude_otonbu_garage_proje_talimatlar\u0131",
+      "target": "claude_ba\u011flam_dosyalar\u0131",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "claude_otonbu_garage_proje_talimatlar\u0131",
+      "target": "claude_graphify",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "claude_otonbu_garage_proje_talimatlar\u0131",
+      "target": "claude_kod_ve_\u00e7al\u0131\u015fma_konvansiyonlar\u0131",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "claude_otonbu_garage_proje_talimatlar\u0131",
+      "target": "claude_kvkk_kararlar\u0131_\u015femaya_g\u00f6m\u00fcl\u00fc_ba\u015ftan_uygulan\u0131r",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "claude_otonbu_garage_proje_talimatlar\u0131",
+      "target": "claude_mutlak_kurallar_asla_ihlal_etme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "claude_otonbu_garage_proje_talimatlar\u0131",
+      "target": "claude_teknoloji_y\u0131\u011f\u0131n\u0131",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "claude_otonbu_garage_proje_talimatlar\u0131",
+      "target": "claude_yap\u0131",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "claude_otonbu_garage_proje_talimatlar\u0131",
+      "target": "claude_\u00fcr\u00fcn_\u00f6zeti",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "implementation",
+      "target": "implementation_otonbu_garage_uygulama_plan\u0131",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "implementation_otonbu_garage_uygulama_plan\u0131",
+      "target": "implementation_faz_0_proje_kurulumu",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "implementation_otonbu_garage_uygulama_plan\u0131",
+      "target": "implementation_faz_1_temel_iskelet",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L154",
+      "weight": 1.0,
+      "source": "implementation_otonbu_garage_uygulama_plan\u0131",
+      "target": "implementation_faz_2_randevu_ak\u0131\u015f\u0131_yay\u0131nlanabilir_mvp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L277",
+      "weight": 1.0,
+      "source": "implementation_otonbu_garage_uygulama_plan\u0131",
+      "target": "implementation_faz_3_abonelik_\u00f6deme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L385",
+      "weight": 1.0,
+      "source": "implementation_otonbu_garage_uygulama_plan\u0131",
+      "target": "implementation_faz_4_zenginle\u015ftirme_kvkk_tamamlama",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L457",
+      "weight": 1.0,
+      "source": "implementation_otonbu_garage_uygulama_plan\u0131",
+      "target": "implementation_operasyon_t\u00fcm_fazlar_boyunca",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L466",
+      "weight": 1.0,
+      "source": "implementation_otonbu_garage_uygulama_plan\u0131",
+      "target": "implementation_tekrarlayan_kontrol_her_yeni_tablo_i\u00e7in",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "implementation_otonbu_garage_uygulama_plan\u0131",
+      "target": "implementation_\u00e7al\u0131\u015fma_s\u0131ras\u0131_\u00f6zet",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "implementation_faz_0_proje_kurulumu",
+      "target": "implementation_g\u00f6revler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "implementation_faz_0_proje_kurulumu",
+      "target": "implementation_kabul_kriteri",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "implementation_faz_0_proje_kurulumu",
+      "target": "implementation_ortam_de\u011fi\u015fkenleri_yerle\u015fimi_kritik",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L138",
+      "weight": 1.0,
+      "source": "implementation_faz_1_temel_iskelet",
+      "target": "implementation_auth_g\u00f6revleri_sms_suistimaline_kar\u015f\u0131",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L147",
+      "weight": 1.0,
+      "source": "implementation_faz_1_temel_iskelet",
+      "target": "implementation_kabul_kriteri_147",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "implementation_faz_1_temel_iskelet",
+      "target": "implementation_ortak_yard\u0131mc\u0131lar_\u00f6nce_bunlar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "implementation_faz_1_temel_iskelet",
+      "target": "implementation_rls_politikalar\u0131",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "implementation_faz_1_temel_iskelet",
+      "target": "implementation_tablolar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L262",
+      "weight": 1.0,
+      "source": "implementation_faz_2_randevu_ak\u0131\u015f\u0131_yay\u0131nlanabilir_mvp",
+      "target": "implementation_fiyat_hesab\u0131_edge_function_fiyat_hesapla",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L269",
+      "weight": 1.0,
+      "source": "implementation_faz_2_randevu_ak\u0131\u015f\u0131_yay\u0131nlanabilir_mvp",
+      "target": "implementation_kabul_kriteri_269",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L205",
+      "weight": 1.0,
+      "source": "implementation_faz_2_randevu_ak\u0131\u015f\u0131_yay\u0131nlanabilir_mvp",
+      "target": "implementation_rls_politikalar\u0131_205",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L253",
+      "weight": 1.0,
+      "source": "implementation_faz_2_randevu_ak\u0131\u015f\u0131_yay\u0131nlanabilir_mvp",
+      "target": "implementation_storage_g\u00f6revleri_\u00f6nce_sonra_foto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L156",
+      "weight": 1.0,
+      "source": "implementation_faz_2_randevu_ak\u0131\u015f\u0131_yay\u0131nlanabilir_mvp",
+      "target": "implementation_tablolar_156",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L369",
+      "weight": 1.0,
+      "source": "implementation_faz_3_abonelik_\u00f6deme",
+      "target": "implementation_abonelik_mant\u0131\u011f\u0131_edge_functions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L359",
+      "weight": 1.0,
+      "source": "implementation_faz_3_abonelik_\u00f6deme",
+      "target": "implementation_iyzico_\u00f6deme_ak\u0131\u015f\u0131_edge_functions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L377",
+      "weight": 1.0,
+      "source": "implementation_faz_3_abonelik_\u00f6deme",
+      "target": "implementation_kabul_kriteri_377",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L326",
+      "weight": 1.0,
+      "source": "implementation_faz_3_abonelik_\u00f6deme",
+      "target": "implementation_rls_politikalar\u0131_326",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L281",
+      "weight": 1.0,
+      "source": "implementation_faz_3_abonelik_\u00f6deme",
+      "target": "implementation_tablolar_281",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L451",
+      "weight": 1.0,
+      "source": "implementation_faz_4_zenginle\u015ftirme_kvkk_tamamlama",
+      "target": "implementation_kabul_kriteri_451",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L440",
+      "weight": 1.0,
+      "source": "implementation_faz_4_zenginle\u015ftirme_kvkk_tamamlama",
+      "target": "implementation_kvkk_g\u00f6revleri",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L421",
+      "weight": 1.0,
+      "source": "implementation_faz_4_zenginle\u015ftirme_kvkk_tamamlama",
+      "target": "implementation_rls_politikalar\u0131_421",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPLEMENTATION.md",
+      "source_location": "L387",
+      "weight": 1.0,
+      "source": "implementation_faz_4_zenginle\u015ftirme_kvkk_tamamlama",
+      "target": "implementation_tablolar_387",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": []
+}
