@@ -60,8 +60,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(main)\\araclar.tsx": {
-    "mtime": 1781253695.0327263,
-    "ast_hash": "37f1da4dda6fb76bf48cf9acf3b2cab1",
+    "mtime": 1781254340.8250768,
+    "ast_hash": "32852fa6c36396c7ee0efcf1fcce6bb4",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(main)\\index.tsx": {
@@ -155,7 +155,7 @@
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\graphify-out\\converted\\OTONBU_Uygulama_Ozellikleri_9e87f775.md": {
-    "mtime": 1781253726.6866503,
+    "mtime": 1781254356.4122462,
     "ast_hash": "f7b8e32b29a1ec6303d2e1127139fd4b",
     "semantic_hash": ""
   },
@@ -212,6 +212,11 @@
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\migrations\\20260612000002_vehicles_detay.sql": {
     "mtime": 1781253581.257825,
     "ast_hash": "993cfa06852380a7cf374946d808428f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\migrations\\20260612000003_plaka_unique.sql": {
+    "mtime": 1781254262.2493556,
+    "ast_hash": "345e60557c93625f45d817d6ae6ba140",
     "semantic_hash": ""
   }
 }

@@ -14,6 +14,7 @@ export default function AraclarScreen() {
   const [araclar, setAraclar] = useState<Vehicle[]>([]);
   const [loading, setLoading] = useState(true);
   const [modalAcik, setModalAcik] = useState(false);
+  const [duzenlenen, setDuzenlenen] = useState<Vehicle | null>(null);  // null = yeni kayıt
   const [plaka, setPlaka] = useState('');
   const [aracCinsi, setAracCinsi] = useState<string | null>(null);
   const [marka, setMarka] = useState('');
@@ -34,6 +35,7 @@ export default function AraclarScreen() {
   }
 
   function formuSifirla() {
+    setDuzenlenen(null);
     setPlaka(''); setAracCinsi(null); setMarka(''); setModel('');
   }
 
@@ -42,18 +44,71 @@ export default function AraclarScreen() {
     setModel('');  // model listesi markaya bağlı; marka değişince geçersiz
   }
 
-  async function aracEkle() {
+  function yeniArac() {
+    formuSifirla();
+    setModalAcik(true);
+  }
+
+  function aracAc(item: Vehicle) {
+    setDuzenlenen(item);
+    setPlaka(item.plaka);
+    setAracCinsi(item.arac_cinsi);
+    setMarka(item.marka ?? '');
+    setModel(item.model ?? '');
+    setModalAcik(true);
+  }
+
+  async function kaydet() {
     if (!plaka.trim()) { Alert.alert('Hata', 'Plaka zorunlu'); return; }
     if (!aracCinsi) { Alert.alert('Hata', 'Araç cinsi seçin'); return; }
     if (!marka.trim()) { Alert.alert('Hata', 'Marka zorunlu'); return; }
 
-    setKayit(true);
-    const { error } = await supabase.from('vehicles').insert({
+    const veri = {
       plaka: plaka.trim().toUpperCase(),
       arac_cinsi: aracCinsi,
       marka: marka.trim(),
       model: model.trim() || null,
-    });
+    };
+
+    setKayit(true);
+    const { error } = duzenlenen
+      ? await supabase.from('vehicles').update(veri).eq('id', duzenlenen.id)
+      : await supabase.from('vehicles').insert(veri);
+    setKayit(false);
+
+    if (error) {
+      // 23505 = unique ihlali (vehicles_plaka_unique)
+      if (error.code === '23505') {
+        Alert.alert('Hata', 'Bu plaka sistemde zaten kayıtlı');
+      } else {
+        Alert.alert('Hata', error.message);
+      }
+      return;
+    }
+    setModalAcik(false);
+    formuSifirla();
+    yukle();
+  }
+
+  function silOnayi() {
+    if (!duzenlenen) return;
+    Alert.alert(
+      'Aracı Sil',
+      `${duzenlenen.plaka} plakalı araç silinecek. Emin misin?`,
+      [
+        { text: 'Vazgeç', style: 'cancel' },
+        { text: 'Sil', style: 'destructive', onPress: sil },
+      ],
+    );
+  }
+
+  async function sil() {
+    if (!duzenlenen) return;
+    setKayit(true);
+    const { error } = await supabase
+      .from('vehicles')
+      .delete()
+      .eq('id', duzenlenen.id);
     setKayit(false);
     if (error) { Alert.alert('Hata', error.message); return; }
     setModalAcik(false);
@@ -75,7 +130,7 @@ export default function AraclarScreen() {
           <Text style={s.bos}>Henüz araç eklenmedi.</Text>
         }
         renderItem={({ item }) => (
-          <View style={s.kart}>
+          <TouchableOpacity style={s.kart} onPress={() => aracAc(item)}>
             <View style={s.kartUst}>
               <Text style={s.plaka}>{item.plaka}</Text>
               {item.arac_cinsi && (
@@ -87,10 +142,11 @@ export default function AraclarScreen() {
             <Text style={s.alt}>
               {[item.marka, item.model].filter(Boolean).join(' ') || '—'}
             </Text>
-          </View>
+            <Text style={s.detayIpucu}>Detay için dokun ›</Text>
+          </TouchableOpacity>
         )}
       />
-      <TouchableOpacity style={s.ekleBtn} onPress={() => setModalAcik(true)}>
+      <TouchableOpacity style={s.ekleBtn} onPress={yeniArac}>
         <Text style={s.ekleBtnText}>+ Araç Ekle</Text>
       </TouchableOpacity>
 
@@ -99,7 +155,9 @@ export default function AraclarScreen() {
           contentContainerStyle={s.modal}
           keyboardShouldPersistTaps="handled"
         >
-          <Text style={s.modalBaslik}>Araç Ekle</Text>
+          <Text style={s.modalBaslik}>
+            {duzenlenen ? 'Araç Detayı' : 'Araç Ekle'}
+          </Text>
 
           <Text style={s.label}>Plaka *</Text>
           <TextInput
@@ -147,9 +205,18 @@ export default function AraclarScreen() {
             </View>
           )}
 
-          <TouchableOpacity style={s.btn} onPress={aracEkle} disabled={kayit}>
-            {kayit ? <ActivityIndicator color="#fff" /> : <Text style={s.btnText}>Kaydet</Text>}
+          <TouchableOpacity style={s.btn} onPress={kaydet} disabled={kayit}>
+            {kayit
+              ? <ActivityIndicator color="#fff" />
+              : <Text style={s.btnText}>{duzenlenen ? 'Değişiklikleri Kaydet' : 'Kaydet'}</Text>}
           </TouchableOpacity>
+
+          {duzenlenen && (
+            <TouchableOpacity style={s.silBtn} onPress={silOnayi} disabled={kayit}>
+              <Text style={s.silText}>Aracı Sil</Text>
+            </TouchableOpacity>
+          )}
+
           <TouchableOpacity
             style={s.iptal}
             onPress={() => { setModalAcik(false); formuSifirla(); }}
@@ -178,6 +245,7 @@ const s = StyleSheet.create({
   },
   rozetText: { color: '#1a56db', fontSize: 12, fontWeight: '600' },
   alt: { color: '#888', marginTop: 4 },
+  detayIpucu: { color: '#bbb', fontSize: 12, marginTop: 8 },
   ekleBtn: {
     backgroundColor: '#1a56db', margin: 16, padding: 16,
     borderRadius: 12, alignItems: 'center',
@@ -208,6 +276,11 @@ const s = StyleSheet.create({
     padding: 16, alignItems: 'center', marginBottom: 12, marginTop: 8,
   },
   btnText: { color: '#fff', fontSize: 16, fontWeight: '600' },
+  silBtn: {
+    borderWidth: 1, borderColor: '#dc2626', borderRadius: 10,
+    padding: 14, alignItems: 'center', marginBottom: 12,
+  },
+  silText: { color: '#dc2626', fontSize: 15, fontWeight: '600' },
   iptal: { alignItems: 'center', padding: 12 },
   iptalText: { color: '#888' },
 });
