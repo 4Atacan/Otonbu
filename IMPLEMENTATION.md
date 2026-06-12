@@ -35,9 +35,12 @@ Faz 2 sonunu gerçek bir pilot sürüm olarak hedefle.
 | Anahtar | Nerede | Not |
 |---------|--------|-----|
 | `SUPABASE_ANON_KEY` | İstemci | Açık anahtar, RLS arkasında güvenli |
+| `EXPO_PUBLIC_TURNSTILE_SITE_KEY` | İstemci | Turnstile widget'ı için site key (açık) |
 | `IYZICO_SECRET` | Edge Function env | Asla istemcide |
-| `SMS_API_KEY` | Edge Function env | Asla istemcide |
+| `SMTP_PASS` | Supabase proje env (Auth SMTP) | Resend/Brevo API anahtarı |
+| `SUPABASE_AUTH_CAPTCHA_SECRET` | Supabase proje env | Turnstile secret (sunucu) |
 | `SUPABASE_SERVICE_ROLE` | Edge Function env | RLS'i atlar, sadece gereken yerde |
+| `SENTRY_DSN_EDGE` | Edge Function env | Edge Functions hata izleme |
 
 ### Kabul kriteri
 Uygulama açılıyor, Supabase'e bağlanıyor, Sentry test hatası panelde görünüyor.
@@ -79,7 +82,8 @@ create table branches (
 create table users (
   id         uuid primary key references auth.users(id),
   branch_id  uuid references branches(id),
-  telefon    text unique not null,            -- KİŞİSEL VERİ
+  email      text unique,                     -- KİŞİSEL VERİ (auth kanalı)
+  telefon    text,                            -- KİŞİSEL VERİ (iletişim, opsiyonel)
   rol        text not null default 'musteri'
              check (rol in ('musteri','sube_sahibi','kasa','usta','admin')),
   ad_soyad   text,                            -- KİŞİSEL VERİ
@@ -135,17 +139,36 @@ create policy vehicles_owner on vehicles for all
   using (user_id = auth.uid() or auth_role() = 'admin');
 ```
 
-### Auth görevleri (SMS suistimaline karşı)
+### Auth görevleri (e-posta + şifre — e-posta doğrulamalı)
 
-- [ ] Supabase Auth'u telefon + SMS OTP olarak yapılandır, SMS sağlayıcıyı bağla.
-- [ ] Rate limiting: aynı numara/IP için OTP isteme sıklığını sınırla (örn. dakikada 1).
-- [ ] CAPTCHA (hCaptcha/Turnstile) OTP isteğinin önüne konur.
-- [ ] SMS sağlayıcı panelinde günlük harcama limiti tanımla.
-- [ ] OTP kısa ömürlü (60–120 sn), birkaç yanlış denemede geçersizleşir.
+- [ ] Supabase Auth: `[auth.email] enable_signup = true`,
+      `enable_confirmations = true`. `[auth.sms]` kapalı.
+- [ ] SMTP sağlayıcı bağla: **Resend** (3000/ay ücretsiz) veya **Brevo** (300/gün).
+      Şifre `SMTP_PASS` env'inden okunur, repoya girmez. Doğrulama linki bu
+      kanaldan gider.
+- [ ] Şifre politikası: `minimum_password_length = 8`,
+      `password_requirements = "letters_digits"`.
+- [ ] Rate limit: `[auth.email] max_frequency = "60s"` — aynı e-postaya dakikada
+      1 doğrulama/şifre e-postası.
+- [ ] CAPTCHA (Cloudflare Turnstile) signUp ve signInWithPassword isteklerinin
+      önüne konur.
+- [ ] Kayıt akışı: `signUp({ email, password, options: { data: { ad_soyad,
+      telefon } } })` → `handle_new_user` trigger raw_user_meta_data'dan
+      `public.users.email/telefon/ad_soyad`'a yazar. Telefon SMS ile
+      doğrulanmaz — `auth.users.phone` boş kalır; telefon yalnızca
+      `public.users.telefon` ve metadata'da tutulur.
+- [ ] Telefon ile giriş: `telefon_to_email(t text)` RPC (SECURITY DEFINER,
+      anon erişimli) telefonu email'e çevirir; istemci ardından
+      `signInWithPassword({ email, password })` çağırır.
+- [ ] "Beni hatırla" mantığı: işaretliyse SecureStore'da `otonbu_remember_me=1`;
+      değilse `=0`. App startup'ta `=0` ise mevcut session signOut edilir.
 - [ ] Oturum: kısa ömürlü access token + refresh; token `expo-secure-store`'da.
 
 ### Kabul kriteri
-Telefonla giriş yapılıyor, araç ekleniyor, katalog fiyatlarıyla görülüyor.
+Müşteri kayıt oluyor, e-posta doğrulama linkine tıklıyor; sonra e-posta veya
+telefon + şifre ile giriş yapabiliyor. "Beni hatırla" işaretsizse uygulamayı
+sonraki açışında yeniden giriş istiyor. Araç ekleniyor, katalog fiyatlarıyla
+görülüyor.
 **RLS testi:** Şube A kullanıcısı, Şube B'nin kullanıcı/araç verisini sorgulayınca
 boş döner. Admin tümünü görür. Bu test otomatik script olarak yazılır.
 
@@ -440,10 +463,10 @@ create policy consents_self on consents for all
 ### KVKK görevleri
 
 - [ ] Kayıt akışında rıza alınır; `consents`'a satır yazılır. Ticari ileti izni
-      **ayrı** onay kutusu (uygulama kullanımıyla birleştirilmez).
-- [ ] "Verilerimi sil" akışı: hard delete YOK. Kişisel alanları (ad, telefon, plaka)
-      anonimleştir, `silindi_mi = true` yap. Ödeme/abonelik kaydı kişiye bağlanamaz
-      halde kalır (muhasebe zorunluluğu).
+      (e-posta kampanya) **ayrı** onay kutusu (uygulama kullanımıyla birleştirilmez).
+- [ ] "Verilerimi sil" akışı: hard delete YOK. Kişisel alanları (ad, e-posta,
+      telefon, plaka) anonimleştir, `silindi_mi = true` yap. Ödeme/abonelik kaydı
+      kişiye bağlanamaz halde kalır (muhasebe zorunluluğu).
 - [ ] Düşük stok: `miktar < min_esik` olduğunda yönetici paneline uyarı.
 - [ ] Puan: abonelik dışı tamamlanan işlemde `loyalty_ledger`'a kazanım satırı
       (Edge Function ile, service_role).

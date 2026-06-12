@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { supabase } from '../../src/lib/supabase';
 import { useSession } from '../../src/hooks/useSession';
 
@@ -15,7 +15,7 @@ export default function AnaSayfa() {
       {profile && (
         <>
           <Text style={s.bilgi}>
-            {profile.ad_soyad ?? profile.telefon}
+            {profile.ad_soyad ?? profile.email ?? profile.telefon ?? '—'}
           </Text>
           <Text style={s.rol}>Rol: {profile.rol}</Text>
         </>

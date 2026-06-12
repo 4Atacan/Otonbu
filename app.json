@@ -28,8 +28,8 @@
         "@sentry/react-native/expo",
         {
           "url": "https://sentry.io/",
-          "project": "otonbu-garage",
-          "organization": "otonbu"
+          "project": "react-native",
+          "organization": "otonbu-nq"
         }
       ]
     ]

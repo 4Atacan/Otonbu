@@ -1,65 +1,167 @@
 import { useState } from 'react';
 import {
-  View, Text, TextInput, TouchableOpacity,
-  StyleSheet, ActivityIndicator, Alert,
+  Alert, ActivityIndicator, ScrollView, StyleSheet, Switch,
+  Text, TextInput, TouchableOpacity, View,
 } from 'react-native';
-import { useRouter } from 'expo-router';
+import { Link, useRouter } from 'expo-router';
+import * as SecureStore from 'expo-secure-store';
 import { supabase } from '../../src/lib/supabase';
+import { Logo } from '../../src/components/Logo';
+import { CaptchaWidget } from '../../src/components/CaptchaWidget';
+import { toE164, isValidTrPhone } from '../../src/components/PhoneInput';
 
-export default function TelefonScreen() {
-  const [telefon, setTelefon] = useState('');
+const CAPTCHA_SITE_KEY = process.env.EXPO_PUBLIC_HCAPTCHA_SITE_KEY;
+const REMEMBER_KEY = 'otonbu_remember_me';
+const EMAIL_REGEX = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+export default function GirisScreen() {
+  const [kimlik, setKimlik] = useState('');           // email VEYA "+90..." veya 10 hane
+  const [sifre, setSifre] = useState('');
+  const [beniHatirla, setBeniHatirla] = useState(true);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [captchaKey, setCaptchaKey] = useState(0);    // token tek kullanımlık; hatada remount
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  async function otpGonder() {
-    const temiz = telefon.replace(/\s/g, '');
-    if (!temiz.startsWith('+')) {
-      Alert.alert('Hata', 'Telefon numarası +90 ile başlamalı (örn. +905551234567)');
+  function captchaSifirla() {
+    setCaptchaToken(null);
+    setCaptchaKey(k => k + 1);
+  }
+
+  async function girisYap() {
+    const k = kimlik.trim();
+    if (!k || !sifre) { Alert.alert('Hata', 'E-posta/telefon ve şifre gerekli'); return; }
+    if (CAPTCHA_SITE_KEY && !captchaToken) {
+      Alert.alert('Doğrulama', 'CAPTCHA doğrulamasını tamamlayın'); return;
+    }
+
+    let email: string;
+    if (EMAIL_REGEX.test(k)) {
+      email = k.toLowerCase();
+    } else {
+      // Telefon olarak yorumla: sadece rakamları al, 10 hane Türkiye numarası bekle
+      const digits = k.replace(/\D/g, '').replace(/^90/, '');
+      if (!isValidTrPhone(digits)) {
+        Alert.alert('Hata', 'Geçerli bir e-posta veya 10 haneli telefon girin');
+        return;
+      }
+      const tel = toE164(digits);
+      setLoading(true);
+      const { data, error } = await supabase.rpc('telefon_to_email', { t: tel });
+      if (error || !data) {
+        setLoading(false);
+        Alert.alert('Hata', 'Bu telefonla kayıt bulunamadı');
+        return;
+      }
+      email = data;
+    }
+
+    setLoading(true);
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password: sifre,
+      options: captchaToken ? { captchaToken } : undefined,
+    });
+    setLoading(false);
+
+    if (error) {
+      captchaSifirla();
+      Alert.alert('Giriş başarısız', error.message);
       return;
     }
-    setLoading(true);
-    const { error } = await supabase.auth.signInWithOtp({ phone: temiz });
-    setLoading(false);
-    if (error) { Alert.alert('Hata', error.message); return; }
-    router.push({ pathname: '/(auth)/otp', params: { telefon: temiz } });
+
+    await SecureStore.setItemAsync(REMEMBER_KEY, beniHatirla ? '1' : '0');
+    // Başarılıysa _layout onAuthStateChange ile (main)'e yönlendirir
   }
 
   return (
-    <View style={s.container}>
-      <Text style={s.logo}>OTONBU GARAGE</Text>
-      <Text style={s.alt}>Araç korumanın adresi</Text>
+    <ScrollView contentContainerStyle={s.container} keyboardShouldPersistTaps="handled">
+      <Logo />
 
-      <Text style={s.label}>Telefon numaranız</Text>
+      <Text style={s.label}>E-posta veya Telefon</Text>
       <TextInput
         style={s.input}
-        placeholder="+90 555 123 4567"
-        keyboardType="phone-pad"
-        value={telefon}
-        onChangeText={setTelefon}
-        autoComplete="tel"
+        placeholder="ornek@email.com  veya  +90 523 285 29 60"
+        autoCapitalize="none"
+        autoCorrect={false}
+        keyboardType="email-address"
+        value={kimlik}
+        onChangeText={setKimlik}
       />
 
-      <TouchableOpacity style={s.btn} onPress={otpGonder} disabled={loading}>
+      <Text style={s.label}>Şifre</Text>
+      <TextInput
+        style={s.input}
+        placeholder="••••••••"
+        secureTextEntry
+        value={sifre}
+        onChangeText={setSifre}
+      />
+
+      <View style={s.row}>
+        <Switch value={beniHatirla} onValueChange={setBeniHatirla} />
+        <Text style={s.rowText}>Beni hatırla</Text>
+      </View>
+
+      {CAPTCHA_SITE_KEY ? (
+        <CaptchaWidget
+          key={captchaKey}
+          siteKey={CAPTCHA_SITE_KEY}
+          onToken={setCaptchaToken}
+          onError={() => setCaptchaToken(null)}
+        />
+      ) : null}
+
+      <TouchableOpacity style={s.btn} onPress={girisYap} disabled={loading}>
         {loading
           ? <ActivityIndicator color="#fff" />
-          : <Text style={s.btnText}>Devam Et</Text>}
+          : <Text style={s.btnText}>Giriş Yap</Text>}
       </TouchableOpacity>
-    </View>
+
+      <Link href="/(auth)/sifremi-unuttum" asChild>
+        <TouchableOpacity style={s.link}>
+          <Text style={s.linkText}>Şifremi unuttum</Text>
+        </TouchableOpacity>
+      </Link>
+
+      <Link href="/(auth)/kayit" asChild>
+        <TouchableOpacity style={s.link}>
+          <Text style={s.linkText}>Hesabın yok mu? <Text style={s.linkStrong}>Kayıt Ol</Text></Text>
+        </TouchableOpacity>
+      </Link>
+
+      <View style={s.spacer} />
+
+      <Link href="/(auth)/yonetici" asChild>
+        <TouchableOpacity style={s.adminLink}>
+          <Text style={s.adminText}>Yönetici Girişi</Text>
+        </TouchableOpacity>
+      </Link>
+    </ScrollView>
   );
 }
 
 const s = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', padding: 24, backgroundColor: '#fff' },
-  logo: { fontSize: 28, fontWeight: 'bold', textAlign: 'center', marginBottom: 4 },
-  alt: { textAlign: 'center', color: '#888', marginBottom: 40 },
-  label: { fontSize: 14, color: '#333', marginBottom: 6 },
+  container: { flexGrow: 1, padding: 24, paddingTop: 60, backgroundColor: '#fff' },
+  label: { fontSize: 13, color: '#475569', marginBottom: 6, marginTop: 4 },
   input: {
     borderWidth: 1, borderColor: '#ddd', borderRadius: 10,
-    padding: 14, fontSize: 16, marginBottom: 16,
+    padding: 14, fontSize: 16, marginBottom: 16, backgroundColor: '#fff',
   },
+  row: { flexDirection: 'row', alignItems: 'center', marginBottom: 16 },
+  rowText: { marginLeft: 10, fontSize: 14, color: '#334155' },
   btn: {
     backgroundColor: '#1a56db', borderRadius: 10,
-    padding: 16, alignItems: 'center',
+    padding: 16, alignItems: 'center', marginTop: 4,
   },
-  btnText: { color: '#fff', fontSize: 16, fontWeight: '600' },
+  btnText: { color: '#fff', fontSize: 16, fontWeight: '700' },
+  link: { alignItems: 'center', paddingVertical: 16 },
+  linkText: { color: '#475569', fontSize: 14 },
+  linkStrong: { color: '#1a56db', fontWeight: '700' },
+  spacer: { flex: 1, minHeight: 40 },
+  adminLink: {
+    alignItems: 'center', paddingVertical: 14, marginTop: 16,
+    borderTopWidth: 1, borderTopColor: '#e2e8f0',
+  },
+  adminText: { color: '#94a3b8', fontSize: 13, fontWeight: '600', letterSpacing: 0.5 },
 });

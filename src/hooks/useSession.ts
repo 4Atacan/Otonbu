@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Session } from '@supabase/supabase-js';
+import * as Sentry from '@sentry/react-native';
 import { supabase } from '../lib/supabase';
 import { UserProfile } from '../types';
 
@@ -25,11 +26,14 @@ export function useSession() {
   }, []);
 
   async function loadProfile(userId: string) {
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from('users')
       .select('*')
       .eq('id', userId)
       .single();
+    if (error) {
+      Sentry.captureException(error, { tags: { hook: 'useSession.loadProfile' } });
+    }
     setProfile(data);
     setLoading(false);
   }

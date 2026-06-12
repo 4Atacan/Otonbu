@@ -20,10 +20,15 @@ Tek geliştirici tarafından geliştirilmektedir. Öncelik: **hız ve düşük m
 - **Mobil:** React Native + Expo (TypeScript). Tek kod tabanı, iOS + Android.
   Müşteri, şube yöneticisi, kasa/usta ve admin **aynı uygulamada**; ekranlar
   kullanıcının rolüne göre değişir.
-- **Backend:** Supabase — PostgreSQL, Auth (telefon + SMS), Storage, Realtime,
-  Edge Functions. Ayrı bir sunucu kodu yazılmaz; sunucu mantığı Edge Functions'ta.
+- **Backend:** Supabase — PostgreSQL, Auth (e-posta + şifre, e-posta doğrulama
+  linkli), Storage, Realtime, Edge Functions. Ayrı bir sunucu kodu yazılmaz;
+  sunucu mantığı Edge Functions'ta.
 - **Ödeme:** iyzico — hosted CheckoutForm + webhook. Tekrarlayan abonelik tahsilatı.
-- **SMS:** NetGSM (veya İletimerkezi) — Supabase Auth'a özel sağlayıcı olarak bağlı.
+- **E-posta:** Supabase Auth SMTP üzerinden Resend/Brevo (ücretsiz tier).
+  Doğrulama linki, şifre sıfırlama, bildirim ve ticari iletide aynı kanal.
+- **Telefon login:** Telefon doğrulamadan kayıt — `telefon_to_email` RPC ile
+  login formunda telefon → email lookup → şifre ile giriş.
+- **CAPTCHA:** Cloudflare Turnstile — OTP isteğinin önüne konur (suistimal engeli).
 - **Push:** Expo Notifications.
 - **Hata izleme:** Sentry (hem uygulama hem Edge Functions).
 - **Dil:** Her yerde TypeScript. SQL Supabase migration dosyalarında.
@@ -31,9 +36,10 @@ Tek geliştirici tarafından geliştirilmektedir. Öncelik: **hız ve düşük m
 ## Mutlak kurallar (asla ihlal etme)
 
 1. **Gizli anahtar asla istemcide olmaz.** Mobil uygulama derlenince içi okunabilir.
-   Uygulamaya yalnızca Supabase `anon key` ve kullanıcının kendi oturum token'ı
-   konur. iyzico gizli anahtarı, SMS anahtarı ve Supabase `service_role` anahtarı
-   YALNIZCA Edge Functions ortam değişkenlerinde durur. Bunları koda gömme,
+   Uygulamaya yalnızca Supabase `anon key`, Turnstile **site key**'i ve
+   kullanıcının kendi oturum token'ı konur. iyzico gizli anahtarı, SMTP şifresi,
+   Turnstile **secret**'i ve Supabase `service_role` anahtarı YALNIZCA Edge
+   Functions / Supabase paneli ortam değişkenlerinde durur. Bunları koda gömme,
    repoya commit etme, `.env` dosyasını `.gitignore`'a ekle.
 
 2. **İstemciden gelen veriye güvenme.** Fiyat, abonelik hakkı ve ödeme tutarı
@@ -65,11 +71,12 @@ Tek geliştirici tarafından geliştirilmektedir. Öncelik: **hız ve düşük m
   izni, uygulama kullanım rızasından **ayrı** tutulur.
 - **Silme hakkı = soft delete + anonimleştirme.** Kullanıcı/ödeme/abonelik
   kayıtlarında hard delete YAPMA. `silindi_mi boolean` kullan. Kullanıcı silme
-  talep edince kişisel alanları (ad, telefon, plaka) anonimleştir; ödeme kaydının
-  kişiye bağlanamayan hali muhasebe için kalır.
+  talep edince kişisel alanları (ad, e-posta, telefon, plaka) anonimleştir;
+  ödeme kaydının kişiye bağlanamayan hali muhasebe için kalır.
 - **Veri yeri:** Supabase projesi AB bölgesinde (örn. Frankfurt) kurulur.
   Bölge sonradan değiştirilemez — baştan doğru seç.
-- Kişisel veri içeren alanlar (telefon, plaka, ad) kod içinde yorumla işaretlenir.
+- Kişisel veri içeren alanlar (e-posta, telefon, plaka, ad) kod içinde yorumla
+  işaretlenir.
 
 ## Kod ve çalışma konvansiyonları
 

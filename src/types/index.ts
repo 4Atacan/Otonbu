@@ -3,7 +3,8 @@ export type Rol = 'musteri' | 'sube_sahibi' | 'kasa' | 'usta' | 'admin';
 export interface UserProfile {
   id: string;
   branch_id: string | null;
-  telefon: string;       // KİŞİSEL VERİ
+  email: string | null;    // KİŞİSEL VERİ (auth kanalı)
+  telefon: string | null;  // KİŞİSEL VERİ (iletişim, opsiyonel)
   rol: Rol;
   ad_soyad: string | null; // KİŞİSEL VERİ
   silindi_mi: boolean;
@@ -32,4 +33,5 @@ export interface Vehicle {
   plaka: string;         // KİŞİSEL VERİ
   marka_model: string | null;
   segment: string;
+  created_at: string;
 }

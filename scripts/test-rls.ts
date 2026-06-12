@@ -28,9 +28,9 @@ function assert(durum: boolean, mesaj: string) {
   else { console.error(`  ✗ ${mesaj}`); kaldi++; }
 }
 
-async function temizle(telefonlar: string[]) {
-  for (const tel of telefonlar) {
-    const { data: u } = await admin.from('users').select('id').eq('telefon', tel).single();
+async function temizle(emailler: string[]) {
+  for (const email of emailler) {
+    const { data: u } = await admin.from('users').select('id').eq('email', email).single();
     if (u) {
       await admin.from('vehicles').delete().eq('user_id', u.id);
       await admin.from('users').delete().eq('id', u.id);
@@ -42,8 +42,8 @@ async function temizle(telefonlar: string[]) {
 async function run() {
   console.log('\n=== OTONBU RLS HIZLI KONTROL ===\n');
 
-  const telefonlar = ['+900000000001', '+900000000002'];
-  await temizle(telefonlar);
+  const emailler = ['rls-test-a@otonbu.local', 'rls-test-b@otonbu.local'];
+  await temizle(emailler);
 
   // Şubeler
   const { data: subeA } = await admin.from('branches').insert({ ad: 'Test Şube A' }).select().single();
@@ -51,15 +51,15 @@ async function run() {
 
   // Kullanıcılar (service_role ile)
   const { data: authA } = await (admin.auth.admin as any).createUser({
-    phone: '+900000000001', phone_confirm: true,
+    email: emailler[0], email_confirm: true,
   });
   const { data: authB } = await (admin.auth.admin as any).createUser({
-    phone: '+900000000002', phone_confirm: true,
+    email: emailler[1], email_confirm: true,
   });
 
   await admin.from('users').upsert([
-    { id: authA.user.id, telefon: '+900000000001', rol: 'musteri', branch_id: subeA!.id },
-    { id: authB.user.id, telefon: '+900000000002', rol: 'musteri', branch_id: subeB!.id },
+    { id: authA.user.id, email: emailler[0], rol: 'musteri', branch_id: subeA!.id },
+    { id: authB.user.id, email: emailler[1], rol: 'musteri', branch_id: subeB!.id },
   ]);
 
   await admin.from('vehicles').insert([
@@ -82,7 +82,7 @@ async function run() {
   assert((anonSubeler?.length ?? 0) >= 2, 'Anon şubeleri görür (public)');
 
   // Temizlik
-  await temizle(telefonlar);
+  await temizle(emailler);
   await admin.from('branches').delete().in('id', [subeA!.id, subeB!.id]);
 
   console.log(`\n${'─'.repeat(40)}`);

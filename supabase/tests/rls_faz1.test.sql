@@ -13,23 +13,23 @@ insert into public.branches (id, ad) values
   ('a0000000-0000-0000-0000-000000000001'::uuid, 'Test Şube A'),
   ('b0000000-0000-0000-0000-000000000002'::uuid, 'Test Şube B');
 
--- Sahte auth.users kayıtları
-insert into auth.users (id, phone, phone_confirmed_at, role, aud)
+-- Sahte auth.users kayıtları (e-posta auth kanalı)
+insert into auth.users (id, email, email_confirmed_at, role, aud)
 values
-  ('a1000000-0000-0000-0000-000000000001'::uuid, '+900000000001', now(), 'authenticated', 'authenticated'),
-  ('b1000000-0000-0000-0000-000000000002'::uuid, '+900000000002', now(), 'authenticated', 'authenticated'),
-  ('ad000000-0000-0000-0000-000000000099'::uuid, '+900000000099', now(), 'authenticated', 'authenticated');
+  ('a1000000-0000-0000-0000-000000000001'::uuid, 'a1@test.local', now(), 'authenticated', 'authenticated'),
+  ('b1000000-0000-0000-0000-000000000002'::uuid, 'b1@test.local', now(), 'authenticated', 'authenticated'),
+  ('ad000000-0000-0000-0000-000000000099'::uuid, 'admin@test.local', now(), 'authenticated', 'authenticated');
 
 -- public.users (trigger çalışmıyor test ortamında — manuel ekle)
-insert into public.users (id, branch_id, telefon, rol) values
-  ('a1000000-0000-0000-0000-000000000001'::uuid, 'a0000000-0000-0000-0000-000000000001'::uuid, '+900000000001', 'musteri'),
-  ('b1000000-0000-0000-0000-000000000002'::uuid, 'b0000000-0000-0000-0000-000000000002'::uuid, '+900000000002', 'musteri'),
-  ('ad000000-0000-0000-0000-000000000099'::uuid, 'a0000000-0000-0000-0000-000000000001'::uuid, '+900000000099', 'admin');
+insert into public.users (id, branch_id, email, rol) values
+  ('a1000000-0000-0000-0000-000000000001'::uuid, 'a0000000-0000-0000-0000-000000000001'::uuid, 'a1@test.local', 'musteri'),
+  ('b1000000-0000-0000-0000-000000000002'::uuid, 'b0000000-0000-0000-0000-000000000002'::uuid, 'b1@test.local', 'musteri'),
+  ('ad000000-0000-0000-0000-000000000099'::uuid, 'a0000000-0000-0000-0000-000000000001'::uuid, 'admin@test.local', 'admin');
 
 -- Araçlar
 insert into public.vehicles (id, user_id, plaka, segment) values
-  ('v1000000-0000-0000-0000-000000000001'::uuid, 'a1000000-0000-0000-0000-000000000001'::uuid, 'TEST01', 'standart'),
-  ('v2000000-0000-0000-0000-000000000002'::uuid, 'b1000000-0000-0000-0000-000000000002'::uuid, 'TEST02', 'standart');
+  ('e1000000-0000-0000-0000-000000000001'::uuid, 'a1000000-0000-0000-0000-000000000001'::uuid, 'TEST01', 'standart'),
+  ('e2000000-0000-0000-0000-000000000002'::uuid, 'b1000000-0000-0000-0000-000000000002'::uuid, 'TEST02', 'standart');
 
 -- ============================================================
 -- TEST 1-2: Kullanıcı A kendi aracını görür, B'yi göremez

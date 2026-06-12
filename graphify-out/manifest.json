@@ -5,18 +5,198 @@
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\CLAUDE.md": {
-    "mtime": 1780407574.2212963,
-    "ast_hash": "d1504b827a27657e88984df507ec7345",
+    "mtime": 1780576539.5898993,
+    "ast_hash": "3cc27bf108bdcc3da8ae2fce2111e659",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\IMPLEMENTATION.md": {
-    "mtime": 1779825600.350955,
-    "ast_hash": "3d538f2e5b0c7a5a7bef43b99de1deae",
+    "mtime": 1780576569.595408,
+    "ast_hash": "ef86090c9b7bd123c5541a5361d55317",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\Otonbu_\u00f6zellikler.pdf": {
     "mtime": 1779821570.8491368,
     "ast_hash": "0a299a3b42b554cabe72cf9006ec56a9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app.json": {
+    "mtime": 1780664373.4616299,
+    "ast_hash": "6a3eecebfdbb967534d04209151cd383",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(auth)\\_layout.tsx": {
+    "mtime": 1781251901.1043227,
+    "ast_hash": "91e66f885fb204a894bbcb3bcbb9fa2f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(auth)\\index.tsx": {
+    "mtime": 1781251800.166534,
+    "ast_hash": "30fb3c7a7d7199a5ad8049ee67e97dd6",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(auth)\\kayit.tsx": {
+    "mtime": 1781251824.8433232,
+    "ast_hash": "b3f6b9f8b0d3db6aca3793389d51462c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(auth)\\onay-bekliyor.tsx": {
+    "mtime": 1781251842.477444,
+    "ast_hash": "315fadd7cb904ee203d03fcb215552e5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(auth)\\sifremi-unuttum.tsx": {
+    "mtime": 1781251885.2407923,
+    "ast_hash": "2fc374db9ab698cbe922defc01852d14",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(auth)\\yonetici.tsx": {
+    "mtime": 1780576632.7654493,
+    "ast_hash": "d6bd8799c58c647e672e04749c0ae1a0",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(main)\\_layout.tsx": {
+    "mtime": 1780490656.1617453,
+    "ast_hash": "03112ac66fb0ef3a1da2feaacf55ed9f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(main)\\araclar.tsx": {
+    "mtime": 1780490687.9932263,
+    "ast_hash": "aa5041dbf502ba2a502bd031f5e7c068",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(main)\\index.tsx": {
+    "mtime": 1780666192.117453,
+    "ast_hash": "cd6115010618037066cb9c7d2743685c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(main)\\katalog.tsx": {
+    "mtime": 1780490700.7615125,
+    "ast_hash": "9d6924e007a62d4ad4febb6e2ec6a226",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\_layout.tsx": {
+    "mtime": 1780576527.6560762,
+    "ast_hash": "a3e3c5dadb80fbc65d9598f9761e05a5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\package.json": {
+    "mtime": 1780575426.1806593,
+    "ast_hash": "5dba8f6bad211e484229e20325bf3e37",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\scripts\\test-rls.ts": {
+    "mtime": 1780575466.5185168,
+    "ast_hash": "3dc691db34b10256b876e3a2401b9405",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\components\\CaptchaWidget.tsx": {
+    "mtime": 1781251756.7905238,
+    "ast_hash": "78ac4289d609b7f9e1e4910db879346b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\components\\Logo.tsx": {
+    "mtime": 1780576618.6328647,
+    "ast_hash": "127642a60c068a5ce7a323cd9d91c404",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\components\\PhoneInput.tsx": {
+    "mtime": 1780576403.4313183,
+    "ast_hash": "11922842b526a5a3aad3e62b842036a0",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\hooks\\useSession.ts": {
+    "mtime": 1780574962.3686152,
+    "ast_hash": "9d1cea4e0011f4beffa3e0b562723a84",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\lib\\sentry.ts": {
+    "mtime": 1780666195.3592656,
+    "ast_hash": "02bcb8d11b85bcbbb9ec503b3118908f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\lib\\supabase.ts": {
+    "mtime": 1780488055.9767725,
+    "ast_hash": "aaffdc77f03ce776dcaae930edf3f454",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\types\\index.ts": {
+    "mtime": 1781251728.1094992,
+    "ast_hash": "d9a8bb5f5a655aa56b07b78830ab919c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\functions\\_shared\\sentry.ts": {
+    "mtime": 1780574996.1484866,
+    "ast_hash": "4592d2368ba85a93db52c6ab5815b15c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\migrations\\20260603000001_faz1_temel_iskelet.sql": {
+    "mtime": 1780490489.684963,
+    "ast_hash": "bd57c6cc9968d92f2526e12675e73b58",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\migrations\\20260604000001_email_auth.sql": {
+    "mtime": 1780574701.5246186,
+    "ast_hash": "444599e15fe372c8349046ae9d1aed12",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\migrations\\20260612000001_vehicles_meta.sql": {
+    "mtime": 1781251715.2362177,
+    "ast_hash": "40d9de66f6f7621e5abf5bf66d6904f4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\tests\\rls_faz1.test.sql": {
+    "mtime": 1781251737.2407765,
+    "ast_hash": "9c636d618f7214488d28cd49753b05a0",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\tsconfig.json": {
+    "mtime": 1780409907.4315364,
+    "ast_hash": "927c34c923bc509e235ccb37874acc02",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\graphify-out\\converted\\OTONBU_Uygulama_Ozellikleri_9e87f775.md": {
+    "mtime": 1781251998.4335794,
+    "ast_hash": "f7b8e32b29a1ec6303d2e1127139fd4b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\templates\\recovery.html": {
+    "mtime": 1781251911.5920863,
+    "ast_hash": "bb54f10b0af9abb595c6fa237c6551b7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\assets\\android-icon-background.png": {
+    "mtime": 1780409217.4808462,
+    "ast_hash": "2d65569cc0e2afdcea0af9f9902d4173",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\assets\\android-icon-foreground.png": {
+    "mtime": 1780409217.4823775,
+    "ast_hash": "72e71a9c846c6aa4ae32476641a00e18",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\assets\\android-icon-monochrome.png": {
+    "mtime": 1780409217.4839437,
+    "ast_hash": "1e097dab989759fc0b69440092ca22cd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\assets\\favicon.png": {
+    "mtime": 1780409217.4854796,
+    "ast_hash": "d9f444efbdfbe7931aa93beada07318a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\assets\\icon.png": {
+    "mtime": 1780409217.4885557,
+    "ast_hash": "cb975bba2216ce10a60e6c0ffe9941a2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\assets\\logo.png": {
+    "mtime": 1780576610.297976,
+    "ast_hash": "b0c541961ddde3c49fc7c4fb98e0f3b9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\assets\\splash-icon.png": {
+    "mtime": 1780409217.4885557,
+    "ast_hash": "97dae5a0e62ad8551d8a31897b425e63",
     "semantic_hash": ""
   }
 }

@@ -2,9 +2,12 @@ import { Stack } from 'expo-router';
 
 export default function AuthLayout() {
   return (
-    <Stack>
-      <Stack.Screen name="index" options={{ title: 'Giriş Yap', headerShown: false }} />
-      <Stack.Screen name="otp" options={{ title: 'Doğrulama Kodu' }} />
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="index" />
+      <Stack.Screen name="kayit" options={{ title: 'Kayıt Ol', headerShown: true }} />
+      <Stack.Screen name="onay-bekliyor" options={{ title: 'E-posta Doğrulama', headerShown: true }} />
+      <Stack.Screen name="sifremi-unuttum" options={{ title: 'Şifremi Unuttum', headerShown: true }} />
+      <Stack.Screen name="yonetici" options={{ title: 'Yönetici Girişi', headerShown: true }} />
     </Stack>
   );
 }
