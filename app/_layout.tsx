@@ -5,6 +5,7 @@ import * as SecureStore from 'expo-secure-store';
 import { initSentry } from '../src/lib/sentry';
 import { useSession } from '../src/hooks/useSession';
 import { supabase } from '../src/lib/supabase';
+import { ThemeProvider } from '../src/theme/ThemeContext';
 
 const REMEMBER_KEY = 'otonbu_remember_me';
 
@@ -39,9 +40,11 @@ export default function RootLayout() {
   }, [session, loading, segments]);
 
   return (
-    <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="(auth)" />
-      <Stack.Screen name="(main)" />
-    </Stack>
+    <ThemeProvider>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="(auth)" />
+        <Stack.Screen name="(main)" />
+      </Stack>
+    </ThemeProvider>
   );
 }

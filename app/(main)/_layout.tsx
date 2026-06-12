@@ -1,11 +1,53 @@
 import { Tabs } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
+import { Ionicons } from '@expo/vector-icons';
+import { useTheme } from '../../src/theme/ThemeContext';
 
 export default function MainLayout() {
+  const { tema, renkler } = useTheme();
+
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: '#1a56db' }}>
-      <Tabs.Screen name="index" options={{ title: 'Ana Sayfa' }} />
-      <Tabs.Screen name="araclar" options={{ title: 'Araçlarım' }} />
-      <Tabs.Screen name="katalog" options={{ title: 'Hizmetler' }} />
-    </Tabs>
+    <>
+      <StatusBar style={tema === 'koyu' ? 'light' : 'dark'} />
+      <Tabs
+        screenOptions={{
+          tabBarActiveTintColor: renkler.primary,
+          tabBarInactiveTintColor: renkler.subtext,
+          tabBarStyle: { backgroundColor: renkler.card, borderTopColor: renkler.border },
+          headerStyle: { backgroundColor: renkler.card },
+          headerTitleStyle: { color: renkler.text },
+          headerShadowVisible: false,
+        }}
+      >
+        <Tabs.Screen
+          name="index"
+          options={{
+            title: 'Ana Sayfa',
+            tabBarIcon: ({ color, size }) => <Ionicons name="home" size={size} color={color} />,
+          }}
+        />
+        <Tabs.Screen
+          name="araclar"
+          options={{
+            title: 'Araçlarım',
+            tabBarIcon: ({ color, size }) => <Ionicons name="car" size={size} color={color} />,
+          }}
+        />
+        <Tabs.Screen
+          name="kampanyalar"
+          options={{
+            title: 'Kampanyalar',
+            tabBarIcon: ({ color, size }) => <Ionicons name="pricetags" size={size} color={color} />,
+          }}
+        />
+        <Tabs.Screen
+          name="profil"
+          options={{
+            title: 'Profil',
+            tabBarIcon: ({ color, size }) => <Ionicons name="person" size={size} color={color} />,
+          }}
+        />
+      </Tabs>
+    </>
   );
 }

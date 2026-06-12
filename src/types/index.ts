@@ -18,6 +18,17 @@ export interface Branch {
   aktif: boolean;
 }
 
+export interface Campaign {
+  id: string;
+  branch_id: string | null;   // null = tüm şubelerde geçerli
+  baslik: string;
+  aciklama: string | null;
+  baslangic: string | null;
+  bitis: string | null;
+  aktif: boolean;
+  created_at: string;
+}
+
 export interface Service {
   id: string;
   ad: string;

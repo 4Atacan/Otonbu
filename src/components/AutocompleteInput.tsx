@@ -3,6 +3,7 @@ import {
   StyleSheet, Text, TextInput, TouchableOpacity, View,
 } from 'react-native';
 import { filtrele } from '../data/arac-katalogu';
+import { useTheme } from '../theme/ThemeContext';
 
 interface Props {
   value: string;
@@ -19,6 +20,7 @@ interface Props {
 export function AutocompleteInput({
   value, onChange, options, placeholder, maxOneri = 6,
 }: Props) {
+  const { renkler } = useTheme();
   const [odakta, setOdakta] = useState(false);
 
   const tamEslesme = options.some(
@@ -31,8 +33,13 @@ export function AutocompleteInput({
   return (
     <View style={s.wrap}>
       <TextInput
-        style={s.input}
+        style={[s.input, {
+          borderColor: renkler.border,
+          backgroundColor: renkler.input,
+          color: renkler.text,
+        }]}
         placeholder={placeholder}
+        placeholderTextColor={renkler.subtext}
         autoCapitalize="none"
         autoCorrect={false}
         value={value}
@@ -43,14 +50,17 @@ export function AutocompleteInput({
         onBlur={() => setTimeout(() => setOdakta(false), 150)}
       />
       {oneriler.length > 0 && (
-        <View style={s.liste}>
+        <View style={[s.liste, {
+          borderColor: renkler.border,
+          backgroundColor: renkler.input,
+        }]}>
           {oneriler.map(oneri => (
             <TouchableOpacity
               key={oneri}
-              style={s.oneri}
+              style={[s.oneri, { borderTopColor: renkler.border }]}
               onPress={() => { onChange(oneri); setOdakta(false); }}
             >
-              <Text style={s.oneriText}>{oneri}</Text>
+              <Text style={[s.oneriText, { color: renkler.text }]}>{oneri}</Text>
             </TouchableOpacity>
           ))}
         </View>
@@ -62,17 +72,17 @@ export function AutocompleteInput({
 const s = StyleSheet.create({
   wrap: { marginBottom: 16 },
   input: {
-    borderWidth: 1, borderColor: '#ddd', borderRadius: 10,
-    padding: 13, fontSize: 16, backgroundColor: '#fff',
+    borderWidth: 1, borderRadius: 10,
+    padding: 13, fontSize: 16,
   },
   liste: {
-    borderWidth: 1, borderColor: '#ddd', borderTopWidth: 0,
+    borderWidth: 1, borderTopWidth: 0,
     borderBottomLeftRadius: 10, borderBottomRightRadius: 10,
-    backgroundColor: '#fff', marginTop: -8, paddingTop: 8,
+    marginTop: -8, paddingTop: 8,
   },
   oneri: {
     paddingVertical: 12, paddingHorizontal: 14,
-    borderTopWidth: 1, borderTopColor: '#f1f5f9',
+    borderTopWidth: 1,
   },
-  oneriText: { fontSize: 15, color: '#0f172a' },
+  oneriText: { fontSize: 15 },
 });

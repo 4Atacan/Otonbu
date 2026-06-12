@@ -387,16 +387,16 @@
       "source_file": "app/(main)/_layout.tsx",
       "source_location": "L1",
       "id": "main_layout",
-      "community": 15,
+      "community": 4,
       "norm_label": "_layout.tsx"
     },
     {
       "label": "MainLayout()",
       "file_type": "code",
       "source_file": "app/(main)/_layout.tsx",
-      "source_location": "L3",
+      "source_location": "L6",
       "id": "main_layout_mainlayout",
-      "community": 15,
+      "community": 4,
       "norm_label": "mainlayout()"
     },
     {
@@ -412,16 +412,16 @@
       "label": "AraclarScreen()",
       "file_type": "code",
       "source_file": "app/(main)/araclar.tsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "id": "main_araclar_araclarscreen",
-      "community": 5,
+      "community": 4,
       "norm_label": "araclarscreen()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/(main)/araclar.tsx",
-      "source_location": "L232",
+      "source_location": "L274",
       "id": "main_araclar_s",
       "community": 5,
       "norm_label": "s"
@@ -439,7 +439,7 @@
       "label": "AnaSayfa()",
       "file_type": "code",
       "source_file": "app/(main)/index.tsx",
-      "source_location": "L5",
+      "source_location": "L10",
       "id": "main_index_anasayfa",
       "community": 4,
       "norm_label": "anasayfa()"
@@ -448,35 +448,71 @@
       "label": "s",
       "file_type": "code",
       "source_file": "app/(main)/index.tsx",
-      "source_location": "L30",
+      "source_location": "L84",
       "id": "main_index_s",
       "community": 4,
       "norm_label": "s"
     },
     {
-      "label": "katalog.tsx",
+      "label": "kampanyalar.tsx",
       "file_type": "code",
-      "source_file": "app/(main)/katalog.tsx",
+      "source_file": "app/(main)/kampanyalar.tsx",
       "source_location": "L1",
-      "id": "main_katalog",
+      "id": "main_kampanyalar",
       "community": 4,
-      "norm_label": "katalog.tsx"
+      "norm_label": "kampanyalar.tsx"
     },
     {
-      "label": "KatalogScreen()",
+      "label": "KampanyalarScreen()",
       "file_type": "code",
-      "source_file": "app/(main)/katalog.tsx",
-      "source_location": "L8",
-      "id": "main_katalog_katalogscreen",
+      "source_file": "app/(main)/kampanyalar.tsx",
+      "source_location": "L11",
+      "id": "main_kampanyalar_kampanyalarscreen",
       "community": 4,
-      "norm_label": "katalogscreen()"
+      "norm_label": "kampanyalarscreen()"
     },
     {
       "label": "s",
       "file_type": "code",
-      "source_file": "app/(main)/katalog.tsx",
-      "source_location": "L62",
-      "id": "main_katalog_s",
+      "source_file": "app/(main)/kampanyalar.tsx",
+      "source_location": "L90",
+      "id": "main_kampanyalar_s",
+      "community": 4,
+      "norm_label": "s"
+    },
+    {
+      "label": "profil.tsx",
+      "file_type": "code",
+      "source_file": "app/(main)/profil.tsx",
+      "source_location": "L1",
+      "id": "main_profil",
+      "community": 4,
+      "norm_label": "profil.tsx"
+    },
+    {
+      "label": "ROL_ADLARI",
+      "file_type": "code",
+      "source_file": "app/(main)/profil.tsx",
+      "source_location": "L9",
+      "id": "main_profil_rol_adlari",
+      "community": 4,
+      "norm_label": "rol_adlari"
+    },
+    {
+      "label": "ProfilScreen()",
+      "file_type": "code",
+      "source_file": "app/(main)/profil.tsx",
+      "source_location": "L17",
+      "id": "main_profil_profilscreen",
+      "community": 4,
+      "norm_label": "profilscreen()"
+    },
+    {
+      "label": "s",
+      "file_type": "code",
+      "source_file": "app/(main)/profil.tsx",
+      "source_location": "L111",
+      "id": "main_profil_s",
       "community": 4,
       "norm_label": "s"
     },
@@ -493,7 +529,7 @@
       "label": "RootLayout()",
       "file_type": "code",
       "source_file": "app/_layout.tsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "id": "app_layout_rootlayout",
       "community": 4,
       "norm_label": "rootlayout()"
@@ -943,7 +979,7 @@
       "label": "Props",
       "file_type": "code",
       "source_file": "src/components/AutocompleteInput.tsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "id": "components_autocompleteinput_props",
       "community": 5,
       "norm_label": "props"
@@ -952,7 +988,7 @@
       "label": "AutocompleteInput()",
       "file_type": "code",
       "source_file": "src/components/AutocompleteInput.tsx",
-      "source_location": "L19",
+      "source_location": "L20",
       "id": "components_autocompleteinput_autocompleteinput",
       "community": 5,
       "norm_label": "autocompleteinput()"
@@ -961,7 +997,7 @@
       "label": "s",
       "file_type": "code",
       "source_file": "src/components/AutocompleteInput.tsx",
-      "source_location": "L62",
+      "source_location": "L72",
       "id": "components_autocompleteinput_s",
       "community": 5,
       "norm_label": "s"
@@ -1228,6 +1264,105 @@
       "norm_label": "supabase"
     },
     {
+      "label": "ThemeContext.tsx",
+      "file_type": "code",
+      "source_file": "src/theme/ThemeContext.tsx",
+      "source_location": "L1",
+      "id": "theme_themecontext",
+      "community": 4,
+      "norm_label": "themecontext.tsx"
+    },
+    {
+      "label": "Tema",
+      "file_type": "code",
+      "source_file": "src/theme/ThemeContext.tsx",
+      "source_location": "L7",
+      "id": "theme_themecontext_tema",
+      "community": 4,
+      "norm_label": "tema"
+    },
+    {
+      "label": "Renkler",
+      "file_type": "code",
+      "source_file": "src/theme/ThemeContext.tsx",
+      "source_location": "L9",
+      "id": "theme_themecontext_renkler",
+      "community": 4,
+      "norm_label": "renkler"
+    },
+    {
+      "label": "ACIK",
+      "file_type": "code",
+      "source_file": "src/theme/ThemeContext.tsx",
+      "source_location": "L22",
+      "id": "theme_themecontext_acik",
+      "community": 4,
+      "norm_label": "acik"
+    },
+    {
+      "label": "KOYU",
+      "file_type": "code",
+      "source_file": "src/theme/ThemeContext.tsx",
+      "source_location": "L35",
+      "id": "theme_themecontext_koyu",
+      "community": 4,
+      "norm_label": "koyu"
+    },
+    {
+      "label": "temaOku()",
+      "file_type": "code",
+      "source_file": "src/theme/ThemeContext.tsx",
+      "source_location": "L51",
+      "id": "theme_themecontext_temaoku",
+      "community": 4,
+      "norm_label": "temaoku()"
+    },
+    {
+      "label": "temaYaz()",
+      "file_type": "code",
+      "source_file": "src/theme/ThemeContext.tsx",
+      "source_location": "L60",
+      "id": "theme_themecontext_temayaz",
+      "community": 4,
+      "norm_label": "temayaz()"
+    },
+    {
+      "label": "ThemeContextValue",
+      "file_type": "code",
+      "source_file": "src/theme/ThemeContext.tsx",
+      "source_location": "L67",
+      "id": "theme_themecontext_themecontextvalue",
+      "community": 4,
+      "norm_label": "themecontextvalue"
+    },
+    {
+      "label": "ThemeContext",
+      "file_type": "code",
+      "source_file": "src/theme/ThemeContext.tsx",
+      "source_location": "L73",
+      "id": "theme_themecontext_themecontext",
+      "community": 4,
+      "norm_label": "themecontext"
+    },
+    {
+      "label": "ThemeProvider()",
+      "file_type": "code",
+      "source_file": "src/theme/ThemeContext.tsx",
+      "source_location": "L79",
+      "id": "theme_themecontext_themeprovider",
+      "community": 4,
+      "norm_label": "themeprovider()"
+    },
+    {
+      "label": "useTheme()",
+      "file_type": "code",
+      "source_file": "src/theme/ThemeContext.tsx",
+      "source_location": "L100",
+      "id": "theme_themecontext_usetheme",
+      "community": 4,
+      "norm_label": "usetheme()"
+    },
+    {
       "label": "index.ts",
       "file_type": "code",
       "source_file": "src/types/index.ts",
@@ -1264,10 +1399,19 @@
       "norm_label": "branch"
     },
     {
-      "label": "Service",
+      "label": "Campaign",
       "file_type": "code",
       "source_file": "src/types/index.ts",
       "source_location": "L21",
+      "id": "types_index_campaign",
+      "community": 4,
+      "norm_label": "campaign"
+    },
+    {
+      "label": "Service",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L32",
       "id": "types_index_service",
       "community": 4,
       "norm_label": "service"
@@ -1276,7 +1420,7 @@
       "label": "Vehicle",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L30",
+      "source_location": "L41",
       "id": "types_index_vehicle",
       "community": 4,
       "norm_label": "vehicle"
@@ -1530,7 +1674,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L51",
       "id": "implementation_faz_1_temel_iskelet",
-      "community": 2,
+      "community": 1,
       "norm_label": "faz 1 \u2014 temel iskelet"
     },
     {
@@ -1539,7 +1683,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L55",
       "id": "implementation_ortak_yard\u0131mc\u0131lar_\u00f6nce_bunlar",
-      "community": 2,
+      "community": 1,
       "norm_label": "ortak yard\u0131mc\u0131lar (once bunlar)"
     },
     {
@@ -1548,7 +1692,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L71",
       "id": "implementation_tablolar",
-      "community": 2,
+      "community": 1,
       "norm_label": "tablolar"
     },
     {
@@ -1557,7 +1701,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L113",
       "id": "implementation_rls_politikalar\u0131",
-      "community": 2,
+      "community": 1,
       "norm_label": "rls politikalar\u0131"
     },
     {
@@ -1566,7 +1710,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L142",
       "id": "implementation_auth_g\u00f6revleri_e_posta_\u015fifre_e_posta_do\u011frulamal\u0131",
-      "community": 2,
+      "community": 1,
       "norm_label": "auth gorevleri (e-posta + sifre \u2014 e-posta dogrulamal\u0131)"
     },
     {
@@ -1575,7 +1719,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L167",
       "id": "implementation_kabul_kriteri_167",
-      "community": 2,
+      "community": 1,
       "norm_label": "kabul kriteri"
     },
     {
@@ -1638,7 +1782,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L300",
       "id": "implementation_faz_3_abonelik_\u00f6deme",
-      "community": 1,
+      "community": 2,
       "norm_label": "faz 3 \u2014 abonelik + odeme"
     },
     {
@@ -1647,7 +1791,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L304",
       "id": "implementation_tablolar_304",
-      "community": 1,
+      "community": 2,
       "norm_label": "tablolar"
     },
     {
@@ -1656,7 +1800,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L349",
       "id": "implementation_rls_politikalar\u0131_349",
-      "community": 1,
+      "community": 2,
       "norm_label": "rls politikalar\u0131"
     },
     {
@@ -1665,7 +1809,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L382",
       "id": "implementation_iyzico_\u00f6deme_ak\u0131\u015f\u0131_edge_functions",
-      "community": 1,
+      "community": 2,
       "norm_label": "iyzico odeme ak\u0131s\u0131 (edge functions)"
     },
     {
@@ -1674,7 +1818,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L392",
       "id": "implementation_abonelik_mant\u0131\u011f\u0131_edge_functions",
-      "community": 1,
+      "community": 2,
       "norm_label": "abonelik mant\u0131g\u0131 (edge functions)"
     },
     {
@@ -1683,7 +1827,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L400",
       "id": "implementation_kabul_kriteri_400",
-      "community": 1,
+      "community": 2,
       "norm_label": "kabul kriteri"
     },
     {
@@ -1889,7 +2033,7 @@
       "file_type": "document",
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L138",
-      "community": 2,
+      "community": 1,
       "norm_label": "auth gorevleri (sms suistimaline kars\u0131)",
       "id": "implementation_auth_g\u00f6revleri_sms_suistimaline_kar\u015f\u0131"
     },
@@ -1898,7 +2042,7 @@
       "file_type": "document",
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L147",
-      "community": 2,
+      "community": 1,
       "norm_label": "kabul kriteri",
       "id": "implementation_kabul_kriteri_147"
     },
@@ -1934,7 +2078,7 @@
       "file_type": "document",
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L281",
-      "community": 1,
+      "community": 2,
       "norm_label": "tablolar",
       "id": "implementation_tablolar_281"
     },
@@ -1943,7 +2087,7 @@
       "file_type": "document",
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L326",
-      "community": 1,
+      "community": 2,
       "norm_label": "rls politikalar\u0131",
       "id": "implementation_rls_politikalar\u0131_326"
     },
@@ -1952,7 +2096,7 @@
       "file_type": "document",
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L377",
-      "community": 1,
+      "community": 2,
       "norm_label": "kabul kriteri",
       "id": "implementation_kabul_kriteri_377"
     },
@@ -2702,6 +2846,39 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "app/(main)/_layout.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "main_layout",
+      "target": "theme_themecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/_layout.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "main_layout",
+      "target": "theme_themecontext_usetheme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(main)/_layout.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "main_layout_mainlayout",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "app/(main)/araclar.tsx",
       "source_location": "L8",
       "weight": 1.0,
@@ -2832,6 +3009,28 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/(main)/araclar.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "main_araclar",
+      "target": "theme_themecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/araclar.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "main_araclar",
+      "target": "theme_themecontext_usetheme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/araclar.tsx",
       "source_location": "L7",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -2848,6 +3047,17 @@
       "confidence_score": 1.0,
       "source": "main_araclar",
       "target": "types_index_vehicle"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(main)/araclar.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "main_araclar_araclarscreen",
+      "target": "theme_themecontext_usetheme"
     },
     {
       "relation": "imports_from",
@@ -2914,6 +3124,50 @@
       "target": "main_index_s"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/index.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "main_index",
+      "target": "theme_themecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/index.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "main_index",
+      "target": "theme_themecontext_usetheme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/index.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "main_index",
+      "target": "types_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/index.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "main_index",
+      "target": "types_index_service",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -2925,68 +3179,241 @@
       "target": "hooks_usesession_usesession"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(main)/index.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "main_index_anasayfa",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/(main)/katalog.tsx",
-      "source_location": "L5",
+      "source_file": "app/(main)/kampanyalar.tsx",
+      "source_location": "L7",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "main_katalog",
-      "target": "lib_supabase"
+      "source": "main_kampanyalar",
+      "target": "lib_supabase",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/(main)/katalog.tsx",
-      "source_location": "L5",
+      "source_file": "app/(main)/kampanyalar.tsx",
+      "source_location": "L7",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "main_katalog",
-      "target": "lib_supabase_supabase"
+      "source": "main_kampanyalar",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app/(main)/katalog.tsx",
+      "source_file": "app/(main)/kampanyalar.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "main_kampanyalar",
+      "target": "main_kampanyalar_kampanyalarscreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/kampanyalar.tsx",
+      "source_location": "L90",
+      "weight": 1.0,
+      "source": "main_kampanyalar",
+      "target": "main_kampanyalar_s",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/kampanyalar.tsx",
       "source_location": "L8",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "main_katalog",
-      "target": "main_katalog_katalogscreen"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/katalog.tsx",
-      "source_location": "L62",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "main_katalog",
-      "target": "main_katalog_s"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/katalog.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "main_katalog",
-      "target": "types_index"
+      "source": "main_kampanyalar",
+      "target": "theme_themecontext",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/(main)/katalog.tsx",
+      "source_file": "app/(main)/kampanyalar.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "main_kampanyalar",
+      "target": "theme_themecontext_usetheme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/kampanyalar.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "main_kampanyalar",
+      "target": "types_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/kampanyalar.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "main_kampanyalar",
+      "target": "types_index_campaign",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(main)/kampanyalar.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "main_kampanyalar_kampanyalarscreen",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/profil.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "source": "main_profil",
+      "target": "hooks_usesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/profil.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "main_profil",
+      "target": "hooks_usesession_usesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/profil.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "main_profil",
+      "target": "lib_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/profil.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "main_profil",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/profil.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "main_profil",
+      "target": "main_profil_profilscreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/profil.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "main_profil",
+      "target": "main_profil_rol_adlari",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/profil.tsx",
+      "source_location": "L111",
+      "weight": 1.0,
+      "source": "main_profil",
+      "target": "main_profil_s",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/profil.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "main_profil",
+      "target": "theme_themecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/profil.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "main_profil",
+      "target": "theme_themecontext_tema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/profil.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "main_profil",
+      "target": "theme_themecontext_usetheme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source": "main_katalog",
-      "target": "types_index_service"
+      "source_file": "app/(main)/profil.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "main_profil_profilscreen",
+      "target": "hooks_usesession_usesession"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(main)/profil.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "main_profil_profilscreen",
+      "target": "theme_themecontext_usetheme"
     },
     {
       "relation": "contains",
@@ -3063,6 +3490,28 @@
       "confidence_score": 1.0,
       "source": "app_layout",
       "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/_layout.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_layout",
+      "target": "theme_themecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/_layout.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_layout",
+      "target": "theme_themecontext_themeprovider",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -3610,6 +4059,28 @@
       "target": "data_arac_katalogu_filtrele"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/AutocompleteInput.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_autocompleteinput",
+      "target": "theme_themecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/AutocompleteInput.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_autocompleteinput",
+      "target": "theme_themecontext_usetheme",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -3619,6 +4090,17 @@
       "weight": 1.0,
       "source": "components_autocompleteinput_autocompleteinput",
       "target": "data_arac_katalogu_filtrele"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/AutocompleteInput.tsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "components_autocompleteinput_autocompleteinput",
+      "target": "theme_themecontext_usetheme"
     },
     {
       "relation": "contains",
@@ -3909,12 +4391,122 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/theme/ThemeContext.tsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "theme_themecontext",
+      "target": "theme_themecontext_acik",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/theme/ThemeContext.tsx",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "theme_themecontext",
+      "target": "theme_themecontext_koyu",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/theme/ThemeContext.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "theme_themecontext",
+      "target": "theme_themecontext_renkler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/theme/ThemeContext.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "theme_themecontext",
+      "target": "theme_themecontext_tema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/theme/ThemeContext.tsx",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "theme_themecontext",
+      "target": "theme_themecontext_temaoku",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/theme/ThemeContext.tsx",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "theme_themecontext",
+      "target": "theme_themecontext_temayaz",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/theme/ThemeContext.tsx",
+      "source_location": "L73",
+      "weight": 1.0,
+      "source": "theme_themecontext",
+      "target": "theme_themecontext_themecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/theme/ThemeContext.tsx",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "theme_themecontext",
+      "target": "theme_themecontext_themecontextvalue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/theme/ThemeContext.tsx",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "theme_themecontext",
+      "target": "theme_themecontext_themeprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/theme/ThemeContext.tsx",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "theme_themecontext",
+      "target": "theme_themecontext_usetheme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/types/index.ts",
       "source_location": "L14",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "types_index",
       "target": "types_index_branch"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "types_index",
+      "target": "types_index_campaign",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -4700,5 +5292,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e41be315047afe42ecad3952c25eae0e88d9c0c6"
+  "built_at_commit": "3811df9c8f3b93db0770c7d7f6392f12879169a2"
 }
