@@ -7,6 +7,7 @@ export default function AuthLayout() {
       <Stack.Screen name="kayit" options={{ title: 'Kayıt Ol', headerShown: true }} />
       <Stack.Screen name="onay-bekliyor" options={{ title: 'E-posta Doğrulama', headerShown: true }} />
       <Stack.Screen name="sifremi-unuttum" options={{ title: 'Şifremi Unuttum', headerShown: true }} />
+      <Stack.Screen name="yonetici" options={{ title: 'Yönetici Girişi', headerShown: true }} />
     </Stack>
   );
 }

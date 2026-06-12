@@ -1,12 +1,19 @@
-import { Tabs } from 'expo-router';
+import { Redirect, Tabs } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../src/theme/ThemeContext';
 import { useSession } from '../../src/hooks/useSession';
+import { PERSONEL_ROLLER } from '../../src/types';
 
 export default function YonetimLayout() {
   const { tema, renkler } = useTheme();
   const { profile } = useSession();
+
+  // Müşteri rolü yönetici arayüzüne giremez (RLS zaten veri vermez,
+  // bu sadece UI koruması)
+  if (profile && !PERSONEL_ROLLER.includes(profile.rol)) {
+    return <Redirect href="/(main)" />;
+  }
 
   const admin = profile?.rol === 'admin';
   const subeSahibi = profile?.rol === 'sube_sahibi';

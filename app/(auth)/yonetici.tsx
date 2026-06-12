@@ -1,92 +1,70 @@
 import { useState } from 'react';
 import {
-  Alert, ActivityIndicator, ScrollView, StyleSheet, Switch,
+  ActivityIndicator, Alert, ScrollView, StyleSheet, Switch,
   Text, TextInput, TouchableOpacity, View,
 } from 'react-native';
-import { Link, useRouter } from 'expo-router';
+import { Link } from 'expo-router';
 import * as SecureStore from 'expo-secure-store';
 import { supabase } from '../../src/lib/supabase';
 import { Logo } from '../../src/components/Logo';
 import { CaptchaWidget } from '../../src/components/CaptchaWidget';
-import { toE164, isValidTrPhone } from '../../src/components/PhoneInput';
 
 const CAPTCHA_SITE_KEY = process.env.EXPO_PUBLIC_HCAPTCHA_SITE_KEY;
 const REMEMBER_KEY = 'otonbu_remember_me';
 const EMAIL_REGEX = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
-export default function GirisScreen() {
-  const [kimlik, setKimlik] = useState('');           // email VEYA "+90..." veya 10 hane
+// Personel girişi: aynı auth, ayrı kapı. Girişten sonra root layout
+// rolüne göre yönlendirir — personel yönetici paneline düşer; personel
+// olmayan biri girerse müşteri paneline gider, yetki sızmaz (RLS).
+export default function YoneticiGirisScreen() {
+  const [email, setEmail] = useState('');
   const [sifre, setSifre] = useState('');
   const [beniHatirla, setBeniHatirla] = useState(true);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [captchaKey, setCaptchaKey] = useState(0);    // token tek kullanımlık; hatada remount
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
-
-  function captchaSifirla() {
-    setCaptchaToken(null);
-    setCaptchaKey(k => k + 1);
-  }
 
   async function girisYap() {
-    const k = kimlik.trim();
-    if (!k || !sifre) { Alert.alert('Hata', 'E-posta/telefon ve şifre gerekli'); return; }
+    const mail = email.trim().toLowerCase();
+    if (!EMAIL_REGEX.test(mail)) { Alert.alert('Hata', 'Geçerli bir e-posta girin'); return; }
+    if (!sifre) { Alert.alert('Hata', 'Şifre gerekli'); return; }
     if (CAPTCHA_SITE_KEY && !captchaToken) {
       Alert.alert('Doğrulama', 'CAPTCHA doğrulamasını tamamlayın'); return;
     }
 
-    let email: string;
-    if (EMAIL_REGEX.test(k)) {
-      email = k.toLowerCase();
-    } else {
-      // Telefon olarak yorumla: sadece rakamları al, 10 hane Türkiye numarası bekle
-      const digits = k.replace(/\D/g, '').replace(/^90/, '');
-      if (!isValidTrPhone(digits)) {
-        Alert.alert('Hata', 'Geçerli bir e-posta veya 10 haneli telefon girin');
-        return;
-      }
-      const tel = toE164(digits);
-      setLoading(true);
-      const { data, error } = await supabase.rpc('telefon_to_email', { t: tel });
-      if (error || !data) {
-        setLoading(false);
-        Alert.alert('Hata', 'Bu telefonla kayıt bulunamadı');
-        return;
-      }
-      email = data;
-    }
-
     setLoading(true);
     const { error } = await supabase.auth.signInWithPassword({
-      email,
+      email: mail,
       password: sifre,
       options: captchaToken ? { captchaToken } : undefined,
     });
     setLoading(false);
 
     if (error) {
-      captchaSifirla();
+      setCaptchaToken(null);
+      setCaptchaKey(k => k + 1);
       Alert.alert('Giriş başarısız', error.message);
       return;
     }
-
     await SecureStore.setItemAsync(REMEMBER_KEY, beniHatirla ? '1' : '0');
-    // Başarılıysa _layout onAuthStateChange ile (main)'e yönlendirir
+    // Root layout rolüne göre (yonetim)/(main) yönlendirmesini yapar
   }
 
   return (
     <ScrollView contentContainerStyle={s.container} keyboardShouldPersistTaps="handled">
-      <Logo />
+      <Logo width={160} showTagline={false} />
+      <Text style={s.baslik}>Yönetici Girişi</Text>
+      <Text style={s.alt}>OTONBU personeli ve şube yöneticileri</Text>
 
-      <Text style={s.label}>E-posta veya Telefon</Text>
+      <Text style={s.label}>E-posta</Text>
       <TextInput
         style={s.input}
-        placeholder="ornek@email.com  veya  +90 523 285 29 60"
+        placeholder="ornek@otonbu.com"
         autoCapitalize="none"
         autoCorrect={false}
         keyboardType="email-address"
-        value={kimlik}
-        onChangeText={setKimlik}
+        value={email}
+        onChangeText={setEmail}
       />
 
       <Text style={s.label}>Şifre</Text>
@@ -124,17 +102,9 @@ export default function GirisScreen() {
         </TouchableOpacity>
       </Link>
 
-      <Link href="/(auth)/kayit" asChild>
+      <Link href="/(auth)" asChild>
         <TouchableOpacity style={s.link}>
-          <Text style={s.linkText}>Hesabın yok mu? <Text style={s.linkStrong}>Kayıt Ol</Text></Text>
-        </TouchableOpacity>
-      </Link>
-
-      <View style={s.spacer} />
-
-      <Link href="/(auth)/yonetici" asChild>
-        <TouchableOpacity style={s.adminLink}>
-          <Text style={s.adminText}>Yönetici Girişi</Text>
+          <Text style={s.linkText}>← Müşteri girişine dön</Text>
         </TouchableOpacity>
       </Link>
     </ScrollView>
@@ -142,7 +112,9 @@ export default function GirisScreen() {
 }
 
 const s = StyleSheet.create({
-  container: { flexGrow: 1, padding: 24, paddingTop: 60, backgroundColor: '#fff' },
+  container: { flexGrow: 1, padding: 24, paddingTop: 48, backgroundColor: '#fff' },
+  baslik: { fontSize: 22, fontWeight: '800', textAlign: 'center', color: '#0f172a' },
+  alt: { textAlign: 'center', color: '#64748b', marginBottom: 28, marginTop: 4 },
   label: { fontSize: 13, color: '#475569', marginBottom: 6, marginTop: 4 },
   input: {
     borderWidth: 1, borderColor: '#ddd', borderRadius: 10,
@@ -155,13 +127,6 @@ const s = StyleSheet.create({
     padding: 16, alignItems: 'center', marginTop: 4,
   },
   btnText: { color: '#fff', fontSize: 16, fontWeight: '700' },
-  link: { alignItems: 'center', paddingVertical: 16 },
+  link: { alignItems: 'center', paddingVertical: 12 },
   linkText: { color: '#475569', fontSize: 14 },
-  linkStrong: { color: '#1a56db', fontWeight: '700' },
-  spacer: { flex: 1, minHeight: 40 },
-  adminLink: {
-    alignItems: 'center', paddingVertical: 14, marginTop: 16,
-    borderTopWidth: 1, borderTopColor: '#e2e8f0',
-  },
-  adminText: { color: '#94a3b8', fontSize: 13, fontWeight: '600', letterSpacing: 0.5 },
 });

@@ -1,5 +1,8 @@
 export type Rol = 'musteri' | 'sube_sahibi' | 'kasa' | 'usta' | 'admin';
 
+// Bu roller yönetici paneline erişir (müşteri paneline de geçebilirler)
+export const PERSONEL_ROLLER: Rol[] = ['admin', 'sube_sahibi', 'kasa', 'usta'];
+
 export interface UserProfile {
   id: string;
   branch_id: string | null;

@@ -1,10 +1,12 @@
 import {
   Alert, ScrollView, StyleSheet, Text, TouchableOpacity, View,
 } from 'react-native';
+import { useRouter, useSegments } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '../../src/lib/supabase';
 import { useSession } from '../../src/hooks/useSession';
 import { Tema, useTheme } from '../../src/theme/ThemeContext';
+import { PERSONEL_ROLLER } from '../../src/types';
 
 const ROL_ADLARI: Record<string, string> = {
   musteri: 'Müşteri',
@@ -17,6 +19,12 @@ const ROL_ADLARI: Record<string, string> = {
 export default function ProfilScreen() {
   const { profile } = useSession();
   const { tema, renkler, setTema } = useTheme();
+  const router = useRouter();
+  const segments = useSegments();
+
+  // Personel iki panel arasında geçebilir (örn. yöneticinin kendi aracı varsa)
+  const personel = !!profile && PERSONEL_ROLLER.includes(profile.rol);
+  const yonetimde = segments[0] === '(yonetim)';
 
   function cikisOnayi() {
     Alert.alert('Çıkış Yap', 'Hesabından çıkış yapılacak. Emin misin?', [
@@ -95,6 +103,26 @@ export default function ProfilScreen() {
         </View>
       </View>
 
+      {/* Panel geçişi (sadece personel) */}
+      {personel && (
+        <>
+          <Text style={[s.bolumBaslik, { color: renkler.subtext }]}>PANEL</Text>
+          <TouchableOpacity
+            style={[s.gecisBtn, { backgroundColor: renkler.card, borderColor: renkler.primary }]}
+            onPress={() => router.replace(yonetimde ? '/(main)' : '/(yonetim)')}
+          >
+            <Ionicons
+              name={yonetimde ? 'car-outline' : 'speedometer-outline'}
+              size={20}
+              color={renkler.primary}
+            />
+            <Text style={[s.gecisText, { color: renkler.primary }]}>
+              {yonetimde ? 'Müşteri Paneline Geç' : 'Yönetici Paneline Geç'}
+            </Text>
+          </TouchableOpacity>
+        </>
+      )}
+
       {/* Hesap */}
       <Text style={[s.bolumBaslik, { color: renkler.subtext }]}>HESAP</Text>
       <TouchableOpacity
@@ -134,6 +162,11 @@ const s = StyleSheet.create({
     borderWidth: 1, borderRadius: 10, paddingVertical: 12,
   },
   temaText: { fontSize: 15, fontWeight: '600' },
+  gecisBtn: {
+    flexDirection: 'row', gap: 8, alignItems: 'center', justifyContent: 'center',
+    borderWidth: 1, borderRadius: 12, padding: 14,
+  },
+  gecisText: { fontSize: 15, fontWeight: '600' },
   cikisBtn: {
     flexDirection: 'row', gap: 8, alignItems: 'center', justifyContent: 'center',
     borderWidth: 1, borderRadius: 12, padding: 14,

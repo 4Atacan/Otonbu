@@ -6,14 +6,12 @@ import { initSentry } from '../src/lib/sentry';
 import { useSession } from '../src/hooks/useSession';
 import { supabase } from '../src/lib/supabase';
 import { ThemeProvider } from '../src/theme/ThemeContext';
+import { PERSONEL_ROLLER } from '../src/types';
 
 const REMEMBER_KEY = 'otonbu_remember_me';
 
 initSentry();
 SplashScreen.preventAutoHideAsync();
-
-// Personel rolleri yönetici arayüzüne düşer; müşteri müşteri sekmelerine
-const PERSONEL_ROLLER = ['admin', 'sube_sahibi', 'kasa', 'usta'];
 
 export default function RootLayout() {
   const { session, profile, loading } = useSession();
@@ -42,11 +40,12 @@ export default function RootLayout() {
       if (grup !== '(auth)') router.replace('/(auth)');
       return;
     }
-    // Profil yüklenemezse müşteri arayüzüne düş (RLS zaten korur)
-    const hedef = profile && PERSONEL_ROLLER.includes(profile.rol)
-      ? '(yonetim)' : '(main)';
-    if (grup !== hedef) {
-      router.replace(hedef === '(yonetim)' ? '/(yonetim)' : '/(main)');
+    // Yalnızca giriş sonrası (auth grubundayken) rolüne göre yönlendir.
+    // (main) ↔ (yonetim) arası geçişe karışma: personel müşteri panelini
+    // de kullanabilir (yonetim layout'u müşteriyi dışarı atar).
+    if (grup === '(auth)' || grup === undefined) {
+      const personel = profile && PERSONEL_ROLLER.includes(profile.rol);
+      router.replace(personel ? '/(yonetim)' : '/(main)');
     }
   }, [session, profile, loading, segments]);
 
