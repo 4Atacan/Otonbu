@@ -60,8 +60,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(main)\\araclar.tsx": {
-    "mtime": 1780490687.9932263,
-    "ast_hash": "aa5041dbf502ba2a502bd031f5e7c068",
+    "mtime": 1781253695.0327263,
+    "ast_hash": "37f1da4dda6fb76bf48cf9acf3b2cab1",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(main)\\index.tsx": {
@@ -120,8 +120,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\types\\index.ts": {
-    "mtime": 1781251728.1094992,
-    "ast_hash": "d9a8bb5f5a655aa56b07b78830ab919c",
+    "mtime": 1781253662.880108,
+    "ast_hash": "933fc996b46d4bc3a9c7980ef81c47e8",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\functions\\_shared\\sentry.ts": {
@@ -155,7 +155,7 @@
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\graphify-out\\converted\\OTONBU_Uygulama_Ozellikleri_9e87f775.md": {
-    "mtime": 1781251998.4335794,
+    "mtime": 1781253726.6866503,
     "ast_hash": "f7b8e32b29a1ec6303d2e1127139fd4b",
     "semantic_hash": ""
   },
@@ -197,6 +197,21 @@
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\assets\\splash-icon.png": {
     "mtime": 1780409217.4885557,
     "ast_hash": "97dae5a0e62ad8551d8a31897b425e63",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\components\\AutocompleteInput.tsx": {
+    "mtime": 1781253654.1890206,
+    "ast_hash": "52ba653043033ee37784ab9365e56883",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\data\\arac-katalogu.ts": {
+    "mtime": 1781253628.609804,
+    "ast_hash": "bb1019a7e6cf03f83b2e18016dddc203",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\migrations\\20260612000002_vehicles_detay.sql": {
+    "mtime": 1781253581.257825,
+    "ast_hash": "993cfa06852380a7cf374946d808428f",
     "semantic_hash": ""
   }
 }

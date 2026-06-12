@@ -31,7 +31,9 @@ export interface Vehicle {
   id: string;
   user_id: string;
   plaka: string;         // KİŞİSEL VERİ
-  marka_model: string | null;
-  segment: string;
+  arac_cinsi: string | null;   // sedan, suv, ... (arac-katalogu.ts)
+  marka: string | null;
+  model: string | null;
+  segment: string;       // fiyatlama Faz 2+ kararı; formdan sorulmaz
   created_at: string;
 }
