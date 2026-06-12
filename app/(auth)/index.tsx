@@ -130,13 +130,6 @@ export default function GirisScreen() {
         </TouchableOpacity>
       </Link>
 
-      <View style={s.spacer} />
-
-      <Link href="/(auth)/yonetici" asChild>
-        <TouchableOpacity style={s.adminLink}>
-          <Text style={s.adminText}>Yönetici Girişi</Text>
-        </TouchableOpacity>
-      </Link>
     </ScrollView>
   );
 }
@@ -158,10 +151,4 @@ const s = StyleSheet.create({
   link: { alignItems: 'center', paddingVertical: 16 },
   linkText: { color: '#475569', fontSize: 14 },
   linkStrong: { color: '#1a56db', fontWeight: '700' },
-  spacer: { flex: 1, minHeight: 40 },
-  adminLink: {
-    alignItems: 'center', paddingVertical: 14, marginTop: 16,
-    borderTopWidth: 1, borderTopColor: '#e2e8f0',
-  },
-  adminText: { color: '#94a3b8', fontSize: 13, fontWeight: '600', letterSpacing: 0.5 },
 });

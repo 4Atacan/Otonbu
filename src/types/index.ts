@@ -18,6 +18,31 @@ export interface Branch {
   aktif: boolean;
 }
 
+export interface TimeSlot {
+  id: string;
+  branch_id: string;
+  baslangic: string;
+  kapasite: number;
+}
+
+export type RandevuDurum = 'beklemede' | 'onayli' | 'iptal';
+
+export interface Appointment {
+  id: string;
+  branch_id: string;
+  user_id: string;
+  vehicle_id: string;
+  service_id: string;
+  slot_id: string | null;
+  durum: RandevuDurum;
+  created_at: string;
+  // PostgREST embed'leri (select '*, users(...), vehicles(...), ...')
+  users?: { ad_soyad: string | null; telefon: string | null } | null;
+  vehicles?: { plaka: string; marka: string | null; model: string | null } | null;
+  services?: { ad: string } | null;
+  time_slots?: { baslangic: string } | null;
+}
+
 export interface Campaign {
   id: string;
   branch_id: string | null;   // null = tüm şubelerde geçerli

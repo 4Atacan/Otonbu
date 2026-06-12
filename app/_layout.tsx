@@ -12,8 +12,11 @@ const REMEMBER_KEY = 'otonbu_remember_me';
 initSentry();
 SplashScreen.preventAutoHideAsync();
 
+// Personel rolleri yönetici arayüzüne düşer; müşteri müşteri sekmelerine
+const PERSONEL_ROLLER = ['admin', 'sube_sahibi', 'kasa', 'usta'];
+
 export default function RootLayout() {
-  const { session, loading } = useSession();
+  const { session, profile, loading } = useSession();
   const segments = useSegments();
   const router = useRouter();
   const startupChecked = useRef(false);
@@ -34,16 +37,25 @@ export default function RootLayout() {
     if (loading) return;
     SplashScreen.hideAsync();
 
-    const inAuth = segments[0] === '(auth)';
-    if (!session && !inAuth) router.replace('/(auth)');
-    else if (session && inAuth) router.replace('/(main)');
-  }, [session, loading, segments]);
+    const grup = segments[0];
+    if (!session) {
+      if (grup !== '(auth)') router.replace('/(auth)');
+      return;
+    }
+    // Profil yüklenemezse müşteri arayüzüne düş (RLS zaten korur)
+    const hedef = profile && PERSONEL_ROLLER.includes(profile.rol)
+      ? '(yonetim)' : '(main)';
+    if (grup !== hedef) {
+      router.replace(hedef === '(yonetim)' ? '/(yonetim)' : '/(main)');
+    }
+  }, [session, profile, loading, segments]);
 
   return (
     <ThemeProvider>
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(auth)" />
         <Stack.Screen name="(main)" />
+        <Stack.Screen name="(yonetim)" />
       </Stack>
     </ThemeProvider>
   );

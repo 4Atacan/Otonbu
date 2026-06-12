@@ -268,7 +268,7 @@
       "label": "s",
       "file_type": "code",
       "source_file": "app/(auth)/index.tsx",
-      "source_location": "L144",
+      "source_location": "L137",
       "id": "auth_index_s",
       "community": 3,
       "norm_label": "s"
@@ -351,33 +351,6 @@
       "source_file": "app/(auth)/sifremi-unuttum.tsx",
       "source_location": "L178",
       "id": "auth_sifremi_unuttum_s",
-      "community": 3,
-      "norm_label": "s"
-    },
-    {
-      "label": "yonetici.tsx",
-      "file_type": "code",
-      "source_file": "app/(auth)/yonetici.tsx",
-      "source_location": "L1",
-      "id": "auth_yonetici",
-      "community": 3,
-      "norm_label": "yonetici.tsx"
-    },
-    {
-      "label": "YoneticiGirisScreen()",
-      "file_type": "code",
-      "source_file": "app/(auth)/yonetici.tsx",
-      "source_location": "L5",
-      "id": "auth_yonetici_yoneticigirisscreen",
-      "community": 3,
-      "norm_label": "yoneticigirisscreen()"
-    },
-    {
-      "label": "s",
-      "file_type": "code",
-      "source_file": "app/(auth)/yonetici.tsx",
-      "source_location": "L27",
-      "id": "auth_yonetici_s",
       "community": 3,
       "norm_label": "s"
     },
@@ -519,6 +492,195 @@
     {
       "label": "_layout.tsx",
       "file_type": "code",
+      "source_file": "app/(yonetim)/_layout.tsx",
+      "source_location": "L1",
+      "id": "yonetim_layout",
+      "community": 4,
+      "norm_label": "_layout.tsx"
+    },
+    {
+      "label": "YonetimLayout()",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/_layout.tsx",
+      "source_location": "L7",
+      "id": "yonetim_layout_yonetimlayout",
+      "community": 4,
+      "norm_label": "yonetimlayout()"
+    },
+    {
+      "label": "hizmetler.tsx",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L1",
+      "id": "yonetim_hizmetler",
+      "community": 4,
+      "norm_label": "hizmetler.tsx"
+    },
+    {
+      "label": "HizmetlerScreen()",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L11",
+      "id": "yonetim_hizmetler_hizmetlerscreen",
+      "community": 4,
+      "norm_label": "hizmetlerscreen()"
+    },
+    {
+      "label": "s",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L180",
+      "id": "yonetim_hizmetler_s",
+      "community": 4,
+      "norm_label": "s"
+    },
+    {
+      "label": "index.tsx",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/index.tsx",
+      "source_location": "L1",
+      "id": "yonetim_index",
+      "community": 4,
+      "norm_label": "index.tsx"
+    },
+    {
+      "label": "ROL_ADLARI",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/index.tsx",
+      "source_location": "L9",
+      "id": "yonetim_index_rol_adlari",
+      "community": 4,
+      "norm_label": "rol_adlari"
+    },
+    {
+      "label": "PanelScreen()",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/index.tsx",
+      "source_location": "L16",
+      "id": "yonetim_index_panelscreen",
+      "community": 4,
+      "norm_label": "panelscreen()"
+    },
+    {
+      "label": "s",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/index.tsx",
+      "source_location": "L95",
+      "id": "yonetim_index_s",
+      "community": 4,
+      "norm_label": "s"
+    },
+    {
+      "label": "profil.tsx",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/profil.tsx",
+      "source_location": "L1",
+      "id": "yonetim_profil",
+      "community": 4,
+      "norm_label": "profil.tsx"
+    },
+    {
+      "label": "randevular.tsx",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L1",
+      "id": "yonetim_randevular",
+      "community": 4,
+      "norm_label": "randevular.tsx"
+    },
+    {
+      "label": "DURUM_ETIKET",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L12",
+      "id": "yonetim_randevular_durum_etiket",
+      "community": 4,
+      "norm_label": "durum_etiket"
+    },
+    {
+      "label": "RandevularScreen()",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L18",
+      "id": "yonetim_randevular_randevularscreen",
+      "community": 4,
+      "norm_label": "randevularscreen()"
+    },
+    {
+      "label": "s",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L156",
+      "id": "yonetim_randevular_s",
+      "community": 4,
+      "norm_label": "s"
+    },
+    {
+      "label": "slotlar.tsx",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/slotlar.tsx",
+      "source_location": "L1",
+      "id": "yonetim_slotlar",
+      "community": 15,
+      "norm_label": "slotlar.tsx"
+    },
+    {
+      "label": "gunler()",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/slotlar.tsx",
+      "source_location": "L16",
+      "id": "yonetim_slotlar_gunler",
+      "community": 15,
+      "norm_label": "gunler()"
+    },
+    {
+      "label": "SlotlarScreen()",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/slotlar.tsx",
+      "source_location": "L25",
+      "id": "yonetim_slotlar_slotlarscreen",
+      "community": 15,
+      "norm_label": "slotlarscreen()"
+    },
+    {
+      "label": "s",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/slotlar.tsx",
+      "source_location": "L183",
+      "id": "yonetim_slotlar_s",
+      "community": 15,
+      "norm_label": "s"
+    },
+    {
+      "label": "subeler.tsx",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/subeler.tsx",
+      "source_location": "L1",
+      "id": "yonetim_subeler",
+      "community": 4,
+      "norm_label": "subeler.tsx"
+    },
+    {
+      "label": "SubelerScreen()",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/subeler.tsx",
+      "source_location": "L11",
+      "id": "yonetim_subeler_subelerscreen",
+      "community": 4,
+      "norm_label": "subelerscreen()"
+    },
+    {
+      "label": "s",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/subeler.tsx",
+      "source_location": "L219",
+      "id": "yonetim_subeler_s",
+      "community": 4,
+      "norm_label": "s"
+    },
+    {
+      "label": "_layout.tsx",
+      "file_type": "code",
       "source_file": "app/_layout.tsx",
       "source_location": "L1",
       "id": "app_layout",
@@ -526,10 +688,19 @@
       "norm_label": "_layout.tsx"
     },
     {
+      "label": "PERSONEL_ROLLER",
+      "file_type": "code",
+      "source_file": "app/_layout.tsx",
+      "source_location": "L16",
+      "id": "app_layout_personel_roller",
+      "community": 4,
+      "norm_label": "personel_roller"
+    },
+    {
       "label": "RootLayout()",
       "file_type": "code",
       "source_file": "app/_layout.tsx",
-      "source_location": "L15",
+      "source_location": "L18",
       "id": "app_layout_rootlayout",
       "community": 4,
       "norm_label": "rootlayout()"
@@ -1210,6 +1381,42 @@
       "norm_label": "filtrele()"
     },
     {
+      "label": "calisma-duzeni.ts",
+      "file_type": "code",
+      "source_file": "src/data/calisma-duzeni.ts",
+      "source_location": "L1",
+      "id": "data_calisma_duzeni",
+      "community": 15,
+      "norm_label": "calisma-duzeni.ts"
+    },
+    {
+      "label": "SABAH",
+      "file_type": "code",
+      "source_file": "src/data/calisma-duzeni.ts",
+      "source_location": "L9",
+      "id": "data_calisma_duzeni_sabah",
+      "community": 15,
+      "norm_label": "sabah"
+    },
+    {
+      "label": "OGLEDEN_SONRA",
+      "file_type": "code",
+      "source_file": "src/data/calisma-duzeni.ts",
+      "source_location": "L10",
+      "id": "data_calisma_duzeni_ogleden_sonra",
+      "community": 15,
+      "norm_label": "ogleden_sonra"
+    },
+    {
+      "label": "gunlukSlotSaatleri()",
+      "file_type": "code",
+      "source_file": "src/data/calisma-duzeni.ts",
+      "source_location": "L12",
+      "id": "data_calisma_duzeni_gunlukslotsaatleri",
+      "community": 15,
+      "norm_label": "gunlukslotsaatleri()"
+    },
+    {
       "label": "useSession.ts",
       "file_type": "code",
       "source_file": "src/hooks/useSession.ts",
@@ -1399,10 +1606,37 @@
       "norm_label": "branch"
     },
     {
-      "label": "Campaign",
+      "label": "TimeSlot",
       "file_type": "code",
       "source_file": "src/types/index.ts",
       "source_location": "L21",
+      "id": "types_index_timeslot",
+      "community": 15,
+      "norm_label": "timeslot"
+    },
+    {
+      "label": "RandevuDurum",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L28",
+      "id": "types_index_randevudurum",
+      "community": 4,
+      "norm_label": "randevudurum"
+    },
+    {
+      "label": "Appointment",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L30",
+      "id": "types_index_appointment",
+      "community": 4,
+      "norm_label": "appointment"
+    },
+    {
+      "label": "Campaign",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L46",
       "id": "types_index_campaign",
       "community": 4,
       "norm_label": "campaign"
@@ -1411,7 +1645,7 @@
       "label": "Service",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L32",
+      "source_location": "L57",
       "id": "types_index_service",
       "community": 4,
       "norm_label": "service"
@@ -1420,7 +1654,7 @@
       "label": "Vehicle",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L41",
+      "source_location": "L66",
       "id": "types_index_vehicle",
       "community": 4,
       "norm_label": "vehicle"
@@ -1728,7 +1962,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L177",
       "id": "implementation_faz_2_randevu_ak\u0131\u015f\u0131_yay\u0131nlanabilir_mvp",
-      "community": 16,
+      "community": 2,
       "norm_label": "faz 2 \u2014 randevu ak\u0131s\u0131 (yay\u0131nlanabilir mvp)"
     },
     {
@@ -1737,7 +1971,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L179",
       "id": "implementation_tablolar_179",
-      "community": 16,
+      "community": 2,
       "norm_label": "tablolar"
     },
     {
@@ -1746,7 +1980,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L228",
       "id": "implementation_rls_politikalar\u0131_228",
-      "community": 16,
+      "community": 2,
       "norm_label": "rls politikalar\u0131"
     },
     {
@@ -1755,7 +1989,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L276",
       "id": "implementation_storage_g\u00f6revleri_\u00f6nce_sonra_foto",
-      "community": 16,
+      "community": 2,
       "norm_label": "storage gorevleri (once/sonra foto)"
     },
     {
@@ -1764,7 +1998,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L285",
       "id": "implementation_fiyat_hesab\u0131_edge_function_fiyat_hesapla",
-      "community": 16,
+      "community": 2,
       "norm_label": "fiyat hesab\u0131 (edge function \u2014 `fiyat-hesapla`)"
     },
     {
@@ -1773,7 +2007,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L292",
       "id": "implementation_kabul_kriteri_292",
-      "community": 16,
+      "community": 2,
       "norm_label": "kabul kriteri"
     },
     {
@@ -1782,7 +2016,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L300",
       "id": "implementation_faz_3_abonelik_\u00f6deme",
-      "community": 2,
+      "community": 16,
       "norm_label": "faz 3 \u2014 abonelik + odeme"
     },
     {
@@ -1791,7 +2025,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L304",
       "id": "implementation_tablolar_304",
-      "community": 2,
+      "community": 16,
       "norm_label": "tablolar"
     },
     {
@@ -1800,7 +2034,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L349",
       "id": "implementation_rls_politikalar\u0131_349",
-      "community": 2,
+      "community": 16,
       "norm_label": "rls politikalar\u0131"
     },
     {
@@ -1809,7 +2043,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L382",
       "id": "implementation_iyzico_\u00f6deme_ak\u0131\u015f\u0131_edge_functions",
-      "community": 2,
+      "community": 16,
       "norm_label": "iyzico odeme ak\u0131s\u0131 (edge functions)"
     },
     {
@@ -1818,7 +2052,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L392",
       "id": "implementation_abonelik_mant\u0131\u011f\u0131_edge_functions",
-      "community": 2,
+      "community": 16,
       "norm_label": "abonelik mant\u0131g\u0131 (edge functions)"
     },
     {
@@ -1827,7 +2061,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L400",
       "id": "implementation_kabul_kriteri_400",
-      "community": 2,
+      "community": 16,
       "norm_label": "kabul kriteri"
     },
     {
@@ -2051,7 +2285,7 @@
       "file_type": "document",
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L156",
-      "community": 16,
+      "community": 2,
       "norm_label": "tablolar",
       "id": "implementation_tablolar_156"
     },
@@ -2060,7 +2294,7 @@
       "file_type": "document",
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L205",
-      "community": 16,
+      "community": 2,
       "norm_label": "rls politikalar\u0131",
       "id": "implementation_rls_politikalar\u0131_205"
     },
@@ -2069,7 +2303,7 @@
       "file_type": "document",
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L269",
-      "community": 16,
+      "community": 2,
       "norm_label": "kabul kriteri",
       "id": "implementation_kabul_kriteri_269"
     },
@@ -2078,7 +2312,7 @@
       "file_type": "document",
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L281",
-      "community": 2,
+      "community": 16,
       "norm_label": "tablolar",
       "id": "implementation_tablolar_281"
     },
@@ -2087,7 +2321,7 @@
       "file_type": "document",
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L326",
-      "community": 2,
+      "community": 16,
       "norm_label": "rls politikalar\u0131",
       "id": "implementation_rls_politikalar\u0131_326"
     },
@@ -2096,7 +2330,7 @@
       "file_type": "document",
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L377",
-      "community": 2,
+      "community": 16,
       "norm_label": "kabul kriteri",
       "id": "implementation_kabul_kriteri_377"
     },
@@ -2793,48 +3027,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app/(auth)/yonetici.tsx",
-      "source_location": "L27",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "auth_yonetici",
-      "target": "auth_yonetici_s"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(auth)/yonetici.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "auth_yonetici",
-      "target": "auth_yonetici_yoneticigirisscreen"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(auth)/yonetici.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "auth_yonetici",
-      "target": "components_logo"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(auth)/yonetici.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "auth_yonetici",
-      "target": "components_logo_logo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "app/(main)/_layout.tsx",
       "source_location": "L3",
       "weight": 1.0,
@@ -2849,9 +3041,9 @@
       "source_file": "app/(main)/_layout.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_layout",
-      "target": "theme_themecontext",
-      "confidence_score": 1.0
+      "target": "theme_themecontext"
     },
     {
       "relation": "imports",
@@ -2860,9 +3052,9 @@
       "source_file": "app/(main)/_layout.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_layout",
-      "target": "theme_themecontext_usetheme",
-      "confidence_score": 1.0
+      "target": "theme_themecontext_usetheme"
     },
     {
       "relation": "calls",
@@ -3011,9 +3203,9 @@
       "source_file": "app/(main)/araclar.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_araclar",
-      "target": "theme_themecontext",
-      "confidence_score": 1.0
+      "target": "theme_themecontext"
     },
     {
       "relation": "imports",
@@ -3022,9 +3214,9 @@
       "source_file": "app/(main)/araclar.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_araclar",
-      "target": "theme_themecontext_usetheme",
-      "confidence_score": 1.0
+      "target": "theme_themecontext_usetheme"
     },
     {
       "relation": "imports_from",
@@ -3130,9 +3322,9 @@
       "source_file": "app/(main)/index.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_index",
-      "target": "theme_themecontext",
-      "confidence_score": 1.0
+      "target": "theme_themecontext"
     },
     {
       "relation": "imports",
@@ -3141,9 +3333,9 @@
       "source_file": "app/(main)/index.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_index",
-      "target": "theme_themecontext_usetheme",
-      "confidence_score": 1.0
+      "target": "theme_themecontext_usetheme"
     },
     {
       "relation": "imports_from",
@@ -3152,9 +3344,9 @@
       "source_file": "app/(main)/index.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_index",
-      "target": "types_index",
-      "confidence_score": 1.0
+      "target": "types_index"
     },
     {
       "relation": "imports",
@@ -3163,9 +3355,9 @@
       "source_file": "app/(main)/index.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_index",
-      "target": "types_index_service",
-      "confidence_score": 1.0
+      "target": "types_index_service"
     },
     {
       "relation": "calls",
@@ -3196,9 +3388,9 @@
       "source_file": "app/(main)/kampanyalar.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_kampanyalar",
-      "target": "lib_supabase",
-      "confidence_score": 1.0
+      "target": "lib_supabase"
     },
     {
       "relation": "imports",
@@ -3207,9 +3399,9 @@
       "source_file": "app/(main)/kampanyalar.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_kampanyalar",
-      "target": "lib_supabase_supabase",
-      "confidence_score": 1.0
+      "target": "lib_supabase_supabase"
     },
     {
       "relation": "contains",
@@ -3217,9 +3409,9 @@
       "source_file": "app/(main)/kampanyalar.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_kampanyalar",
-      "target": "main_kampanyalar_kampanyalarscreen",
-      "confidence_score": 1.0
+      "target": "main_kampanyalar_kampanyalarscreen"
     },
     {
       "relation": "contains",
@@ -3227,9 +3419,9 @@
       "source_file": "app/(main)/kampanyalar.tsx",
       "source_location": "L90",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_kampanyalar",
-      "target": "main_kampanyalar_s",
-      "confidence_score": 1.0
+      "target": "main_kampanyalar_s"
     },
     {
       "relation": "imports_from",
@@ -3238,9 +3430,9 @@
       "source_file": "app/(main)/kampanyalar.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_kampanyalar",
-      "target": "theme_themecontext",
-      "confidence_score": 1.0
+      "target": "theme_themecontext"
     },
     {
       "relation": "imports",
@@ -3249,9 +3441,9 @@
       "source_file": "app/(main)/kampanyalar.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_kampanyalar",
-      "target": "theme_themecontext_usetheme",
-      "confidence_score": 1.0
+      "target": "theme_themecontext_usetheme"
     },
     {
       "relation": "imports_from",
@@ -3260,9 +3452,9 @@
       "source_file": "app/(main)/kampanyalar.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_kampanyalar",
-      "target": "types_index",
-      "confidence_score": 1.0
+      "target": "types_index"
     },
     {
       "relation": "imports",
@@ -3271,9 +3463,9 @@
       "source_file": "app/(main)/kampanyalar.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_kampanyalar",
-      "target": "types_index_campaign",
-      "confidence_score": 1.0
+      "target": "types_index_campaign"
     },
     {
       "relation": "calls",
@@ -3293,9 +3485,9 @@
       "source_file": "app/(main)/profil.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_profil",
-      "target": "hooks_usesession",
-      "confidence_score": 1.0
+      "target": "hooks_usesession"
     },
     {
       "relation": "imports",
@@ -3304,9 +3496,9 @@
       "source_file": "app/(main)/profil.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_profil",
-      "target": "hooks_usesession_usesession",
-      "confidence_score": 1.0
+      "target": "hooks_usesession_usesession"
     },
     {
       "relation": "imports_from",
@@ -3315,9 +3507,9 @@
       "source_file": "app/(main)/profil.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_profil",
-      "target": "lib_supabase",
-      "confidence_score": 1.0
+      "target": "lib_supabase"
     },
     {
       "relation": "imports",
@@ -3326,9 +3518,9 @@
       "source_file": "app/(main)/profil.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_profil",
-      "target": "lib_supabase_supabase",
-      "confidence_score": 1.0
+      "target": "lib_supabase_supabase"
     },
     {
       "relation": "contains",
@@ -3336,9 +3528,9 @@
       "source_file": "app/(main)/profil.tsx",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_profil",
-      "target": "main_profil_profilscreen",
-      "confidence_score": 1.0
+      "target": "main_profil_profilscreen"
     },
     {
       "relation": "contains",
@@ -3346,9 +3538,9 @@
       "source_file": "app/(main)/profil.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_profil",
-      "target": "main_profil_rol_adlari",
-      "confidence_score": 1.0
+      "target": "main_profil_rol_adlari"
     },
     {
       "relation": "contains",
@@ -3356,9 +3548,9 @@
       "source_file": "app/(main)/profil.tsx",
       "source_location": "L111",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_profil",
-      "target": "main_profil_s",
-      "confidence_score": 1.0
+      "target": "main_profil_s"
     },
     {
       "relation": "imports_from",
@@ -3367,9 +3559,9 @@
       "source_file": "app/(main)/profil.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_profil",
-      "target": "theme_themecontext",
-      "confidence_score": 1.0
+      "target": "theme_themecontext"
     },
     {
       "relation": "imports",
@@ -3378,9 +3570,9 @@
       "source_file": "app/(main)/profil.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_profil",
-      "target": "theme_themecontext_tema",
-      "confidence_score": 1.0
+      "target": "theme_themecontext_tema"
     },
     {
       "relation": "imports",
@@ -3389,8 +3581,19 @@
       "source_file": "app/(main)/profil.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_profil",
-      "target": "theme_themecontext_usetheme",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/profil.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "yonetim_profil",
+      "target": "main_profil",
       "confidence_score": 1.0
     },
     {
@@ -3414,6 +3617,695 @@
       "weight": 1.0,
       "source": "main_profil_profilscreen",
       "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/_layout.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "yonetim_layout",
+      "target": "hooks_usesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/_layout.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "yonetim_layout",
+      "target": "hooks_usesession_usesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/_layout.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "yonetim_layout",
+      "target": "theme_themecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/_layout.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "yonetim_layout",
+      "target": "theme_themecontext_usetheme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/_layout.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "yonetim_layout",
+      "target": "yonetim_layout_yonetimlayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(yonetim)/_layout.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "yonetim_layout_yonetimlayout",
+      "target": "hooks_usesession_usesession"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(yonetim)/_layout.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "yonetim_layout_yonetimlayout",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "lib_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "theme_themecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "theme_themecontext_usetheme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "types_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "types_index_service",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "yonetim_hizmetler_hizmetlerscreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L180",
+      "weight": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "yonetim_hizmetler_s",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "yonetim_hizmetler_hizmetlerscreen",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/index.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "yonetim_index",
+      "target": "hooks_usesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/index.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "yonetim_index",
+      "target": "hooks_usesession_usesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/index.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "yonetim_index",
+      "target": "lib_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/index.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "yonetim_index",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/index.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "yonetim_index",
+      "target": "theme_themecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/index.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "yonetim_index",
+      "target": "theme_themecontext_usetheme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/index.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "yonetim_index",
+      "target": "yonetim_index_panelscreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/index.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "yonetim_index",
+      "target": "yonetim_index_rol_adlari",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/index.tsx",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "yonetim_index",
+      "target": "yonetim_index_s",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(yonetim)/index.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "yonetim_index_panelscreen",
+      "target": "hooks_usesession_usesession"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(yonetim)/index.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "yonetim_index_panelscreen",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "yonetim_randevular",
+      "target": "lib_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "yonetim_randevular",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "yonetim_randevular",
+      "target": "theme_themecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "yonetim_randevular",
+      "target": "theme_themecontext_usetheme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "yonetim_randevular",
+      "target": "types_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "yonetim_randevular",
+      "target": "types_index_appointment",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "yonetim_randevular",
+      "target": "types_index_randevudurum",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "yonetim_randevular",
+      "target": "yonetim_randevular_durum_etiket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "yonetim_randevular",
+      "target": "yonetim_randevular_randevularscreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L156",
+      "weight": 1.0,
+      "source": "yonetim_randevular",
+      "target": "yonetim_randevular_s",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "yonetim_randevular_randevularscreen",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/slotlar.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "yonetim_slotlar",
+      "target": "data_calisma_duzeni",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/slotlar.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "yonetim_slotlar",
+      "target": "data_calisma_duzeni_gunlukslotsaatleri",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/slotlar.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "yonetim_slotlar",
+      "target": "hooks_usesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/slotlar.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "yonetim_slotlar",
+      "target": "hooks_usesession_usesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/slotlar.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "yonetim_slotlar",
+      "target": "lib_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/slotlar.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "yonetim_slotlar",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/slotlar.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "yonetim_slotlar",
+      "target": "theme_themecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/slotlar.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "yonetim_slotlar",
+      "target": "theme_themecontext_usetheme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/slotlar.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "yonetim_slotlar",
+      "target": "types_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/slotlar.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "yonetim_slotlar",
+      "target": "types_index_timeslot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/slotlar.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "yonetim_slotlar",
+      "target": "yonetim_slotlar_gunler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/slotlar.tsx",
+      "source_location": "L183",
+      "weight": 1.0,
+      "source": "yonetim_slotlar",
+      "target": "yonetim_slotlar_s",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/slotlar.tsx",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "yonetim_slotlar",
+      "target": "yonetim_slotlar_slotlarscreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/slotlar.tsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "yonetim_slotlar_slotlarscreen",
+      "target": "yonetim_slotlar_gunler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(yonetim)/slotlar.tsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "yonetim_slotlar_slotlarscreen",
+      "target": "hooks_usesession_usesession"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(yonetim)/slotlar.tsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "yonetim_slotlar_slotlarscreen",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/subeler.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "yonetim_subeler",
+      "target": "lib_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/subeler.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "yonetim_subeler",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/subeler.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "yonetim_subeler",
+      "target": "theme_themecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/subeler.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "yonetim_subeler",
+      "target": "theme_themecontext_usetheme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/subeler.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "yonetim_subeler",
+      "target": "types_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/subeler.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "yonetim_subeler",
+      "target": "types_index_branch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/subeler.tsx",
+      "source_location": "L219",
+      "weight": 1.0,
+      "source": "yonetim_subeler",
+      "target": "yonetim_subeler_s",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/subeler.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "yonetim_subeler",
+      "target": "yonetim_subeler_subelerscreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(yonetim)/subeler.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "yonetim_subeler_subelerscreen",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/_layout.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "app_layout",
+      "target": "app_layout_personel_roller",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3498,9 +4390,9 @@
       "source_file": "app/_layout.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_layout",
-      "target": "theme_themecontext",
-      "confidence_score": 1.0
+      "target": "theme_themecontext"
     },
     {
       "relation": "imports",
@@ -3509,9 +4401,9 @@
       "source_file": "app/_layout.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_layout",
-      "target": "theme_themecontext_themeprovider",
-      "confidence_score": 1.0
+      "target": "theme_themecontext_themeprovider"
     },
     {
       "relation": "calls",
@@ -4065,9 +4957,9 @@
       "source_file": "src/components/AutocompleteInput.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_autocompleteinput",
-      "target": "theme_themecontext",
-      "confidence_score": 1.0
+      "target": "theme_themecontext"
     },
     {
       "relation": "imports",
@@ -4076,9 +4968,9 @@
       "source_file": "src/components/AutocompleteInput.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_autocompleteinput",
-      "target": "theme_themecontext_usetheme",
-      "confidence_score": 1.0
+      "target": "theme_themecontext_usetheme"
     },
     {
       "relation": "calls",
@@ -4317,6 +5209,36 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/data/calisma-duzeni.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "data_calisma_duzeni",
+      "target": "data_calisma_duzeni_gunlukslotsaatleri",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/calisma-duzeni.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "data_calisma_duzeni",
+      "target": "data_calisma_duzeni_ogleden_sonra",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/calisma-duzeni.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "data_calisma_duzeni",
+      "target": "data_calisma_duzeni_sabah",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/hooks/useSession.ts",
       "source_location": "L7",
       "weight": 1.0,
@@ -4394,9 +5316,9 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "theme_themecontext",
-      "target": "theme_themecontext_acik",
-      "confidence_score": 1.0
+      "target": "theme_themecontext_acik"
     },
     {
       "relation": "contains",
@@ -4404,9 +5326,9 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "theme_themecontext",
-      "target": "theme_themecontext_koyu",
-      "confidence_score": 1.0
+      "target": "theme_themecontext_koyu"
     },
     {
       "relation": "contains",
@@ -4414,9 +5336,9 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "theme_themecontext",
-      "target": "theme_themecontext_renkler",
-      "confidence_score": 1.0
+      "target": "theme_themecontext_renkler"
     },
     {
       "relation": "contains",
@@ -4424,9 +5346,9 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "theme_themecontext",
-      "target": "theme_themecontext_tema",
-      "confidence_score": 1.0
+      "target": "theme_themecontext_tema"
     },
     {
       "relation": "contains",
@@ -4434,9 +5356,9 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "theme_themecontext",
-      "target": "theme_themecontext_temaoku",
-      "confidence_score": 1.0
+      "target": "theme_themecontext_temaoku"
     },
     {
       "relation": "contains",
@@ -4444,9 +5366,9 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "theme_themecontext",
-      "target": "theme_themecontext_temayaz",
-      "confidence_score": 1.0
+      "target": "theme_themecontext_temayaz"
     },
     {
       "relation": "contains",
@@ -4454,9 +5376,9 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "theme_themecontext",
-      "target": "theme_themecontext_themecontext",
-      "confidence_score": 1.0
+      "target": "theme_themecontext_themecontext"
     },
     {
       "relation": "contains",
@@ -4464,9 +5386,9 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L67",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "theme_themecontext",
-      "target": "theme_themecontext_themecontextvalue",
-      "confidence_score": 1.0
+      "target": "theme_themecontext_themecontextvalue"
     },
     {
       "relation": "contains",
@@ -4474,9 +5396,9 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "theme_themecontext",
-      "target": "theme_themecontext_themeprovider",
-      "confidence_score": 1.0
+      "target": "theme_themecontext_themeprovider"
     },
     {
       "relation": "contains",
@@ -4484,8 +5406,18 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L100",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "theme_themecontext",
-      "target": "theme_themecontext_usetheme",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "types_index",
+      "target": "types_index_appointment",
       "confidence_score": 1.0
     },
     {
@@ -4504,8 +5436,18 @@
       "source_file": "src/types/index.ts",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "types_index",
-      "target": "types_index_campaign",
+      "target": "types_index_campaign"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "types_index",
+      "target": "types_index_randevudurum",
       "confidence_score": 1.0
     },
     {
@@ -4527,6 +5469,16 @@
       "confidence_score": 1.0,
       "source": "types_index",
       "target": "types_index_service"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "types_index",
+      "target": "types_index_timeslot",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -5292,5 +6244,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "3811df9c8f3b93db0770c7d7f6392f12879169a2"
+  "built_at_commit": "0b9106b1514ce1f8199f28ac53b9f68e00cdac67"
 }
