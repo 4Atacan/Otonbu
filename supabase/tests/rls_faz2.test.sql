@@ -4,7 +4,7 @@
 -- ============================================================
 begin;
 
-select plan(12);
+select plan(16);
 
 -- ------------------------------------------------------------
 -- Test verisi
@@ -44,6 +44,13 @@ insert into public.appointments (id, branch_id, user_id, vehicle_id, service_id,
    '51000000-0000-0000-0000-000000000001'::uuid,
    '70000000-0000-0000-0000-000000000001'::uuid);
 
+-- Şube A sahibinin üstlendiği iş
+insert into public.jobs (id, appointment_id, assigned_to, durum) values
+  ('30000000-0000-0000-0000-000000000001'::uuid,
+   '90000000-0000-0000-0000-000000000001'::uuid,
+   'a1000000-0000-0000-0000-000000000001'::uuid,
+   'basladi');
+
 -- ============================================================
 -- Müşteri: kendi randevusunu görür, slotları görür
 -- ============================================================
@@ -63,6 +70,36 @@ select throws_ok(
   '42501',
   null,
   'Müşteri slot üretemez'
+);
+
+-- Müşteri kendi randevusunun işini görür (jobs_musteri_select)
+select is((select count(*)::int from public.jobs), 1,
+  'Müşteri kendi randevusunun işini görür');
+
+-- musait_slotlar slot doluluğunu agregat döndürür (satır sızdırmadan)
+select is(
+  (select dolu::int from public.musait_slotlar(
+     'a0000000-0000-0000-0000-000000000001'::uuid,
+     '2026-07-01 00:00+03'::timestamptz, '2026-07-01 23:59+03'::timestamptz)
+   where id = '70000000-0000-0000-0000-000000000001'::uuid),
+  1,
+  'musait_slotlar dolu sayısını (1) döndürür');
+
+-- Müşteri randevusunu onaylıya/başka duruma ÇEKEMEZ (with check durum=iptal)
+select throws_ok(
+  $$update public.appointments set durum = 'beklemede'
+    where id = '90000000-0000-0000-0000-000000000001'::uuid$$,
+  '42501',
+  null,
+  'Müşteri randevu durumunu iptal dışına çekemez'
+);
+
+-- Müşteri kendi randevusunu iptal edebilir (appt_musteri_iptal) — EN SON,
+-- çünkü iptal sonrası doluluk/durum değişir
+select lives_ok(
+  $$update public.appointments set durum = 'iptal'
+    where id = '90000000-0000-0000-0000-000000000001'::uuid$$,
+  'Müşteri kendi randevusunu iptal eder'
 );
 
 -- ============================================================
