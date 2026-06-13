@@ -34,6 +34,13 @@ export default function MainLayout() {
           }}
         />
         <Tabs.Screen
+          name="randevularim"
+          options={{
+            title: 'Randevularım',
+            tabBarIcon: ({ color, size }) => <Ionicons name="calendar" size={size} color={color} />,
+          }}
+        />
+        <Tabs.Screen
           name="kampanyalar"
           options={{
             title: 'Kampanyalar',

@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import {
-  View, Text, StyleSheet, ActivityIndicator, SectionList,
+  View, Text, StyleSheet, ActivityIndicator, SectionList, TouchableOpacity,
 } from 'react-native';
+import { useRouter } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '../../src/lib/supabase';
 import { useSession } from '../../src/hooks/useSession';
 import { useTheme } from '../../src/theme/ThemeContext';
@@ -10,6 +12,7 @@ import { Service } from '../../src/types';
 export default function AnaSayfa() {
   const { profile } = useSession();
   const { renkler } = useTheme();
+  const router = useRouter();
   const [hizmetler, setHizmetler] = useState<Service[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -67,14 +70,24 @@ export default function AnaSayfa() {
           </Text>
         )}
         renderItem={({ item }) => (
-          <View style={[s.kart, { backgroundColor: renkler.card }]}>
-            <Text style={[s.ad, { color: renkler.text }]}>{item.ad}</Text>
-            <Text style={[s.fiyat, { color: renkler.primary }]}>
-              {item.taban_fiyat.toLocaleString('tr-TR', {
-                style: 'currency', currency: 'TRY',
-              })}
-            </Text>
-          </View>
+          <TouchableOpacity
+            style={[s.kart, { backgroundColor: renkler.card }]}
+            onPress={() => router.push({
+              pathname: '/randevu-al',
+              params: { serviceId: item.id, serviceAd: item.ad },
+            })}
+          >
+            <View style={s.kartSol}>
+              <Text style={[s.ad, { color: renkler.text }]}>{item.ad}</Text>
+              <Text style={[s.fiyat, { color: renkler.primary }]}>
+                {item.taban_fiyat.toLocaleString('tr-TR', {
+                  style: 'currency', currency: 'TRY',
+                })}
+                <Text style={[s.fiyatNot, { color: renkler.subtext }]}>  başlangıç</Text>
+              </Text>
+            </View>
+            <Ionicons name="chevron-forward" size={20} color={renkler.subtext} />
+          </TouchableOpacity>
         )}
       />
     </View>
@@ -95,9 +108,11 @@ const s = StyleSheet.create({
   },
   kart: {
     marginHorizontal: 12, marginBottom: 2,
-    padding: 16, flexDirection: 'row', justifyContent: 'space-between',
-    borderRadius: 10,
+    padding: 16, flexDirection: 'row', alignItems: 'center',
+    justifyContent: 'space-between', borderRadius: 10,
   },
-  ad: { fontSize: 15, flex: 1 },
-  fiyat: { fontSize: 15, fontWeight: '700' },
+  kartSol: { flex: 1, paddingRight: 8 },
+  ad: { fontSize: 15, fontWeight: '600' },
+  fiyat: { fontSize: 15, fontWeight: '700', marginTop: 4 },
+  fiyatNot: { fontSize: 12, fontWeight: '400' },
 });

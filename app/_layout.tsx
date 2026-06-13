@@ -55,6 +55,9 @@ export default function RootLayout() {
         <Stack.Screen name="(auth)" />
         <Stack.Screen name="(main)" />
         <Stack.Screen name="(yonetim)" />
+        {/* Randevu alma akışı — sekmelerin üzerinde modal; başlık/tema
+            ekranın kendi Stack.Screen'inde ayarlanır */}
+        <Stack.Screen name="randevu-al" options={{ presentation: 'modal' }} />
       </Stack>
     </ThemeProvider>
   );

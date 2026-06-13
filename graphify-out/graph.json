@@ -414,7 +414,7 @@
       "source_file": "app/(main)/araclar.tsx",
       "source_location": "L14",
       "id": "main_araclar_araclarscreen",
-      "community": 5,
+      "community": 4,
       "norm_label": "araclarscreen()"
     },
     {
@@ -439,7 +439,7 @@
       "label": "AnaSayfa()",
       "file_type": "code",
       "source_file": "app/(main)/index.tsx",
-      "source_location": "L10",
+      "source_location": "L12",
       "id": "main_index_anasayfa",
       "community": 4,
       "norm_label": "anasayfa()"
@@ -448,7 +448,7 @@
       "label": "s",
       "file_type": "code",
       "source_file": "app/(main)/index.tsx",
-      "source_location": "L84",
+      "source_location": "L97",
       "id": "main_index_s",
       "community": 4,
       "norm_label": "s"
@@ -459,7 +459,7 @@
       "source_file": "app/(main)/kampanyalar.tsx",
       "source_location": "L1",
       "id": "main_kampanyalar",
-      "community": 4,
+      "community": 1,
       "norm_label": "kampanyalar.tsx"
     },
     {
@@ -468,7 +468,7 @@
       "source_file": "app/(main)/kampanyalar.tsx",
       "source_location": "L11",
       "id": "main_kampanyalar_kampanyalarscreen",
-      "community": 4,
+      "community": 1,
       "norm_label": "kampanyalarscreen()"
     },
     {
@@ -477,7 +477,7 @@
       "source_file": "app/(main)/kampanyalar.tsx",
       "source_location": "L90",
       "id": "main_kampanyalar_s",
-      "community": 4,
+      "community": 1,
       "norm_label": "s"
     },
     {
@@ -514,6 +514,60 @@
       "source_location": "L139",
       "id": "main_profil_s",
       "community": 4,
+      "norm_label": "s"
+    },
+    {
+      "label": "randevularim.tsx",
+      "file_type": "code",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L1",
+      "id": "main_randevularim",
+      "community": 1,
+      "norm_label": "randevularim.tsx"
+    },
+    {
+      "label": "RANDEVU_ETIKET",
+      "file_type": "code",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L13",
+      "id": "main_randevularim_randevu_etiket",
+      "community": 1,
+      "norm_label": "randevu_etiket"
+    },
+    {
+      "label": "IS_ETIKET",
+      "file_type": "code",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L19",
+      "id": "main_randevularim_is_etiket",
+      "community": 1,
+      "norm_label": "is_etiket"
+    },
+    {
+      "label": "RandevularimScreen()",
+      "file_type": "code",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L28",
+      "id": "main_randevularim_randevularimscreen",
+      "community": 1,
+      "norm_label": "randevularimscreen()"
+    },
+    {
+      "label": "FotoSatiri()",
+      "file_type": "code",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L215",
+      "id": "main_randevularim_fotosatiri",
+      "community": 1,
+      "norm_label": "fotosatiri()"
+    },
+    {
+      "label": "s",
+      "file_type": "code",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L243",
+      "id": "main_randevularim_s",
+      "community": 1,
       "norm_label": "s"
     },
     {
@@ -612,7 +666,7 @@
       "source_file": "app/(yonetim)/randevular.tsx",
       "source_location": "L1",
       "id": "yonetim_randevular",
-      "community": 4,
+      "community": 1,
       "norm_label": "randevular.tsx"
     },
     {
@@ -621,7 +675,7 @@
       "source_file": "app/(yonetim)/randevular.tsx",
       "source_location": "L12",
       "id": "yonetim_randevular_durum_etiket",
-      "community": 4,
+      "community": 1,
       "norm_label": "durum_etiket"
     },
     {
@@ -630,7 +684,7 @@
       "source_file": "app/(yonetim)/randevular.tsx",
       "source_location": "L18",
       "id": "yonetim_randevular_randevularscreen",
-      "community": 4,
+      "community": 1,
       "norm_label": "randevularscreen()"
     },
     {
@@ -639,7 +693,7 @@
       "source_file": "app/(yonetim)/randevular.tsx",
       "source_location": "L156",
       "id": "yonetim_randevular_s",
-      "community": 4,
+      "community": 1,
       "norm_label": "s"
     },
     {
@@ -684,7 +738,7 @@
       "source_file": "app/(yonetim)/subeler.tsx",
       "source_location": "L1",
       "id": "yonetim_subeler",
-      "community": 4,
+      "community": 1,
       "norm_label": "subeler.tsx"
     },
     {
@@ -693,7 +747,7 @@
       "source_file": "app/(yonetim)/subeler.tsx",
       "source_location": "L11",
       "id": "yonetim_subeler_subelerscreen",
-      "community": 4,
+      "community": 1,
       "norm_label": "subelerscreen()"
     },
     {
@@ -702,7 +756,7 @@
       "source_file": "app/(yonetim)/subeler.tsx",
       "source_location": "L219",
       "id": "yonetim_subeler_s",
-      "community": 4,
+      "community": 1,
       "norm_label": "s"
     },
     {
@@ -722,6 +776,42 @@
       "id": "app_layout_rootlayout",
       "community": 4,
       "norm_label": "rootlayout()"
+    },
+    {
+      "label": "randevu-al.tsx",
+      "file_type": "code",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L1",
+      "id": "app_randevu_al",
+      "community": 1,
+      "norm_label": "randevu-al.tsx"
+    },
+    {
+      "label": "gunler()",
+      "file_type": "code",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L16",
+      "id": "app_randevu_al_gunler",
+      "community": 1,
+      "norm_label": "gunler()"
+    },
+    {
+      "label": "RandevuAlScreen()",
+      "file_type": "code",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L25",
+      "id": "app_randevu_al_randevualscreen",
+      "community": 1,
+      "norm_label": "randevualscreen()"
+    },
+    {
+      "label": "s",
+      "file_type": "code",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L342",
+      "id": "app_randevu_al_s",
+      "community": 1,
+      "norm_label": "s"
     },
     {
       "label": "package.json",
@@ -1593,7 +1683,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L1",
       "id": "types_index",
-      "community": 4,
+      "community": 1,
       "norm_label": "index.ts"
     },
     {
@@ -1602,7 +1692,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L1",
       "id": "types_index_rol",
-      "community": 4,
+      "community": 1,
       "norm_label": "rol"
     },
     {
@@ -1620,7 +1710,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L6",
       "id": "types_index_userprofile",
-      "community": 4,
+      "community": 1,
       "norm_label": "userprofile"
     },
     {
@@ -1629,7 +1719,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L17",
       "id": "types_index_branch",
-      "community": 4,
+      "community": 1,
       "norm_label": "branch"
     },
     {
@@ -1647,7 +1737,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L31",
       "id": "types_index_randevudurum",
-      "community": 4,
+      "community": 1,
       "norm_label": "randevudurum"
     },
     {
@@ -1656,23 +1746,77 @@
       "source_file": "src/types/index.ts",
       "source_location": "L33",
       "id": "types_index_appointment",
-      "community": 4,
+      "community": 1,
       "norm_label": "appointment"
+    },
+    {
+      "label": "IsDurum",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L51",
+      "id": "types_index_isdurum",
+      "community": 1,
+      "norm_label": "isdurum"
+    },
+    {
+      "label": "Job",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L53",
+      "id": "types_index_job",
+      "community": 1,
+      "norm_label": "job"
+    },
+    {
+      "label": "JobPhoto",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L63",
+      "id": "types_index_jobphoto",
+      "community": 1,
+      "norm_label": "jobphoto"
+    },
+    {
+      "label": "BranchPrice",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L70",
+      "id": "types_index_branchprice",
+      "community": 1,
+      "norm_label": "branchprice"
+    },
+    {
+      "label": "MusaitSlot",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L79",
+      "id": "types_index_musaitslot",
+      "community": 1,
+      "norm_label": "musaitslot"
+    },
+    {
+      "label": "FiyatSonuc",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L87",
+      "id": "types_index_fiyatsonuc",
+      "community": 1,
+      "norm_label": "fiyatsonuc"
     },
     {
       "label": "Campaign",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L49",
+      "source_location": "L93",
       "id": "types_index_campaign",
-      "community": 4,
+      "community": 1,
       "norm_label": "campaign"
     },
     {
       "label": "Service",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L60",
+      "source_location": "L104",
       "id": "types_index_service",
       "community": 4,
       "norm_label": "service"
@@ -1681,9 +1825,9 @@
       "label": "Vehicle",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L69",
+      "source_location": "L113",
       "id": "types_index_vehicle",
-      "community": 5,
+      "community": 1,
       "norm_label": "vehicle"
     },
     {
@@ -1730,6 +1874,42 @@
       "id": "shared_sentry_parsestack",
       "community": 12,
       "norm_label": "parsestack()"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "supabase/functions/fiyat-hesapla/index.ts",
+      "source_location": "L1",
+      "id": "fiyat_hesapla_index",
+      "community": 12,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "cors",
+      "file_type": "code",
+      "source_file": "supabase/functions/fiyat-hesapla/index.ts",
+      "source_location": "L13",
+      "id": "fiyat_hesapla_index_cors",
+      "community": 12,
+      "norm_label": "cors"
+    },
+    {
+      "label": "Girdi",
+      "file_type": "code",
+      "source_file": "supabase/functions/fiyat-hesapla/index.ts",
+      "source_location": "L20",
+      "id": "fiyat_hesapla_index_girdi",
+      "community": 12,
+      "norm_label": "girdi"
+    },
+    {
+      "label": "json()",
+      "file_type": "code",
+      "source_file": "supabase/functions/fiyat-hesapla/index.ts",
+      "source_location": "L26",
+      "id": "fiyat_hesapla_index_json",
+      "community": 12,
+      "norm_label": "json()"
     },
     {
       "label": "tsconfig.json",
@@ -1935,7 +2115,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L51",
       "id": "implementation_faz_1_temel_iskelet",
-      "community": 2,
+      "community": 16,
       "norm_label": "faz 1 \u2014 temel iskelet"
     },
     {
@@ -1944,7 +2124,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L55",
       "id": "implementation_ortak_yard\u0131mc\u0131lar_\u00f6nce_bunlar",
-      "community": 2,
+      "community": 16,
       "norm_label": "ortak yard\u0131mc\u0131lar (once bunlar)"
     },
     {
@@ -1953,7 +2133,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L71",
       "id": "implementation_tablolar",
-      "community": 2,
+      "community": 16,
       "norm_label": "tablolar"
     },
     {
@@ -1962,7 +2142,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L113",
       "id": "implementation_rls_politikalar\u0131",
-      "community": 2,
+      "community": 16,
       "norm_label": "rls politikalar\u0131"
     },
     {
@@ -1971,7 +2151,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L142",
       "id": "implementation_auth_g\u00f6revleri_e_posta_\u015fifre_e_posta_do\u011frulamal\u0131",
-      "community": 2,
+      "community": 16,
       "norm_label": "auth gorevleri (e-posta + sifre \u2014 e-posta dogrulamal\u0131)"
     },
     {
@@ -1980,7 +2160,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L167",
       "id": "implementation_kabul_kriteri_167",
-      "community": 2,
+      "community": 16,
       "norm_label": "kabul kriteri"
     },
     {
@@ -1989,7 +2169,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L177",
       "id": "implementation_faz_2_randevu_ak\u0131\u015f\u0131_yay\u0131nlanabilir_mvp",
-      "community": 1,
+      "community": 2,
       "norm_label": "faz 2 \u2014 randevu ak\u0131s\u0131 (yay\u0131nlanabilir mvp)"
     },
     {
@@ -1998,7 +2178,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L179",
       "id": "implementation_tablolar_179",
-      "community": 1,
+      "community": 2,
       "norm_label": "tablolar"
     },
     {
@@ -2007,7 +2187,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L228",
       "id": "implementation_rls_politikalar\u0131_228",
-      "community": 1,
+      "community": 2,
       "norm_label": "rls politikalar\u0131"
     },
     {
@@ -2016,7 +2196,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L276",
       "id": "implementation_storage_g\u00f6revleri_\u00f6nce_sonra_foto",
-      "community": 1,
+      "community": 2,
       "norm_label": "storage gorevleri (once/sonra foto)"
     },
     {
@@ -2025,7 +2205,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L285",
       "id": "implementation_fiyat_hesab\u0131_edge_function_fiyat_hesapla",
-      "community": 1,
+      "community": 2,
       "norm_label": "fiyat hesab\u0131 (edge function \u2014 `fiyat-hesapla`)"
     },
     {
@@ -2034,7 +2214,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L292",
       "id": "implementation_kabul_kriteri_292",
-      "community": 1,
+      "community": 2,
       "norm_label": "kabul kriteri"
     },
     {
@@ -2043,7 +2223,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L300",
       "id": "implementation_faz_3_abonelik_\u00f6deme",
-      "community": 16,
+      "community": 2,
       "norm_label": "faz 3 \u2014 abonelik + odeme"
     },
     {
@@ -2052,7 +2232,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L304",
       "id": "implementation_tablolar_304",
-      "community": 16,
+      "community": 2,
       "norm_label": "tablolar"
     },
     {
@@ -2061,7 +2241,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L349",
       "id": "implementation_rls_politikalar\u0131_349",
-      "community": 16,
+      "community": 2,
       "norm_label": "rls politikalar\u0131"
     },
     {
@@ -2070,7 +2250,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L382",
       "id": "implementation_iyzico_\u00f6deme_ak\u0131\u015f\u0131_edge_functions",
-      "community": 16,
+      "community": 2,
       "norm_label": "iyzico odeme ak\u0131s\u0131 (edge functions)"
     },
     {
@@ -2079,7 +2259,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L392",
       "id": "implementation_abonelik_mant\u0131\u011f\u0131_edge_functions",
-      "community": 16,
+      "community": 2,
       "norm_label": "abonelik mant\u0131g\u0131 (edge functions)"
     },
     {
@@ -2088,7 +2268,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L400",
       "id": "implementation_kabul_kriteri_400",
-      "community": 16,
+      "community": 2,
       "norm_label": "kabul kriteri"
     },
     {
@@ -2303,7 +2483,7 @@
       "file_type": "document",
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L138",
-      "community": 2,
+      "community": 16,
       "norm_label": "auth gorevleri (sms suistimaline kars\u0131)",
       "id": "implementation_auth_g\u00f6revleri_sms_suistimaline_kar\u015f\u0131"
     },
@@ -2312,7 +2492,7 @@
       "file_type": "document",
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L147",
-      "community": 2,
+      "community": 16,
       "norm_label": "kabul kriteri",
       "id": "implementation_kabul_kriteri_147"
     },
@@ -2321,7 +2501,7 @@
       "file_type": "document",
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L156",
-      "community": 1,
+      "community": 2,
       "norm_label": "tablolar",
       "id": "implementation_tablolar_156"
     },
@@ -2330,7 +2510,7 @@
       "file_type": "document",
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L205",
-      "community": 1,
+      "community": 2,
       "norm_label": "rls politikalar\u0131",
       "id": "implementation_rls_politikalar\u0131_205"
     },
@@ -2339,7 +2519,7 @@
       "file_type": "document",
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L269",
-      "community": 1,
+      "community": 2,
       "norm_label": "kabul kriteri",
       "id": "implementation_kabul_kriteri_269"
     },
@@ -2348,7 +2528,7 @@
       "file_type": "document",
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L281",
-      "community": 16,
+      "community": 2,
       "norm_label": "tablolar",
       "id": "implementation_tablolar_281"
     },
@@ -2357,7 +2537,7 @@
       "file_type": "document",
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L326",
-      "community": 16,
+      "community": 2,
       "norm_label": "rls politikalar\u0131",
       "id": "implementation_rls_politikalar\u0131_326"
     },
@@ -2366,7 +2546,7 @@
       "file_type": "document",
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L377",
-      "community": 16,
+      "community": 2,
       "norm_label": "kabul kriteri",
       "id": "implementation_kabul_kriteri_377"
     },
@@ -3066,9 +3246,9 @@
       "source_file": "app/(auth)/yonetici.tsx",
       "source_location": "L114",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "auth_yonetici",
-      "target": "auth_yonetici_s",
-      "confidence_score": 1.0
+      "target": "auth_yonetici_s"
     },
     {
       "relation": "contains",
@@ -3076,9 +3256,9 @@
       "source_file": "app/(auth)/yonetici.tsx",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "auth_yonetici",
-      "target": "auth_yonetici_yoneticigirisscreen",
-      "confidence_score": 1.0
+      "target": "auth_yonetici_yoneticigirisscreen"
     },
     {
       "relation": "imports_from",
@@ -3087,9 +3267,9 @@
       "source_file": "app/(auth)/yonetici.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "auth_yonetici",
-      "target": "components_captchawidget",
-      "confidence_score": 1.0
+      "target": "components_captchawidget"
     },
     {
       "relation": "imports",
@@ -3098,9 +3278,9 @@
       "source_file": "app/(auth)/yonetici.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "auth_yonetici",
-      "target": "components_captchawidget_captchawidget",
-      "confidence_score": 1.0
+      "target": "components_captchawidget_captchawidget"
     },
     {
       "relation": "imports_from",
@@ -3109,9 +3289,9 @@
       "source_file": "app/(auth)/yonetici.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "auth_yonetici",
-      "target": "components_logo",
-      "confidence_score": 1.0
+      "target": "components_logo"
     },
     {
       "relation": "imports",
@@ -3120,9 +3300,9 @@
       "source_file": "app/(auth)/yonetici.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "auth_yonetici",
-      "target": "components_logo_logo",
-      "confidence_score": 1.0
+      "target": "components_logo_logo"
     },
     {
       "relation": "imports_from",
@@ -3131,9 +3311,9 @@
       "source_file": "app/(auth)/yonetici.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "auth_yonetici",
-      "target": "lib_supabase",
-      "confidence_score": 1.0
+      "target": "lib_supabase"
     },
     {
       "relation": "imports",
@@ -3142,9 +3322,9 @@
       "source_file": "app/(auth)/yonetici.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "auth_yonetici",
-      "target": "lib_supabase_supabase",
-      "confidence_score": 1.0
+      "target": "lib_supabase_supabase"
     },
     {
       "relation": "contains",
@@ -3714,9 +3894,9 @@
       "source_file": "app/(main)/profil.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_profil",
-      "target": "types_index",
-      "confidence_score": 1.0
+      "target": "types_index"
     },
     {
       "relation": "imports",
@@ -3725,9 +3905,9 @@
       "source_file": "app/(main)/profil.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_profil",
-      "target": "types_index_personel_roller",
-      "confidence_score": 1.0
+      "target": "types_index_personel_roller"
     },
     {
       "relation": "re_exports",
@@ -3760,6 +3940,188 @@
       "source_location": "L19",
       "weight": 1.0,
       "source": "main_profil_profilscreen",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "main_randevularim",
+      "target": "hooks_usesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "main_randevularim",
+      "target": "hooks_usesession_usesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "main_randevularim",
+      "target": "lib_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "main_randevularim",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L215",
+      "weight": 1.0,
+      "source": "main_randevularim",
+      "target": "main_randevularim_fotosatiri",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "main_randevularim",
+      "target": "main_randevularim_is_etiket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "main_randevularim",
+      "target": "main_randevularim_randevu_etiket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "main_randevularim",
+      "target": "main_randevularim_randevularimscreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L243",
+      "weight": 1.0,
+      "source": "main_randevularim",
+      "target": "main_randevularim_s",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "main_randevularim",
+      "target": "theme_themecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "main_randevularim",
+      "target": "theme_themecontext_usetheme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "main_randevularim",
+      "target": "types_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "main_randevularim",
+      "target": "types_index_appointment",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "main_randevularim",
+      "target": "types_index_isdurum",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "main_randevularim",
+      "target": "types_index_randevudurum",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "main_randevularim_randevularimscreen",
+      "target": "hooks_usesession_usesession"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "main_randevularim_randevularimscreen",
       "target": "theme_themecontext_usetheme"
     },
     {
@@ -3813,9 +4175,9 @@
       "source_file": "app/(yonetim)/_layout.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "yonetim_layout",
-      "target": "types_index",
-      "confidence_score": 1.0
+      "target": "types_index"
     },
     {
       "relation": "imports",
@@ -3824,9 +4186,9 @@
       "source_file": "app/(yonetim)/_layout.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "yonetim_layout",
-      "target": "types_index_personel_roller",
-      "confidence_score": 1.0
+      "target": "types_index_personel_roller"
     },
     {
       "relation": "contains",
@@ -4578,9 +4940,9 @@
       "source_file": "app/_layout.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_layout",
-      "target": "types_index",
-      "confidence_score": 1.0
+      "target": "types_index"
     },
     {
       "relation": "imports",
@@ -4589,9 +4951,9 @@
       "source_file": "app/_layout.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_layout",
-      "target": "types_index_personel_roller",
-      "confidence_score": 1.0
+      "target": "types_index_personel_roller"
     },
     {
       "relation": "calls",
@@ -4603,6 +4965,212 @@
       "weight": 1.0,
       "source": "app_layout_rootlayout",
       "target": "hooks_usesession_usesession"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "app_randevu_al",
+      "target": "app_randevu_al_gunler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "app_randevu_al",
+      "target": "app_randevu_al_randevualscreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L342",
+      "weight": 1.0,
+      "source": "app_randevu_al",
+      "target": "app_randevu_al_s",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_randevu_al",
+      "target": "data_arac_katalogu",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_randevu_al",
+      "target": "data_arac_katalogu_cinslabel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_randevu_al",
+      "target": "hooks_usesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_randevu_al",
+      "target": "hooks_usesession_usesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_randevu_al",
+      "target": "lib_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_randevu_al",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_randevu_al",
+      "target": "theme_themecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_randevu_al",
+      "target": "theme_themecontext_usetheme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_randevu_al",
+      "target": "types_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_randevu_al",
+      "target": "types_index_branch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_randevu_al",
+      "target": "types_index_fiyatsonuc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_randevu_al",
+      "target": "types_index_musaitslot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_randevu_al",
+      "target": "types_index_vehicle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "app_randevu_al_randevualscreen",
+      "target": "app_randevu_al_gunler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "app_randevu_al_randevualscreen",
+      "target": "hooks_usesession_usesession"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "app_randevu_al_randevualscreen",
+      "target": "theme_themecontext_usetheme"
     },
     {
       "relation": "contains",
@@ -5622,6 +6190,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/types/index.ts",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "types_index",
+      "target": "types_index_branchprice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
       "source_location": "L21",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -5632,11 +6210,61 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/types/index.ts",
-      "source_location": "L4",
+      "source_location": "L87",
       "weight": 1.0,
       "source": "types_index",
-      "target": "types_index_personel_roller",
+      "target": "types_index_fiyatsonuc",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "types_index",
+      "target": "types_index_isdurum",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "types_index",
+      "target": "types_index_job",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "types_index",
+      "target": "types_index_jobphoto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "types_index",
+      "target": "types_index_musaitslot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_index",
+      "target": "types_index_personel_roller"
     },
     {
       "relation": "contains",
@@ -5699,6 +6327,17 @@
       "target": "types_index_vehicle"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/fiyat-hesapla/index.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "fiyat_hesapla_index",
+      "target": "shared_sentry",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "supabase/functions/_shared/sentry.ts",
@@ -5750,6 +6389,17 @@
       "target": "shared_sentry_parsedsn"
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/fiyat-hesapla/index.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "fiyat_hesapla_index",
+      "target": "shared_sentry_captureedgeexception",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -5759,6 +6409,36 @@
       "confidence_score": 1.0,
       "source": "shared_sentry_captureedgeexception",
       "target": "shared_sentry_parsestack"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/fiyat-hesapla/index.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "fiyat_hesapla_index",
+      "target": "fiyat_hesapla_index_cors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/fiyat-hesapla/index.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "fiyat_hesapla_index",
+      "target": "fiyat_hesapla_index_girdi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/fiyat-hesapla/index.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "fiyat_hesapla_index",
+      "target": "fiyat_hesapla_index_json",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6442,5 +7122,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e1ee4d085921be10bca6c3069e890ddf9bb3a454"
+  "built_at_commit": "ade98e8ddff9528f50712bdd9670936ac3477a54"
 }

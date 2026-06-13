@@ -1,16 +1,16 @@
-# Graph Report - Otonbu  (2026-06-12)
+# Graph Report - Otonbu  (2026-06-13)
 
 ## Corpus Check
-- 48 files · ~38,579 words
+- 52 files · ~41,947 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 266 nodes · 388 edges · 17 communities (16 shown, 1 thin omitted)
+- 286 nodes · 435 edges · 17 communities (16 shown, 1 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `e1ee4d08`
+- Built from commit: `ade98e8d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -33,9 +33,9 @@
 - [[_COMMUNITY_Community 16|Community 16]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `useTheme()` - 25 edges
-2. `supabase` - 17 edges
-3. `useSession()` - 13 edges
+1. `useTheme()` - 29 edges
+2. `supabase` - 19 edges
+3. `useSession()` - 17 edges
 4. `expo` - 12 edges
 5. `OTONBU GARAGE — Proje Talimatları` - 9 edges
 6. `OTONBU GARAGE — Uygulama Planı` - 9 edges
@@ -45,16 +45,16 @@
 10. `Faz 1 — Temel iskelet` - 8 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `AraclarScreen()` --calls--> `useTheme()`  [EXTRACTED]
-  app/(main)/araclar.tsx → src/theme/ThemeContext.tsx
-- `MainLayout()` --calls--> `useTheme()`  [EXTRACTED]
-  app/(main)/_layout.tsx → src/theme/ThemeContext.tsx
 - `KampanyalarScreen()` --calls--> `useTheme()`  [EXTRACTED]
   app/(main)/kampanyalar.tsx → src/theme/ThemeContext.tsx
-- `HizmetlerScreen()` --calls--> `useTheme()`  [EXTRACTED]
-  app/(yonetim)/hizmetler.tsx → src/theme/ThemeContext.tsx
 - `RandevularScreen()` --calls--> `useTheme()`  [EXTRACTED]
   app/(yonetim)/randevular.tsx → src/theme/ThemeContext.tsx
+- `SubelerScreen()` --calls--> `useTheme()`  [EXTRACTED]
+  app/(yonetim)/subeler.tsx → src/theme/ThemeContext.tsx
+- `MainLayout()` --calls--> `useTheme()`  [EXTRACTED]
+  app/(main)/_layout.tsx → src/theme/ThemeContext.tsx
+- `AraclarScreen()` --calls--> `useTheme()`  [EXTRACTED]
+  app/(main)/araclar.tsx → src/theme/ThemeContext.tsx
 
 ## Import Cycles
 - None detected.
@@ -66,24 +66,24 @@ Cohesion: 0.20
 Nodes (9): Bağlam dosyaları, graphify, Kod ve çalışma konvansiyonları, KVKK kararları (şemaya gömülü, baştan uygulanır), Mutlak kurallar (asla ihlal etme), OTONBU GARAGE — Proje Talimatları, Teknoloji yığını, Yapı (+1 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.22
-Nodes (9): Faz 2 — Randevu akışı (yayınlanabilir MVP), Fiyat hesabı (Edge Function — `fiyat-hesapla`), Kabul kriteri, Kabul kriteri, RLS politikaları, RLS politikaları, Storage görevleri (önce/sonra foto), Tablolar (+1 more)
+Cohesion: 0.08
+Nodes (27): gunler(), RandevuAlScreen(), s, KampanyalarScreen(), s, IS_ETIKET, RANDEVU_ETIKET, RandevularimScreen() (+19 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.08
-Nodes (24): Auth görevleri (e-posta + şifre — e-posta doğrulamalı), Auth görevleri (SMS suistimaline karşı), Faz 0 — Proje kurulumu, Faz 1 — Temel iskelet, Faz 4 — Zenginleştirme + KVKK tamamlama, Görevler, Kabul kriteri, Kabul kriteri (+16 more)
+Cohesion: 0.06
+Nodes (34): Abonelik mantığı (Edge Functions), Faz 0 — Proje kurulumu, Faz 2 — Randevu akışı (yayınlanabilir MVP), Faz 3 — Abonelik + ödeme, Faz 4 — Zenginleştirme + KVKK tamamlama, Fiyat hesabı (Edge Function — `fiyat-hesapla`), Görevler, iyzico ödeme akışı (Edge Functions) (+26 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.12
 Nodes (19): s, s, s, s, s, CaptchaWidget(), HTML(), Props (+11 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.07
-Nodes (39): PERSONEL_ROLLER, RootLayout(), useSession(), initSentry(), AnaSayfa(), s, KampanyalarScreen(), s (+31 more)
+Cohesion: 0.09
+Nodes (27): PERSONEL_ROLLER, RootLayout(), useSession(), initSentry(), AraclarScreen(), AnaSayfa(), s, MainLayout() (+19 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.19
-Nodes (13): AutocompleteInput(), Props, s, ARAC_CINSLERI, AracCinsi, cinsLabel(), filtrele(), MARKA_ADLARI (+5 more)
+Cohesion: 0.23
+Nodes (11): AutocompleteInput(), Props, s, ARAC_CINSLERI, AracCinsi, cinsLabel(), filtrele(), MARKA_ADLARI (+3 more)
 
 ### Community 6 - "Community 6"
 Cohesion: 0.08
@@ -106,8 +106,8 @@ Cohesion: 0.60
 Nodes (4): admin, assert(), run(), temizle()
 
 ### Community 12 - "Community 12"
-Cohesion: 0.60
-Nodes (4): captureEdgeException(), ParsedDsn, parseDsn(), parseStack()
+Cohesion: 0.31
+Nodes (6): cors, Girdi, captureEdgeException(), ParsedDsn, parseDsn(), parseStack()
 
 ### Community 13 - "Community 13"
 Cohesion: 0.40
@@ -118,28 +118,28 @@ Cohesion: 0.28
 Nodes (7): gunlukSlotSaatleri(), OGLEDEN_SONRA, SABAH, TimeSlot, gunler(), s, SlotlarScreen()
 
 ### Community 16 - "Community 16"
-Cohesion: 0.22
-Nodes (9): Abonelik mantığı (Edge Functions), Faz 3 — Abonelik + ödeme, iyzico ödeme akışı (Edge Functions), Kabul kriteri, Kabul kriteri, RLS politikaları, RLS politikaları, Tablolar (+1 more)
+Cohesion: 0.25
+Nodes (8): Auth görevleri (e-posta + şifre — e-posta doğrulamalı), Auth görevleri (SMS suistimaline karşı), Faz 1 — Temel iskelet, Kabul kriteri, Kabul kriteri, Ortak yardımcılar (önce bunlar), RLS politikaları, Tablolar
 
 ## Knowledge Gaps
-- **152 isolated node(s):** `PreToolUse`, `name`, `slug`, `version`, `orientation` (+147 more)
+- **161 isolated node(s):** `PreToolUse`, `name`, `slug`, `version`, `orientation` (+156 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `supabase` connect `Community 3` to `Community 4`, `Community 5`, `Community 15`?**
-  _High betweenness centrality (0.041) - this node is a cross-community bridge._
-- **Why does `useTheme()` connect `Community 4` to `Community 5`, `Community 15`?**
-  _High betweenness centrality (0.025) - this node is a cross-community bridge._
-- **Why does `OTONBU GARAGE — Uygulama Planı` connect `Community 2` to `Community 16`, `Community 1`?**
-  _High betweenness centrality (0.021) - this node is a cross-community bridge._
+- **Why does `supabase` connect `Community 3` to `Community 1`, `Community 4`, `Community 5`, `Community 15`?**
+  _High betweenness centrality (0.042) - this node is a cross-community bridge._
+- **Why does `useTheme()` connect `Community 4` to `Community 1`, `Community 5`, `Community 15`?**
+  _High betweenness centrality (0.028) - this node is a cross-community bridge._
+- **Why does `OTONBU GARAGE — Uygulama Planı` connect `Community 2` to `Community 16`?**
+  _High betweenness centrality (0.018) - this node is a cross-community bridge._
 - **What connects `PreToolUse`, `name`, `slug` to the rest of the system?**
-  _152 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _161 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `Community 1` be split into smaller, more focused modules?**
+  _Cohesion score 0.08021390374331551 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.08 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05714285714285714 - nodes in this community are weakly interconnected._
 - **Should `Community 3` be split into smaller, more focused modules?**
   _Cohesion score 0.11931818181818182 - nodes in this community are weakly interconnected._
-- **Should `Community 4` be split into smaller, more focused modules?**
-  _Cohesion score 0.07012987012987013 - nodes in this community are weakly interconnected._

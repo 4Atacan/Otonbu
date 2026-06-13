@@ -44,6 +44,50 @@ export interface Appointment {
   vehicles?: { plaka: string; marka: string | null; model: string | null } | null;
   services?: { ad: string } | null;
   time_slots?: { baslangic: string } | null;
+  branches?: { ad: string } | null;
+  jobs?: Job[];
+}
+
+export type IsDurum = 'basladi' | 'tamamlandi' | 'hazir';
+
+export interface Job {
+  id: string;
+  appointment_id: string;
+  assigned_to: string | null;
+  durum: IsDurum;
+  job_photos?: JobPhoto[];
+  // İşler ekranı için randevu bilgisi embed'i
+  appointments?: Appointment | null;
+}
+
+export interface JobPhoto {
+  id: string;
+  job_id: string;
+  tip: 'once' | 'sonra';
+  url: string;          // storage objesi yolu (signed URL ile gösterilir)
+}
+
+export interface BranchPrice {
+  id: string;
+  branch_id: string;
+  service_id: string;
+  segment: string;
+  fiyat: number;
+}
+
+// musait_slotlar RPC çıktısı: slot + o slottaki iptal-dışı randevu sayısı
+export interface MusaitSlot {
+  id: string;
+  baslangic: string;
+  kapasite: number;
+  dolu: number;
+}
+
+// fiyat-hesapla Edge Function yanıtı
+export interface FiyatSonuc {
+  fiyat: number;
+  segment: string;
+  kaynak: 'taban' | 'sube';
 }
 
 export interface Campaign {
