@@ -17,6 +17,10 @@ export default function YonetimLayout() {
 
   const admin = profile?.rol === 'admin';
   const subeSahibi = profile?.rol === 'sube_sahibi';
+  // İşler ekranını sahada çalışan/gören roller görür (admin gözetim yapar, işi almaz)
+  const isGoren = profile
+    ? ['usta', 'kasa', 'sube_sahibi'].includes(profile.rol)
+    : false;
 
   return (
     <>
@@ -67,6 +71,22 @@ export default function YonetimLayout() {
           options={{
             title: 'Randevular',
             tabBarIcon: ({ color, size }) => <Ionicons name="calendar" size={size} color={color} />,
+          }}
+        />
+        <Tabs.Screen
+          name="isler"
+          options={{
+            title: 'İşler',
+            href: isGoren ? undefined : null,  // usta/kasa/şube sahibi
+            tabBarIcon: ({ color, size }) => <Ionicons name="construct-outline" size={size} color={color} />,
+          }}
+        />
+        <Tabs.Screen
+          name="fiyatlar"
+          options={{
+            title: 'Fiyatlar',
+            href: subeSahibi ? undefined : null,  // şubeye özel fiyat = şube sahibi
+            tabBarIcon: ({ color, size }) => <Ionicons name="cash-outline" size={size} color={color} />,
           }}
         />
         <Tabs.Screen

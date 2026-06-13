@@ -414,7 +414,7 @@
       "source_file": "app/(main)/araclar.tsx",
       "source_location": "L14",
       "id": "main_araclar_araclarscreen",
-      "community": 4,
+      "community": 5,
       "norm_label": "araclarscreen()"
     },
     {
@@ -589,6 +589,42 @@
       "norm_label": "yonetimlayout()"
     },
     {
+      "label": "fiyatlar.tsx",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/fiyatlar.tsx",
+      "source_location": "L1",
+      "id": "yonetim_fiyatlar",
+      "community": 4,
+      "norm_label": "fiyatlar.tsx"
+    },
+    {
+      "label": "tl()",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/fiyatlar.tsx",
+      "source_location": "L15",
+      "id": "yonetim_fiyatlar_tl",
+      "community": 4,
+      "norm_label": "tl()"
+    },
+    {
+      "label": "FiyatlarScreen()",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/fiyatlar.tsx",
+      "source_location": "L18",
+      "id": "yonetim_fiyatlar_fiyatlarscreen",
+      "community": 4,
+      "norm_label": "fiyatlarscreen()"
+    },
+    {
+      "label": "s",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/fiyatlar.tsx",
+      "source_location": "L201",
+      "id": "yonetim_fiyatlar_s",
+      "community": 4,
+      "norm_label": "s"
+    },
+    {
       "label": "hizmetler.tsx",
       "file_type": "code",
       "source_file": "app/(yonetim)/hizmetler.tsx",
@@ -648,6 +684,69 @@
       "source_file": "app/(yonetim)/index.tsx",
       "source_location": "L95",
       "id": "yonetim_index_s",
+      "community": 4,
+      "norm_label": "s"
+    },
+    {
+      "label": "isler.tsx",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L1",
+      "id": "yonetim_isler",
+      "community": 4,
+      "norm_label": "isler.tsx"
+    },
+    {
+      "label": "SONRAKI",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L18",
+      "id": "yonetim_isler_sonraki",
+      "community": 4,
+      "norm_label": "sonraki"
+    },
+    {
+      "label": "SONRAKI_ETIKET",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L23",
+      "id": "yonetim_isler_sonraki_etiket",
+      "community": 4,
+      "norm_label": "sonraki_etiket"
+    },
+    {
+      "label": "IS_ETIKET",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L28",
+      "id": "yonetim_isler_is_etiket",
+      "community": 4,
+      "norm_label": "is_etiket"
+    },
+    {
+      "label": "IslerScreen()",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L34",
+      "id": "yonetim_isler_islerscreen",
+      "community": 4,
+      "norm_label": "islerscreen()"
+    },
+    {
+      "label": "FotoBolum()",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L279",
+      "id": "yonetim_isler_fotobolum",
+      "community": 4,
+      "norm_label": "fotobolum()"
+    },
+    {
+      "label": "s",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L312",
+      "id": "yonetim_isler_s",
       "community": 4,
       "norm_label": "s"
     },
@@ -819,7 +918,7 @@
       "source_file": "package.json",
       "source_location": "L1",
       "id": "package",
-      "community": 9,
+      "community": 6,
       "norm_label": "package.json"
     },
     {
@@ -828,7 +927,7 @@
       "source_file": "package.json",
       "source_location": "L2",
       "id": "package_name",
-      "community": 9,
+      "community": 6,
       "norm_label": "name"
     },
     {
@@ -837,7 +936,7 @@
       "source_file": "package.json",
       "source_location": "L3",
       "id": "package_version",
-      "community": 9,
+      "community": 6,
       "norm_label": "version"
     },
     {
@@ -846,7 +945,7 @@
       "source_file": "package.json",
       "source_location": "L4",
       "id": "package_main",
-      "community": 9,
+      "community": 6,
       "norm_label": "main"
     },
     {
@@ -931,10 +1030,19 @@
       "norm_label": "expo-font"
     },
     {
-      "label": "expo-linking",
+      "label": "expo-image-picker",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L14",
+      "id": "package_dependencies_expo_image_picker",
+      "community": 6,
+      "norm_label": "expo-image-picker"
+    },
+    {
+      "label": "expo-linking",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L15",
       "id": "package_dependencies_expo_linking",
       "community": 6,
       "norm_label": "expo-linking"
@@ -943,7 +1051,7 @@
       "label": "expo-modules-core",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L15",
+      "source_location": "L16",
       "id": "package_dependencies_expo_modules_core",
       "community": 6,
       "norm_label": "expo-modules-core"
@@ -952,7 +1060,7 @@
       "label": "expo-router",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L16",
+      "source_location": "L17",
       "id": "package_dependencies_expo_router",
       "community": 6,
       "norm_label": "expo-router"
@@ -961,7 +1069,7 @@
       "label": "expo-secure-store",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L17",
+      "source_location": "L18",
       "id": "package_dependencies_expo_secure_store",
       "community": 6,
       "norm_label": "expo-secure-store"
@@ -970,7 +1078,7 @@
       "label": "expo-splash-screen",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L18",
+      "source_location": "L19",
       "id": "package_dependencies_expo_splash_screen",
       "community": 6,
       "norm_label": "expo-splash-screen"
@@ -979,7 +1087,7 @@
       "label": "expo-status-bar",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L19",
+      "source_location": "L20",
       "id": "package_dependencies_expo_status_bar",
       "community": 6,
       "norm_label": "expo-status-bar"
@@ -988,7 +1096,7 @@
       "label": "react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L21",
       "id": "package_dependencies_react",
       "community": 6,
       "norm_label": "react"
@@ -997,7 +1105,7 @@
       "label": "react-dom",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L21",
+      "source_location": "L22",
       "id": "package_dependencies_react_dom",
       "community": 6,
       "norm_label": "react-dom"
@@ -1006,7 +1114,7 @@
       "label": "react-native",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L23",
       "id": "package_dependencies_react_native",
       "community": 6,
       "norm_label": "react-native"
@@ -1015,7 +1123,7 @@
       "label": "react-native-gesture-handler",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L24",
       "id": "package_dependencies_react_native_gesture_handler",
       "community": 6,
       "norm_label": "react-native-gesture-handler"
@@ -1024,7 +1132,7 @@
       "label": "react-native-reanimated",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L25",
       "id": "package_dependencies_react_native_reanimated",
       "community": 6,
       "norm_label": "react-native-reanimated"
@@ -1033,7 +1141,7 @@
       "label": "react-native-safe-area-context",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L26",
       "id": "package_dependencies_react_native_safe_area_context",
       "community": 6,
       "norm_label": "react-native-safe-area-context"
@@ -1042,7 +1150,7 @@
       "label": "react-native-screens",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L27",
       "id": "package_dependencies_react_native_screens",
       "community": 6,
       "norm_label": "react-native-screens"
@@ -1051,7 +1159,7 @@
       "label": "react-native-web",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L28",
       "id": "package_dependencies_react_native_web",
       "community": 6,
       "norm_label": "react-native-web"
@@ -1060,7 +1168,7 @@
       "label": "react-native-webview",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L28",
+      "source_location": "L29",
       "id": "package_dependencies_react_native_webview",
       "community": 6,
       "norm_label": "react-native-webview"
@@ -1069,135 +1177,135 @@
       "label": "devDependencies",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L30",
+      "source_location": "L31",
       "id": "package_devdependencies",
-      "community": 9,
+      "community": 6,
       "norm_label": "devdependencies"
     },
     {
       "label": "@expo/ngrok",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L32",
       "id": "package_devdependencies_expo_ngrok",
-      "community": 9,
+      "community": 6,
       "norm_label": "@expo/ngrok"
     },
     {
       "label": "@types/node",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L32",
+      "source_location": "L33",
       "id": "package_devdependencies_types_node",
-      "community": 9,
+      "community": 6,
       "norm_label": "@types/node"
     },
     {
       "label": "@types/react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L33",
+      "source_location": "L34",
       "id": "package_devdependencies_types_react",
-      "community": 9,
+      "community": 6,
       "norm_label": "@types/react"
     },
     {
       "label": "ts-node",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L34",
+      "source_location": "L35",
       "id": "package_devdependencies_ts_node",
-      "community": 9,
+      "community": 6,
       "norm_label": "ts-node"
     },
     {
       "label": "typescript",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L35",
+      "source_location": "L36",
       "id": "package_devdependencies_typescript",
-      "community": 9,
+      "community": 6,
       "norm_label": "typescript"
     },
     {
       "label": "scripts",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L37",
+      "source_location": "L38",
       "id": "package_scripts",
-      "community": 9,
+      "community": 6,
       "norm_label": "scripts"
     },
     {
       "label": "start",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L38",
+      "source_location": "L39",
       "id": "package_scripts_start",
-      "community": 9,
+      "community": 6,
       "norm_label": "start"
     },
     {
       "label": "android",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L39",
+      "source_location": "L40",
       "id": "package_scripts_android",
-      "community": 9,
+      "community": 6,
       "norm_label": "android"
     },
     {
       "label": "ios",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L40",
+      "source_location": "L41",
       "id": "package_scripts_ios",
-      "community": 9,
+      "community": 6,
       "norm_label": "ios"
     },
     {
       "label": "web",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L41",
+      "source_location": "L42",
       "id": "package_scripts_web",
-      "community": 9,
+      "community": 6,
       "norm_label": "web"
     },
     {
       "label": "db:migrate",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L42",
+      "source_location": "L43",
       "id": "package_scripts_db_migrate",
-      "community": 9,
+      "community": 6,
       "norm_label": "db:migrate"
     },
     {
       "label": "functions:deploy",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L43",
+      "source_location": "L44",
       "id": "package_scripts_functions_deploy",
-      "community": 9,
+      "community": 6,
       "norm_label": "functions:deploy"
     },
     {
       "label": "secret:check",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L44",
+      "source_location": "L45",
       "id": "package_scripts_secret_check",
-      "community": 9,
+      "community": 6,
       "norm_label": "secret:check"
     },
     {
       "label": "private",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L46",
+      "source_location": "L47",
       "id": "package_private",
-      "community": 9,
+      "community": 6,
       "norm_label": "private"
     },
     {
@@ -1782,7 +1890,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L70",
       "id": "types_index_branchprice",
-      "community": 1,
+      "community": 4,
       "norm_label": "branchprice"
     },
     {
@@ -3949,9 +4057,9 @@
       "source_file": "app/(main)/randevularim.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_randevularim",
-      "target": "hooks_usesession",
-      "confidence_score": 1.0
+      "target": "hooks_usesession"
     },
     {
       "relation": "imports",
@@ -3960,9 +4068,9 @@
       "source_file": "app/(main)/randevularim.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_randevularim",
-      "target": "hooks_usesession_usesession",
-      "confidence_score": 1.0
+      "target": "hooks_usesession_usesession"
     },
     {
       "relation": "imports_from",
@@ -3971,9 +4079,9 @@
       "source_file": "app/(main)/randevularim.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_randevularim",
-      "target": "lib_supabase",
-      "confidence_score": 1.0
+      "target": "lib_supabase"
     },
     {
       "relation": "imports",
@@ -3982,9 +4090,9 @@
       "source_file": "app/(main)/randevularim.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_randevularim",
-      "target": "lib_supabase_supabase",
-      "confidence_score": 1.0
+      "target": "lib_supabase_supabase"
     },
     {
       "relation": "contains",
@@ -3992,9 +4100,9 @@
       "source_file": "app/(main)/randevularim.tsx",
       "source_location": "L215",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_randevularim",
-      "target": "main_randevularim_fotosatiri",
-      "confidence_score": 1.0
+      "target": "main_randevularim_fotosatiri"
     },
     {
       "relation": "contains",
@@ -4002,9 +4110,9 @@
       "source_file": "app/(main)/randevularim.tsx",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_randevularim",
-      "target": "main_randevularim_is_etiket",
-      "confidence_score": 1.0
+      "target": "main_randevularim_is_etiket"
     },
     {
       "relation": "contains",
@@ -4012,9 +4120,9 @@
       "source_file": "app/(main)/randevularim.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_randevularim",
-      "target": "main_randevularim_randevu_etiket",
-      "confidence_score": 1.0
+      "target": "main_randevularim_randevu_etiket"
     },
     {
       "relation": "contains",
@@ -4022,9 +4130,9 @@
       "source_file": "app/(main)/randevularim.tsx",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_randevularim",
-      "target": "main_randevularim_randevularimscreen",
-      "confidence_score": 1.0
+      "target": "main_randevularim_randevularimscreen"
     },
     {
       "relation": "contains",
@@ -4032,9 +4140,9 @@
       "source_file": "app/(main)/randevularim.tsx",
       "source_location": "L243",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_randevularim",
-      "target": "main_randevularim_s",
-      "confidence_score": 1.0
+      "target": "main_randevularim_s"
     },
     {
       "relation": "imports_from",
@@ -4043,9 +4151,9 @@
       "source_file": "app/(main)/randevularim.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_randevularim",
-      "target": "theme_themecontext",
-      "confidence_score": 1.0
+      "target": "theme_themecontext"
     },
     {
       "relation": "imports",
@@ -4054,9 +4162,9 @@
       "source_file": "app/(main)/randevularim.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_randevularim",
-      "target": "theme_themecontext_usetheme",
-      "confidence_score": 1.0
+      "target": "theme_themecontext_usetheme"
     },
     {
       "relation": "imports_from",
@@ -4065,9 +4173,9 @@
       "source_file": "app/(main)/randevularim.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_randevularim",
-      "target": "types_index",
-      "confidence_score": 1.0
+      "target": "types_index"
     },
     {
       "relation": "imports",
@@ -4076,9 +4184,9 @@
       "source_file": "app/(main)/randevularim.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_randevularim",
-      "target": "types_index_appointment",
-      "confidence_score": 1.0
+      "target": "types_index_appointment"
     },
     {
       "relation": "imports",
@@ -4087,9 +4195,9 @@
       "source_file": "app/(main)/randevularim.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_randevularim",
-      "target": "types_index_isdurum",
-      "confidence_score": 1.0
+      "target": "types_index_isdurum"
     },
     {
       "relation": "imports",
@@ -4098,9 +4206,9 @@
       "source_file": "app/(main)/randevularim.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_randevularim",
-      "target": "types_index_randevudurum",
-      "confidence_score": 1.0
+      "target": "types_index_randevudurum"
     },
     {
       "relation": "calls",
@@ -4220,6 +4328,168 @@
       "source_location": "L8",
       "weight": 1.0,
       "source": "yonetim_layout_yonetimlayout",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/fiyatlar.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "yonetim_fiyatlar",
+      "target": "hooks_usesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/fiyatlar.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "yonetim_fiyatlar",
+      "target": "hooks_usesession_usesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/fiyatlar.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "yonetim_fiyatlar",
+      "target": "lib_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/fiyatlar.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "yonetim_fiyatlar",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/fiyatlar.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "yonetim_fiyatlar",
+      "target": "theme_themecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/fiyatlar.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "yonetim_fiyatlar",
+      "target": "theme_themecontext_usetheme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/fiyatlar.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "yonetim_fiyatlar",
+      "target": "types_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/fiyatlar.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "yonetim_fiyatlar",
+      "target": "types_index_branchprice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/fiyatlar.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "yonetim_fiyatlar",
+      "target": "types_index_service",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/fiyatlar.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "yonetim_fiyatlar",
+      "target": "yonetim_fiyatlar_fiyatlarscreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/fiyatlar.tsx",
+      "source_location": "L201",
+      "weight": 1.0,
+      "source": "yonetim_fiyatlar",
+      "target": "yonetim_fiyatlar_s",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/fiyatlar.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "yonetim_fiyatlar",
+      "target": "yonetim_fiyatlar_tl",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/fiyatlar.tsx",
+      "source_location": "L162",
+      "weight": 1.0,
+      "source": "yonetim_fiyatlar_fiyatlarscreen",
+      "target": "yonetim_fiyatlar_tl",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(yonetim)/fiyatlar.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "yonetim_fiyatlar_fiyatlarscreen",
+      "target": "hooks_usesession_usesession"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(yonetim)/fiyatlar.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "yonetim_fiyatlar_fiyatlarscreen",
       "target": "theme_themecontext_usetheme"
     },
     {
@@ -4435,6 +4705,187 @@
       "source_location": "L18",
       "weight": 1.0,
       "source": "yonetim_index_panelscreen",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "yonetim_isler",
+      "target": "hooks_usesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "yonetim_isler",
+      "target": "hooks_usesession_usesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "yonetim_isler",
+      "target": "lib_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "yonetim_isler",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "yonetim_isler",
+      "target": "theme_themecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "yonetim_isler",
+      "target": "theme_themecontext_usetheme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "yonetim_isler",
+      "target": "types_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "yonetim_isler",
+      "target": "types_index_appointment",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "yonetim_isler",
+      "target": "types_index_isdurum",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L279",
+      "weight": 1.0,
+      "source": "yonetim_isler",
+      "target": "yonetim_isler_fotobolum",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "yonetim_isler",
+      "target": "yonetim_isler_is_etiket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "yonetim_isler",
+      "target": "yonetim_isler_islerscreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L312",
+      "weight": 1.0,
+      "source": "yonetim_isler",
+      "target": "yonetim_isler_s",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "yonetim_isler",
+      "target": "yonetim_isler_sonraki",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "yonetim_isler",
+      "target": "yonetim_isler_sonraki_etiket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "yonetim_isler_islerscreen",
+      "target": "hooks_usesession_usesession"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(yonetim)/isler.tsx",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "yonetim_isler_islerscreen",
       "target": "theme_themecontext_usetheme"
     },
     {
@@ -4972,9 +5423,9 @@
       "source_file": "app/randevu-al.tsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_randevu_al",
-      "target": "app_randevu_al_gunler",
-      "confidence_score": 1.0
+      "target": "app_randevu_al_gunler"
     },
     {
       "relation": "contains",
@@ -4982,9 +5433,9 @@
       "source_file": "app/randevu-al.tsx",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_randevu_al",
-      "target": "app_randevu_al_randevualscreen",
-      "confidence_score": 1.0
+      "target": "app_randevu_al_randevualscreen"
     },
     {
       "relation": "contains",
@@ -4992,9 +5443,9 @@
       "source_file": "app/randevu-al.tsx",
       "source_location": "L342",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_randevu_al",
-      "target": "app_randevu_al_s",
-      "confidence_score": 1.0
+      "target": "app_randevu_al_s"
     },
     {
       "relation": "imports_from",
@@ -5003,9 +5454,9 @@
       "source_file": "app/randevu-al.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_randevu_al",
-      "target": "data_arac_katalogu",
-      "confidence_score": 1.0
+      "target": "data_arac_katalogu"
     },
     {
       "relation": "imports",
@@ -5014,9 +5465,9 @@
       "source_file": "app/randevu-al.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_randevu_al",
-      "target": "data_arac_katalogu_cinslabel",
-      "confidence_score": 1.0
+      "target": "data_arac_katalogu_cinslabel"
     },
     {
       "relation": "imports_from",
@@ -5025,9 +5476,9 @@
       "source_file": "app/randevu-al.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_randevu_al",
-      "target": "hooks_usesession",
-      "confidence_score": 1.0
+      "target": "hooks_usesession"
     },
     {
       "relation": "imports",
@@ -5036,9 +5487,9 @@
       "source_file": "app/randevu-al.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_randevu_al",
-      "target": "hooks_usesession_usesession",
-      "confidence_score": 1.0
+      "target": "hooks_usesession_usesession"
     },
     {
       "relation": "imports_from",
@@ -5047,9 +5498,9 @@
       "source_file": "app/randevu-al.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_randevu_al",
-      "target": "lib_supabase",
-      "confidence_score": 1.0
+      "target": "lib_supabase"
     },
     {
       "relation": "imports",
@@ -5058,9 +5509,9 @@
       "source_file": "app/randevu-al.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_randevu_al",
-      "target": "lib_supabase_supabase",
-      "confidence_score": 1.0
+      "target": "lib_supabase_supabase"
     },
     {
       "relation": "imports_from",
@@ -5069,9 +5520,9 @@
       "source_file": "app/randevu-al.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_randevu_al",
-      "target": "theme_themecontext",
-      "confidence_score": 1.0
+      "target": "theme_themecontext"
     },
     {
       "relation": "imports",
@@ -5080,9 +5531,9 @@
       "source_file": "app/randevu-al.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_randevu_al",
-      "target": "theme_themecontext_usetheme",
-      "confidence_score": 1.0
+      "target": "theme_themecontext_usetheme"
     },
     {
       "relation": "imports_from",
@@ -5091,9 +5542,9 @@
       "source_file": "app/randevu-al.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_randevu_al",
-      "target": "types_index",
-      "confidence_score": 1.0
+      "target": "types_index"
     },
     {
       "relation": "imports",
@@ -5102,9 +5553,9 @@
       "source_file": "app/randevu-al.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_randevu_al",
-      "target": "types_index_branch",
-      "confidence_score": 1.0
+      "target": "types_index_branch"
     },
     {
       "relation": "imports",
@@ -5113,9 +5564,9 @@
       "source_file": "app/randevu-al.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_randevu_al",
-      "target": "types_index_fiyatsonuc",
-      "confidence_score": 1.0
+      "target": "types_index_fiyatsonuc"
     },
     {
       "relation": "imports",
@@ -5124,9 +5575,9 @@
       "source_file": "app/randevu-al.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_randevu_al",
-      "target": "types_index_musaitslot",
-      "confidence_score": 1.0
+      "target": "types_index_musaitslot"
     },
     {
       "relation": "imports",
@@ -5135,9 +5586,9 @@
       "source_file": "app/randevu-al.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_randevu_al",
-      "target": "types_index_vehicle",
-      "confidence_score": 1.0
+      "target": "types_index_vehicle"
     },
     {
       "relation": "calls",
@@ -5146,9 +5597,9 @@
       "source_file": "app/randevu-al.tsx",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_randevu_al_randevualscreen",
-      "target": "app_randevu_al_gunler",
-      "confidence_score": 1.0
+      "target": "app_randevu_al_gunler"
     },
     {
       "relation": "calls",
@@ -5281,6 +5732,16 @@
       "confidence_score": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_expo_font"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_expo_image_picker",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6192,9 +6653,9 @@
       "source_file": "src/types/index.ts",
       "source_location": "L70",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "types_index",
-      "target": "types_index_branchprice",
-      "confidence_score": 1.0
+      "target": "types_index_branchprice"
     },
     {
       "relation": "contains",
@@ -6212,9 +6673,9 @@
       "source_file": "src/types/index.ts",
       "source_location": "L87",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "types_index",
-      "target": "types_index_fiyatsonuc",
-      "confidence_score": 1.0
+      "target": "types_index_fiyatsonuc"
     },
     {
       "relation": "contains",
@@ -6222,9 +6683,9 @@
       "source_file": "src/types/index.ts",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "types_index",
-      "target": "types_index_isdurum",
-      "confidence_score": 1.0
+      "target": "types_index_isdurum"
     },
     {
       "relation": "contains",
@@ -6232,9 +6693,9 @@
       "source_file": "src/types/index.ts",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "types_index",
-      "target": "types_index_job",
-      "confidence_score": 1.0
+      "target": "types_index_job"
     },
     {
       "relation": "contains",
@@ -6242,9 +6703,9 @@
       "source_file": "src/types/index.ts",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "types_index",
-      "target": "types_index_jobphoto",
-      "confidence_score": 1.0
+      "target": "types_index_jobphoto"
     },
     {
       "relation": "contains",
@@ -6252,9 +6713,9 @@
       "source_file": "src/types/index.ts",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "types_index",
-      "target": "types_index_musaitslot",
-      "confidence_score": 1.0
+      "target": "types_index_musaitslot"
     },
     {
       "relation": "contains",
@@ -6333,9 +6794,9 @@
       "source_file": "supabase/functions/fiyat-hesapla/index.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fiyat_hesapla_index",
-      "target": "shared_sentry",
-      "confidence_score": 1.0
+      "target": "shared_sentry"
     },
     {
       "relation": "contains",
@@ -6395,9 +6856,9 @@
       "source_file": "supabase/functions/fiyat-hesapla/index.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fiyat_hesapla_index",
-      "target": "shared_sentry_captureedgeexception",
-      "confidence_score": 1.0
+      "target": "shared_sentry_captureedgeexception"
     },
     {
       "relation": "calls",
@@ -6416,9 +6877,9 @@
       "source_file": "supabase/functions/fiyat-hesapla/index.ts",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fiyat_hesapla_index",
-      "target": "fiyat_hesapla_index_cors",
-      "confidence_score": 1.0
+      "target": "fiyat_hesapla_index_cors"
     },
     {
       "relation": "contains",
@@ -6426,9 +6887,9 @@
       "source_file": "supabase/functions/fiyat-hesapla/index.ts",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fiyat_hesapla_index",
-      "target": "fiyat_hesapla_index_girdi",
-      "confidence_score": 1.0
+      "target": "fiyat_hesapla_index_girdi"
     },
     {
       "relation": "contains",
@@ -6436,9 +6897,9 @@
       "source_file": "supabase/functions/fiyat-hesapla/index.ts",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fiyat_hesapla_index",
-      "target": "fiyat_hesapla_index_json",
-      "confidence_score": 1.0
+      "target": "fiyat_hesapla_index_json"
     },
     {
       "relation": "contains",
@@ -7122,5 +7583,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "ade98e8ddff9528f50712bdd9670936ac3477a54"
+  "built_at_commit": "74e8be5c3fe7223cbba29a5ec8e00a132fe221c3"
 }

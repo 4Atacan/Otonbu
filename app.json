@@ -31,6 +31,13 @@
           "project": "react-native",
           "organization": "otonbu-nq"
         }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Önce/sonra iş fotoğraflarını eklemek için galeriye erişim gerekir.",
+          "cameraPermission": "İş fotoğrafı çekmek için kameraya erişim gerekir."
+        }
       ]
     ]
   }
