@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ActivityIndicator, Alert, ScrollView, StyleSheet,
   Text, TouchableOpacity, View,
@@ -47,15 +47,18 @@ export default function RandevuAlScreen() {
 
   const [gonderiliyor, setGonderiliyor] = useState(false);
 
-  // Temalı modal başlığı (üst navigator kök Stack)
-  const headerOpts = {
+  // Temalı modal başlığı (üst navigator kök Stack).
+  // useMemo şart: her render'da yeni nesne olursa <Stack.Screen options>
+  // navigation.setOptions'ı sürekli tetikler → sonsuz render döngüsü
+  // ("Maximum update depth exceeded").
+  const headerOpts = useMemo(() => ({
     title: serviceAd ?? 'Randevu Al',
     headerShown: true,
     headerStyle: { backgroundColor: renkler.card },
     headerTitleStyle: { color: renkler.text },
     headerTintColor: renkler.primary,
     headerShadowVisible: false,
-  };
+  }), [serviceAd, renkler]);
 
   // İlk veri: aktif şubeler + müşterinin araçları
   useEffect(() => {
