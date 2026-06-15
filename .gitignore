@@ -46,6 +46,7 @@ yarn-error.*
 
 # Supabase local temp
 supabase/.temp/
+supabase/.branches/
 
 # Claude Code local settings
 .claude/settings.local.json

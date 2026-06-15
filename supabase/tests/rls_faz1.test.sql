@@ -20,11 +20,14 @@ values
   ('b1000000-0000-0000-0000-000000000002'::uuid, 'b1@test.local', now(), 'authenticated', 'authenticated'),
   ('ad000000-0000-0000-0000-000000000099'::uuid, 'admin@test.local', now(), 'authenticated', 'authenticated');
 
--- public.users (trigger çalışmıyor test ortamında — manuel ekle)
+-- public.users: handle_new_user trigger auth.users insert'inde satırı zaten
+-- oluşturdu (id, email, rol='musteri'). Branch ve rol'ü upsert ile ayarla.
 insert into public.users (id, branch_id, email, rol) values
   ('a1000000-0000-0000-0000-000000000001'::uuid, 'a0000000-0000-0000-0000-000000000001'::uuid, 'a1@test.local', 'musteri'),
   ('b1000000-0000-0000-0000-000000000002'::uuid, 'b0000000-0000-0000-0000-000000000002'::uuid, 'b1@test.local', 'musteri'),
-  ('ad000000-0000-0000-0000-000000000099'::uuid, 'a0000000-0000-0000-0000-000000000001'::uuid, 'admin@test.local', 'admin');
+  ('ad000000-0000-0000-0000-000000000099'::uuid, 'a0000000-0000-0000-0000-000000000001'::uuid, 'admin@test.local', 'admin')
+on conflict (id) do update
+  set branch_id = excluded.branch_id, rol = excluded.rol, email = excluded.email;
 
 -- Araçlar
 insert into public.vehicles (id, user_id, plaka, segment) values

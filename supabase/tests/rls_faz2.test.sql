@@ -19,11 +19,14 @@ insert into auth.users (id, email, email_confirmed_at, role, aud) values
   ('c1000000-0000-0000-0000-000000000003'::uuid, 'musteri@test.local', now(), 'authenticated', 'authenticated'),
   ('ad000000-0000-0000-0000-000000000099'::uuid, 'admin@test.local', now(), 'authenticated', 'authenticated');
 
+-- handle_new_user trigger satırı oluşturdu; branch + rol'ü upsert ile ayarla
 insert into public.users (id, branch_id, email, rol) values
   ('a1000000-0000-0000-0000-000000000001'::uuid, 'a0000000-0000-0000-0000-000000000001'::uuid, 'sahibi-a@test.local', 'sube_sahibi'),
   ('b1000000-0000-0000-0000-000000000002'::uuid, 'b0000000-0000-0000-0000-000000000002'::uuid, 'sahibi-b@test.local', 'sube_sahibi'),
   ('c1000000-0000-0000-0000-000000000003'::uuid, null, 'musteri@test.local', 'musteri'),
-  ('ad000000-0000-0000-0000-000000000099'::uuid, null, 'admin@test.local', 'admin');
+  ('ad000000-0000-0000-0000-000000000099'::uuid, null, 'admin@test.local', 'admin')
+on conflict (id) do update
+  set branch_id = excluded.branch_id, rol = excluded.rol, email = excluded.email;
 
 insert into public.services (id, ad, kategori, taban_fiyat) values
   ('51000000-0000-0000-0000-000000000001'::uuid, 'Oto Yıkama', 'yikama', 300);
