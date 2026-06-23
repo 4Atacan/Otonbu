@@ -1,15 +1,16 @@
 import { useCallback, useState } from 'react';
 import {
-  ActivityIndicator, Alert, FlatList, Image, RefreshControl,
+  ActivityIndicator, Alert, FlatList, Image, RefreshControl, ScrollView,
   StyleSheet, Text, TouchableOpacity, View,
 } from 'react-native';
 import { useFocusEffect } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
-import { supabase } from '../../src/lib/supabase';
-import { useSession } from '../../src/hooks/useSession';
-import { useTheme } from '../../src/theme/ThemeContext';
-import { Appointment, IsDurum } from '../../src/types';
+import { supabase } from '../lib/supabase';
+import { useSession } from '../hooks/useSession';
+import { useTheme } from '../theme/ThemeContext';
+import { Appointment, IsDurum } from '../types';
+import { Yukleniyor } from './Yukleniyor';
 
 const PHOTO_BUCKET = 'job-photos';
 const SIGNED_TTL = 60 * 60;
@@ -31,7 +32,16 @@ const IS_ETIKET: Record<IsDurum, string> = {
   hazir: 'Araç hazır',
 };
 
-export default function IslerScreen() {
+// Tarih şeridi: bugün + geçmiş 13 gün (bugün başta). İşler "o günün işleri" mantığı.
+function gunListesi(): Date[] {
+  return Array.from({ length: 14 }, (_, i) => {
+    const d = new Date(); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() - i); return d;
+  });
+}
+
+// İşler listesi: onaylı randevulardan iş üstlenme + foto + durum ilerletme.
+// Tek başına ekran değil; Randevular sekmesi içinde "İşler" sekmesinde gösterilir.
+export default function IslerListesi() {
   const { session } = useSession();
   const { renkler } = useTheme();
   const [randevular, setRandevular] = useState<Appointment[]>([]);
@@ -39,10 +49,18 @@ export default function IslerScreen() {
   const [loading, setLoading] = useState(true);
   const [yenileniyor, setYenileniyor] = useState(false);
   const [mesgul, setMesgul] = useState<string | null>(null);  // işlenen job/appt id
+  const [seciliGun, setSeciliGun] = useState<Date>(() => {
+    const d = new Date(); d.setHours(0, 0, 0, 0); return d;
+  });
 
-  useFocusEffect(useCallback(() => { yukle(); }, []));
+  useFocusEffect(useCallback(() => { yukle(); }, [seciliGun]));
 
   async function yukle() {
+    setLoading(true);
+    // Seçili GÜNÜN onaylı randevuları (yerel gün → UTC aralığı). Sunucu-tarafı
+    // tarih filtresi sayesinde çok kullanımda da yalnız o günün işleri gelir.
+    const bas = new Date(seciliGun);
+    const son = new Date(seciliGun); son.setDate(son.getDate() + 1);
     // RLS: personel yalnızca kendi şubesinin randevularını görür
     const { data, error } = await supabase
       .from('appointments')
@@ -51,21 +69,17 @@ export default function IslerScreen() {
         users (ad_soyad, telefon),
         vehicles (plaka, marka, model),
         services (ad),
-        time_slots (baslangic),
         jobs (id, durum, assigned_to, job_photos (id, tip, url))
       `)
       .eq('durum', 'onayli')
-      .limit(100);
+      .gte('baslangic', bas.toISOString())
+      .lt('baslangic', son.toISOString())
+      .order('baslangic', { ascending: true })
+      .limit(200);
 
     if (error) { Alert.alert('Hata', error.message); setLoading(false); return; }
 
     const liste = (data as Appointment[]) ?? [];
-    // Slot saatine göre artan sırala (yaklaşan iş önce)
-    liste.sort((a, b) => {
-      const ta = a.time_slots?.baslangic ?? '';
-      const tb = b.time_slots?.baslangic ?? '';
-      return ta.localeCompare(tb);
-    });
     setRandevular(liste);
     await fotolariImzala(liste);
     setLoading(false);
@@ -166,112 +180,141 @@ export default function IslerScreen() {
     }
   }
 
-  if (loading) return <ActivityIndicator style={{ flex: 1 }} color={renkler.primary} />;
-
   return (
-    <View style={[s.container, { backgroundColor: renkler.bg }]}>
-      <FlatList
-        data={randevular}
-        keyExtractor={r => r.id}
-        refreshControl={<RefreshControl refreshing={yenileniyor} onRefresh={elleYenile} />}
-        contentContainerStyle={randevular.length === 0 && s.bosContainer}
-        ListEmptyComponent={
-          <View style={s.bosKutu}>
-            <Ionicons name="build-outline" size={48} color={renkler.subtext} />
-            <Text style={[s.bosBaslik, { color: renkler.text }]}>Aktif iş yok</Text>
-            <Text style={[s.bosAlt, { color: renkler.subtext }]}>
-              Onaylı randevular burada listelenir; iş başlatıp foto ekleyebilirsin.
-            </Text>
-          </View>
-        }
-        renderItem={({ item }) => {
-          const slot = item.time_slots?.baslangic
-            ? new Date(item.time_slots.baslangic) : null;
-          const is = item.jobs?.[0];
-          const fotolar = is?.job_photos ?? [];
-          const oncekiler = fotolar.filter(f => f.tip === 'once');
-          const sonrakiler = fotolar.filter(f => f.tip === 'sonra');
-          const busy = mesgul === item.id || (is && mesgul === is.id);
-
-          return (
-            <View style={[s.kart, { backgroundColor: renkler.card }]}>
-              <View style={s.kartUst}>
-                <Text style={[s.saat, { color: renkler.text }]}>
-                  {slot
-                    ? slot.toLocaleString('tr-TR', {
-                        day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit',
-                      })
-                    : 'Slot yok'}
+    <View style={{ flex: 1, backgroundColor: renkler.bg }}>
+      <View style={[s.seritKutu, { borderColor: renkler.border }]}>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={s.gunSerit}>
+          {gunListesi().map(g => {
+            const aktif = g.getTime() === seciliGun.getTime();
+            const bugun = g.getTime() === new Date().setHours(0, 0, 0, 0);
+            return (
+              <TouchableOpacity
+                key={g.toISOString()}
+                style={[
+                  s.gunBtn,
+                  { backgroundColor: renkler.card, borderColor: renkler.border },
+                  aktif && { backgroundColor: renkler.primary, borderColor: renkler.primary },
+                ]}
+                onPress={() => setSeciliGun(g)}
+              >
+                <Text style={[s.gunUst, { color: aktif ? renkler.primaryText : renkler.subtext }]}>
+                  {bugun ? 'Bugün' : g.toLocaleDateString('tr-TR', { weekday: 'short' })}
                 </Text>
-                {is && (
-                  <View style={[s.rozet, { backgroundColor: renkler.rozetBg }]}>
-                    <Text style={[s.rozetText, {
-                      color: is.durum === 'hazir' ? '#16a34a' : renkler.primary,
-                    }]}>
-                      {IS_ETIKET[is.durum]}
-                    </Text>
-                  </View>
-                )}
-              </View>
+                <Text style={[s.gunAlt, { color: aktif ? renkler.primaryText : renkler.text }]}>
+                  {g.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short' })}
+                </Text>
+              </TouchableOpacity>
+            );
+          })}
+        </ScrollView>
+      </View>
 
-              <Text style={[s.hizmet, { color: renkler.primary }]}>
-                {item.services?.ad ?? 'Hizmet'}
-              </Text>
-              <Text style={[s.detay, { color: renkler.text }]}>
-                {item.users?.ad_soyad ?? 'Müşteri'}
-                {item.users?.telefon ? ` · ${item.users.telefon}` : ''}
-              </Text>
-              <Text style={[s.detay, { color: renkler.subtext }]}>
-                {item.vehicles?.plaka ?? ''}
-                {item.vehicles ? `  ${[item.vehicles.marka, item.vehicles.model].filter(Boolean).join(' ')}` : ''}
-              </Text>
+      {loading ? (
+        <Yukleniyor />
+      ) : (
+    <FlatList
+      style={{ flex: 1, backgroundColor: renkler.bg }}
+      data={randevular}
+      keyExtractor={r => r.id}
+      refreshControl={<RefreshControl refreshing={yenileniyor} onRefresh={elleYenile} />}
+      contentContainerStyle={randevular.length === 0 && s.bosContainer}
+      ListEmptyComponent={
+        <View style={s.bosKutu}>
+          <Ionicons name="build-outline" size={48} color={renkler.subtext} />
+          <Text style={[s.bosBaslik, { color: renkler.text }]}>Bu gün için iş yok</Text>
+          <Text style={[s.bosAlt, { color: renkler.subtext }]}>
+            Seçili günde onaylı randevu yok. Başka bir gün seç.
+          </Text>
+        </View>
+      }
+      renderItem={({ item }) => {
+        const slot = item.baslangic ? new Date(item.baslangic) : null;
+        const is = item.jobs?.[0];
+        const fotolar = is?.job_photos ?? [];
+        const oncekiler = fotolar.filter(f => f.tip === 'once');
+        const sonrakiler = fotolar.filter(f => f.tip === 'sonra');
+        const busy = mesgul === item.id || (is && mesgul === is.id);
 
-              {!is ? (
-                <TouchableOpacity
-                  style={[s.anaBtn, { backgroundColor: renkler.primary }]}
-                  onPress={() => isiBaslat(item)}
-                  disabled={busy}
-                >
-                  {busy
-                    ? <ActivityIndicator color={renkler.primaryText} />
-                    : <Text style={[s.anaBtnText, { color: renkler.primaryText }]}>İşi Başlat</Text>}
-                </TouchableOpacity>
-              ) : (
-                <>
-                  {/* Foto bölümleri */}
-                  <FotoBolum
-                    baslik="Önce" tip="once" fotolar={oncekiler}
-                    signedMap={signedMap} renkler={renkler}
-                    onEkle={() => fotoSec(is.id, 'once')} busy={!!busy}
-                  />
-                  <FotoBolum
-                    baslik="Sonra" tip="sonra" fotolar={sonrakiler}
-                    signedMap={signedMap} renkler={renkler}
-                    onEkle={() => fotoSec(is.id, 'sonra')} busy={!!busy}
-                  />
-
-                  {/* Durum ilerlet */}
-                  {SONRAKI[is.durum] && (
-                    <TouchableOpacity
-                      style={[s.anaBtn, { backgroundColor: renkler.primary }]}
-                      onPress={() => durumIlerlet(is.id, is.durum)}
-                      disabled={busy}
-                    >
-                      {busy
-                        ? <ActivityIndicator color={renkler.primaryText} />
-                        : (
-                          <Text style={[s.anaBtnText, { color: renkler.primaryText }]}>
-                            {SONRAKI_ETIKET[is.durum]}
-                          </Text>
-                        )}
-                    </TouchableOpacity>
-                  )}
-                </>
+        return (
+          <View style={[s.kart, { backgroundColor: renkler.card }]}>
+            <View style={s.kartUst}>
+              <Text style={[s.saat, { color: renkler.text }]}>
+                {slot
+                  ? slot.toLocaleString('tr-TR', {
+                      day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit',
+                    })
+                  : 'Saat yok'}
+              </Text>
+              {is && (
+                <View style={[s.rozet, { backgroundColor: renkler.rozetBg }]}>
+                  <Text style={[s.rozetText, {
+                    color: is.durum === 'hazir' ? '#16a34a' : renkler.primary,
+                  }]}>
+                    {IS_ETIKET[is.durum]}
+                  </Text>
+                </View>
               )}
             </View>
-          );
-        }}
-      />
+
+            <Text style={[s.hizmet, { color: renkler.primary }]}>
+              {item.services?.ad ?? 'Hizmet'}
+            </Text>
+            <Text style={[s.detay, { color: renkler.text }]}>
+              {item.users?.ad_soyad ?? 'Müşteri'}
+              {item.users?.telefon ? ` · ${item.users.telefon}` : ''}
+            </Text>
+            <Text style={[s.detay, { color: renkler.subtext }]}>
+              {item.vehicles?.plaka ?? ''}
+              {item.vehicles ? `  ${[item.vehicles.marka, item.vehicles.model].filter(Boolean).join(' ')}` : ''}
+            </Text>
+
+            {!is ? (
+              <TouchableOpacity
+                style={[s.anaBtn, { backgroundColor: renkler.primary }]}
+                onPress={() => isiBaslat(item)}
+                disabled={busy}
+              >
+                {busy
+                  ? <ActivityIndicator color={renkler.primaryText} />
+                  : <Text style={[s.anaBtnText, { color: renkler.primaryText }]}>İşi Başlat</Text>}
+              </TouchableOpacity>
+            ) : (
+              <>
+                {/* Foto bölümleri */}
+                <FotoBolum
+                  baslik="Önce" tip="once" fotolar={oncekiler}
+                  signedMap={signedMap} renkler={renkler}
+                  onEkle={() => fotoSec(is.id, 'once')} busy={!!busy}
+                />
+                <FotoBolum
+                  baslik="Sonra" tip="sonra" fotolar={sonrakiler}
+                  signedMap={signedMap} renkler={renkler}
+                  onEkle={() => fotoSec(is.id, 'sonra')} busy={!!busy}
+                />
+
+                {/* Durum ilerlet */}
+                {SONRAKI[is.durum] && (
+                  <TouchableOpacity
+                    style={[s.anaBtn, { backgroundColor: renkler.primary }]}
+                    onPress={() => durumIlerlet(is.id, is.durum)}
+                    disabled={busy}
+                  >
+                    {busy
+                      ? <ActivityIndicator color={renkler.primaryText} />
+                      : (
+                        <Text style={[s.anaBtnText, { color: renkler.primaryText }]}>
+                          {SONRAKI_ETIKET[is.durum]}
+                        </Text>
+                      )}
+                  </TouchableOpacity>
+                )}
+              </>
+            )}
+          </View>
+        );
+      }}
+    />
+      )}
     </View>
   );
 }
@@ -310,7 +353,14 @@ function FotoBolum({
 }
 
 const s = StyleSheet.create({
-  container: { flex: 1 },
+  seritKutu: { paddingVertical: 8, borderBottomWidth: StyleSheet.hairlineWidth },
+  gunSerit: { gap: 8, paddingHorizontal: 12, paddingVertical: 2 },
+  gunBtn: {
+    borderWidth: 1, borderRadius: 10,
+    paddingVertical: 8, paddingHorizontal: 14, alignItems: 'center',
+  },
+  gunUst: { fontSize: 12 },
+  gunAlt: { fontSize: 14, fontWeight: '700', marginTop: 2 },
   bosContainer: { flexGrow: 1, justifyContent: 'center' },
   bosKutu: { alignItems: 'center', padding: 32 },
   bosBaslik: { fontSize: 17, fontWeight: '700', marginTop: 16 },

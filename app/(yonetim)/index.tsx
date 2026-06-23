@@ -1,10 +1,11 @@
 import { useCallback, useState } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useFocusEffect } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '../../src/lib/supabase';
 import { useSession } from '../../src/hooks/useSession';
 import { useTheme } from '../../src/theme/ThemeContext';
+import { RaporModal } from '../../src/components/RaporModal';
 
 const ROL_ADLARI: Record<string, string> = {
   admin: 'Merkez Yönetici',
@@ -17,8 +18,10 @@ export default function PanelScreen() {
   const { profile } = useSession();
   const { renkler } = useTheme();
   const [subeAd, setSubeAd] = useState<string | null>(null);
-  const [bugunSlot, setBugunSlot] = useState(0);
   const [bugunRandevu, setBugunRandevu] = useState(0);
+  const [bekleyen, setBekleyen] = useState(0);
+  const [raporAcik, setRaporAcik] = useState(false);
+  const raporGoster = profile?.rol === 'admin' || profile?.rol === 'sube_sahibi';
 
   useFocusEffect(useCallback(() => {
     if (!profile) return;
@@ -32,29 +35,28 @@ export default function PanelScreen() {
       setSubeAd(data?.ad ?? null);
     }
 
-    // Bugünün slotları (admin: tüm şubeler, personel için RLS zaten açık;
-    // şube filtresi varsa uygula)
+    // Bugünün randevuları (baslangic bugüne düşen, iptal-dışı). Admin tüm
+    // şubeleri görür; şube filtresi varsa uygulanır.
     const bas = new Date(); bas.setHours(0, 0, 0, 0);
     const son = new Date(); son.setHours(23, 59, 59, 999);
-    let slotSorgu = supabase
-      .from('time_slots')
-      .select('id')
+    let randevuSorgu = supabase
+      .from('appointments')
+      .select('id', { count: 'exact', head: true })
       .gte('baslangic', bas.toISOString())
-      .lte('baslangic', son.toISOString());
-    if (profile?.branch_id) slotSorgu = slotSorgu.eq('branch_id', profile.branch_id);
-    const { data: slotlar } = await slotSorgu;
-    setBugunSlot(slotlar?.length ?? 0);
+      .lte('baslangic', son.toISOString())
+      .neq('durum', 'iptal');
+    if (profile?.branch_id) randevuSorgu = randevuSorgu.eq('branch_id', profile.branch_id);
+    const { count: rcount } = await randevuSorgu;
+    setBugunRandevu(rcount ?? 0);
 
-    if (slotlar && slotlar.length > 0) {
-      const { count } = await supabase
-        .from('appointments')
-        .select('id', { count: 'exact', head: true })
-        .in('slot_id', slotlar.map(s2 => s2.id))
-        .neq('durum', 'iptal');
-      setBugunRandevu(count ?? 0);
-    } else {
-      setBugunRandevu(0);
-    }
+    // Onay bekleyen randevular
+    let bekSorgu = supabase
+      .from('appointments')
+      .select('id', { count: 'exact', head: true })
+      .eq('durum', 'beklemede');
+    if (profile?.branch_id) bekSorgu = bekSorgu.eq('branch_id', profile.branch_id);
+    const { count: bcount } = await bekSorgu;
+    setBekleyen(bcount ?? 0);
   }
 
   return (
@@ -69,25 +71,34 @@ export default function PanelScreen() {
 
       <View style={s.kartRow}>
         <View style={[s.kart, { backgroundColor: renkler.card }]}>
-          <Ionicons name="time-outline" size={22} color={renkler.primary} />
-          <Text style={[s.sayi, { color: renkler.text }]}>{bugunSlot}</Text>
-          <Text style={[s.kartAlt, { color: renkler.subtext }]}>Bugünkü slot</Text>
-        </View>
-        <View style={[s.kart, { backgroundColor: renkler.card }]}>
           <Ionicons name="calendar-outline" size={22} color={renkler.primary} />
           <Text style={[s.sayi, { color: renkler.text }]}>{bugunRandevu}</Text>
           <Text style={[s.kartAlt, { color: renkler.subtext }]}>Bugünkü randevu</Text>
         </View>
+        <View style={[s.kart, { backgroundColor: renkler.card }]}>
+          <Ionicons name="hourglass-outline" size={22} color={renkler.primary} />
+          <Text style={[s.sayi, { color: renkler.text }]}>{bekleyen}</Text>
+          <Text style={[s.kartAlt, { color: renkler.subtext }]}>Onay bekleyen</Text>
+        </View>
       </View>
 
-      {profile?.rol === 'sube_sahibi' && bugunSlot === 0 && (
-        <View style={[s.uyari, { backgroundColor: renkler.rozetBg }]}>
-          <Ionicons name="information-circle-outline" size={18} color={renkler.primary} />
-          <Text style={[s.uyariText, { color: renkler.primary }]}>
-            Bugün için slot tanımlı değil. Slotlar sekmesinden üretebilirsin.
-          </Text>
-        </View>
+      {raporGoster && (
+        <TouchableOpacity
+          style={[s.raporBtn, { backgroundColor: renkler.card }]}
+          onPress={() => setRaporAcik(true)}
+        >
+          <Ionicons name="bar-chart-outline" size={24} color={renkler.primary} />
+          <View style={{ flex: 1 }}>
+            <Text style={[s.raporBaslik, { color: renkler.text }]}>Raporlar</Text>
+            <Text style={[s.raporAlt, { color: renkler.subtext }]}>
+              Tarih aralığı seç, işleri gör, Excel'e aktar
+            </Text>
+          </View>
+          <Ionicons name="chevron-forward" size={20} color={renkler.subtext} />
+        </TouchableOpacity>
       )}
+
+      <RaporModal visible={raporAcik} onClose={() => setRaporAcik(false)} />
     </ScrollView>
   );
 }
@@ -100,9 +111,10 @@ const s = StyleSheet.create({
   kart: { flex: 1, borderRadius: 12, padding: 16 },
   sayi: { fontSize: 28, fontWeight: '800', marginTop: 8 },
   kartAlt: { fontSize: 13, marginTop: 2 },
-  uyari: {
-    flexDirection: 'row', alignItems: 'center', gap: 8,
-    borderRadius: 10, padding: 12, marginTop: 16,
+  raporBtn: {
+    flexDirection: 'row', alignItems: 'center', gap: 12,
+    borderRadius: 12, padding: 16, marginTop: 16,
   },
-  uyariText: { fontSize: 13, flex: 1, lineHeight: 18 },
+  raporBaslik: { fontSize: 16, fontWeight: '700' },
+  raporAlt: { fontSize: 13, marginTop: 2 },
 });

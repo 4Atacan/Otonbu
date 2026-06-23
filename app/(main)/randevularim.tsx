@@ -9,6 +9,7 @@ import { supabase } from '../../src/lib/supabase';
 import { useSession } from '../../src/hooks/useSession';
 import { useTheme } from '../../src/theme/ThemeContext';
 import { Appointment, IsDurum, RandevuDurum } from '../../src/types';
+import { Yukleniyor } from '../../src/components/Yukleniyor';
 
 const RANDEVU_ETIKET: Record<RandevuDurum, string> = {
   beklemede: 'Beklemede',
@@ -24,6 +25,13 @@ const IS_ETIKET: Record<IsDurum, string> = {
 
 const PHOTO_BUCKET = 'job-photos';
 const SIGNED_TTL = 60 * 60;  // 1 saat — signed URL süre dolunca ölür
+const IPTAL_SINIRI_DK = 60;  // randevu saatine bu kadar dakikadan az kala iptal kapanır
+
+// Slot başlangıcına kaç dakika kaldığı (geçmişse negatif). null = slot yok
+function dakikaKala(baslangic?: string | null): number | null {
+  if (!baslangic) return null;
+  return (new Date(baslangic).getTime() - Date.now()) / 60000;
+}
 
 export default function RandevularimScreen() {
   const { session } = useSession();
@@ -43,8 +51,8 @@ export default function RandevularimScreen() {
         *,
         services (ad),
         branches (ad),
-        time_slots (baslangic),
-        jobs (durum, job_photos (tip, url))
+        jobs (durum, job_photos (tip, url)),
+        appointment_changes ( id, tip, durum, yeni_baslangic )
       `)
       .eq('user_id', session.user.id)
       .order('created_at', { ascending: false });
@@ -106,13 +114,38 @@ export default function RandevularimScreen() {
     );
   }
 
+  // Yöneticiden gelen değişiklik talebine yanıt (onay/ret). Uygulama adımı
+  // SECURITY DEFINER RPC içinde sahiplik doğrulanarak yapılır.
+  function talebeYanitVer(talepId: string, onay: boolean) {
+    Alert.alert(
+      onay ? 'Talebi Onayla' : 'Talebi Reddet',
+      onay
+        ? 'Yöneticinin önerdiği değişikliği onaylıyor musun?'
+        : 'Talebi reddedersen randevun olduğu gibi kalır.',
+      [
+        { text: 'Vazgeç', style: 'cancel' },
+        {
+          text: onay ? 'Onayla' : 'Reddet',
+          style: onay ? 'default' : 'destructive',
+          onPress: async () => {
+            const { error } = await supabase.rpc('randevu_talep_yanitla', {
+              p_talep_id: talepId, p_onay: onay,
+            });
+            if (error) Alert.alert('Hata', error.message);
+            else yukle();
+          },
+        },
+      ],
+    );
+  }
+
   function randevuRenk(durum: RandevuDurum): string {
     if (durum === 'onayli') return '#16a34a';
     if (durum === 'iptal') return renkler.danger;
     return '#d97706';
   }
 
-  if (loading) return <ActivityIndicator style={{ flex: 1 }} color={renkler.primary} />;
+  if (loading) return <Yukleniyor />;
 
   return (
     <View style={[s.container, { backgroundColor: renkler.bg }]}>
@@ -133,13 +166,17 @@ export default function RandevularimScreen() {
           </View>
         }
         renderItem={({ item }) => {
-          const slot = item.time_slots?.baslangic
-            ? new Date(item.time_slots.baslangic) : null;
+          const slot = item.baslangic ? new Date(item.baslangic) : null;
           const is = item.jobs?.[0];
           const fotolar = is?.job_photos ?? [];
           const oncekiler = fotolar.filter(f => f.tip === 'once');
           const sonrakiler = fotolar.filter(f => f.tip === 'sonra');
-          const iptalEdilebilir = item.durum !== 'iptal' && !is;
+          const kala = dakikaKala(item.baslangic);
+          // Randevu saatine 1 saatten az kala iptal kapanır
+          const sureyeUyar = kala === null || kala >= IPTAL_SINIRI_DK;
+          const iptalEdilebilir = item.durum !== 'iptal' && !is && sureyeUyar;
+          const iptalKapandi = item.durum !== 'iptal' && !is && !sureyeUyar;
+          const bekleyen = item.appointment_changes?.find(c => c.durum === 'beklemede');
 
           return (
             <View style={[s.kart, { backgroundColor: renkler.card }]}>
@@ -196,13 +233,60 @@ export default function RandevularimScreen() {
                 </View>
               )}
 
+              {/* Yöneticiden gelen bekleyen değişiklik talebi — müşteri onayı */}
+              {bekleyen && (
+                <View style={[s.talepKutu, { backgroundColor: renkler.rozetBg, borderColor: renkler.primary }]}>
+                  <View style={s.talepBaslikSatir}>
+                    <Ionicons name="notifications" size={16} color={renkler.primary} />
+                    <Text style={[s.talepBaslik, { color: renkler.primary }]}>
+                      {bekleyen.tip === 'iptal' ? 'İptal talebi' : 'Saat değişikliği talebi'}
+                    </Text>
+                  </View>
+                  <Text style={[s.talepMetin, { color: renkler.text }]}>
+                    {bekleyen.tip === 'iptal'
+                      ? 'Şube bu randevuyu iptal etmek istiyor. Onaylıyor musun?'
+                      : `Şube randevu saatini ${
+                          bekleyen.yeni_baslangic
+                            ? new Date(bekleyen.yeni_baslangic).toLocaleString('tr-TR', {
+                                day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit',
+                              })
+                            : 'yeni bir saate'
+                        } olarak değiştirmek istiyor. Onaylıyor musun?`}
+                  </Text>
+                  <View style={s.talepEylem}>
+                    <TouchableOpacity
+                      style={[s.talepBtn, { backgroundColor: renkler.primary }]}
+                      onPress={() => talebeYanitVer(bekleyen.id, true)}
+                    >
+                      <Text style={[s.talepBtnText, { color: renkler.primaryText }]}>Onayla</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={[s.talepBtnRet, { borderColor: renkler.danger }]}
+                      onPress={() => talebeYanitVer(bekleyen.id, false)}
+                    >
+                      <Text style={[s.talepBtnText, { color: renkler.danger }]}>Reddet</Text>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              )}
+
               {iptalEdilebilir && (
-                <TouchableOpacity
-                  style={[s.iptalBtn, { borderColor: renkler.danger }]}
-                  onPress={() => iptalOnayi(item)}
-                >
-                  <Text style={[s.iptalText, { color: renkler.danger }]}>İptal Et</Text>
-                </TouchableOpacity>
+                <>
+                  <TouchableOpacity
+                    style={[s.iptalBtn, { borderColor: renkler.danger }]}
+                    onPress={() => iptalOnayi(item)}
+                  >
+                    <Text style={[s.iptalText, { color: renkler.danger }]}>İptal Et</Text>
+                  </TouchableOpacity>
+                  <Text style={[s.iptalBilgi, { color: renkler.subtext }]}>
+                    Randevunu, saatine 1 saat kalaya kadar iptal edebilirsin.
+                  </Text>
+                </>
+              )}
+              {iptalKapandi && (
+                <Text style={[s.iptalBilgi, { color: renkler.subtext }]}>
+                  Randevu saatine 1 saatten az kaldığı için iptal kapandı.
+                </Text>
               )}
             </View>
           );
@@ -272,4 +356,13 @@ const s = StyleSheet.create({
     alignSelf: 'flex-start', marginTop: 12,
   },
   iptalText: { fontSize: 13, fontWeight: '600' },
+  iptalBilgi: { fontSize: 12, marginTop: 8, lineHeight: 17 },
+  talepKutu: { borderWidth: 1, borderRadius: 10, padding: 12, marginTop: 12 },
+  talepBaslikSatir: { flexDirection: 'row', alignItems: 'center', gap: 6 },
+  talepBaslik: { fontSize: 13, fontWeight: '700' },
+  talepMetin: { fontSize: 13, lineHeight: 19, marginTop: 6 },
+  talepEylem: { flexDirection: 'row', gap: 10, marginTop: 12 },
+  talepBtn: { borderRadius: 8, paddingVertical: 9, paddingHorizontal: 18 },
+  talepBtnRet: { borderWidth: 1, borderRadius: 8, paddingVertical: 8, paddingHorizontal: 18 },
+  talepBtnText: { fontSize: 13, fontWeight: '700' },
 });

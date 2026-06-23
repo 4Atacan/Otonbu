@@ -32,20 +32,21 @@ insert into public.services (id, ad, kategori, taban_fiyat) values
   ('51000000-0000-0000-0000-000000000001'::uuid, 'Oto Yıkama', 'yikama', 300);
 
 insert into public.vehicles (id, user_id, plaka, segment) values
-  ('e1000000-0000-0000-0000-000000000001'::uuid, 'c1000000-0000-0000-0000-000000000003'::uuid, 'TEST34', 'standart');
+  ('e1000000-0000-0000-0000-000000000001'::uuid, 'c1000000-0000-0000-0000-000000000003'::uuid, 'TEST34', 'kucuk');
 
 insert into public.time_slots (id, branch_id, baslangic) values
   ('70000000-0000-0000-0000-000000000001'::uuid, 'a0000000-0000-0000-0000-000000000001'::uuid, '2026-07-01 09:00+03'),
   ('70000000-0000-0000-0000-000000000002'::uuid, 'b0000000-0000-0000-0000-000000000002'::uuid, '2026-07-01 09:00+03');
 
 -- Müşterinin Şube A'da randevusu
-insert into public.appointments (id, branch_id, user_id, vehicle_id, service_id, slot_id) values
+insert into public.appointments (id, branch_id, user_id, vehicle_id, service_id, slot_id, baslangic) values
   ('90000000-0000-0000-0000-000000000001'::uuid,
    'a0000000-0000-0000-0000-000000000001'::uuid,
    'c1000000-0000-0000-0000-000000000003'::uuid,
    'e1000000-0000-0000-0000-000000000001'::uuid,
    '51000000-0000-0000-0000-000000000001'::uuid,
-   '70000000-0000-0000-0000-000000000001'::uuid);
+   '70000000-0000-0000-0000-000000000001'::uuid,
+   '2026-07-01 09:00+03');
 
 -- Şube A sahibinin üstlendiği iş
 insert into public.jobs (id, appointment_id, assigned_to, durum) values
@@ -79,12 +80,14 @@ select throws_ok(
 select is((select count(*)::int from public.jobs), 1,
   'Müşteri kendi randevusunun işini görür');
 
--- musait_slotlar slot doluluğunu agregat döndürür (satır sızdırmadan)
+-- musait_slotlar aday saatin doluluğunu agregat döndürür (satır sızdırmadan).
+-- Program yoksa varsayılan şablona düşer; 09:00 adayı randevuyla dolu olur.
 select is(
   (select dolu::int from public.musait_slotlar(
      'a0000000-0000-0000-0000-000000000001'::uuid,
-     '2026-07-01 00:00+03'::timestamptz, '2026-07-01 23:59+03'::timestamptz)
-   where id = '70000000-0000-0000-0000-000000000001'::uuid),
+     '51000000-0000-0000-0000-000000000001'::uuid,
+     '2026-07-01'::date)
+   where baslangic = '2026-07-01 09:00+03'::timestamptz),
   1,
   'musait_slotlar dolu sayısını (1) döndürür');
 

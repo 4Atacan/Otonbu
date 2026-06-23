@@ -1,0 +1,17 @@
+---
+dosya: "app/(main)/randevularim.tsx"
+community: 18
+semboller: 6
+tags: [community-18]
+---
+
+# randevularim.tsx
+
+`app/(main)/randevularim.tsx`
+
+## Bağlı dosyalar
+
+- [[src__hooks__useSession.ts|src/hooks/useSession.ts]] — imports_from, imports, calls
+- [[src__lib__supabase.ts|src/lib/supabase.ts]] — imports_from, imports
+- [[src__theme__ThemeContext.tsx|src/theme/ThemeContext.tsx]] — imports_from, imports, calls
+- [[src__types__index.ts|src/types/index.ts]] — imports_from, imports

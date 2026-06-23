@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Alert, ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Alert, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Link, useLocalSearchParams } from 'expo-router';
 import { supabase } from '../../src/lib/supabase';
 import { Logo } from '../../src/components/Logo';
@@ -33,7 +33,7 @@ export default function OnayBekliyorScreen() {
 
   return (
     <ScrollView contentContainerStyle={s.container} keyboardShouldPersistTaps="handled">
-      <Logo width={160} showTagline={false} />
+      <View style={{ alignItems: 'center', marginBottom: 18 }}><Logo width={150} sabitAcik /></View>
       <Text style={s.baslik}>E-postanı Doğrula</Text>
       <Text style={s.aciklama}>
         <Text style={s.bold}>{email}</Text> adresine bir doğrulama linki gönderdik.
@@ -68,10 +68,10 @@ const s = StyleSheet.create({
   aciklama: { fontSize: 14, color: '#475569', textAlign: 'center', lineHeight: 22, marginBottom: 32 },
   bold: { fontWeight: '700', color: '#0f172a' },
   btn: {
-    borderWidth: 1, borderColor: '#1a56db', borderRadius: 10,
+    borderWidth: 1, borderColor: '#0b7bb5', borderRadius: 10,
     paddingVertical: 12, paddingHorizontal: 24,
   },
-  btnText: { color: '#1a56db', fontWeight: '700' },
+  btnText: { color: '#0b7bb5', fontWeight: '700' },
   link: { marginTop: 20, padding: 12 },
   linkText: { color: '#64748b' },
 });

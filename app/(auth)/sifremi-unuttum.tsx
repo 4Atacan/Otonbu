@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {
   ActivityIndicator, Alert, ScrollView, StyleSheet,
-  Text, TextInput, TouchableOpacity,
+  Text, TextInput, TouchableOpacity, View,
 } from 'react-native';
 import { Link } from 'expo-router';
 import * as SecureStore from 'expo-secure-store';
@@ -84,7 +84,7 @@ export default function SifremiUnuttumScreen() {
 
   return (
     <ScrollView contentContainerStyle={s.container} keyboardShouldPersistTaps="handled">
-      <Logo width={160} showTagline={false} />
+      <View style={{ alignItems: 'center', marginBottom: 18 }}><Logo width={150} sabitAcik /></View>
       <Text style={s.baslik}>Şifremi Unuttum</Text>
 
       {adim === 'eposta' ? (
@@ -187,7 +187,7 @@ const s = StyleSheet.create({
   },
   inputError: { borderColor: '#dc2626' },
   btn: {
-    backgroundColor: '#1a56db', borderRadius: 10,
+    backgroundColor: '#0b7bb5', borderRadius: 10,
     padding: 16, alignItems: 'center', marginTop: 4,
   },
   btnText: { color: '#fff', fontSize: 16, fontWeight: '700' },

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {
   ActivityIndicator, Alert, ScrollView, StyleSheet,
-  Text, TextInput, TouchableOpacity,
+  Text, TextInput, TouchableOpacity, View,
 } from 'react-native';
 import { Link, useRouter } from 'expo-router';
 import { supabase } from '../../src/lib/supabase';
@@ -65,7 +65,7 @@ export default function KayitScreen() {
 
   return (
     <ScrollView contentContainerStyle={s.container} keyboardShouldPersistTaps="handled">
-      <Logo width={160} showTagline={false} />
+      <View style={{ alignItems: 'center', marginBottom: 18 }}><Logo width={150} sabitAcik /></View>
       <Text style={s.baslik}>Hesap Oluştur</Text>
       <Text style={s.alt}>OTONBU GARAGE'a hoş geldin</Text>
 
@@ -149,11 +149,11 @@ const s = StyleSheet.create({
   inputError: { borderColor: '#dc2626' },
   errorText: { color: '#dc2626', fontSize: 12, marginTop: -10, marginBottom: 12 },
   btn: {
-    backgroundColor: '#1a56db', borderRadius: 10,
+    backgroundColor: '#0b7bb5', borderRadius: 10,
     padding: 16, alignItems: 'center', marginTop: 8,
   },
   btnText: { color: '#fff', fontSize: 16, fontWeight: '700' },
   link: { alignItems: 'center', paddingVertical: 16 },
   linkText: { color: '#475569', fontSize: 14 },
-  linkStrong: { color: '#1a56db', fontWeight: '700' },
+  linkStrong: { color: '#0b7bb5', fontWeight: '700' },
 });

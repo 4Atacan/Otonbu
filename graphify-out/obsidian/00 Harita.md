@@ -1,0 +1,56 @@
+# OTONBU — Bağlantı Haritası
+
+Toplam **46 dosya**, **91 dosya-arası bağ**.
+
+Sol üstten **Graph view** (graf simgesi) aç. Her düğüm bir dosya, her çizgi bir bağ.
+Renkleri community'ye göre ayırmak için Graph view ayarlarında **Groups** ekleyip
+`tag:#community-0`, `tag:#community-1` ... şeklinde grupla.
+
+## Dosyalar
+
+- [[.claude__settings.json|.claude/settings.json]]
+- [[CLAUDE.md|CLAUDE.md]]
+- [[IMPLEMENTATION.md|IMPLEMENTATION.md]]
+- [[app.json|app.json]]
+- [[app__(auth)___layout.tsx|app/(auth)/_layout.tsx]]
+- [[app__(auth)__index.tsx|app/(auth)/index.tsx]]
+- [[app__(auth)__kayit.tsx|app/(auth)/kayit.tsx]]
+- [[app__(auth)__onay-bekliyor.tsx|app/(auth)/onay-bekliyor.tsx]]
+- [[app__(auth)__sifremi-unuttum.tsx|app/(auth)/sifremi-unuttum.tsx]]
+- [[app__(auth)__yonetici.tsx|app/(auth)/yonetici.tsx]]
+- [[app__(main)___layout.tsx|app/(main)/_layout.tsx]]
+- [[app__(main)__araclar.tsx|app/(main)/araclar.tsx]]
+- [[app__(main)__index.tsx|app/(main)/index.tsx]]
+- [[app__(main)__kampanyalar.tsx|app/(main)/kampanyalar.tsx]]
+- [[app__(main)__profil.tsx|app/(main)/profil.tsx]]
+- [[app__(main)__randevularim.tsx|app/(main)/randevularim.tsx]]
+- [[app__(yonetim)___layout.tsx|app/(yonetim)/_layout.tsx]]
+- [[app__(yonetim)__fiyatlar.tsx|app/(yonetim)/fiyatlar.tsx]]
+- [[app__(yonetim)__hizmetler.tsx|app/(yonetim)/hizmetler.tsx]]
+- [[app__(yonetim)__index.tsx|app/(yonetim)/index.tsx]]
+- [[app__(yonetim)__isler.tsx|app/(yonetim)/isler.tsx]]
+- [[app__(yonetim)__profil.tsx|app/(yonetim)/profil.tsx]]
+- [[app__(yonetim)__randevular.tsx|app/(yonetim)/randevular.tsx]]
+- [[app__(yonetim)__slotlar.tsx|app/(yonetim)/slotlar.tsx]]
+- [[app__(yonetim)__subeler.tsx|app/(yonetim)/subeler.tsx]]
+- [[app___layout.tsx|app/_layout.tsx]]
+- [[app__hizmet-detay.tsx|app/hizmet-detay.tsx]]
+- [[app__randevu-al.tsx|app/randevu-al.tsx]]
+- [[graphify-out__converted__OTONBU_Uygulama_Ozellikleri_9e87f775.md|graphify-out/converted/OTONBU_Uygulama_Ozellikleri_9e87f775.md]]
+- [[package.json|package.json]]
+- [[scripts__test-rls.ts|scripts/test-rls.ts]]
+- [[src__components__AutocompleteInput.tsx|src/components/AutocompleteInput.tsx]]
+- [[src__components__CaptchaWidget.tsx|src/components/CaptchaWidget.tsx]]
+- [[src__components__Logo.tsx|src/components/Logo.tsx]]
+- [[src__components__PhoneInput.tsx|src/components/PhoneInput.tsx]]
+- [[src__data__arac-katalogu.ts|src/data/arac-katalogu.ts]]
+- [[src__data__calisma-duzeni.ts|src/data/calisma-duzeni.ts]]
+- [[src__hooks__useSession.ts|src/hooks/useSession.ts]]
+- [[src__lib__hizmet.ts|src/lib/hizmet.ts]]
+- [[src__lib__sentry.ts|src/lib/sentry.ts]]
+- [[src__lib__supabase.ts|src/lib/supabase.ts]]
+- [[src__theme__ThemeContext.tsx|src/theme/ThemeContext.tsx]]
+- [[src__types__index.ts|src/types/index.ts]]
+- [[supabase__functions___shared__sentry.ts|supabase/functions/_shared/sentry.ts]]
+- [[supabase__functions__fiyat-hesapla__index.ts|supabase/functions/fiyat-hesapla/index.ts]]
+- [[tsconfig.json|tsconfig.json]]

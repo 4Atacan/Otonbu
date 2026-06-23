@@ -13,12 +13,16 @@ export interface Renkler {
   subtext: string;   // ikincil metin
   border: string;
   input: string;     // input zemini
-  primary: string;
+  primary: string;   // ana aksiyon (buton) rengi — marka azuru
   primaryText: string;
+  accent: string;    // marka camgöbeği — vurgular, logo parıltısı (otonbu "o")
   danger: string;
-  rozetBg: string;   // bilgi rozeti zemini
+  rozetBg: string;   // bilgi rozeti / yumuşak vurgu zemini (camgöbeği tonu)
 }
 
+// Marka paleti, otonbu logosundan türetildi: parlak camgöbeği "o" simgesi.
+// primary = buton zemininde beyaz yazıyla okunur kalsın diye logodan biraz koyu
+// bir azur; accent = logodaki canlı camgöbeğinin kendisi (dekoratif vurgu).
 export const ACIK: Renkler = {
   bg: '#f5f5f5',
   card: '#ffffff',
@@ -26,10 +30,11 @@ export const ACIK: Renkler = {
   subtext: '#64748b',
   border: '#e2e8f0',
   input: '#ffffff',
-  primary: '#1a56db',
+  primary: '#0b7bb5',
   primaryText: '#ffffff',
+  accent: '#11a8e0',
   danger: '#dc2626',
-  rozetBg: '#eff6ff',
+  rozetBg: '#e6f6fd',
 };
 
 export const KOYU: Renkler = {
@@ -39,10 +44,11 @@ export const KOYU: Renkler = {
   subtext: '#94a3b8',
   border: '#334155',
   input: '#0f172a',
-  primary: '#3b82f6',
+  primary: '#1f9ad4',
   primaryText: '#ffffff',
+  accent: '#3fc2f2',
   danger: '#f87171',
-  rozetBg: '#1e3a5f',
+  rozetBg: '#0c3a52',
 };
 
 const TEMA_KEY = 'otonbu_tema';

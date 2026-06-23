@@ -63,8 +63,8 @@ async function run() {
   ]);
 
   await admin.from('vehicles').insert([
-    { user_id: authA.user.id, plaka: 'TEST01', segment: 'standart' },
-    { user_id: authB.user.id, plaka: 'TEST02', segment: 'standart' },
+    { user_id: authA.user.id, plaka: 'TEST01', segment: 'kucuk' },
+    { user_id: authB.user.id, plaka: 'TEST02', segment: 'kucuk' },
   ]);
 
   // Service_role tüm verileri görür

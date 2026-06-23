@@ -396,6 +396,15 @@ deno_version = 2
 [functions.fiyat-hesapla]
 verify_jwt = true
 
+# Abonelik başlatma çağıranın oturumuyla çalışır — plan ücreti sunucuda okunur.
+[functions.abonelik-baslat]
+verify_jwt = true
+
+# iyzico ödeme bitince callback/webhook ile çağırır — kullanıcı JWT'si YOKTUR.
+# Güvenlik, token'ın iyzico'ya sunucu-sunucu yeniden sorgulanmasıyla sağlanır.
+[functions.iyzico-webhook]
+verify_jwt = false
+
 [analytics]
 enabled = true
 port = 54327

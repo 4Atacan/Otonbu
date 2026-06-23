@@ -51,13 +51,20 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider>
-      <Stack screenOptions={{ headerShown: false }}>
+      {/* headerBackButtonDisplayMode: 'minimal' → sekme üstüne açılan ekranlarda
+          geri butonunda "(main)" gibi grup adı görünmez, sadece ok kalır */}
+      <Stack screenOptions={{ headerShown: false, headerBackButtonDisplayMode: 'minimal' }}>
         <Stack.Screen name="(auth)" />
         <Stack.Screen name="(main)" />
         <Stack.Screen name="(yonetim)" />
+        {/* Hizmet detayı — sekmelerin üzerinde kart; başlık ekranın kendi
+            Stack.Screen'inde ayarlanır */}
+        <Stack.Screen name="hizmet-detay" />
         {/* Randevu alma akışı — sekmelerin üzerinde modal; başlık/tema
             ekranın kendi Stack.Screen'inde ayarlanır */}
         <Stack.Screen name="randevu-al" options={{ presentation: 'modal' }} />
+        {/* Abonelik / paketler — sekmelerin üzerinde kart */}
+        <Stack.Screen name="abonelik" />
       </Stack>
     </ThemeProvider>
   );

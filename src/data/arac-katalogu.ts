@@ -21,6 +21,28 @@ export function cinsLabel(value: string | null): string {
   return ARAC_CINSLERI.find(c => c.value === value)?.label ?? '—';
 }
 
+// Fiyatlama segmentleri (araç boyut sınıfı). vehicles.segment trigger ile
+// arac_cinsi'den otomatik atanır; burası sadece etiket/sıra için.
+export const SEGMENTLER = [
+  { value: 'kucuk', label: 'Küçük araç' },
+  { value: 'buyuk', label: 'Büyük araç' },
+] as const;
+
+export type Segment = (typeof SEGMENTLER)[number]['value'];
+
+// Büyük sayılan cinsler (migration'daki arac_segment ile aynı tutulmalı)
+const BUYUK_CINSLER = new Set([
+  'suv', 'crossover', 'station_wagon', 'mpv', 'pickup', 'panelvan',
+]);
+
+export function aracSegment(cinsi: string | null): Segment {
+  return cinsi && BUYUK_CINSLER.has(cinsi) ? 'buyuk' : 'kucuk';
+}
+
+export function segmentLabel(value: string): string {
+  return SEGMENTLER.find(s => s.value === value)?.label ?? value;
+}
+
 // Marka → modeller. Alfabetik sıralı.
 export const MARKALAR: Record<string, string[]> = {
   'Alfa Romeo': ['147', '156', '159', 'Giulia', 'Giulietta', 'Junior', 'MiTo', 'Stelvio', 'Tonale'],

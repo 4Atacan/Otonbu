@@ -7,6 +7,7 @@ import { useFocusEffect } from 'expo-router';
 import { supabase } from '../../src/lib/supabase';
 import { useTheme } from '../../src/theme/ThemeContext';
 import { Branch } from '../../src/types';
+import { Yukleniyor } from '../../src/components/Yukleniyor';
 
 export default function SubelerScreen() {
   const { renkler } = useTheme();
@@ -108,7 +109,7 @@ export default function SubelerScreen() {
     Alert.alert('Tamam', `${kullanici.ad_soyad ?? mail} bu şubenin sahibi yapıldı`);
   }
 
-  if (loading) return <ActivityIndicator style={{ flex: 1 }} color={renkler.primary} />;
+  if (loading) return <Yukleniyor />;
 
   return (
     <View style={[s.container, { backgroundColor: renkler.bg }]}>

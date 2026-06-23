@@ -62,10 +62,10 @@ Deno.serve(async (req) => {
     if (!arac) return json({ hata: "Araç bulunamadı veya erişim yok" }, 404);
     const segment = arac.segment ?? "standart";
 
-    // Hizmet tabanı + yerel sapma sınırı.
+    // Hizmet: segment başına marka tabanı + yerel sapma sınırı.
     const { data: hizmet, error: hizmetHata } = await supabase
       .from("services")
-      .select("taban_fiyat, oynama_orani, aktif")
+      .select("taban_fiyat, oynama_orani, segment_fiyatlari, aktif, kampanya_tip, kampanya_indirim_yuzde")
       .eq("id", service_id)
       .maybeSingle();
     if (hizmetHata) throw hizmetHata;
@@ -73,8 +73,11 @@ Deno.serve(async (req) => {
       return json({ hata: "Hizmet bulunamadı veya pasif" }, 404);
     }
 
-    const taban = Number(hizmet.taban_fiyat);
+    // Segmentin marka tabanı: jsonb'deki segment değeri, yoksa genel taban_fiyat.
+    const segmentTabanlar = (hizmet.segment_fiyatlari ?? {}) as Record<string, number>;
+    const segmentTaban = Number(segmentTabanlar[segment] ?? hizmet.taban_fiyat);
     const oran = Number(hizmet.oynama_orani);
+    const taban = segmentTaban;
     const altSinir = taban * (1 - oran);
     const ustSinir = taban * (1 + oran);
 
@@ -97,10 +100,18 @@ Deno.serve(async (req) => {
       kaynak = "sube";
     }
 
+    // 'fiyat' kampanyası: indirim yüzdesini banttan SONRA uygula. İndirim
+    // yüzdesi sunucu kaydından okunur — istemciye güvenilmez.
+    let indirimYuzde = 0;
+    if (hizmet.kampanya_tip === "fiyat" && hizmet.kampanya_indirim_yuzde) {
+      indirimYuzde = Math.min(Math.max(Number(hizmet.kampanya_indirim_yuzde), 0), 90);
+      fiyat = fiyat * (1 - indirimYuzde / 100);
+    }
+
     // Kuruş hassasiyetinde yuvarla.
     fiyat = Math.round(fiyat * 100) / 100;
 
-    return json({ fiyat, segment, kaynak });
+    return json({ fiyat, segment, kaynak, indirim_yuzde: indirimYuzde });
   } catch (e) {
     await captureEdgeException(e, "fiyat-hesapla");
     return json({ hata: "Fiyat hesaplanamadı" }, 500);

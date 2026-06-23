@@ -157,19 +157,10 @@
       "norm_label": "foregroundimage"
     },
     {
-      "label": "backgroundImage",
-      "file_type": "code",
-      "source_file": "app.json",
-      "source_location": "L16",
-      "id": "app_adaptiveicon_backgroundimage",
-      "community": 8,
-      "norm_label": "backgroundimage"
-    },
-    {
       "label": "monochromeImage",
       "file_type": "code",
       "source_file": "app.json",
-      "source_location": "L17",
+      "source_location": "L16",
       "id": "app_adaptiveicon_monochromeimage",
       "community": 8,
       "norm_label": "monochromeimage"
@@ -178,7 +169,7 @@
       "label": "predictiveBackGestureEnabled",
       "file_type": "code",
       "source_file": "app.json",
-      "source_location": "L19",
+      "source_location": "L18",
       "id": "app_android_predictivebackgestureenabled",
       "community": 8,
       "norm_label": "predictivebackgestureenabled"
@@ -187,7 +178,7 @@
       "label": "web",
       "file_type": "code",
       "source_file": "app.json",
-      "source_location": "L21",
+      "source_location": "L20",
       "id": "app_expo_web",
       "community": 8,
       "norm_label": "web"
@@ -196,7 +187,7 @@
       "label": "bundler",
       "file_type": "code",
       "source_file": "app.json",
-      "source_location": "L22",
+      "source_location": "L21",
       "id": "app_web_bundler",
       "community": 8,
       "norm_label": "bundler"
@@ -205,7 +196,7 @@
       "label": "favicon",
       "file_type": "code",
       "source_file": "app.json",
-      "source_location": "L23",
+      "source_location": "L22",
       "id": "app_web_favicon",
       "community": 8,
       "norm_label": "favicon"
@@ -214,7 +205,7 @@
       "label": "scheme",
       "file_type": "code",
       "source_file": "app.json",
-      "source_location": "L25",
+      "source_location": "L24",
       "id": "app_expo_scheme",
       "community": 8,
       "norm_label": "scheme"
@@ -223,7 +214,7 @@
       "label": "plugins",
       "file_type": "code",
       "source_file": "app.json",
-      "source_location": "L26",
+      "source_location": "L25",
       "id": "app_expo_plugins",
       "community": 8,
       "norm_label": "plugins"
@@ -387,16 +378,16 @@
       "source_file": "app/(main)/_layout.tsx",
       "source_location": "L1",
       "id": "main_layout",
-      "community": 4,
+      "community": 20,
       "norm_label": "_layout.tsx"
     },
     {
       "label": "MainLayout()",
       "file_type": "code",
       "source_file": "app/(main)/_layout.tsx",
-      "source_location": "L6",
+      "source_location": "L7",
       "id": "main_layout_mainlayout",
-      "community": 4,
+      "community": 20,
       "norm_label": "mainlayout()"
     },
     {
@@ -412,7 +403,7 @@
       "label": "AraclarScreen()",
       "file_type": "code",
       "source_file": "app/(main)/araclar.tsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "id": "main_araclar_araclarscreen",
       "community": 5,
       "norm_label": "araclarscreen()"
@@ -421,7 +412,7 @@
       "label": "s",
       "file_type": "code",
       "source_file": "app/(main)/araclar.tsx",
-      "source_location": "L274",
+      "source_location": "L281",
       "id": "main_araclar_s",
       "community": 5,
       "norm_label": "s"
@@ -439,45 +430,18 @@
       "label": "AnaSayfa()",
       "file_type": "code",
       "source_file": "app/(main)/index.tsx",
-      "source_location": "L12",
+      "source_location": "L15",
       "id": "main_index_anasayfa",
-      "community": 4,
+      "community": 20,
       "norm_label": "anasayfa()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/(main)/index.tsx",
-      "source_location": "L97",
+      "source_location": "L197",
       "id": "main_index_s",
       "community": 4,
-      "norm_label": "s"
-    },
-    {
-      "label": "kampanyalar.tsx",
-      "file_type": "code",
-      "source_file": "app/(main)/kampanyalar.tsx",
-      "source_location": "L1",
-      "id": "main_kampanyalar",
-      "community": 1,
-      "norm_label": "kampanyalar.tsx"
-    },
-    {
-      "label": "KampanyalarScreen()",
-      "file_type": "code",
-      "source_file": "app/(main)/kampanyalar.tsx",
-      "source_location": "L11",
-      "id": "main_kampanyalar_kampanyalarscreen",
-      "community": 1,
-      "norm_label": "kampanyalarscreen()"
-    },
-    {
-      "label": "s",
-      "file_type": "code",
-      "source_file": "app/(main)/kampanyalar.tsx",
-      "source_location": "L90",
-      "id": "main_kampanyalar_s",
-      "community": 1,
       "norm_label": "s"
     },
     {
@@ -486,34 +450,34 @@
       "source_file": "app/(main)/profil.tsx",
       "source_location": "L1",
       "id": "main_profil",
-      "community": 4,
+      "community": 20,
       "norm_label": "profil.tsx"
     },
     {
       "label": "ROL_ADLARI",
       "file_type": "code",
       "source_file": "app/(main)/profil.tsx",
-      "source_location": "L11",
+      "source_location": "L12",
       "id": "main_profil_rol_adlari",
-      "community": 4,
+      "community": 20,
       "norm_label": "rol_adlari"
     },
     {
       "label": "ProfilScreen()",
       "file_type": "code",
       "source_file": "app/(main)/profil.tsx",
-      "source_location": "L19",
+      "source_location": "L20",
       "id": "main_profil_profilscreen",
-      "community": 4,
+      "community": 20,
       "norm_label": "profilscreen()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/(main)/profil.tsx",
-      "source_location": "L139",
+      "source_location": "L243",
       "id": "main_profil_s",
-      "community": 4,
+      "community": 20,
       "norm_label": "s"
     },
     {
@@ -522,52 +486,61 @@
       "source_file": "app/(main)/randevularim.tsx",
       "source_location": "L1",
       "id": "main_randevularim",
-      "community": 1,
+      "community": 20,
       "norm_label": "randevularim.tsx"
     },
     {
       "label": "RANDEVU_ETIKET",
       "file_type": "code",
       "source_file": "app/(main)/randevularim.tsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "id": "main_randevularim_randevu_etiket",
-      "community": 1,
+      "community": 20,
       "norm_label": "randevu_etiket"
     },
     {
       "label": "IS_ETIKET",
       "file_type": "code",
       "source_file": "app/(main)/randevularim.tsx",
-      "source_location": "L19",
+      "source_location": "L20",
       "id": "main_randevularim_is_etiket",
-      "community": 1,
+      "community": 20,
       "norm_label": "is_etiket"
+    },
+    {
+      "label": "dakikaKala()",
+      "file_type": "code",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L31",
+      "id": "main_randevularim_dakikakala",
+      "community": 20,
+      "norm_label": "dakikakala()"
     },
     {
       "label": "RandevularimScreen()",
       "file_type": "code",
       "source_file": "app/(main)/randevularim.tsx",
-      "source_location": "L28",
+      "source_location": "L36",
       "id": "main_randevularim_randevularimscreen",
-      "community": 1,
+      "community": 20,
       "norm_label": "randevularimscreen()"
     },
     {
       "label": "FotoSatiri()",
       "file_type": "code",
       "source_file": "app/(main)/randevularim.tsx",
-      "source_location": "L215",
+      "source_location": "L299",
       "id": "main_randevularim_fotosatiri",
-      "community": 1,
+      "community": 20,
       "norm_label": "fotosatiri()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/(main)/randevularim.tsx",
-      "source_location": "L243",
+      "source_location": "L327",
       "id": "main_randevularim_s",
-      "community": 1,
+      "community": 20,
       "norm_label": "s"
     },
     {
@@ -576,53 +549,17 @@
       "source_file": "app/(yonetim)/_layout.tsx",
       "source_location": "L1",
       "id": "yonetim_layout",
-      "community": 4,
+      "community": 20,
       "norm_label": "_layout.tsx"
     },
     {
       "label": "YonetimLayout()",
       "file_type": "code",
       "source_file": "app/(yonetim)/_layout.tsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "id": "yonetim_layout_yonetimlayout",
-      "community": 4,
+      "community": 20,
       "norm_label": "yonetimlayout()"
-    },
-    {
-      "label": "fiyatlar.tsx",
-      "file_type": "code",
-      "source_file": "app/(yonetim)/fiyatlar.tsx",
-      "source_location": "L1",
-      "id": "yonetim_fiyatlar",
-      "community": 4,
-      "norm_label": "fiyatlar.tsx"
-    },
-    {
-      "label": "tl()",
-      "file_type": "code",
-      "source_file": "app/(yonetim)/fiyatlar.tsx",
-      "source_location": "L15",
-      "id": "yonetim_fiyatlar_tl",
-      "community": 4,
-      "norm_label": "tl()"
-    },
-    {
-      "label": "FiyatlarScreen()",
-      "file_type": "code",
-      "source_file": "app/(yonetim)/fiyatlar.tsx",
-      "source_location": "L18",
-      "id": "yonetim_fiyatlar_fiyatlarscreen",
-      "community": 4,
-      "norm_label": "fiyatlarscreen()"
-    },
-    {
-      "label": "s",
-      "file_type": "code",
-      "source_file": "app/(yonetim)/fiyatlar.tsx",
-      "source_location": "L201",
-      "id": "yonetim_fiyatlar_s",
-      "community": 4,
-      "norm_label": "s"
     },
     {
       "label": "hizmetler.tsx",
@@ -630,14 +567,59 @@
       "source_file": "app/(yonetim)/hizmetler.tsx",
       "source_location": "L1",
       "id": "yonetim_hizmetler",
-      "community": 4,
+      "community": 17,
       "norm_label": "hizmetler.tsx"
+    },
+    {
+      "label": "tl()",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L21",
+      "id": "yonetim_hizmetler_tl",
+      "community": 17,
+      "norm_label": "tl()"
+    },
+    {
+      "label": "tl0()",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L22",
+      "id": "yonetim_hizmetler_tl0",
+      "community": 17,
+      "norm_label": "tl0()"
+    },
+    {
+      "label": "fiyatBandi()",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L26",
+      "id": "yonetim_hizmetler_fiyatbandi",
+      "community": 17,
+      "norm_label": "fiyatbandi()"
+    },
+    {
+      "label": "fiyatAnahtar()",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L31",
+      "id": "yonetim_hizmetler_fiyatanahtar",
+      "community": 17,
+      "norm_label": "fiyatanahtar()"
+    },
+    {
+      "label": "KAMPANYA_SECENEK",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L34",
+      "id": "yonetim_hizmetler_kampanya_secenek",
+      "community": 17,
+      "norm_label": "kampanya_secenek"
     },
     {
       "label": "HizmetlerScreen()",
       "file_type": "code",
       "source_file": "app/(yonetim)/hizmetler.tsx",
-      "source_location": "L11",
+      "source_location": "L40",
       "id": "yonetim_hizmetler_hizmetlerscreen",
       "community": 4,
       "norm_label": "hizmetlerscreen()"
@@ -646,9 +628,9 @@
       "label": "s",
       "file_type": "code",
       "source_file": "app/(yonetim)/hizmetler.tsx",
-      "source_location": "L180",
+      "source_location": "L756",
       "id": "yonetim_hizmetler_s",
-      "community": 4,
+      "community": 17,
       "norm_label": "s"
     },
     {
@@ -657,97 +639,79 @@
       "source_file": "app/(yonetim)/index.tsx",
       "source_location": "L1",
       "id": "yonetim_index",
-      "community": 4,
+      "community": 20,
       "norm_label": "index.tsx"
     },
     {
       "label": "ROL_ADLARI",
       "file_type": "code",
       "source_file": "app/(yonetim)/index.tsx",
-      "source_location": "L9",
+      "source_location": "L10",
       "id": "yonetim_index_rol_adlari",
-      "community": 4,
+      "community": 20,
       "norm_label": "rol_adlari"
     },
     {
       "label": "PanelScreen()",
       "file_type": "code",
       "source_file": "app/(yonetim)/index.tsx",
-      "source_location": "L16",
+      "source_location": "L17",
       "id": "yonetim_index_panelscreen",
-      "community": 4,
+      "community": 20,
       "norm_label": "panelscreen()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/(yonetim)/index.tsx",
-      "source_location": "L95",
+      "source_location": "L106",
       "id": "yonetim_index_s",
-      "community": 4,
+      "community": 20,
       "norm_label": "s"
     },
     {
-      "label": "isler.tsx",
+      "label": "paketler.tsx",
       "file_type": "code",
-      "source_file": "app/(yonetim)/isler.tsx",
+      "source_file": "app/(yonetim)/paketler.tsx",
       "source_location": "L1",
-      "id": "yonetim_isler",
-      "community": 4,
-      "norm_label": "isler.tsx"
+      "id": "yonetim_paketler",
+      "community": 22,
+      "norm_label": "paketler.tsx"
     },
     {
-      "label": "SONRAKI",
+      "label": "KADEMELER",
       "file_type": "code",
-      "source_file": "app/(yonetim)/isler.tsx",
-      "source_location": "L18",
-      "id": "yonetim_isler_sonraki",
-      "community": 4,
-      "norm_label": "sonraki"
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L14",
+      "id": "yonetim_paketler_kademeler",
+      "community": 22,
+      "norm_label": "kademeler"
     },
     {
-      "label": "SONRAKI_ETIKET",
+      "label": "bosForm()",
       "file_type": "code",
-      "source_file": "app/(yonetim)/isler.tsx",
-      "source_location": "L23",
-      "id": "yonetim_isler_sonraki_etiket",
-      "community": 4,
-      "norm_label": "sonraki_etiket"
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L21",
+      "id": "yonetim_paketler_bosform",
+      "community": 22,
+      "norm_label": "bosform()"
     },
     {
-      "label": "IS_ETIKET",
+      "label": "PaketlerScreen()",
       "file_type": "code",
-      "source_file": "app/(yonetim)/isler.tsx",
-      "source_location": "L28",
-      "id": "yonetim_isler_is_etiket",
-      "community": 4,
-      "norm_label": "is_etiket"
-    },
-    {
-      "label": "IslerScreen()",
-      "file_type": "code",
-      "source_file": "app/(yonetim)/isler.tsx",
-      "source_location": "L34",
-      "id": "yonetim_isler_islerscreen",
-      "community": 4,
-      "norm_label": "islerscreen()"
-    },
-    {
-      "label": "FotoBolum()",
-      "file_type": "code",
-      "source_file": "app/(yonetim)/isler.tsx",
-      "source_location": "L279",
-      "id": "yonetim_isler_fotobolum",
-      "community": 4,
-      "norm_label": "fotobolum()"
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L25",
+      "id": "yonetim_paketler_paketlerscreen",
+      "community": 22,
+      "norm_label": "paketlerscreen()"
     },
     {
       "label": "s",
       "file_type": "code",
-      "source_file": "app/(yonetim)/isler.tsx",
-      "source_location": "L312",
-      "id": "yonetim_isler_s",
-      "community": 4,
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L374",
+      "id": "yonetim_paketler_s",
+      "community": 22,
       "norm_label": "s"
     },
     {
@@ -756,7 +720,7 @@
       "source_file": "app/(yonetim)/profil.tsx",
       "source_location": "L1",
       "id": "yonetim_profil",
-      "community": 4,
+      "community": 20,
       "norm_label": "profil.tsx"
     },
     {
@@ -765,70 +729,70 @@
       "source_file": "app/(yonetim)/randevular.tsx",
       "source_location": "L1",
       "id": "yonetim_randevular",
-      "community": 1,
+      "community": 20,
       "norm_label": "randevular.tsx"
     },
     {
       "label": "DURUM_ETIKET",
       "file_type": "code",
       "source_file": "app/(yonetim)/randevular.tsx",
-      "source_location": "L12",
+      "source_location": "L15",
       "id": "yonetim_randevular_durum_etiket",
-      "community": 1,
+      "community": 20,
       "norm_label": "durum_etiket"
+    },
+    {
+      "label": "gunler()",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L24",
+      "id": "yonetim_randevular_gunler",
+      "community": 20,
+      "norm_label": "gunler()"
+    },
+    {
+      "label": "dakikaKala()",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L33",
+      "id": "yonetim_randevular_dakikakala",
+      "community": 20,
+      "norm_label": "dakikakala()"
+    },
+    {
+      "label": "gunKey()",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L39",
+      "id": "yonetim_randevular_gunkey",
+      "community": 20,
+      "norm_label": "gunkey()"
+    },
+    {
+      "label": "gunBasligi()",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L46",
+      "id": "yonetim_randevular_gunbasligi",
+      "community": 20,
+      "norm_label": "gunbasligi()"
     },
     {
       "label": "RandevularScreen()",
       "file_type": "code",
       "source_file": "app/(yonetim)/randevular.tsx",
-      "source_location": "L18",
+      "source_location": "L58",
       "id": "yonetim_randevular_randevularscreen",
-      "community": 1,
+      "community": 20,
       "norm_label": "randevularscreen()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/(yonetim)/randevular.tsx",
-      "source_location": "L156",
+      "source_location": "L442",
       "id": "yonetim_randevular_s",
-      "community": 1,
-      "norm_label": "s"
-    },
-    {
-      "label": "slotlar.tsx",
-      "file_type": "code",
-      "source_file": "app/(yonetim)/slotlar.tsx",
-      "source_location": "L1",
-      "id": "yonetim_slotlar",
-      "community": 15,
-      "norm_label": "slotlar.tsx"
-    },
-    {
-      "label": "gunler()",
-      "file_type": "code",
-      "source_file": "app/(yonetim)/slotlar.tsx",
-      "source_location": "L16",
-      "id": "yonetim_slotlar_gunler",
-      "community": 15,
-      "norm_label": "gunler()"
-    },
-    {
-      "label": "SlotlarScreen()",
-      "file_type": "code",
-      "source_file": "app/(yonetim)/slotlar.tsx",
-      "source_location": "L25",
-      "id": "yonetim_slotlar_slotlarscreen",
-      "community": 15,
-      "norm_label": "slotlarscreen()"
-    },
-    {
-      "label": "s",
-      "file_type": "code",
-      "source_file": "app/(yonetim)/slotlar.tsx",
-      "source_location": "L183",
-      "id": "yonetim_slotlar_s",
-      "community": 15,
+      "community": 20,
       "norm_label": "s"
     },
     {
@@ -837,25 +801,25 @@
       "source_file": "app/(yonetim)/subeler.tsx",
       "source_location": "L1",
       "id": "yonetim_subeler",
-      "community": 1,
+      "community": 4,
       "norm_label": "subeler.tsx"
     },
     {
       "label": "SubelerScreen()",
       "file_type": "code",
       "source_file": "app/(yonetim)/subeler.tsx",
-      "source_location": "L11",
+      "source_location": "L12",
       "id": "yonetim_subeler_subelerscreen",
-      "community": 1,
+      "community": 4,
       "norm_label": "subelerscreen()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/(yonetim)/subeler.tsx",
-      "source_location": "L219",
+      "source_location": "L220",
       "id": "yonetim_subeler_s",
-      "community": 1,
+      "community": 4,
       "norm_label": "s"
     },
     {
@@ -864,7 +828,7 @@
       "source_file": "app/_layout.tsx",
       "source_location": "L1",
       "id": "app_layout",
-      "community": 4,
+      "community": 20,
       "norm_label": "_layout.tsx"
     },
     {
@@ -873,8 +837,80 @@
       "source_file": "app/_layout.tsx",
       "source_location": "L16",
       "id": "app_layout_rootlayout",
-      "community": 4,
+      "community": 20,
       "norm_label": "rootlayout()"
+    },
+    {
+      "label": "abonelik.tsx",
+      "file_type": "code",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L1",
+      "id": "app_abonelik",
+      "community": 4,
+      "norm_label": "abonelik.tsx"
+    },
+    {
+      "label": "KADEME_ETIKET",
+      "file_type": "code",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L15",
+      "id": "app_abonelik_kademe_etiket",
+      "community": 4,
+      "norm_label": "kademe_etiket"
+    },
+    {
+      "label": "buDonem()",
+      "file_type": "code",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L20",
+      "id": "app_abonelik_budonem",
+      "community": 4,
+      "norm_label": "budonem()"
+    },
+    {
+      "label": "AbonelikScreen()",
+      "file_type": "code",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L25",
+      "id": "app_abonelik_abonelikscreen",
+      "community": 4,
+      "norm_label": "abonelikscreen()"
+    },
+    {
+      "label": "s",
+      "file_type": "code",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L280",
+      "id": "app_abonelik_s",
+      "community": 4,
+      "norm_label": "s"
+    },
+    {
+      "label": "hizmet-detay.tsx",
+      "file_type": "code",
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L1",
+      "id": "app_hizmet_detay",
+      "community": 4,
+      "norm_label": "hizmet-detay.tsx"
+    },
+    {
+      "label": "HizmetDetayScreen()",
+      "file_type": "code",
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L14",
+      "id": "app_hizmet_detay_hizmetdetayscreen",
+      "community": 4,
+      "norm_label": "hizmetdetayscreen()"
+    },
+    {
+      "label": "s",
+      "file_type": "code",
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L134",
+      "id": "app_hizmet_detay_s",
+      "community": 4,
+      "norm_label": "s"
     },
     {
       "label": "randevu-al.tsx",
@@ -882,34 +918,34 @@
       "source_file": "app/randevu-al.tsx",
       "source_location": "L1",
       "id": "app_randevu_al",
-      "community": 1,
+      "community": 22,
       "norm_label": "randevu-al.tsx"
     },
     {
       "label": "gunler()",
       "file_type": "code",
       "source_file": "app/randevu-al.tsx",
-      "source_location": "L16",
+      "source_location": "L17",
       "id": "app_randevu_al_gunler",
-      "community": 1,
+      "community": 22,
       "norm_label": "gunler()"
     },
     {
       "label": "RandevuAlScreen()",
       "file_type": "code",
       "source_file": "app/randevu-al.tsx",
-      "source_location": "L25",
+      "source_location": "L26",
       "id": "app_randevu_al_randevualscreen",
-      "community": 1,
+      "community": 22,
       "norm_label": "randevualscreen()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/randevu-al.tsx",
-      "source_location": "L342",
+      "source_location": "L478",
       "id": "app_randevu_al_s",
-      "community": 1,
+      "community": 22,
       "norm_label": "s"
     },
     {
@@ -1075,10 +1111,19 @@
       "norm_label": "expo-secure-store"
     },
     {
-      "label": "expo-splash-screen",
+      "label": "expo-sharing",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L19",
+      "id": "package_dependencies_expo_sharing",
+      "community": 6,
+      "norm_label": "expo-sharing"
+    },
+    {
+      "label": "expo-splash-screen",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L20",
       "id": "package_dependencies_expo_splash_screen",
       "community": 6,
       "norm_label": "expo-splash-screen"
@@ -1087,7 +1132,7 @@
       "label": "expo-status-bar",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L21",
       "id": "package_dependencies_expo_status_bar",
       "community": 6,
       "norm_label": "expo-status-bar"
@@ -1096,7 +1141,7 @@
       "label": "react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L21",
+      "source_location": "L22",
       "id": "package_dependencies_react",
       "community": 6,
       "norm_label": "react"
@@ -1105,7 +1150,7 @@
       "label": "react-dom",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L23",
       "id": "package_dependencies_react_dom",
       "community": 6,
       "norm_label": "react-dom"
@@ -1114,7 +1159,7 @@
       "label": "react-native",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L24",
       "id": "package_dependencies_react_native",
       "community": 6,
       "norm_label": "react-native"
@@ -1123,7 +1168,7 @@
       "label": "react-native-gesture-handler",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L25",
       "id": "package_dependencies_react_native_gesture_handler",
       "community": 6,
       "norm_label": "react-native-gesture-handler"
@@ -1132,7 +1177,7 @@
       "label": "react-native-reanimated",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L26",
       "id": "package_dependencies_react_native_reanimated",
       "community": 6,
       "norm_label": "react-native-reanimated"
@@ -1141,7 +1186,7 @@
       "label": "react-native-safe-area-context",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L27",
       "id": "package_dependencies_react_native_safe_area_context",
       "community": 6,
       "norm_label": "react-native-safe-area-context"
@@ -1150,7 +1195,7 @@
       "label": "react-native-screens",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L28",
       "id": "package_dependencies_react_native_screens",
       "community": 6,
       "norm_label": "react-native-screens"
@@ -1159,7 +1204,7 @@
       "label": "react-native-web",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L28",
+      "source_location": "L29",
       "id": "package_dependencies_react_native_web",
       "community": 6,
       "norm_label": "react-native-web"
@@ -1168,7 +1213,7 @@
       "label": "react-native-webview",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L29",
+      "source_location": "L30",
       "id": "package_dependencies_react_native_webview",
       "community": 6,
       "norm_label": "react-native-webview"
@@ -1177,7 +1222,7 @@
       "label": "devDependencies",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L32",
       "id": "package_devdependencies",
       "community": 6,
       "norm_label": "devdependencies"
@@ -1186,7 +1231,7 @@
       "label": "@expo/ngrok",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L32",
+      "source_location": "L33",
       "id": "package_devdependencies_expo_ngrok",
       "community": 6,
       "norm_label": "@expo/ngrok"
@@ -1195,7 +1240,7 @@
       "label": "@types/node",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L33",
+      "source_location": "L34",
       "id": "package_devdependencies_types_node",
       "community": 6,
       "norm_label": "@types/node"
@@ -1204,16 +1249,25 @@
       "label": "@types/react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L34",
+      "source_location": "L35",
       "id": "package_devdependencies_types_react",
       "community": 6,
       "norm_label": "@types/react"
     },
     {
+      "label": "sharp",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L36",
+      "id": "package_devdependencies_sharp",
+      "community": 6,
+      "norm_label": "sharp"
+    },
+    {
       "label": "ts-node",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L35",
+      "source_location": "L37",
       "id": "package_devdependencies_ts_node",
       "community": 6,
       "norm_label": "ts-node"
@@ -1222,7 +1276,7 @@
       "label": "typescript",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L36",
+      "source_location": "L38",
       "id": "package_devdependencies_typescript",
       "community": 6,
       "norm_label": "typescript"
@@ -1231,7 +1285,7 @@
       "label": "scripts",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L38",
+      "source_location": "L40",
       "id": "package_scripts",
       "community": 6,
       "norm_label": "scripts"
@@ -1240,7 +1294,7 @@
       "label": "start",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L39",
+      "source_location": "L41",
       "id": "package_scripts_start",
       "community": 6,
       "norm_label": "start"
@@ -1249,7 +1303,7 @@
       "label": "android",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L40",
+      "source_location": "L42",
       "id": "package_scripts_android",
       "community": 6,
       "norm_label": "android"
@@ -1258,7 +1312,7 @@
       "label": "ios",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L41",
+      "source_location": "L43",
       "id": "package_scripts_ios",
       "community": 6,
       "norm_label": "ios"
@@ -1267,7 +1321,7 @@
       "label": "web",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L42",
+      "source_location": "L44",
       "id": "package_scripts_web",
       "community": 6,
       "norm_label": "web"
@@ -1276,7 +1330,7 @@
       "label": "db:migrate",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L43",
+      "source_location": "L45",
       "id": "package_scripts_db_migrate",
       "community": 6,
       "norm_label": "db:migrate"
@@ -1285,7 +1339,7 @@
       "label": "functions:deploy",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L44",
+      "source_location": "L46",
       "id": "package_scripts_functions_deploy",
       "community": 6,
       "norm_label": "functions:deploy"
@@ -1294,19 +1348,199 @@
       "label": "secret:check",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L45",
+      "source_location": "L47",
       "id": "package_scripts_secret_check",
       "community": 6,
       "norm_label": "secret:check"
     },
     {
+      "label": "graph:obsidian",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L48",
+      "id": "package_scripts_graph_obsidian",
+      "community": 6,
+      "norm_label": "graph:obsidian"
+    },
+    {
       "label": "private",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L47",
+      "source_location": "L50",
       "id": "package_private",
       "community": 6,
       "norm_label": "private"
+    },
+    {
+      "label": "gen-icons.mjs",
+      "file_type": "code",
+      "source_file": "scripts/gen-icons.mjs",
+      "source_location": "L1",
+      "id": "scripts_gen_icons",
+      "community": 1,
+      "norm_label": "gen-icons.mjs"
+    },
+    {
+      "label": "ROOT",
+      "file_type": "code",
+      "source_file": "scripts/gen-icons.mjs",
+      "source_location": "L11",
+      "id": "scripts_gen_icons_root",
+      "community": 1,
+      "norm_label": "root"
+    },
+    {
+      "label": "ASSETS",
+      "file_type": "code",
+      "source_file": "scripts/gen-icons.mjs",
+      "source_location": "L12",
+      "id": "scripts_gen_icons_assets",
+      "community": 1,
+      "norm_label": "assets"
+    },
+    {
+      "label": "svg",
+      "file_type": "code",
+      "source_file": "scripts/gen-icons.mjs",
+      "source_location": "L18",
+      "id": "scripts_gen_icons_svg",
+      "community": 1,
+      "norm_label": "svg"
+    },
+    {
+      "label": "MARK",
+      "file_type": "code",
+      "source_file": "scripts/gen-icons.mjs",
+      "source_location": "L24",
+      "id": "scripts_gen_icons_mark",
+      "community": 1,
+      "norm_label": "mark"
+    },
+    {
+      "label": "kareSvg()",
+      "file_type": "code",
+      "source_file": "scripts/gen-icons.mjs",
+      "source_location": "L27",
+      "id": "scripts_gen_icons_karesvg",
+      "community": 1,
+      "norm_label": "karesvg()"
+    },
+    {
+      "label": "png()",
+      "file_type": "code",
+      "source_file": "scripts/gen-icons.mjs",
+      "source_location": "L41",
+      "id": "scripts_gen_icons_png",
+      "community": 1,
+      "norm_label": "png()"
+    },
+    {
+      "label": "graph-to-obsidian.mjs",
+      "file_type": "code",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L1",
+      "id": "scripts_graph_to_obsidian",
+      "community": 9,
+      "norm_label": "graph-to-obsidian.mjs"
+    },
+    {
+      "label": "ROOT",
+      "file_type": "code",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L9",
+      "id": "scripts_graph_to_obsidian_root",
+      "community": 9,
+      "norm_label": "root"
+    },
+    {
+      "label": "GRAPH",
+      "file_type": "code",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L10",
+      "id": "scripts_graph_to_obsidian_graph",
+      "community": 9,
+      "norm_label": "graph"
+    },
+    {
+      "label": "OUT",
+      "file_type": "code",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L11",
+      "id": "scripts_graph_to_obsidian_out",
+      "community": 9,
+      "norm_label": "out"
+    },
+    {
+      "label": "g",
+      "file_type": "code",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L13",
+      "id": "scripts_graph_to_obsidian_g",
+      "community": 9,
+      "norm_label": "g"
+    },
+    {
+      "label": "byId",
+      "file_type": "code",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L18",
+      "id": "scripts_graph_to_obsidian_byid",
+      "community": 9,
+      "norm_label": "byid"
+    },
+    {
+      "label": "fileOf()",
+      "file_type": "code",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L21",
+      "id": "scripts_graph_to_obsidian_fileof",
+      "community": 9,
+      "norm_label": "fileof()"
+    },
+    {
+      "label": "files",
+      "file_type": "code",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L24",
+      "id": "scripts_graph_to_obsidian_files",
+      "community": 9,
+      "norm_label": "files"
+    },
+    {
+      "label": "fileEdges",
+      "file_type": "code",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L33",
+      "id": "scripts_graph_to_obsidian_fileedges",
+      "community": 9,
+      "norm_label": "fileedges"
+    },
+    {
+      "label": "noteName()",
+      "file_type": "code",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L46",
+      "id": "scripts_graph_to_obsidian_notename",
+      "community": 9,
+      "norm_label": "notename()"
+    },
+    {
+      "label": "outgoing",
+      "file_type": "code",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L49",
+      "id": "scripts_graph_to_obsidian_outgoing",
+      "community": 9,
+      "norm_label": "outgoing"
+    },
+    {
+      "label": "idx",
+      "file_type": "code",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L92",
+      "id": "scripts_graph_to_obsidian_idx",
+      "community": 9,
+      "norm_label": "idx"
     },
     {
       "label": "test-rls.ts",
@@ -1390,6 +1624,60 @@
       "norm_label": "s"
     },
     {
+      "label": "Bilgi.tsx",
+      "file_type": "code",
+      "source_file": "src/components/Bilgi.tsx",
+      "source_location": "L1",
+      "id": "components_bilgi",
+      "community": 17,
+      "norm_label": "bilgi.tsx"
+    },
+    {
+      "label": "EtiketProps",
+      "file_type": "code",
+      "source_file": "src/components/Bilgi.tsx",
+      "source_location": "L9",
+      "id": "components_bilgi_etiketprops",
+      "community": 17,
+      "norm_label": "etiketprops"
+    },
+    {
+      "label": "Etiket()",
+      "file_type": "code",
+      "source_file": "src/components/Bilgi.tsx",
+      "source_location": "L16",
+      "id": "components_bilgi_etiket",
+      "community": 17,
+      "norm_label": "etiket()"
+    },
+    {
+      "label": "BilgiProps",
+      "file_type": "code",
+      "source_file": "src/components/Bilgi.tsx",
+      "source_location": "L47",
+      "id": "components_bilgi_bilgiprops",
+      "community": 17,
+      "norm_label": "bilgiprops"
+    },
+    {
+      "label": "Bilgi()",
+      "file_type": "code",
+      "source_file": "src/components/Bilgi.tsx",
+      "source_location": "L53",
+      "id": "components_bilgi_bilgi",
+      "community": 17,
+      "norm_label": "bilgi()"
+    },
+    {
+      "label": "s",
+      "file_type": "code",
+      "source_file": "src/components/Bilgi.tsx",
+      "source_location": "L72",
+      "id": "components_bilgi_s",
+      "community": 17,
+      "norm_label": "s"
+    },
+    {
       "label": "CaptchaWidget.tsx",
       "file_type": "code",
       "source_file": "src/components/CaptchaWidget.tsx",
@@ -1435,6 +1723,78 @@
       "norm_label": "s"
     },
     {
+      "label": "IslerListesi.tsx",
+      "file_type": "code",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L1",
+      "id": "components_islerlistesi",
+      "community": 20,
+      "norm_label": "islerlistesi.tsx"
+    },
+    {
+      "label": "SONRAKI",
+      "file_type": "code",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L19",
+      "id": "components_islerlistesi_sonraki",
+      "community": 20,
+      "norm_label": "sonraki"
+    },
+    {
+      "label": "SONRAKI_ETIKET",
+      "file_type": "code",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L24",
+      "id": "components_islerlistesi_sonraki_etiket",
+      "community": 20,
+      "norm_label": "sonraki_etiket"
+    },
+    {
+      "label": "IS_ETIKET",
+      "file_type": "code",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L29",
+      "id": "components_islerlistesi_is_etiket",
+      "community": 20,
+      "norm_label": "is_etiket"
+    },
+    {
+      "label": "gunListesi()",
+      "file_type": "code",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L36",
+      "id": "components_islerlistesi_gunlistesi",
+      "community": 20,
+      "norm_label": "gunlistesi()"
+    },
+    {
+      "label": "IslerListesi()",
+      "file_type": "code",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L44",
+      "id": "components_islerlistesi_islerlistesi",
+      "community": 20,
+      "norm_label": "islerlistesi()"
+    },
+    {
+      "label": "FotoBolum()",
+      "file_type": "code",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L322",
+      "id": "components_islerlistesi_fotobolum",
+      "community": 20,
+      "norm_label": "fotobolum()"
+    },
+    {
+      "label": "s",
+      "file_type": "code",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L355",
+      "id": "components_islerlistesi_s",
+      "community": 20,
+      "norm_label": "s"
+    },
+    {
       "label": "Logo.tsx",
       "file_type": "code",
       "source_file": "src/components/Logo.tsx",
@@ -1444,31 +1804,40 @@
       "norm_label": "logo.tsx"
     },
     {
-      "label": "Logo",
+      "label": "LOGO_KOYU_YAZI",
       "file_type": "code",
       "source_file": "src/components/Logo.tsx",
-      "source_location": "L12",
-      "id": "components_logo_logo",
+      "source_location": "L7",
+      "id": "components_logo_logo_koyu_yazi",
       "community": 3,
-      "norm_label": "logo"
+      "norm_label": "logo_koyu_yazi"
+    },
+    {
+      "label": "LOGO_ACIK_YAZI",
+      "file_type": "code",
+      "source_file": "src/components/Logo.tsx",
+      "source_location": "L8",
+      "id": "components_logo_logo_acik_yazi",
+      "community": 3,
+      "norm_label": "logo_acik_yazi"
     },
     {
       "label": "Props",
       "file_type": "code",
       "source_file": "src/components/Logo.tsx",
-      "source_location": "L7",
+      "source_location": "L11",
       "id": "components_logo_props",
       "community": 3,
       "norm_label": "props"
     },
     {
-      "label": "s",
+      "label": "Logo()",
       "file_type": "code",
       "source_file": "src/components/Logo.tsx",
-      "source_location": "L25",
-      "id": "components_logo_s",
+      "source_location": "L18",
+      "id": "components_logo_logo",
       "community": 3,
-      "norm_label": "s"
+      "norm_label": "logo()"
     },
     {
       "label": "PhoneInput.tsx",
@@ -1534,6 +1903,150 @@
       "norm_label": "s"
     },
     {
+      "label": "RaporModal.tsx",
+      "file_type": "code",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L1",
+      "id": "components_rapormodal",
+      "community": 20,
+      "norm_label": "rapormodal.tsx"
+    },
+    {
+      "label": "RANDEVU_ETIKET",
+      "file_type": "code",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L12",
+      "id": "components_rapormodal_randevu_etiket",
+      "community": 20,
+      "norm_label": "randevu_etiket"
+    },
+    {
+      "label": "IS_ETIKET",
+      "file_type": "code",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L15",
+      "id": "components_rapormodal_is_etiket",
+      "community": 20,
+      "norm_label": "is_etiket"
+    },
+    {
+      "label": "ymd()",
+      "file_type": "code",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L20",
+      "id": "components_rapormodal_ymd",
+      "community": 20,
+      "norm_label": "ymd()"
+    },
+    {
+      "label": "parseYmd()",
+      "file_type": "code",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L23",
+      "id": "components_rapormodal_parseymd",
+      "community": 20,
+      "norm_label": "parseymd()"
+    },
+    {
+      "label": "gunOnce()",
+      "file_type": "code",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L29",
+      "id": "components_rapormodal_gunonce",
+      "community": 20,
+      "norm_label": "gunonce()"
+    },
+    {
+      "label": "Props",
+      "file_type": "code",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L33",
+      "id": "components_rapormodal_props",
+      "community": 20,
+      "norm_label": "props"
+    },
+    {
+      "label": "RaporModal()",
+      "file_type": "code",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L35",
+      "id": "components_rapormodal_rapormodal",
+      "community": 20,
+      "norm_label": "rapormodal()"
+    },
+    {
+      "label": "s",
+      "file_type": "code",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L289",
+      "id": "components_rapormodal_s",
+      "community": 20,
+      "norm_label": "s"
+    },
+    {
+      "label": "UstBosluk.tsx",
+      "file_type": "code",
+      "source_file": "src/components/UstBosluk.tsx",
+      "source_location": "L1",
+      "id": "components_ustbosluk",
+      "community": 20,
+      "norm_label": "ustbosluk.tsx"
+    },
+    {
+      "label": "UstBosluk()",
+      "file_type": "code",
+      "source_file": "src/components/UstBosluk.tsx",
+      "source_location": "L9",
+      "id": "components_ustbosluk_ustbosluk",
+      "community": 20,
+      "norm_label": "ustbosluk()"
+    },
+    {
+      "label": "Yukleniyor.tsx",
+      "file_type": "code",
+      "source_file": "src/components/Yukleniyor.tsx",
+      "source_location": "L1",
+      "id": "components_yukleniyor",
+      "community": 4,
+      "norm_label": "yukleniyor.tsx"
+    },
+    {
+      "label": "MARK",
+      "file_type": "code",
+      "source_file": "src/components/Yukleniyor.tsx",
+      "source_location": "L6",
+      "id": "components_yukleniyor_mark",
+      "community": 4,
+      "norm_label": "mark"
+    },
+    {
+      "label": "Props",
+      "file_type": "code",
+      "source_file": "src/components/Yukleniyor.tsx",
+      "source_location": "L8",
+      "id": "components_yukleniyor_props",
+      "community": 4,
+      "norm_label": "props"
+    },
+    {
+      "label": "Yukleniyor()",
+      "file_type": "code",
+      "source_file": "src/components/Yukleniyor.tsx",
+      "source_location": "L15",
+      "id": "components_yukleniyor_yukleniyor",
+      "community": 4,
+      "norm_label": "yukleniyor()"
+    },
+    {
+      "label": "styles",
+      "file_type": "code",
+      "source_file": "src/components/Yukleniyor.tsx",
+      "source_location": "L47",
+      "id": "components_yukleniyor_styles",
+      "community": 4,
+      "norm_label": "styles"
+    },
+    {
       "label": "arac-katalogu.ts",
       "file_type": "code",
       "source_file": "src/data/arac-katalogu.ts",
@@ -1570,10 +2083,55 @@
       "norm_label": "cinslabel()"
     },
     {
+      "label": "SEGMENTLER",
+      "file_type": "code",
+      "source_file": "src/data/arac-katalogu.ts",
+      "source_location": "L26",
+      "id": "data_arac_katalogu_segmentler",
+      "community": 5,
+      "norm_label": "segmentler"
+    },
+    {
+      "label": "Segment",
+      "file_type": "code",
+      "source_file": "src/data/arac-katalogu.ts",
+      "source_location": "L31",
+      "id": "data_arac_katalogu_segment",
+      "community": 5,
+      "norm_label": "segment"
+    },
+    {
+      "label": "BUYUK_CINSLER",
+      "file_type": "code",
+      "source_file": "src/data/arac-katalogu.ts",
+      "source_location": "L34",
+      "id": "data_arac_katalogu_buyuk_cinsler",
+      "community": 5,
+      "norm_label": "buyuk_cinsler"
+    },
+    {
+      "label": "aracSegment()",
+      "file_type": "code",
+      "source_file": "src/data/arac-katalogu.ts",
+      "source_location": "L38",
+      "id": "data_arac_katalogu_aracsegment",
+      "community": 5,
+      "norm_label": "aracsegment()"
+    },
+    {
+      "label": "segmentLabel()",
+      "file_type": "code",
+      "source_file": "src/data/arac-katalogu.ts",
+      "source_location": "L42",
+      "id": "data_arac_katalogu_segmentlabel",
+      "community": 5,
+      "norm_label": "segmentlabel()"
+    },
+    {
       "label": "MARKALAR",
       "file_type": "code",
       "source_file": "src/data/arac-katalogu.ts",
-      "source_location": "L25",
+      "source_location": "L47",
       "id": "data_arac_katalogu_markalar",
       "community": 5,
       "norm_label": "markalar"
@@ -1582,7 +2140,7 @@
       "label": "MARKA_ADLARI",
       "file_type": "code",
       "source_file": "src/data/arac-katalogu.ts",
-      "source_location": "L86",
+      "source_location": "L108",
       "id": "data_arac_katalogu_marka_adlari",
       "community": 5,
       "norm_label": "marka_adlari"
@@ -1591,7 +2149,7 @@
       "label": "filtrele()",
       "file_type": "code",
       "source_file": "src/data/arac-katalogu.ts",
-      "source_location": "L89",
+      "source_location": "L111",
       "id": "data_arac_katalogu_filtrele",
       "community": 5,
       "norm_label": "filtrele()"
@@ -1602,35 +2160,53 @@
       "source_file": "src/data/calisma-duzeni.ts",
       "source_location": "L1",
       "id": "data_calisma_duzeni",
-      "community": 15,
+      "community": 17,
       "norm_label": "calisma-duzeni.ts"
     },
     {
-      "label": "SABAH",
+      "label": "VARSAYILAN_PENCERELER",
       "file_type": "code",
       "source_file": "src/data/calisma-duzeni.ts",
-      "source_location": "L9",
-      "id": "data_calisma_duzeni_sabah",
-      "community": 15,
-      "norm_label": "sabah"
+      "source_location": "L11",
+      "id": "data_calisma_duzeni_varsayilan_pencereler",
+      "community": 17,
+      "norm_label": "varsayilan_pencereler"
     },
     {
-      "label": "OGLEDEN_SONRA",
+      "label": "GUNLER",
       "file_type": "code",
       "source_file": "src/data/calisma-duzeni.ts",
-      "source_location": "L10",
-      "id": "data_calisma_duzeni_ogleden_sonra",
-      "community": 15,
-      "norm_label": "ogleden_sonra"
+      "source_location": "L17",
+      "id": "data_calisma_duzeni_gunler",
+      "community": 17,
+      "norm_label": "gunler"
     },
     {
-      "label": "gunlukSlotSaatleri()",
+      "label": "TUM_GUNLER",
       "file_type": "code",
       "source_file": "src/data/calisma-duzeni.ts",
-      "source_location": "L12",
-      "id": "data_calisma_duzeni_gunlukslotsaatleri",
-      "community": 15,
-      "norm_label": "gunlukslotsaatleri()"
+      "source_location": "L27",
+      "id": "data_calisma_duzeni_tum_gunler",
+      "community": 17,
+      "norm_label": "tum_gunler"
+    },
+    {
+      "label": "saatGecerli()",
+      "file_type": "code",
+      "source_file": "src/data/calisma-duzeni.ts",
+      "source_location": "L30",
+      "id": "data_calisma_duzeni_saatgecerli",
+      "community": 17,
+      "norm_label": "saatgecerli()"
+    },
+    {
+      "label": "saatDk()",
+      "file_type": "code",
+      "source_file": "src/data/calisma-duzeni.ts",
+      "source_location": "L35",
+      "id": "data_calisma_duzeni_saatdk",
+      "community": 17,
+      "norm_label": "saatdk()"
     },
     {
       "label": "useSession.ts",
@@ -1638,7 +2214,7 @@
       "source_file": "src/hooks/useSession.ts",
       "source_location": "L1",
       "id": "hooks_usesession",
-      "community": 4,
+      "community": 20,
       "norm_label": "usesession.ts"
     },
     {
@@ -1647,8 +2223,107 @@
       "source_file": "src/hooks/useSession.ts",
       "source_location": "L7",
       "id": "hooks_usesession_usesession",
-      "community": 4,
+      "community": 20,
       "norm_label": "usesession()"
+    },
+    {
+      "label": "abonelik.ts",
+      "file_type": "code",
+      "source_file": "src/lib/abonelik.ts",
+      "source_location": "L1",
+      "id": "lib_abonelik",
+      "community": 4,
+      "norm_label": "abonelik.ts"
+    },
+    {
+      "label": "AboneOlSonuc",
+      "file_type": "code",
+      "source_file": "src/lib/abonelik.ts",
+      "source_location": "L16",
+      "id": "lib_abonelik_aboneolsonuc",
+      "community": 4,
+      "norm_label": "aboneolsonuc"
+    },
+    {
+      "label": "aboneOl()",
+      "file_type": "code",
+      "source_file": "src/lib/abonelik.ts",
+      "source_location": "L23",
+      "id": "lib_abonelik_aboneol",
+      "community": 4,
+      "norm_label": "aboneol()"
+    },
+    {
+      "label": "hizmet.ts",
+      "file_type": "code",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L1",
+      "id": "lib_hizmet",
+      "community": 4,
+      "norm_label": "hizmet.ts"
+    },
+    {
+      "label": "gorselUrl()",
+      "file_type": "code",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L9",
+      "id": "lib_hizmet_gorselurl",
+      "community": 4,
+      "norm_label": "gorselurl()"
+    },
+    {
+      "label": "tl()",
+      "file_type": "code",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L14",
+      "id": "lib_hizmet_tl",
+      "community": 4,
+      "norm_label": "tl()"
+    },
+    {
+      "label": "fiyatAraligi()",
+      "file_type": "code",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L18",
+      "id": "lib_hizmet_fiyataraligi",
+      "community": 4,
+      "norm_label": "fiyataraligi()"
+    },
+    {
+      "label": "fiyatMetni()",
+      "file_type": "code",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L26",
+      "id": "lib_hizmet_fiyatmetni",
+      "community": 4,
+      "norm_label": "fiyatmetni()"
+    },
+    {
+      "label": "KampanyaPick",
+      "file_type": "code",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L31",
+      "id": "lib_hizmet_kampanyapick",
+      "community": 4,
+      "norm_label": "kampanyapick"
+    },
+    {
+      "label": "indirimliMetni()",
+      "file_type": "code",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L36",
+      "id": "lib_hizmet_indirimlimetni",
+      "community": 4,
+      "norm_label": "indirimlimetni()"
+    },
+    {
+      "label": "sureMetni()",
+      "file_type": "code",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L46",
+      "id": "lib_hizmet_suremetni",
+      "community": 4,
+      "norm_label": "suremetni()"
     },
     {
       "label": "sentry.ts",
@@ -1656,7 +2331,7 @@
       "source_file": "src/lib/sentry.ts",
       "source_location": "L1",
       "id": "lib_sentry",
-      "community": 4,
+      "community": 20,
       "norm_label": "sentry.ts"
     },
     {
@@ -1665,7 +2340,7 @@
       "source_file": "src/lib/sentry.ts",
       "source_location": "L3",
       "id": "lib_sentry_initsentry",
-      "community": 4,
+      "community": 20,
       "norm_label": "initsentry()"
     },
     {
@@ -1674,7 +2349,7 @@
       "source_file": "src/lib/supabase.ts",
       "source_location": "L1",
       "id": "lib_supabase",
-      "community": 3,
+      "community": 4,
       "norm_label": "supabase.ts"
     },
     {
@@ -1683,7 +2358,7 @@
       "source_file": "src/lib/supabase.ts",
       "source_location": "L17",
       "id": "lib_supabase_supabase",
-      "community": 3,
+      "community": 4,
       "norm_label": "supabase"
     },
     {
@@ -1692,7 +2367,7 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L1",
       "id": "theme_themecontext",
-      "community": 4,
+      "community": 20,
       "norm_label": "themecontext.tsx"
     },
     {
@@ -1701,7 +2376,7 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L7",
       "id": "theme_themecontext_tema",
-      "community": 4,
+      "community": 20,
       "norm_label": "tema"
     },
     {
@@ -1710,79 +2385,79 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L9",
       "id": "theme_themecontext_renkler",
-      "community": 4,
+      "community": 20,
       "norm_label": "renkler"
     },
     {
       "label": "ACIK",
       "file_type": "code",
       "source_file": "src/theme/ThemeContext.tsx",
-      "source_location": "L22",
+      "source_location": "L26",
       "id": "theme_themecontext_acik",
-      "community": 4,
+      "community": 20,
       "norm_label": "acik"
     },
     {
       "label": "KOYU",
       "file_type": "code",
       "source_file": "src/theme/ThemeContext.tsx",
-      "source_location": "L35",
+      "source_location": "L40",
       "id": "theme_themecontext_koyu",
-      "community": 4,
+      "community": 20,
       "norm_label": "koyu"
     },
     {
       "label": "temaOku()",
       "file_type": "code",
       "source_file": "src/theme/ThemeContext.tsx",
-      "source_location": "L51",
+      "source_location": "L57",
       "id": "theme_themecontext_temaoku",
-      "community": 4,
+      "community": 20,
       "norm_label": "temaoku()"
     },
     {
       "label": "temaYaz()",
       "file_type": "code",
       "source_file": "src/theme/ThemeContext.tsx",
-      "source_location": "L60",
+      "source_location": "L66",
       "id": "theme_themecontext_temayaz",
-      "community": 4,
+      "community": 20,
       "norm_label": "temayaz()"
     },
     {
       "label": "ThemeContextValue",
       "file_type": "code",
       "source_file": "src/theme/ThemeContext.tsx",
-      "source_location": "L67",
+      "source_location": "L73",
       "id": "theme_themecontext_themecontextvalue",
-      "community": 4,
+      "community": 20,
       "norm_label": "themecontextvalue"
     },
     {
       "label": "ThemeContext",
       "file_type": "code",
       "source_file": "src/theme/ThemeContext.tsx",
-      "source_location": "L73",
+      "source_location": "L79",
       "id": "theme_themecontext_themecontext",
-      "community": 4,
+      "community": 20,
       "norm_label": "themecontext"
     },
     {
       "label": "ThemeProvider()",
       "file_type": "code",
       "source_file": "src/theme/ThemeContext.tsx",
-      "source_location": "L79",
+      "source_location": "L85",
       "id": "theme_themecontext_themeprovider",
-      "community": 4,
+      "community": 20,
       "norm_label": "themeprovider()"
     },
     {
       "label": "useTheme()",
       "file_type": "code",
       "source_file": "src/theme/ThemeContext.tsx",
-      "source_location": "L100",
+      "source_location": "L106",
       "id": "theme_themecontext_usetheme",
-      "community": 4,
+      "community": 20,
       "norm_label": "usetheme()"
     },
     {
@@ -1791,7 +2466,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L1",
       "id": "types_index",
-      "community": 1,
+      "community": 22,
       "norm_label": "index.ts"
     },
     {
@@ -1800,7 +2475,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L1",
       "id": "types_index_rol",
-      "community": 1,
+      "community": 22,
       "norm_label": "rol"
     },
     {
@@ -1809,7 +2484,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L4",
       "id": "types_index_personel_roller",
-      "community": 4,
+      "community": 20,
       "norm_label": "personel_roller"
     },
     {
@@ -1818,7 +2493,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L6",
       "id": "types_index_userprofile",
-      "community": 1,
+      "community": 20,
       "norm_label": "userprofile"
     },
     {
@@ -1827,116 +2502,332 @@
       "source_file": "src/types/index.ts",
       "source_location": "L17",
       "id": "types_index_branch",
-      "community": 1,
+      "community": 4,
       "norm_label": "branch"
     },
     {
       "label": "TimeSlot",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L24",
+      "source_location": "L25",
       "id": "types_index_timeslot",
-      "community": 15,
+      "community": 22,
       "norm_label": "timeslot"
+    },
+    {
+      "label": "CalismaPenceresi",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L33",
+      "id": "types_index_calismapenceresi",
+      "community": 17,
+      "norm_label": "calismapenceresi"
+    },
+    {
+      "label": "ProgramMod",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L39",
+      "id": "types_index_programmod",
+      "community": 22,
+      "norm_label": "programmod"
+    },
+    {
+      "label": "ServiceSchedule",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L42",
+      "id": "types_index_serviceschedule",
+      "community": 22,
+      "norm_label": "serviceschedule"
     },
     {
       "label": "RandevuDurum",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L31",
+      "source_location": "L55",
       "id": "types_index_randevudurum",
-      "community": 1,
+      "community": 20,
       "norm_label": "randevudurum"
     },
     {
       "label": "Appointment",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L33",
+      "source_location": "L57",
       "id": "types_index_appointment",
-      "community": 1,
+      "community": 20,
       "norm_label": "appointment"
+    },
+    {
+      "label": "DegisiklikTip",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L77",
+      "id": "types_index_degisikliktip",
+      "community": 22,
+      "norm_label": "degisikliktip"
+    },
+    {
+      "label": "DegisiklikDurum",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L78",
+      "id": "types_index_degisiklikdurum",
+      "community": 22,
+      "norm_label": "degisiklikdurum"
+    },
+    {
+      "label": "AppointmentChange",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L81",
+      "id": "types_index_appointmentchange",
+      "community": 22,
+      "norm_label": "appointmentchange"
     },
     {
       "label": "IsDurum",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L51",
+      "source_location": "L94",
       "id": "types_index_isdurum",
-      "community": 1,
+      "community": 20,
       "norm_label": "isdurum"
     },
     {
       "label": "Job",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L53",
+      "source_location": "L96",
       "id": "types_index_job",
-      "community": 1,
+      "community": 22,
       "norm_label": "job"
     },
     {
       "label": "JobPhoto",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L63",
+      "source_location": "L106",
       "id": "types_index_jobphoto",
-      "community": 1,
+      "community": 22,
       "norm_label": "jobphoto"
     },
     {
       "label": "BranchPrice",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L70",
+      "source_location": "L113",
       "id": "types_index_branchprice",
-      "community": 4,
+      "community": 22,
       "norm_label": "branchprice"
     },
     {
       "label": "MusaitSlot",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L79",
+      "source_location": "L122",
       "id": "types_index_musaitslot",
-      "community": 1,
+      "community": 22,
       "norm_label": "musaitslot"
     },
     {
       "label": "FiyatSonuc",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L87",
+      "source_location": "L131",
       "id": "types_index_fiyatsonuc",
-      "community": 1,
+      "community": 22,
       "norm_label": "fiyatsonuc"
     },
     {
       "label": "Campaign",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L93",
+      "source_location": "L138",
       "id": "types_index_campaign",
-      "community": 1,
+      "community": 22,
       "norm_label": "campaign"
+    },
+    {
+      "label": "KampanyaTip",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L150",
+      "id": "types_index_kampanyatip",
+      "community": 22,
+      "norm_label": "kampanyatip"
     },
     {
       "label": "Service",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L104",
+      "source_location": "L152",
       "id": "types_index_service",
       "community": 4,
       "norm_label": "service"
     },
     {
+      "label": "PlanKademe",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L169",
+      "id": "types_index_plankademe",
+      "community": 22,
+      "norm_label": "plankademe"
+    },
+    {
+      "label": "PlanHak",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L171",
+      "id": "types_index_planhak",
+      "community": 22,
+      "norm_label": "planhak"
+    },
+    {
+      "label": "Plan",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L179",
+      "id": "types_index_plan",
+      "community": 22,
+      "norm_label": "plan"
+    },
+    {
+      "label": "AbonelikDurum",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L189",
+      "id": "types_index_abonelikdurum",
+      "community": 22,
+      "norm_label": "abonelikdurum"
+    },
+    {
+      "label": "Subscription",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L191",
+      "id": "types_index_subscription",
+      "community": 20,
+      "norm_label": "subscription"
+    },
+    {
+      "label": "Entitlement",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L204",
+      "id": "types_index_entitlement",
+      "community": 20,
+      "norm_label": "entitlement"
+    },
+    {
       "label": "Vehicle",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L113",
+      "source_location": "L213",
       "id": "types_index_vehicle",
-      "community": 1,
+      "community": 22,
       "norm_label": "vehicle"
+    },
+    {
+      "label": "iyzico.ts",
+      "file_type": "code",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L1",
+      "id": "shared_iyzico",
+      "community": 12,
+      "norm_label": "iyzico.ts"
+    },
+    {
+      "label": "iyzicoYapilandirildiMi()",
+      "file_type": "code",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L18",
+      "id": "shared_iyzico_iyzicoyapilandirildimi",
+      "community": 12,
+      "norm_label": "iyzicoyapilandirildimi()"
+    },
+    {
+      "label": "randomKey()",
+      "file_type": "code",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L28",
+      "id": "shared_iyzico_randomkey",
+      "community": 12,
+      "norm_label": "randomkey()"
+    },
+    {
+      "label": "hmacHex()",
+      "file_type": "code",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L32",
+      "id": "shared_iyzico_hmachex",
+      "community": 12,
+      "norm_label": "hmachex()"
+    },
+    {
+      "label": "authHeader()",
+      "file_type": "code",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L47",
+      "id": "shared_iyzico_authheader",
+      "community": 12,
+      "norm_label": "authheader()"
+    },
+    {
+      "label": "iyziPost()",
+      "file_type": "code",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L53",
+      "id": "shared_iyzico_iyzipost",
+      "community": 12,
+      "norm_label": "iyzipost()"
+    },
+    {
+      "label": "CheckoutBaslatGirdi",
+      "file_type": "code",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L75",
+      "id": "shared_iyzico_checkoutbaslatgirdi",
+      "community": 12,
+      "norm_label": "checkoutbaslatgirdi"
+    },
+    {
+      "label": "CheckoutBaslatSonuc",
+      "file_type": "code",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L91",
+      "id": "shared_iyzico_checkoutbaslatsonuc",
+      "community": 12,
+      "norm_label": "checkoutbaslatsonuc"
+    },
+    {
+      "label": "checkoutBaslat()",
+      "file_type": "code",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L99",
+      "id": "shared_iyzico_checkoutbaslat",
+      "community": 12,
+      "norm_label": "checkoutbaslat()"
+    },
+    {
+      "label": "CheckoutSonucResult",
+      "file_type": "code",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L147",
+      "id": "shared_iyzico_checkoutsonucresult",
+      "community": 12,
+      "norm_label": "checkoutsonucresult"
+    },
+    {
+      "label": "checkoutSonuc()",
+      "file_type": "code",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L156",
+      "id": "shared_iyzico_checkoutsonuc",
+      "community": 12,
+      "norm_label": "checkoutsonuc()"
     },
     {
       "label": "sentry.ts",
@@ -1986,6 +2877,51 @@
     {
       "label": "index.ts",
       "file_type": "code",
+      "source_file": "supabase/functions/abonelik-baslat/index.ts",
+      "source_location": "L1",
+      "id": "abonelik_baslat_index",
+      "community": 12,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "cors",
+      "file_type": "code",
+      "source_file": "supabase/functions/abonelik-baslat/index.ts",
+      "source_location": "L20",
+      "id": "abonelik_baslat_index_cors",
+      "community": 12,
+      "norm_label": "cors"
+    },
+    {
+      "label": "Girdi",
+      "file_type": "code",
+      "source_file": "supabase/functions/abonelik-baslat/index.ts",
+      "source_location": "L27",
+      "id": "abonelik_baslat_index_girdi",
+      "community": 12,
+      "norm_label": "girdi"
+    },
+    {
+      "label": "json()",
+      "file_type": "code",
+      "source_file": "supabase/functions/abonelik-baslat/index.ts",
+      "source_location": "L32",
+      "id": "abonelik_baslat_index_json",
+      "community": 12,
+      "norm_label": "json()"
+    },
+    {
+      "label": "adSoyadAyir()",
+      "file_type": "code",
+      "source_file": "supabase/functions/abonelik-baslat/index.ts",
+      "source_location": "L39",
+      "id": "abonelik_baslat_index_adsoyadayir",
+      "community": 12,
+      "norm_label": "adsoyadayir()"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
       "source_file": "supabase/functions/fiyat-hesapla/index.ts",
       "source_location": "L1",
       "id": "fiyat_hesapla_index",
@@ -2018,6 +2954,33 @@
       "id": "fiyat_hesapla_index_json",
       "community": 12,
       "norm_label": "json()"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "supabase/functions/iyzico-webhook/index.ts",
+      "source_location": "L1",
+      "id": "iyzico_webhook_index",
+      "community": 12,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "htmlKapat()",
+      "file_type": "code",
+      "source_file": "supabase/functions/iyzico-webhook/index.ts",
+      "source_location": "L24",
+      "id": "iyzico_webhook_index_htmlkapat",
+      "community": 12,
+      "norm_label": "htmlkapat()"
+    },
+    {
+      "label": "tokenAyikla()",
+      "file_type": "code",
+      "source_file": "supabase/functions/iyzico-webhook/index.ts",
+      "source_location": "L38",
+      "id": "iyzico_webhook_index_tokenayikla",
+      "community": 12,
+      "norm_label": "tokenayikla()"
     },
     {
       "label": "tsconfig.json",
@@ -2146,13 +3109,40 @@
       "norm_label": "baglam dosyalar\u0131"
     },
     {
-      "label": "graphify",
+      "label": "graphify (token tasarrufu \u2014 scope-first zorunlu)",
       "file_type": "document",
       "source_file": "CLAUDE.md",
-      "source_location": "L102",
-      "id": "claude_graphify",
+      "source_location": "L105",
+      "id": "claude_graphify_token_tasarrufu_scope_first_zorunlu",
       "community": 0,
-      "norm_label": "graphify"
+      "norm_label": "graphify (token tasarrufu \u2014 scope-first zorunlu)"
+    },
+    {
+      "label": "Zorunlu i\u015f ak\u0131\u015f\u0131 (her g\u00f6revde)",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L111",
+      "id": "claude_zorunlu_i\u015f_ak\u0131\u015f\u0131_her_g\u00f6revde",
+      "community": 0,
+      "norm_label": "zorunlu is ak\u0131s\u0131 (her gorevde)"
+    },
+    {
+      "label": "Komut rehberi",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L120",
+      "id": "claude_komut_rehberi",
+      "community": 0,
+      "norm_label": "komut rehberi"
+    },
+    {
+      "label": "G\u00fcncel tutma",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L128",
+      "id": "claude_g\u00fcncel_tutma",
+      "community": 0,
+      "norm_label": "guncel tutma"
     },
     {
       "label": "IMPLEMENTATION.md",
@@ -2223,7 +3213,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L51",
       "id": "implementation_faz_1_temel_iskelet",
-      "community": 16,
+      "community": 2,
       "norm_label": "faz 1 \u2014 temel iskelet"
     },
     {
@@ -2232,7 +3222,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L55",
       "id": "implementation_ortak_yard\u0131mc\u0131lar_\u00f6nce_bunlar",
-      "community": 16,
+      "community": 2,
       "norm_label": "ortak yard\u0131mc\u0131lar (once bunlar)"
     },
     {
@@ -2241,7 +3231,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L71",
       "id": "implementation_tablolar",
-      "community": 16,
+      "community": 2,
       "norm_label": "tablolar"
     },
     {
@@ -2250,7 +3240,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L113",
       "id": "implementation_rls_politikalar\u0131",
-      "community": 16,
+      "community": 2,
       "norm_label": "rls politikalar\u0131"
     },
     {
@@ -2259,7 +3249,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L142",
       "id": "implementation_auth_g\u00f6revleri_e_posta_\u015fifre_e_posta_do\u011frulamal\u0131",
-      "community": 16,
+      "community": 2,
       "norm_label": "auth gorevleri (e-posta + sifre \u2014 e-posta dogrulamal\u0131)"
     },
     {
@@ -2268,7 +3258,7 @@
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L167",
       "id": "implementation_kabul_kriteri_167",
-      "community": 16,
+      "community": 2,
       "norm_label": "kabul kriteri"
     },
     {
@@ -2569,11 +3559,83 @@
       "norm_label": "4. ozet karar tablosu"
     },
     {
+      "label": "backgroundImage",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L16",
+      "community": 8,
+      "norm_label": "backgroundimage",
+      "id": "app_adaptiveicon_backgroundimage"
+    },
+    {
+      "label": "s",
+      "file_type": "code",
+      "source_file": "src/components/Logo.tsx",
+      "source_location": "L89",
+      "community": 3,
+      "norm_label": "s",
+      "id": "components_logo_s"
+    },
+    {
+      "label": "SABAH",
+      "file_type": "code",
+      "source_file": "src/data/calisma-duzeni.ts",
+      "source_location": "L9",
+      "community": 17,
+      "norm_label": "sabah",
+      "id": "data_calisma_duzeni_sabah"
+    },
+    {
+      "label": "OGLEDEN_SONRA",
+      "file_type": "code",
+      "source_file": "src/data/calisma-duzeni.ts",
+      "source_location": "L10",
+      "community": 17,
+      "norm_label": "ogleden_sonra",
+      "id": "data_calisma_duzeni_ogleden_sonra"
+    },
+    {
+      "label": "gunlukSlotSaatleri()",
+      "file_type": "code",
+      "source_file": "src/data/calisma-duzeni.ts",
+      "source_location": "L12",
+      "community": 17,
+      "norm_label": "gunlukslotsaatleri()",
+      "id": "data_calisma_duzeni_gunlukslotsaatleri"
+    },
+    {
+      "label": "graphify",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L102",
+      "community": 0,
+      "norm_label": "graphify",
+      "id": "claude_graphify"
+    },
+    {
+      "label": "tl()",
+      "file_type": "code",
+      "source_file": "app/(main)/index.tsx",
+      "source_location": "L12",
+      "community": 4,
+      "norm_label": "tl()",
+      "id": "main_index_tl"
+    },
+    {
+      "label": "fiyatMetni()",
+      "file_type": "code",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L15",
+      "community": 17,
+      "norm_label": "fiyatmetni()",
+      "id": "yonetim_hizmetler_fiyatmetni"
+    },
+    {
       "label": "PERSONEL_ROLLER",
       "file_type": "code",
       "source_file": "app/_layout.tsx",
       "source_location": "L16",
-      "community": 4,
+      "community": 20,
       "norm_label": "personel_roller",
       "id": "app_layout_personel_roller"
     },
@@ -2591,7 +3653,7 @@
       "file_type": "document",
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L138",
-      "community": 16,
+      "community": 2,
       "norm_label": "auth gorevleri (sms suistimaline kars\u0131)",
       "id": "implementation_auth_g\u00f6revleri_sms_suistimaline_kar\u015f\u0131"
     },
@@ -2600,7 +3662,7 @@
       "file_type": "document",
       "source_file": "IMPLEMENTATION.md",
       "source_location": "L147",
-      "community": 16,
+      "community": 2,
       "norm_label": "kabul kriteri",
       "id": "implementation_kabul_kriteri_147"
     },
@@ -3435,6 +4497,28 @@
       "target": "lib_supabase_supabase"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/_layout.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "main_layout",
+      "target": "components_ustbosluk",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/_layout.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "main_layout",
+      "target": "components_ustbosluk_ustbosluk",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/(main)/_layout.tsx",
@@ -3506,6 +4590,28 @@
       "source_file": "app/(main)/araclar.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "source": "main_araclar",
+      "target": "components_yukleniyor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/araclar.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "main_araclar",
+      "target": "components_yukleniyor_yukleniyor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/araclar.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
       "confidence_score": 1.0,
       "source": "main_araclar",
       "target": "data_arac_katalogu"
@@ -3553,6 +4659,17 @@
       "confidence_score": 1.0,
       "source": "main_araclar",
       "target": "data_arac_katalogu_markalar"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/araclar.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_araclar",
+      "target": "data_arac_katalogu_segmentlabel"
     },
     {
       "relation": "imports_from",
@@ -3666,6 +4783,50 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/(main)/index.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_index",
+      "target": "components_logo"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/index.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_index",
+      "target": "components_logo_logo"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/index.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "main_index",
+      "target": "components_yukleniyor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/index.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "main_index",
+      "target": "components_yukleniyor_yukleniyor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/index.tsx",
       "source_location": "L3",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -3682,6 +4843,50 @@
       "confidence_score": 1.0,
       "source": "main_index",
       "target": "hooks_usesession_usesession"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/index.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_index",
+      "target": "lib_hizmet"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/index.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_index",
+      "target": "lib_hizmet_fiyatmetni"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/index.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_index",
+      "target": "lib_hizmet_gorselurl"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/index.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_index",
+      "target": "lib_hizmet_indirimlimetni"
     },
     {
       "relation": "imports_from",
@@ -3726,6 +4931,16 @@
       "target": "main_index_s"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/index.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_index",
+      "target": "main_index_tl"
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -3757,6 +4972,17 @@
       "confidence_score": 1.0,
       "source": "main_index",
       "target": "types_index"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/index.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_index",
+      "target": "types_index_campaign"
     },
     {
       "relation": "imports",
@@ -3789,103 +5015,6 @@
       "source_location": "L12",
       "weight": 1.0,
       "source": "main_index_anasayfa",
-      "target": "theme_themecontext_usetheme"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/kampanyalar.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "main_kampanyalar",
-      "target": "lib_supabase"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/kampanyalar.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "main_kampanyalar",
-      "target": "lib_supabase_supabase"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/kampanyalar.tsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "main_kampanyalar",
-      "target": "main_kampanyalar_kampanyalarscreen"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/kampanyalar.tsx",
-      "source_location": "L90",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "main_kampanyalar",
-      "target": "main_kampanyalar_s"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/kampanyalar.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "main_kampanyalar",
-      "target": "theme_themecontext"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/kampanyalar.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "main_kampanyalar",
-      "target": "theme_themecontext_usetheme"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/kampanyalar.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "main_kampanyalar",
-      "target": "types_index"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/kampanyalar.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "main_kampanyalar",
-      "target": "types_index_campaign"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/(main)/kampanyalar.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "source": "main_kampanyalar_kampanyalarscreen",
       "target": "theme_themecontext_usetheme"
     },
     {
@@ -4011,11 +5140,33 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/(main)/profil.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "main_profil",
+      "target": "types_index_entitlement",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/profil.tsx",
       "source_location": "L9",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "main_profil",
       "target": "types_index_personel_roller"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/profil.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "main_profil",
+      "target": "types_index_subscription",
+      "confidence_score": 1.0
     },
     {
       "relation": "re_exports",
@@ -4049,6 +5200,28 @@
       "weight": 1.0,
       "source": "main_profil_profilscreen",
       "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "main_randevularim",
+      "target": "components_yukleniyor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "main_randevularim",
+      "target": "components_yukleniyor_yukleniyor",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -4093,6 +5266,16 @@
       "confidence_score": 1.0,
       "source": "main_randevularim",
       "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/randevularim.tsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_randevularim",
+      "target": "main_randevularim_dakikakala"
     },
     {
       "relation": "contains",
@@ -4237,6 +5420,28 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/(yonetim)/_layout.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "yonetim_layout",
+      "target": "components_ustbosluk",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/_layout.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "yonetim_layout",
+      "target": "components_ustbosluk_ustbosluk",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/_layout.tsx",
       "source_location": "L5",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -4334,163 +5539,210 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/fiyatlar.tsx",
-      "source_location": "L8",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L14",
       "weight": 1.0,
-      "source": "yonetim_fiyatlar",
-      "target": "hooks_usesession",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "components_bilgi"
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/fiyatlar.tsx",
-      "source_location": "L8",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L14",
       "weight": 1.0,
-      "source": "yonetim_fiyatlar",
-      "target": "hooks_usesession_usesession",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "components_bilgi_bilgi"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "components_bilgi_etiket"
     },
     {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/fiyatlar.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "yonetim_fiyatlar",
-      "target": "lib_supabase",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/fiyatlar.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "yonetim_fiyatlar",
-      "target": "lib_supabase_supabase",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/fiyatlar.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "yonetim_fiyatlar",
-      "target": "theme_themecontext",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/fiyatlar.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "yonetim_fiyatlar",
-      "target": "theme_themecontext_usetheme",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/fiyatlar.tsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "yonetim_fiyatlar",
-      "target": "types_index",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/fiyatlar.tsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "yonetim_fiyatlar",
-      "target": "types_index_branchprice",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/fiyatlar.tsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "yonetim_fiyatlar",
-      "target": "types_index_service",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/fiyatlar.tsx",
-      "source_location": "L18",
-      "weight": 1.0,
-      "source": "yonetim_fiyatlar",
-      "target": "yonetim_fiyatlar_fiyatlarscreen",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/fiyatlar.tsx",
-      "source_location": "L201",
-      "weight": 1.0,
-      "source": "yonetim_fiyatlar",
-      "target": "yonetim_fiyatlar_s",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/fiyatlar.tsx",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
       "source_location": "L15",
       "weight": 1.0,
-      "source": "yonetim_fiyatlar",
-      "target": "yonetim_fiyatlar_tl",
+      "source": "yonetim_hizmetler",
+      "target": "components_yukleniyor",
       "confidence_score": 1.0
     },
     {
-      "relation": "calls",
-      "context": "call",
+      "relation": "imports",
+      "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/fiyatlar.tsx",
-      "source_location": "L162",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L15",
       "weight": 1.0,
-      "source": "yonetim_fiyatlar_fiyatlarscreen",
-      "target": "yonetim_fiyatlar_tl",
+      "source": "yonetim_hizmetler",
+      "target": "components_yukleniyor_yukleniyor",
       "confidence_score": 1.0
     },
     {
-      "relation": "calls",
-      "context": "call",
+      "relation": "imports_from",
+      "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
       "confidence_score": 1.0,
-      "source_file": "app/(yonetim)/fiyatlar.tsx",
-      "source_location": "L19",
+      "source": "yonetim_hizmetler",
+      "target": "data_arac_katalogu"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L17",
       "weight": 1.0,
-      "source": "yonetim_fiyatlar_fiyatlarscreen",
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "data_arac_katalogu_segmentler"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "data_calisma_duzeni"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "data_calisma_duzeni_gunler"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "data_calisma_duzeni_saatdk"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "data_calisma_duzeni_saatgecerli"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "data_calisma_duzeni_tum_gunler"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "data_calisma_duzeni_varsayilan_pencereler"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "hooks_usesession"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
       "target": "hooks_usesession_usesession"
     },
     {
-      "relation": "calls",
-      "context": "call",
+      "relation": "imports_from",
+      "context": "import",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/(yonetim)/fiyatlar.tsx",
-      "source_location": "L20",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L12",
       "weight": 1.0,
-      "source": "yonetim_fiyatlar_fiyatlarscreen",
-      "target": "theme_themecontext_usetheme"
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "lib_hizmet"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "lib_hizmet_fiyatmetni"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "lib_hizmet_gorselurl"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "lib_hizmet_suremetni"
     },
     {
       "relation": "imports_from",
@@ -4552,11 +5804,85 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "types_index_branchprice"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "types_index_calismapenceresi"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "types_index_kampanyatip"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "types_index_programmod"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
       "source_location": "L9",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "yonetim_hizmetler",
       "target": "types_index_service"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "yonetim_hizmetler_fiyatanahtar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "yonetim_hizmetler_fiyatbandi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "yonetim_hizmetler_fiyatmetni"
     },
     {
       "relation": "contains",
@@ -4572,11 +5898,85 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "yonetim_hizmetler_kampanya_secenek"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
       "source_location": "L180",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "yonetim_hizmetler",
       "target": "yonetim_hizmetler_s"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "yonetim_hizmetler_tl"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "yonetim_hizmetler_tl0"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler_fiyatmetni",
+      "target": "yonetim_hizmetler_tl"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "yonetim_hizmetler_hizmetlerscreen",
+      "target": "hooks_usesession_usesession"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L193",
+      "weight": 1.0,
+      "source": "yonetim_hizmetler_hizmetlerscreen",
+      "target": "lib_hizmet_gorselurl"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L474",
+      "weight": 1.0,
+      "source": "yonetim_hizmetler_hizmetlerscreen",
+      "target": "lib_hizmet_suremetni"
     },
     {
       "relation": "calls",
@@ -4588,6 +5988,28 @@
       "weight": 1.0,
       "source": "yonetim_hizmetler_hizmetlerscreen",
       "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/index.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_index",
+      "target": "components_rapormodal"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/index.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_index",
+      "target": "components_rapormodal_rapormodal"
     },
     {
       "relation": "imports_from",
@@ -4711,170 +6133,205 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/isler.tsx",
-      "source_location": "L10",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L12",
       "weight": 1.0,
-      "source": "yonetim_isler",
-      "target": "hooks_usesession",
+      "source": "yonetim_paketler",
+      "target": "components_yukleniyor",
       "confidence_score": 1.0
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/isler.tsx",
-      "source_location": "L10",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L12",
       "weight": 1.0,
-      "source": "yonetim_isler",
-      "target": "hooks_usesession_usesession",
+      "source": "yonetim_paketler",
+      "target": "components_yukleniyor_yukleniyor",
       "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/isler.tsx",
+      "source_file": "app/(yonetim)/paketler.tsx",
       "source_location": "L9",
       "weight": 1.0,
-      "source": "yonetim_isler",
-      "target": "lib_supabase",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "yonetim_paketler",
+      "target": "hooks_usesession"
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/isler.tsx",
+      "source_file": "app/(yonetim)/paketler.tsx",
       "source_location": "L9",
       "weight": 1.0,
-      "source": "yonetim_isler",
-      "target": "lib_supabase_supabase",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "yonetim_paketler",
+      "target": "hooks_usesession_usesession"
     },
     {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/isler.tsx",
-      "source_location": "L11",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L8",
       "weight": 1.0,
-      "source": "yonetim_isler",
-      "target": "theme_themecontext",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "yonetim_paketler",
+      "target": "lib_supabase"
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/isler.tsx",
-      "source_location": "L11",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L8",
       "weight": 1.0,
-      "source": "yonetim_isler",
-      "target": "theme_themecontext_usetheme",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "yonetim_paketler",
+      "target": "lib_supabase_supabase"
     },
     {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/isler.tsx",
-      "source_location": "L12",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L10",
       "weight": 1.0,
-      "source": "yonetim_isler",
-      "target": "types_index",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "yonetim_paketler",
+      "target": "theme_themecontext"
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/isler.tsx",
-      "source_location": "L12",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L10",
       "weight": 1.0,
-      "source": "yonetim_isler",
-      "target": "types_index_appointment",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "yonetim_paketler",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_paketler",
+      "target": "types_index"
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/isler.tsx",
-      "source_location": "L12",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L11",
       "weight": 1.0,
-      "source": "yonetim_isler",
-      "target": "types_index_isdurum",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "yonetim_paketler",
+      "target": "types_index_plan"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_paketler",
+      "target": "types_index_planhak"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_paketler",
+      "target": "types_index_plankademe"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_paketler",
+      "target": "types_index_service"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/isler.tsx",
-      "source_location": "L279",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L20",
       "weight": 1.0,
-      "source": "yonetim_isler",
-      "target": "yonetim_isler_fotobolum",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "yonetim_paketler",
+      "target": "yonetim_paketler_bosform"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/isler.tsx",
-      "source_location": "L28",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L13",
       "weight": 1.0,
-      "source": "yonetim_isler",
-      "target": "yonetim_isler_is_etiket",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "yonetim_paketler",
+      "target": "yonetim_paketler_kademeler"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/isler.tsx",
-      "source_location": "L34",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L24",
       "weight": 1.0,
-      "source": "yonetim_isler",
-      "target": "yonetim_isler_islerscreen",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "yonetim_paketler",
+      "target": "yonetim_paketler_paketlerscreen"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/isler.tsx",
-      "source_location": "L312",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L373",
       "weight": 1.0,
-      "source": "yonetim_isler",
-      "target": "yonetim_isler_s",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "yonetim_paketler",
+      "target": "yonetim_paketler_s"
     },
     {
-      "relation": "contains",
+      "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/isler.tsx",
-      "source_location": "L18",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L35",
       "weight": 1.0,
-      "source": "yonetim_isler",
-      "target": "yonetim_isler_sonraki",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/isler.tsx",
-      "source_location": "L23",
-      "weight": 1.0,
-      "source": "yonetim_isler",
-      "target": "yonetim_isler_sonraki_etiket",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "yonetim_paketler_paketlerscreen",
+      "target": "yonetim_paketler_bosform"
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "app/(yonetim)/isler.tsx",
-      "source_location": "L35",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L25",
       "weight": 1.0,
-      "source": "yonetim_isler_islerscreen",
+      "source": "yonetim_paketler_paketlerscreen",
       "target": "hooks_usesession_usesession"
     },
     {
@@ -4882,11 +6339,66 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "app/(yonetim)/isler.tsx",
-      "source_location": "L36",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L26",
       "weight": 1.0,
-      "source": "yonetim_isler_islerscreen",
+      "source": "yonetim_paketler_paketlerscreen",
       "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_randevular",
+      "target": "components_islerlistesi"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "yonetim_randevular",
+      "target": "components_yukleniyor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "yonetim_randevular",
+      "target": "components_yukleniyor_yukleniyor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_randevular",
+      "target": "hooks_usesession"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_randevular",
+      "target": "hooks_usesession_usesession"
     },
     {
       "relation": "imports_from",
@@ -4963,7 +6475,28 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "yonetim_randevular",
+      "target": "types_index_musaitslot"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_randevular",
       "target": "types_index_randevudurum"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_randevular",
+      "target": "yonetim_randevular_dakikakala"
     },
     {
       "relation": "contains",
@@ -4974,6 +6507,36 @@
       "confidence_score": 1.0,
       "source": "yonetim_randevular",
       "target": "yonetim_randevular_durum_etiket"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L45",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_randevular",
+      "target": "yonetim_randevular_gunbasligi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_randevular",
+      "target": "yonetim_randevular_gunkey"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_randevular",
+      "target": "yonetim_randevular_gunler"
     },
     {
       "relation": "contains",
@@ -4999,6 +6562,28 @@
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L43",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_randevular_randevularscreen",
+      "target": "yonetim_randevular_gunler"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "yonetim_randevular_randevularscreen",
+      "target": "hooks_usesession_usesession"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/(yonetim)/randevular.tsx",
       "source_location": "L19",
@@ -5010,174 +6595,23 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/slotlar.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "yonetim_slotlar",
-      "target": "data_calisma_duzeni"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/slotlar.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "yonetim_slotlar",
-      "target": "data_calisma_duzeni_gunlukslotsaatleri"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/slotlar.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "yonetim_slotlar",
-      "target": "hooks_usesession"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/slotlar.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "yonetim_slotlar",
-      "target": "hooks_usesession_usesession"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/slotlar.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "yonetim_slotlar",
-      "target": "lib_supabase"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/slotlar.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "yonetim_slotlar",
-      "target": "lib_supabase_supabase"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/slotlar.tsx",
+      "source_file": "app/(yonetim)/subeler.tsx",
       "source_location": "L10",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "yonetim_slotlar",
-      "target": "theme_themecontext"
+      "source": "yonetim_subeler",
+      "target": "components_yukleniyor",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/slotlar.tsx",
+      "source_file": "app/(yonetim)/subeler.tsx",
       "source_location": "L10",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "yonetim_slotlar",
-      "target": "theme_themecontext_usetheme"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/slotlar.tsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "yonetim_slotlar",
-      "target": "types_index"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/slotlar.tsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "yonetim_slotlar",
-      "target": "types_index_timeslot"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/slotlar.tsx",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "yonetim_slotlar",
-      "target": "yonetim_slotlar_gunler"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/slotlar.tsx",
-      "source_location": "L183",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "yonetim_slotlar",
-      "target": "yonetim_slotlar_s"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/slotlar.tsx",
-      "source_location": "L25",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "yonetim_slotlar",
-      "target": "yonetim_slotlar_slotlarscreen"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(yonetim)/slotlar.tsx",
-      "source_location": "L28",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "yonetim_slotlar_slotlarscreen",
-      "target": "yonetim_slotlar_gunler"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/(yonetim)/slotlar.tsx",
-      "source_location": "L26",
-      "weight": 1.0,
-      "source": "yonetim_slotlar_slotlarscreen",
-      "target": "hooks_usesession_usesession"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/(yonetim)/slotlar.tsx",
-      "source_location": "L27",
-      "weight": 1.0,
-      "source": "yonetim_slotlar_slotlarscreen",
-      "target": "theme_themecontext_usetheme"
+      "source": "yonetim_subeler",
+      "target": "components_yukleniyor_yukleniyor",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -5420,6 +6854,451 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_abonelik",
+      "target": "app_abonelik_abonelikscreen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_abonelik",
+      "target": "app_abonelik_budonem"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_abonelik",
+      "target": "app_abonelik_kademe_etiket"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L279",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_abonelik",
+      "target": "app_abonelik_s"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_abonelik",
+      "target": "components_yukleniyor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_abonelik",
+      "target": "components_yukleniyor_yukleniyor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_abonelik",
+      "target": "hooks_usesession"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_abonelik",
+      "target": "hooks_usesession_usesession"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_abonelik",
+      "target": "lib_abonelik"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_abonelik",
+      "target": "lib_abonelik_aboneol"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_abonelik",
+      "target": "lib_supabase"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_abonelik",
+      "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_abonelik",
+      "target": "theme_themecontext"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_abonelik",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_abonelik",
+      "target": "types_index"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_abonelik",
+      "target": "types_index_branch"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_abonelik",
+      "target": "types_index_entitlement"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_abonelik",
+      "target": "types_index_plan"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_abonelik",
+      "target": "types_index_subscription"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "app_abonelik_abonelikscreen",
+      "target": "hooks_usesession_usesession"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "app_abonelik_abonelikscreen",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_hizmet_detay",
+      "target": "app_hizmet_detay_hizmetdetayscreen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L109",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_hizmet_detay",
+      "target": "app_hizmet_detay_s"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_hizmet_detay",
+      "target": "components_yukleniyor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_hizmet_detay",
+      "target": "components_yukleniyor_yukleniyor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_hizmet_detay",
+      "target": "lib_hizmet"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_hizmet_detay",
+      "target": "lib_hizmet_fiyatmetni"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_hizmet_detay",
+      "target": "lib_hizmet_gorselurl"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_hizmet_detay",
+      "target": "lib_hizmet_indirimlimetni"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_hizmet_detay",
+      "target": "lib_hizmet_suremetni"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_hizmet_detay",
+      "target": "lib_supabase"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_hizmet_detay",
+      "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_hizmet_detay",
+      "target": "theme_themecontext"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_hizmet_detay",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_hizmet_detay",
+      "target": "types_index"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_hizmet_detay",
+      "target": "types_index_service"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L76",
+      "weight": 1.0,
+      "source": "app_hizmet_detay_hizmetdetayscreen",
+      "target": "lib_hizmet_fiyatmetni"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "app_hizmet_detay_hizmetdetayscreen",
+      "target": "lib_hizmet_gorselurl"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "app_hizmet_detay_hizmetdetayscreen",
+      "target": "lib_hizmet_indirimlimetni"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "app_hizmet_detay_hizmetdetayscreen",
+      "target": "lib_hizmet_suremetni"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/hizmet-detay.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "app_hizmet_detay_hizmetdetayscreen",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "app/randevu-al.tsx",
       "source_location": "L16",
       "weight": 1.0,
@@ -5446,6 +7325,28 @@
       "confidence_score": 1.0,
       "source": "app_randevu_al",
       "target": "app_randevu_al_s"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_randevu_al",
+      "target": "components_yukleniyor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_randevu_al",
+      "target": "components_yukleniyor_yukleniyor",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -5739,9 +7640,9 @@
       "source_file": "package.json",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "package_dependencies",
-      "target": "package_dependencies_expo_image_picker",
-      "confidence_score": 1.0
+      "target": "package_dependencies_expo_image_picker"
     },
     {
       "relation": "contains",
@@ -5792,6 +7693,16 @@
       "confidence_score": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_expo_secure_store"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_expo_sharing"
     },
     {
       "relation": "contains",
@@ -5947,6 +7858,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_sharp"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
       "source_location": "L34",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -6017,6 +7938,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_graph_obsidian"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
       "source_location": "L40",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -6052,6 +7983,187 @@
       "confidence_score": 1.0,
       "source": "package_scripts",
       "target": "package_scripts_web"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/gen-icons.mjs",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_gen_icons",
+      "target": "scripts_gen_icons_assets"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/gen-icons.mjs",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_gen_icons",
+      "target": "scripts_gen_icons_karesvg"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/gen-icons.mjs",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_gen_icons",
+      "target": "scripts_gen_icons_mark"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/gen-icons.mjs",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_gen_icons",
+      "target": "scripts_gen_icons_png"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/gen-icons.mjs",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_gen_icons",
+      "target": "scripts_gen_icons_root"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/gen-icons.mjs",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_gen_icons",
+      "target": "scripts_gen_icons_svg"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/gen-icons.mjs",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_gen_icons_png",
+      "target": "scripts_gen_icons_karesvg"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_graph_to_obsidian",
+      "target": "scripts_graph_to_obsidian_byid"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_graph_to_obsidian",
+      "target": "scripts_graph_to_obsidian_fileedges"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_graph_to_obsidian",
+      "target": "scripts_graph_to_obsidian_fileof"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_graph_to_obsidian",
+      "target": "scripts_graph_to_obsidian_files"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_graph_to_obsidian",
+      "target": "scripts_graph_to_obsidian_g"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_graph_to_obsidian",
+      "target": "scripts_graph_to_obsidian_graph"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L92",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_graph_to_obsidian",
+      "target": "scripts_graph_to_obsidian_idx"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_graph_to_obsidian",
+      "target": "scripts_graph_to_obsidian_notename"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_graph_to_obsidian",
+      "target": "scripts_graph_to_obsidian_out"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L49",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_graph_to_obsidian",
+      "target": "scripts_graph_to_obsidian_outgoing"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/graph-to-obsidian.mjs",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_graph_to_obsidian",
+      "target": "scripts_graph_to_obsidian_root"
     },
     {
       "relation": "contains",
@@ -6214,6 +8326,100 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/components/Bilgi.tsx",
+      "source_location": "L56",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_bilgi",
+      "target": "components_bilgi_bilgi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Bilgi.tsx",
+      "source_location": "L50",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_bilgi",
+      "target": "components_bilgi_bilgiprops"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Bilgi.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_bilgi",
+      "target": "components_bilgi_etiket"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Bilgi.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_bilgi",
+      "target": "components_bilgi_etiketprops"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Bilgi.tsx",
+      "source_location": "L77",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_bilgi",
+      "target": "components_bilgi_s"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Bilgi.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_bilgi",
+      "target": "theme_themecontext"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Bilgi.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_bilgi",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/Bilgi.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "components_bilgi_etiket",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/Bilgi.tsx",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "components_bilgi_bilgi",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/components/CaptchaWidget.tsx",
       "source_location": "L39",
       "weight": 1.0,
@@ -6265,12 +8471,256 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L278",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_islerlistesi",
+      "target": "components_islerlistesi_fotobolum"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_islerlistesi",
+      "target": "components_islerlistesi_gunlistesi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_islerlistesi",
+      "target": "components_islerlistesi_is_etiket"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_islerlistesi",
+      "target": "components_islerlistesi_islerlistesi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L311",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_islerlistesi",
+      "target": "components_islerlistesi_s"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_islerlistesi",
+      "target": "components_islerlistesi_sonraki"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_islerlistesi",
+      "target": "components_islerlistesi_sonraki_etiket"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "components_islerlistesi",
+      "target": "components_yukleniyor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "components_islerlistesi",
+      "target": "components_yukleniyor_yukleniyor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_islerlistesi",
+      "target": "hooks_usesession"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_islerlistesi",
+      "target": "hooks_usesession_usesession"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_islerlistesi",
+      "target": "lib_supabase"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_islerlistesi",
+      "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_islerlistesi",
+      "target": "theme_themecontext"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_islerlistesi",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_islerlistesi",
+      "target": "types_index"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_islerlistesi",
+      "target": "types_index_appointment"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_islerlistesi",
+      "target": "types_index_isdurum"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L186",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_islerlistesi_islerlistesi",
+      "target": "components_islerlistesi_gunlistesi"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "components_islerlistesi_islerlistesi",
+      "target": "hooks_usesession_usesession"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "components_islerlistesi_islerlistesi",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/components/Logo.tsx",
       "source_location": "L12",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "components_logo",
       "target": "components_logo_logo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Logo.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_logo",
+      "target": "components_logo_logo_acik_yazi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Logo.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_logo",
+      "target": "components_logo_logo_koyu_yazi"
     },
     {
       "relation": "contains",
@@ -6291,6 +8741,39 @@
       "confidence_score": 1.0,
       "source": "components_logo",
       "target": "components_logo_s"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Logo.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_logo",
+      "target": "theme_themecontext"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Logo.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_logo",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/Logo.tsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "components_logo_logo",
+      "target": "theme_themecontext_usetheme"
     },
     {
       "relation": "contains",
@@ -6366,6 +8849,334 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_rapormodal",
+      "target": "components_rapormodal_gunonce"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_rapormodal",
+      "target": "components_rapormodal_is_etiket"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_rapormodal",
+      "target": "components_rapormodal_parseymd"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_rapormodal",
+      "target": "components_rapormodal_props"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_rapormodal",
+      "target": "components_rapormodal_randevu_etiket"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_rapormodal",
+      "target": "components_rapormodal_rapormodal"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L250",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_rapormodal",
+      "target": "components_rapormodal_s"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_rapormodal",
+      "target": "components_rapormodal_ymd"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "components_rapormodal",
+      "target": "hooks_usesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "components_rapormodal",
+      "target": "hooks_usesession_usesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_rapormodal",
+      "target": "lib_supabase"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_rapormodal",
+      "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_rapormodal",
+      "target": "theme_themecontext"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_rapormodal",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_rapormodal",
+      "target": "types_index"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_rapormodal",
+      "target": "types_index_appointment"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "components_rapormodal",
+      "target": "types_index_branch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_rapormodal",
+      "target": "types_index_isdurum"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_rapormodal",
+      "target": "types_index_randevudurum"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_rapormodal_rapormodal",
+      "target": "components_rapormodal_ymd"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_rapormodal_rapormodal",
+      "target": "components_rapormodal_gunonce"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "components_rapormodal_rapormodal",
+      "target": "hooks_usesession_usesession"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "components_rapormodal_rapormodal",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/UstBosluk.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "components_ustbosluk",
+      "target": "components_ustbosluk_ustbosluk",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/UstBosluk.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_ustbosluk",
+      "target": "theme_themecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/UstBosluk.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_ustbosluk",
+      "target": "theme_themecontext_usetheme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/UstBosluk.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "components_ustbosluk_ustbosluk",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Yukleniyor.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_yukleniyor",
+      "target": "components_yukleniyor_mark",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Yukleniyor.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "components_yukleniyor",
+      "target": "components_yukleniyor_props",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Yukleniyor.tsx",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "components_yukleniyor",
+      "target": "components_yukleniyor_styles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Yukleniyor.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "components_yukleniyor",
+      "target": "components_yukleniyor_yukleniyor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/data/arac-katalogu.ts",
       "source_location": "L5",
       "weight": 1.0,
@@ -6382,6 +9193,26 @@
       "confidence_score": 1.0,
       "source": "data_arac_katalogu",
       "target": "data_arac_katalogu_araccinsi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/arac-katalogu.ts",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_arac_katalogu",
+      "target": "data_arac_katalogu_aracsegment"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/arac-katalogu.ts",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_arac_katalogu",
+      "target": "data_arac_katalogu_buyuk_cinsler"
     },
     {
       "relation": "contains",
@@ -6426,6 +9257,46 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/data/arac-katalogu.ts",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_arac_katalogu",
+      "target": "data_arac_katalogu_segment"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/arac-katalogu.ts",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_arac_katalogu",
+      "target": "data_arac_katalogu_segmentlabel"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/arac-katalogu.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_arac_katalogu",
+      "target": "data_arac_katalogu_segmentler"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/calisma-duzeni.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_calisma_duzeni",
+      "target": "data_calisma_duzeni_gunler"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/data/calisma-duzeni.ts",
       "source_location": "L12",
       "weight": 1.0,
@@ -6447,11 +9318,73 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/data/calisma-duzeni.ts",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_calisma_duzeni",
+      "target": "data_calisma_duzeni_saatdk"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/calisma-duzeni.ts",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_calisma_duzeni",
+      "target": "data_calisma_duzeni_saatgecerli"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/calisma-duzeni.ts",
       "source_location": "L9",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "data_calisma_duzeni",
       "target": "data_calisma_duzeni_sabah"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/calisma-duzeni.ts",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_calisma_duzeni",
+      "target": "data_calisma_duzeni_tum_gunler"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/calisma-duzeni.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_calisma_duzeni",
+      "target": "data_calisma_duzeni_varsayilan_pencereler"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/calisma-duzeni.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_calisma_duzeni",
+      "target": "types_index"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/calisma-duzeni.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_calisma_duzeni",
+      "target": "types_index_calismapenceresi"
     },
     {
       "relation": "contains",
@@ -6506,6 +9439,206 @@
       "confidence_score": 1.0,
       "source": "hooks_usesession",
       "target": "types_index_userprofile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/abonelik.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_abonelik",
+      "target": "lib_abonelik_aboneol"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/abonelik.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_abonelik",
+      "target": "lib_abonelik_aboneolsonuc"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/abonelik.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_abonelik",
+      "target": "lib_supabase"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/abonelik.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_abonelik",
+      "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_hizmet",
+      "target": "lib_hizmet_fiyataraligi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_hizmet",
+      "target": "lib_hizmet_fiyatmetni"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_hizmet",
+      "target": "lib_hizmet_gorselurl"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_hizmet",
+      "target": "lib_hizmet_indirimlimetni"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_hizmet",
+      "target": "lib_hizmet_kampanyapick"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_hizmet",
+      "target": "lib_hizmet_suremetni"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_hizmet",
+      "target": "lib_hizmet_tl"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_hizmet",
+      "target": "lib_supabase"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_hizmet",
+      "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_hizmet",
+      "target": "types_index"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_hizmet",
+      "target": "types_index_service"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_hizmet_fiyatmetni",
+      "target": "lib_hizmet_tl"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_hizmet_indirimlimetni",
+      "target": "lib_hizmet_tl"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_hizmet_fiyatmetni",
+      "target": "lib_hizmet_fiyataraligi"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/hizmet.ts",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_hizmet_indirimlimetni",
+      "target": "lib_hizmet_fiyataraligi"
     },
     {
       "relation": "contains",
@@ -6631,11 +9764,31 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/types/index.ts",
+      "source_location": "L189",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_index",
+      "target": "types_index_abonelikdurum"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
       "source_location": "L30",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "types_index",
       "target": "types_index_appointment"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L56",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_index",
+      "target": "types_index_appointmentchange"
     },
     {
       "relation": "contains",
@@ -6661,11 +9814,51 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/types/index.ts",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_index",
+      "target": "types_index_calismapenceresi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
       "source_location": "L21",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "types_index",
       "target": "types_index_campaign"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_index",
+      "target": "types_index_degisiklikdurum"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_index",
+      "target": "types_index_degisikliktip"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L204",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_index",
+      "target": "types_index_entitlement"
     },
     {
       "relation": "contains",
@@ -6711,6 +9904,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/types/index.ts",
+      "source_location": "L125",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_index",
+      "target": "types_index_kampanyatip"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
       "source_location": "L79",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -6726,6 +9929,46 @@
       "confidence_score": 1.0,
       "source": "types_index",
       "target": "types_index_personel_roller"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L179",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_index",
+      "target": "types_index_plan"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L171",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_index",
+      "target": "types_index_planhak"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L169",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_index",
+      "target": "types_index_plankademe"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_index",
+      "target": "types_index_programmod"
     },
     {
       "relation": "contains",
@@ -6761,6 +10004,26 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/types/index.ts",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_index",
+      "target": "types_index_serviceschedule"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L191",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_index",
+      "target": "types_index_subscription"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
       "source_location": "L21",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -6791,11 +10054,254 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/abonelik-baslat/index.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "abonelik_baslat_index",
+      "target": "shared_iyzico"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/iyzico-webhook/index.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "iyzico_webhook_index",
+      "target": "shared_iyzico"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "shared_iyzico",
+      "target": "shared_iyzico_authheader"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L99",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "shared_iyzico",
+      "target": "shared_iyzico_checkoutbaslat"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L75",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "shared_iyzico",
+      "target": "shared_iyzico_checkoutbaslatgirdi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L91",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "shared_iyzico",
+      "target": "shared_iyzico_checkoutbaslatsonuc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L156",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "shared_iyzico",
+      "target": "shared_iyzico_checkoutsonuc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L147",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "shared_iyzico",
+      "target": "shared_iyzico_checkoutsonucresult"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "shared_iyzico",
+      "target": "shared_iyzico_hmachex"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "shared_iyzico",
+      "target": "shared_iyzico_iyzicoyapilandirildimi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "shared_iyzico",
+      "target": "shared_iyzico_iyzipost"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "shared_iyzico",
+      "target": "shared_iyzico_randomkey"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/abonelik-baslat/index.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "abonelik_baslat_index",
+      "target": "shared_iyzico_iyzicoyapilandirildimi"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "shared_iyzico_iyzipost",
+      "target": "shared_iyzico_iyzicoyapilandirildimi"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L58",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "shared_iyzico_iyzipost",
+      "target": "shared_iyzico_randomkey"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L48",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "shared_iyzico_authheader",
+      "target": "shared_iyzico_hmachex"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L62",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "shared_iyzico_iyzipost",
+      "target": "shared_iyzico_authheader"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L139",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "shared_iyzico_checkoutbaslat",
+      "target": "shared_iyzico_iyzipost"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/_shared/iyzico.ts",
+      "source_location": "L157",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "shared_iyzico_checkoutsonuc",
+      "target": "shared_iyzico_iyzipost"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/abonelik-baslat/index.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "abonelik_baslat_index",
+      "target": "shared_iyzico_checkoutbaslat"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/iyzico-webhook/index.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "iyzico_webhook_index",
+      "target": "shared_iyzico_checkoutsonuc"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/abonelik-baslat/index.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "abonelik_baslat_index",
+      "target": "shared_sentry"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "supabase/functions/fiyat-hesapla/index.ts",
       "source_location": "L11",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "fiyat_hesapla_index",
+      "target": "shared_sentry"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/iyzico-webhook/index.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "iyzico_webhook_index",
       "target": "shared_sentry"
     },
     {
@@ -6853,11 +10359,33 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/abonelik-baslat/index.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "abonelik_baslat_index",
+      "target": "shared_sentry_captureedgeexception"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "supabase/functions/fiyat-hesapla/index.ts",
       "source_location": "L11",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "fiyat_hesapla_index",
+      "target": "shared_sentry_captureedgeexception"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/iyzico-webhook/index.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "iyzico_webhook_index",
       "target": "shared_sentry_captureedgeexception"
     },
     {
@@ -6870,6 +10398,46 @@
       "confidence_score": 1.0,
       "source": "shared_sentry_captureedgeexception",
       "target": "shared_sentry_parsestack"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/abonelik-baslat/index.ts",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "abonelik_baslat_index",
+      "target": "abonelik_baslat_index_adsoyadayir"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/abonelik-baslat/index.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "abonelik_baslat_index",
+      "target": "abonelik_baslat_index_cors"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/abonelik-baslat/index.ts",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "abonelik_baslat_index",
+      "target": "abonelik_baslat_index_girdi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/abonelik-baslat/index.ts",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "abonelik_baslat_index",
+      "target": "abonelik_baslat_index_json"
     },
     {
       "relation": "contains",
@@ -6900,6 +10468,26 @@
       "confidence_score": 1.0,
       "source": "fiyat_hesapla_index",
       "target": "fiyat_hesapla_index_json"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/iyzico-webhook/index.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "iyzico_webhook_index",
+      "target": "iyzico_webhook_index_htmlkapat"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/iyzico-webhook/index.ts",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "iyzico_webhook_index",
+      "target": "iyzico_webhook_index_tokenayikla"
     },
     {
       "relation": "contains",
@@ -6975,6 +10563,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CLAUDE.md",
+      "source_location": "L105",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "claude_otonbu_garage_proje_talimatlar\u0131",
+      "target": "claude_graphify_token_tasarrufu_scope_first_zorunlu"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
       "source_location": "L74",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -7030,6 +10628,36 @@
       "confidence_score": 1.0,
       "source": "claude_otonbu_garage_proje_talimatlar\u0131",
       "target": "claude_\u00fcr\u00fcn_\u00f6zeti"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L128",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "claude_graphify_token_tasarrufu_scope_first_zorunlu",
+      "target": "claude_g\u00fcncel_tutma"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L120",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "claude_graphify_token_tasarrufu_scope_first_zorunlu",
+      "target": "claude_komut_rehberi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L111",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "claude_graphify_token_tasarrufu_scope_first_zorunlu",
+      "target": "claude_zorunlu_i\u015f_ak\u0131\u015f\u0131_her_g\u00f6revde"
     },
     {
       "relation": "contains",
@@ -7583,5 +11211,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "74e8be5c3fe7223cbba29a5ec8e00a132fe221c3"
+  "built_at_commit": "c061236780509fdc7996ff9936b876800cb8f3bc"
 }

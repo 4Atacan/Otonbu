@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../src/theme/ThemeContext';
 import { useSession } from '../../src/hooks/useSession';
 import { PERSONEL_ROLLER } from '../../src/types';
+import { UstBosluk } from '../../src/components/UstBosluk';
 
 export default function YonetimLayout() {
   const { tema, renkler } = useTheme();
@@ -17,22 +18,17 @@ export default function YonetimLayout() {
 
   const admin = profile?.rol === 'admin';
   const subeSahibi = profile?.rol === 'sube_sahibi';
-  // İşler ekranını sahada çalışan/gören roller görür (admin gözetim yapar, işi almaz)
-  const isGoren = profile
-    ? ['usta', 'kasa', 'sube_sahibi'].includes(profile.rol)
-    : false;
 
   return (
     <>
       <StatusBar style={tema === 'koyu' ? 'light' : 'dark'} />
       <Tabs
         screenOptions={{
+          // Başlık barı yok — yalnızca durum çubuğu kadar bg şeridi (UstBosluk)
+          header: () => <UstBosluk />,
           tabBarActiveTintColor: renkler.primary,
           tabBarInactiveTintColor: renkler.subtext,
           tabBarStyle: { backgroundColor: renkler.card, borderTopColor: renkler.border },
-          headerStyle: { backgroundColor: renkler.card },
-          headerTitleStyle: { color: renkler.text },
-          headerShadowVisible: false,
         }}
       >
         <Tabs.Screen
@@ -45,8 +41,9 @@ export default function YonetimLayout() {
         <Tabs.Screen
           name="hizmetler"
           options={{
-            title: 'Hizmetler',
-            href: admin ? undefined : null,  // sadece admin
+            // admin = katalog; şube sahibi = fiyat + randevu programı (birleşik)
+            title: admin ? 'Hizmetler' : 'Fiyat & Saat',
+            href: admin || subeSahibi ? undefined : null,
             tabBarIcon: ({ color, size }) => <Ionicons name="construct" size={size} color={color} />,
           }}
         />
@@ -59,34 +56,21 @@ export default function YonetimLayout() {
           }}
         />
         <Tabs.Screen
-          name="slotlar"
+          name="paketler"
           options={{
-            title: 'Slotlar',
-            href: subeSahibi ? undefined : null,  // şubeye bağlı yönetim
-            tabBarIcon: ({ color, size }) => <Ionicons name="time" size={size} color={color} />,
+            title: 'Paketler',
+            href: admin ? undefined : null,  // sadece admin (plan + hak yönetimi)
+            tabBarIcon: ({ color, size }) => <Ionicons name="pricetags" size={size} color={color} />,
           }}
         />
         <Tabs.Screen
           name="randevular"
           options={{
-            title: 'Randevular',
+            title: 'Randevular',  // sahada çalışanlar için içeride "İşler" sekmesi de var
+            // Admin randevu onayı yapmaz (şube müdürü yapar) → admin'e gizli.
+            // Admin bunun yerine Panel'den istediği şubenin raporunu çeker.
+            href: admin ? null : undefined,
             tabBarIcon: ({ color, size }) => <Ionicons name="calendar" size={size} color={color} />,
-          }}
-        />
-        <Tabs.Screen
-          name="isler"
-          options={{
-            title: 'İşler',
-            href: isGoren ? undefined : null,  // usta/kasa/şube sahibi
-            tabBarIcon: ({ color, size }) => <Ionicons name="construct-outline" size={size} color={color} />,
-          }}
-        />
-        <Tabs.Screen
-          name="fiyatlar"
-          options={{
-            title: 'Fiyatlar',
-            href: subeSahibi ? undefined : null,  // şubeye özel fiyat = şube sahibi
-            tabBarIcon: ({ color, size }) => <Ionicons name="cash-outline" size={size} color={color} />,
           }}
         />
         <Tabs.Screen

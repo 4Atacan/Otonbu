@@ -97,14 +97,34 @@ Tek geliştirici tarafından geliştirilmektedir. Öncelik: **hız ve düşük m
 
 ## Bağlam dosyaları
 
-@IMPLEMENTATION.md
+`IMPLEMENTATION.md` **otomatik yüklenmez** (token tasarrufu). Bir faza/göreve
+dokunurken yalnızca ilgili bölümünü Read ile aç (örn. ilgili fazın tablo/RLS/
+kabul kriteri kısmı). Hangi bölüme bakacağını bilmiyorsan önce
+`graphify query` veya dosyadaki başlıkları tara, sonra o aralığı oku.
 
-## graphify
+## graphify (token tasarrufu — scope-first zorunlu)
 
-This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
+Bu projede `graphify-out/` altında bilgi grafiği var: god node'lar, community
+yapısı, dosyalar arası ilişkiler. **Amaç: projeyi her seferinde baştan okumak
+yerine, eldeki görev için yalnızca bağlantılı dosyaları/satırları açmak.**
 
-Rules:
-- For codebase questions, first run `graphify query "<question>"` when graphify-out/graph.json exists. Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts. These return a scoped subgraph, usually much smaller than GRAPH_REPORT.md or raw grep output.
-- If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
-- Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
-- After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
+### Zorunlu iş akışı (her görevde)
+1. **Önce grafikten scope çıkar — kod dosyalarını körlemesine OKUMA.** Bir göreve
+   başlarken ilk hamle `graphify query "<görev>"`. Çıktı, ilgili düğümleri
+   `src=dosya loc=Lsatır` formatında verir.
+2. **Sadece dönen düğümlere git.** O dosyaların ilgili satır aralıklarını Read
+   ile aç (gerekirse `offset`/`limit` ile). Tüm dosyayı baştan sona okuma.
+3. Geniş tarama (grep, dizin gezme, GRAPH_REPORT.md) yalnızca grafik yetersiz
+   kaldığında — son çare.
+
+### Komut rehberi
+- `graphify query "<soru>"` — bir görev/soru için bağlantılı alt-grafiği getirir
+  (genelde GRAPH_REPORT.md veya ham grep'ten çok daha küçük). **İlk reflex bu.**
+- `graphify path "<A>" "<B>"` — iki sembol/dosya arasındaki ilişki zinciri.
+- `graphify explain "<kavram>"` — tek bir kavrama odaklı alt-grafik.
+- `graphify-out/wiki/index.md` varsa, geniş gezinme için ham kaynak yerine bunu kullan.
+- `graphify-out/GRAPH_REPORT.md`'yi yalnızca mimari genel bakış için aç.
+
+### Güncel tutma
+- Kod değiştirdikten sonra `graphify update .` çalıştır (AST-only, API maliyeti yok).
+  Grafik bayatsa scope yanlış çıkar, tasarruf bozulur.

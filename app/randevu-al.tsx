@@ -10,6 +10,7 @@ import { useSession } from '../src/hooks/useSession';
 import { useTheme } from '../src/theme/ThemeContext';
 import { Branch, FiyatSonuc, MusaitSlot, Vehicle } from '../src/types';
 import { cinsLabel } from '../src/data/arac-katalogu';
+import { Yukleniyor } from '../src/components/Yukleniyor';
 
 const GUN_SAYISI = 14;
 
@@ -37,7 +38,7 @@ export default function RandevuAlScreen() {
   const [subeId, setSubeId] = useState<string | null>(null);
   const [aracId, setAracId] = useState<string | null>(null);
   const [gun, setGun] = useState<Date>(gunler()[0]);
-  const [slotId, setSlotId] = useState<string | null>(null);
+  const [secilenBaslangic, setSecilenBaslangic] = useState<string | null>(null);
 
   const [slotlar, setSlotlar] = useState<MusaitSlot[]>([]);
   const [slotYukleniyor, setSlotYukleniyor] = useState(false);
@@ -46,6 +47,10 @@ export default function RandevuAlScreen() {
   const [fiyatYukleniyor, setFiyatYukleniyor] = useState(false);
 
   const [gonderiliyor, setGonderiliyor] = useState(false);
+
+  // Abonelik hakkı: seçili şube + hizmet + dönem için kalan hak adedi
+  const [hakKalan, setHakKalan] = useState(0);
+  const [hakKullan, setHakKullan] = useState(false);
 
   // Temalı modal başlığı (üst navigator kök Stack).
   // useMemo şart: her render'da yeni nesne olursa <Stack.Screen options>
@@ -60,12 +65,18 @@ export default function RandevuAlScreen() {
     headerShadowVisible: false,
   }), [serviceAd, renkler]);
 
-  // İlk veri: aktif şubeler + müşterinin araçları
+  // İlk veri: aktif şubeler + yalnızca giriş yapan müşterinin araçları.
+  // RLS zaten izole eder; ayrıca açıkça user_id ile filtreliyoruz ki başka
+  // hesabın aracı asla listeye düşmesin (savunma derinliği — araclar.tsx ile aynı).
   useEffect(() => {
     (async () => {
+      const { data: { user } } = await supabase.auth.getUser();
       const [subeRes, aracRes] = await Promise.all([
         supabase.from('branches').select('*').eq('aktif', true).order('ad'),
-        supabase.from('vehicles').select('*').order('created_at', { ascending: false }),
+        user
+          ? supabase.from('vehicles').select('*').eq('user_id', user.id)
+              .order('created_at', { ascending: false })
+          : Promise.resolve({ data: [] as Vehicle[] }),
       ]);
       const sb = (subeRes.data as Branch[]) ?? [];
       const ar = (aracRes.data as Vehicle[]) ?? [];
@@ -77,19 +88,19 @@ export default function RandevuAlScreen() {
     })();
   }, []);
 
-  // Slotlar: şube + gün seçilince doluluğuyla birlikte (RPC RLS'i aşar, agregat)
+  // Uygun saatler: şube + hizmet + gün seçilince programdan türetilir
+  // (RPC RLS'i aşar, yalnızca agregat doluluk döner).
   useEffect(() => {
-    if (!subeId) { setSlotlar([]); return; }
-    setSlotId(null);
+    if (!subeId || !serviceId) { setSlotlar([]); return; }
+    setSecilenBaslangic(null);
     setSlotYukleniyor(true);
-    const bas = new Date(gun);
-    const son = new Date(gun); son.setHours(23, 59, 59, 999);
+    const p_gun = `${gun.getFullYear()}-${String(gun.getMonth() + 1).padStart(2, '0')}-${String(gun.getDate()).padStart(2, '0')}`;
     let iptal = false;
     supabase
       .rpc('musait_slotlar', {
         p_branch_id: subeId,
-        p_bas: bas.toISOString(),
-        p_son: son.toISOString(),
+        p_service_id: serviceId,
+        p_gun,
       })
       .then(({ data, error }) => {
         if (iptal) return;
@@ -98,7 +109,7 @@ export default function RandevuAlScreen() {
         setSlotYukleniyor(false);
       });
     return () => { iptal = true; };
-  }, [subeId, gun]);
+  }, [subeId, gun, serviceId]);
 
   // Fiyat: şube + araç seçilince sunucudan (istemci fiyat hesaplamaz)
   const fiyatIstek = useRef(0);
@@ -121,34 +132,70 @@ export default function RandevuAlScreen() {
       });
   }, [subeId, aracId, serviceId]);
 
+  // Seçili şube + hizmet + seçili günün ayı için kullanılabilir abonelik hakkı.
+  // entitlements RLS yalnızca kullanıcının kendi haklarını döndürür.
+  useEffect(() => {
+    setHakKalan(0);
+    setHakKullan(false);
+    if (!subeId || !serviceId) return;
+    const donem = `${gun.getFullYear()}-${String(gun.getMonth() + 1).padStart(2, '0')}-01`;
+    let iptal = false;
+    supabase
+      .from('entitlements')
+      .select('kalan_adet, subscriptions!inner(branch_id, durum)')
+      .eq('service_id', serviceId)
+      .eq('donem', donem)
+      .gt('kalan_adet', 0)
+      .eq('subscriptions.branch_id', subeId)
+      .eq('subscriptions.durum', 'aktif')
+      .then(({ data }) => {
+        if (iptal) return;
+        const toplam = ((data as { kalan_adet: number }[]) ?? [])
+          .reduce((acc, r) => acc + (r.kalan_adet ?? 0), 0);
+        setHakKalan(toplam);
+      });
+    return () => { iptal = true; };
+  }, [subeId, serviceId, gun]);
+
   async function randevuOlustur() {
-    if (!session?.user || !subeId || !aracId || !slotId || !serviceId) return;
+    if (!session?.user || !subeId || !aracId || !secilenBaslangic || !serviceId) return;
     setGonderiliyor(true);
-    const { error } = await supabase.from('appointments').insert({
-      branch_id: subeId,
-      user_id: session.user.id,    // RLS appt_create: user_id = auth.uid()
-      vehicle_id: aracId,
-      service_id: serviceId,
-      slot_id: slotId,
-      durum: 'onayli',             // tanımlı slot → otomatik onaylı
-    });
+    // Hakla randevu: sunucu hakkı atomik düşer + saati programa karşı doğrular.
+    // Ücretli randevu: randevu_olustur. İkisi de sunucu doğrulamalı (kural 2).
+    const { error } = hakKullan
+      ? await supabase.rpc('hak_ile_randevu', {
+          p_branch_id: subeId,
+          p_service_id: serviceId,
+          p_vehicle_id: aracId,
+          p_baslangic: secilenBaslangic,
+        })
+      : await supabase.rpc('randevu_olustur', {
+          p_branch_id: subeId,
+          p_service_id: serviceId,
+          p_vehicle_id: aracId,
+          p_baslangic: secilenBaslangic,
+        });
     setGonderiliyor(false);
     if (error) { Alert.alert('Randevu alınamadı', error.message); return; }
     Alert.alert(
-      'Randevu alındı',
-      'Randevun onaylandı. Randevularım sekmesinden takip edebilirsin.',
+      'Randevu talebin alındı',
+      (hakKullan
+        ? 'Abonelik hakkınla randevu oluşturuldu. '
+        : '') +
+        'Şube onayladığında randevun kesinleşir. Randevularım sekmesinden durumunu takip edebilirsin.',
       [{ text: 'Tamam', onPress: () => router.replace('/randevularim') }],
     );
   }
 
-  const secilenSlot = slotlar.find(sl => sl.id === slotId);
-  const tamam = subeId && aracId && slotId;
+  const secilenSlot = slotlar.find(sl => sl.baslangic === secilenBaslangic);
+  const gunlukMod = slotlar.some(sl => sl.mod === 'gunluk');
+  const tamam = subeId && aracId && secilenBaslangic;
 
   if (ilkYukleme) {
     return (
       <>
         <Stack.Screen options={headerOpts} />
-        <ActivityIndicator style={{ flex: 1, backgroundColor: renkler.bg }} color={renkler.primary} />
+        <Yukleniyor style={{ backgroundColor: renkler.bg }} />
       </>
     );
   }
@@ -254,32 +301,76 @@ export default function RandevuAlScreen() {
             })}
           </ScrollView>
 
-          {/* 4) Saat */}
-          <Text style={[s.bolum, { color: renkler.subtext }]}>SAAT</Text>
+          {/* 4) Saat / Gün */}
+          <Text style={[s.bolum, { color: renkler.subtext }]}>
+            {gunlukMod ? 'BU GÜN' : 'SAAT'}
+          </Text>
           {!subeId ? (
             <Text style={[s.uyari, { color: renkler.subtext }]}>Önce şube seç.</Text>
           ) : slotYukleniyor ? (
             <ActivityIndicator color={renkler.primary} style={{ marginVertical: 16 }} />
           ) : slotlar.length === 0 ? (
             <Text style={[s.uyari, { color: renkler.subtext }]}>
-              Bu gün için tanımlı slot yok. Başka gün dene.
+              {gunlukMod ? 'Bu gün uygun değil. Başka gün dene.' : 'Bu gün için tanımlı slot yok. Başka gün dene.'}
             </Text>
+          ) : gunlukMod ? (
+            // Günlük mod: tek "tüm gün" kartı (PPF gibi 1-2 günlük işler)
+            slotlar.map(sl => {
+              const gecti = new Date(sl.baslangic).getTime() <= Date.now();
+              const dolu = sl.dolu >= sl.kapasite;
+              const kapali = dolu || gecti;
+              const aktif = secilenBaslangic === sl.baslangic;
+              const kalan = Math.max(sl.kapasite - sl.dolu, 0);
+              const n = sl.gun_sayisi ?? 1;
+              const bitis = new Date(sl.baslangic);
+              bitis.setDate(bitis.getDate() + (n - 1));
+              const aralikMetni = n > 1
+                ? `${n} gün sürer (${new Date(sl.baslangic).toLocaleDateString('tr-TR', { day: 'numeric', month: 'short' })} – ${bitis.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short' })})`
+                : 'Aynı gün teslim';
+              return (
+                <TouchableOpacity
+                  key={sl.baslangic}
+                  disabled={kapali}
+                  style={[
+                    s.gunKart,
+                    { backgroundColor: renkler.card, borderColor: aktif ? renkler.primary : renkler.border },
+                    kapali && { opacity: 0.5 },
+                  ]}
+                  onPress={() => setSecilenBaslangic(sl.baslangic)}
+                >
+                  <View style={s.secimSol}>
+                    <Text style={[s.gunKartBaslik, { color: renkler.text }]}>
+                      {gecti ? 'Bırakma saati geçti' : dolu ? 'Bu tarihler dolu' : 'Bu gün uygun'}
+                    </Text>
+                    <Text style={[s.gunKartAlt, { color: renkler.subtext }]}>
+                      Bırakma {new Date(sl.baslangic).toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' })}
+                      {!kapali ? ` · ${kalan} yer kaldı` : ''}
+                      {'\n'}İşlem {aralikMetni}.
+                    </Text>
+                  </View>
+                  {aktif && <Ionicons name="checkmark-circle" size={22} color={renkler.primary} />}
+                </TouchableOpacity>
+              );
+            })
           ) : (
             <View style={s.slotGrid}>
               {slotlar.map(sl => {
+                // Geçmiş saat seçilemez (örn. 13:00'da 12:20 slotu): grileşir.
+                const gecti = new Date(sl.baslangic).getTime() <= Date.now();
                 const dolu = sl.dolu >= sl.kapasite;
-                const aktif = slotId === sl.id;
+                const kapali = dolu || gecti;
+                const aktif = secilenBaslangic === sl.baslangic;
                 return (
                   <TouchableOpacity
-                    key={sl.id}
-                    disabled={dolu}
+                    key={sl.baslangic}
+                    disabled={kapali}
                     style={[
                       s.slotBtn,
                       { backgroundColor: renkler.card, borderColor: renkler.border },
                       aktif && { backgroundColor: renkler.primary, borderColor: renkler.primary },
-                      dolu && { opacity: 0.4 },
+                      kapali && { opacity: 0.4 },
                     ]}
-                    onPress={() => setSlotId(sl.id)}
+                    onPress={() => setSecilenBaslangic(sl.baslangic)}
                   >
                     <Text style={[
                       s.slotText,
@@ -289,23 +380,65 @@ export default function RandevuAlScreen() {
                         hour: '2-digit', minute: '2-digit',
                       })}
                     </Text>
-                    {dolu && <Text style={[s.slotDolu, { color: renkler.subtext }]}>dolu</Text>}
+                    {kapali && (
+                      <Text style={[s.slotDolu, { color: renkler.subtext }]}>
+                        {dolu ? 'dolu' : 'geçti'}
+                      </Text>
+                    )}
                   </TouchableOpacity>
                 );
               })}
             </View>
           )}
 
+          {/* Abonelik hakkı varsa: hakla al seçeneği */}
+          {hakKalan > 0 && (
+            <TouchableOpacity
+              activeOpacity={0.85}
+              style={[
+                s.hakKart,
+                { backgroundColor: renkler.card, borderColor: hakKullan ? renkler.primary : renkler.border },
+              ]}
+              onPress={() => setHakKullan(v => !v)}
+            >
+              <Ionicons
+                name={hakKullan ? 'checkbox' : 'square-outline'}
+                size={22}
+                color={hakKullan ? renkler.primary : renkler.subtext}
+              />
+              <View style={s.hakKartMetin}>
+                <Text style={[s.hakKartBaslik, { color: renkler.text }]}>
+                  Abonelik hakkıyla al
+                </Text>
+                <Text style={[s.hakKartAlt, { color: renkler.subtext }]}>
+                  Bu hizmette {hakKalan} hakkın var · ücret alınmaz
+                </Text>
+              </View>
+              <Ionicons name="ticket" size={20} color={renkler.primary} />
+            </TouchableOpacity>
+          )}
+
           {/* 5) Özet + fiyat */}
           <View style={[s.ozet, { backgroundColor: renkler.card, borderColor: renkler.border }]}>
             <View style={s.ozetSatir}>
-              <Text style={[s.ozetLabel, { color: renkler.subtext }]}>Tahmini ücret</Text>
-              {fiyatYukleniyor ? (
+              <Text style={[s.ozetLabel, { color: renkler.subtext }]}>
+                {hakKullan ? 'Ödeme' : 'Tahmini ücret'}
+              </Text>
+              {hakKullan ? (
+                <Text style={[s.ozetFiyat, { color: '#16a34a' }]}>Abonelik hakkı</Text>
+              ) : fiyatYukleniyor ? (
                 <ActivityIndicator color={renkler.primary} />
               ) : fiyat ? (
-                <Text style={[s.ozetFiyat, { color: renkler.primary }]}>
-                  {fiyat.fiyat.toLocaleString('tr-TR', { style: 'currency', currency: 'TRY' })}
-                </Text>
+                <View style={s.ozetFiyatGrup}>
+                  {fiyat.indirim_yuzde ? (
+                    <View style={s.ozetKampanya}>
+                      <Text style={s.ozetKampanyaText}>%{fiyat.indirim_yuzde} kampanya</Text>
+                    </View>
+                  ) : null}
+                  <Text style={[s.ozetFiyat, { color: renkler.primary }]}>
+                    {fiyat.fiyat.toLocaleString('tr-TR', { style: 'currency', currency: 'TRY' })}
+                  </Text>
+                </View>
               ) : (
                 <Text style={[s.ozetAlt, { color: renkler.subtext }]}>Şube ve araç seç</Text>
               )}
@@ -333,7 +466,7 @@ export default function RandevuAlScreen() {
             <ActivityIndicator color={renkler.primaryText} />
           ) : (
             <Text style={[s.onayText, { color: tamam ? renkler.primaryText : renkler.subtext }]}>
-              Randevuyu Onayla
+              {hakKullan ? 'Hakla Randevu Al' : 'Randevu Talebi Gönder'}
             </Text>
           )}
         </TouchableOpacity>
@@ -375,12 +508,28 @@ const s = StyleSheet.create({
   },
   slotText: { fontSize: 15, fontWeight: '600' },
   slotDolu: { fontSize: 10, marginTop: 1 },
+  gunKart: {
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
+    borderWidth: 1.5, borderRadius: 12, padding: 14,
+  },
+  gunKartBaslik: { fontSize: 16, fontWeight: '700' },
+  gunKartAlt: { fontSize: 13, marginTop: 4, lineHeight: 18 },
+  hakKart: {
+    flexDirection: 'row', alignItems: 'center', gap: 12,
+    borderWidth: 1.5, borderRadius: 12, padding: 14, marginTop: 24,
+  },
+  hakKartMetin: { flex: 1 },
+  hakKartBaslik: { fontSize: 15, fontWeight: '700' },
+  hakKartAlt: { fontSize: 13, marginTop: 2 },
   ozet: {
-    borderWidth: 1, borderRadius: 12, padding: 16, marginTop: 24,
+    borderWidth: 1, borderRadius: 12, padding: 16, marginTop: 16,
   },
   ozetSatir: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   ozetLabel: { fontSize: 14 },
   ozetFiyat: { fontSize: 22, fontWeight: '800' },
+  ozetFiyatGrup: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  ozetKampanya: { backgroundColor: '#dc2626', borderRadius: 6, paddingVertical: 2, paddingHorizontal: 6 },
+  ozetKampanyaText: { color: '#fff', fontSize: 11, fontWeight: '700' },
   ozetAlt: { fontSize: 13, marginTop: 6 },
   onayBtn: {
     margin: 16, marginTop: 8, borderRadius: 12,

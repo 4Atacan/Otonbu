@@ -6,9 +6,10 @@ import {
 import { supabase } from '../../src/lib/supabase';
 import { Vehicle } from '../../src/types';
 import { AutocompleteInput } from '../../src/components/AutocompleteInput';
+import { Yukleniyor } from '../../src/components/Yukleniyor';
 import { useTheme } from '../../src/theme/ThemeContext';
 import {
-  ARAC_CINSLERI, MARKALAR, MARKA_ADLARI, cinsLabel,
+  ARAC_CINSLERI, MARKALAR, MARKA_ADLARI, cinsLabel, segmentLabel,
 } from '../../src/data/arac-katalogu';
 
 export default function AraclarScreen() {
@@ -27,9 +28,15 @@ export default function AraclarScreen() {
 
   async function yukle() {
     setLoading(true);
+    // Yalnızca giriş yapan kullanıcının araçları. RLS zaten izole eder; burada
+    // ayrıca açıkça user_id ile filtreleyerek başka hesabın aracının asla
+    // listeye düşmemesini garanti ediyoruz (savunma derinliği).
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) { setAraclar([]); setLoading(false); return; }
     const { data, error } = await supabase
       .from('vehicles')
       .select('*')
+      .eq('user_id', user.id)
       .order('created_at', { ascending: false });
     if (error) Alert.alert('Hata', error.message);
     else setAraclar(data ?? []);
@@ -121,7 +128,7 @@ export default function AraclarScreen() {
   // Seçilen markanın model listesi; katalog dışı marka yazıldıysa boş
   const modelListesi = MARKALAR[marka.trim()] ?? [];
 
-  if (loading) return <ActivityIndicator style={{ flex: 1 }} color={renkler.primary} />;
+  if (loading) return <Yukleniyor />;
 
   return (
     <View style={[s.container, { backgroundColor: renkler.bg }]}>
@@ -148,8 +155,8 @@ export default function AraclarScreen() {
             </View>
             <Text style={[s.alt, { color: renkler.subtext }]}>
               {[item.marka, item.model].filter(Boolean).join(' ') || '—'}
+              {item.segment ? `  ·  ${segmentLabel(item.segment)} fiyat` : ''}
             </Text>
-            <Text style={[s.detayIpucu, { color: renkler.subtext }]}>Detay için dokun ›</Text>
           </TouchableOpacity>
         )}
       />
@@ -284,7 +291,6 @@ const s = StyleSheet.create({
   rozet: { borderRadius: 6, paddingHorizontal: 8, paddingVertical: 3 },
   rozetText: { fontSize: 12, fontWeight: '600' },
   alt: { marginTop: 4 },
-  detayIpucu: { fontSize: 12, marginTop: 8, opacity: 0.7 },
   ekleBtn: {
     margin: 16, padding: 16,
     borderRadius: 12, alignItems: 'center',

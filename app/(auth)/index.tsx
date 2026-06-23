@@ -76,7 +76,7 @@ export default function GirisScreen() {
 
   return (
     <ScrollView contentContainerStyle={s.container} keyboardShouldPersistTaps="handled">
-      <Logo />
+      <View style={s.markaKutu}><Logo width={230} sabitAcik /></View>
 
       <Text style={s.label}>E-posta veya Telefon</Text>
       <TextInput
@@ -129,20 +129,13 @@ export default function GirisScreen() {
           <Text style={s.linkText}>Hesabın yok mu? <Text style={s.linkStrong}>Kayıt Ol</Text></Text>
         </TouchableOpacity>
       </Link>
-
-      <View style={s.spacer} />
-
-      <Link href="/(auth)/yonetici" asChild>
-        <TouchableOpacity style={s.adminLink}>
-          <Text style={s.adminText}>Yönetici Girişi</Text>
-        </TouchableOpacity>
-      </Link>
     </ScrollView>
   );
 }
 
 const s = StyleSheet.create({
-  container: { flexGrow: 1, padding: 24, paddingTop: 60, backgroundColor: '#fff' },
+  container: { flexGrow: 1, padding: 24, paddingTop: 72, backgroundColor: '#fff' },
+  markaKutu: { alignItems: 'center', marginBottom: 36 },
   label: { fontSize: 13, color: '#475569', marginBottom: 6, marginTop: 4 },
   input: {
     borderWidth: 1, borderColor: '#ddd', borderRadius: 10,
@@ -151,17 +144,11 @@ const s = StyleSheet.create({
   row: { flexDirection: 'row', alignItems: 'center', marginBottom: 16 },
   rowText: { marginLeft: 10, fontSize: 14, color: '#334155' },
   btn: {
-    backgroundColor: '#1a56db', borderRadius: 10,
+    backgroundColor: '#0b7bb5', borderRadius: 10,
     padding: 16, alignItems: 'center', marginTop: 4,
   },
   btnText: { color: '#fff', fontSize: 16, fontWeight: '700' },
   link: { alignItems: 'center', paddingVertical: 16 },
   linkText: { color: '#475569', fontSize: 14 },
-  linkStrong: { color: '#1a56db', fontWeight: '700' },
-  spacer: { flex: 1, minHeight: 40 },
-  adminLink: {
-    alignItems: 'center', paddingVertical: 14, marginTop: 16,
-    borderTopWidth: 1, borderTopColor: '#e2e8f0',
-  },
-  adminText: { color: '#94a3b8', fontSize: 13, fontWeight: '600', letterSpacing: 0.5 },
+  linkStrong: { color: '#0b7bb5', fontWeight: '700' },
 });
