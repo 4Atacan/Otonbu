@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../src/theme/ThemeContext';
 import { useSession } from '../../src/hooks/useSession';
 import { PERSONEL_ROLLER } from '../../src/types';
-import { UstBosluk } from '../../src/components/UstBosluk';
+import { UstNavbar } from '../../src/components/UstNavbar';
 
 export default function YonetimLayout() {
   const { tema, renkler } = useTheme();
@@ -17,15 +17,17 @@ export default function YonetimLayout() {
   }
 
   const admin = profile?.rol === 'admin';
-  const subeSahibi = profile?.rol === 'sube_sahibi';
+  // Yönetici = tam şube paneli. Çalışan (geri kalan personel) yalnız Panel +
+  // Randevular + Profil görür; Hizmetler/Şubeler/Paketler sekmeleri kapalı.
+  const yonetici = profile?.rol === 'yonetici';
 
   return (
     <>
       <StatusBar style={tema === 'koyu' ? 'light' : 'dark'} />
       <Tabs
         screenOptions={{
-          // Başlık barı yok — yalnızca durum çubuğu kadar bg şeridi (UstBosluk)
-          header: () => <UstBosluk />,
+          // Sabit üst navbar (logo + bildirim + profil) — içerik altından kayar.
+          header: () => <UstNavbar />,
           tabBarActiveTintColor: renkler.primary,
           tabBarInactiveTintColor: renkler.subtext,
           tabBarStyle: { backgroundColor: renkler.card, borderTopColor: renkler.border },
@@ -41,10 +43,28 @@ export default function YonetimLayout() {
         <Tabs.Screen
           name="hizmetler"
           options={{
-            // admin = katalog; şube sahibi = fiyat + randevu programı (birleşik)
+            // admin = katalog; yönetici = fiyat + randevu programı (birleşik)
             title: admin ? 'Hizmetler' : 'Fiyat & Saat',
-            href: admin || subeSahibi ? undefined : null,
+            href: admin || yonetici ? undefined : null,
             tabBarIcon: ({ color, size }) => <Ionicons name="construct" size={size} color={color} />,
+          }}
+        />
+        <Tabs.Screen
+          name="urunler"
+          options={{
+            title: 'Ürünler',
+            href: yonetici ? undefined : null,  // ürünler şube bazlı → yalnız yönetici
+            tabBarIcon: ({ color, size }) => <Ionicons name="cube" size={size} color={color} />,
+          }}
+        />
+        <Tabs.Screen
+          name="randevular"
+          options={{
+            title: 'Randevular',  // sahada çalışanlar için içeride "İşler" sekmesi de var
+            // Admin randevu onayı yapmaz (şube müdürü yapar) → admin'e gizli.
+            // Admin bunun yerine Panel'den istediği şubenin raporunu çeker.
+            href: admin ? null : undefined,
+            tabBarIcon: ({ color, size }) => <Ionicons name="calendar" size={size} color={color} />,
           }}
         />
         <Tabs.Screen
@@ -64,18 +84,19 @@ export default function YonetimLayout() {
           }}
         />
         <Tabs.Screen
-          name="randevular"
+          name="kampanyalar"
           options={{
-            title: 'Randevular',  // sahada çalışanlar için içeride "İşler" sekmesi de var
-            // Admin randevu onayı yapmaz (şube müdürü yapar) → admin'e gizli.
-            // Admin bunun yerine Panel'den istediği şubenin raporunu çeker.
-            href: admin ? null : undefined,
-            tabBarIcon: ({ color, size }) => <Ionicons name="calendar" size={size} color={color} />,
+            title: 'Kampanyalar',
+            href: admin ? undefined : null,  // sadece admin (merkez pazarlama)
+            tabBarIcon: ({ color, size }) => <Ionicons name="megaphone" size={size} color={color} />,
           }}
         />
+        {/* Profil alt navbardan kaldırıldı — panelde üst sağdaki profil
+            ikonundan açılır (müşteri düzeni). Rota korunur (href: null). */}
         <Tabs.Screen
           name="profil"
           options={{
+            href: null,
             title: 'Profil',
             tabBarIcon: ({ color, size }) => <Ionicons name="person" size={size} color={color} />,
           }}

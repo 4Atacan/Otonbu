@@ -10,6 +10,9 @@ import { supabase } from '../lib/supabase';
 import { useSession } from '../hooks/useSession';
 import { useTheme } from '../theme/ThemeContext';
 import { Appointment, IsDurum } from '../types';
+import { avatarUrl } from '../lib/avatar';
+import { tl } from '../lib/urun';
+import { SatisModal } from './SatisModal';
 import { Yukleniyor } from './Yukleniyor';
 
 const PHOTO_BUCKET = 'job-photos';
@@ -42,7 +45,7 @@ function gunListesi(): Date[] {
 // İşler listesi: onaylı randevulardan iş üstlenme + foto + durum ilerletme.
 // Tek başına ekran değil; Randevular sekmesi içinde "İşler" sekmesinde gösterilir.
 export default function IslerListesi() {
-  const { session } = useSession();
+  const { session, profile } = useSession();
   const { renkler } = useTheme();
   const [randevular, setRandevular] = useState<Appointment[]>([]);
   const [signedMap, setSignedMap] = useState<Record<string, string>>({});
@@ -52,6 +55,36 @@ export default function IslerListesi() {
   const [seciliGun, setSeciliGun] = useState<Date>(() => {
     const d = new Date(); d.setHours(0, 0, 0, 0); return d;
   });
+  // Satış modalı hedefi: { appointmentId, baslik }. null = kapalı.
+  const [satisHedef, setSatisHedef] = useState<{ appointmentId: string | null; baslik: string } | null>(null);
+
+  const branchId = profile?.branch_id ?? null;
+
+  function satisAc(r: Appointment | null) {
+    setSatisHedef({
+      appointmentId: r?.id ?? null,
+      baslik: r ? (r.users?.ad_soyad ?? 'Randevu müşterisi') : 'Hızlı satış · randevusuz',
+    });
+  }
+
+  // Şubede ödeme tahsil edildi işareti (yalnız 'subede' ödeme yöntemli randevuda)
+  function odemeAl(r: Appointment) {
+    Alert.alert(
+      'Ödeme Alındı',
+      `${r.users?.ad_soyad ?? 'Müşteri'} için şubede ödeme tahsil edildi olarak işaretlensin mi?`,
+      [
+        { text: 'Vazgeç', style: 'cancel' },
+        {
+          text: 'Ödeme Alındı',
+          onPress: async () => {
+            const { error } = await supabase.rpc('randevu_odeme_al', { p_appointment_id: r.id });
+            if (error) { Alert.alert('Hata', error.message); return; }
+            yukle();
+          },
+        },
+      ],
+    );
+  }
 
   useFocusEffect(useCallback(() => { yukle(); }, [seciliGun]));
 
@@ -66,10 +99,11 @@ export default function IslerListesi() {
       .from('appointments')
       .select(`
         *,
-        users (ad_soyad, telefon),
+        users (ad_soyad, telefon, avatar_url),
         vehicles (plaka, marka, model),
         services (ad),
-        jobs (id, durum, assigned_to, job_photos (id, tip, url))
+        jobs (id, durum, assigned_to, job_photos (id, tip, url)),
+        orders (id, toplam, kaynak, durum, order_items (ad, adet))
       `)
       .eq('durum', 'onayli')
       .gte('baslangic', bas.toISOString())
@@ -209,6 +243,18 @@ export default function IslerListesi() {
         </ScrollView>
       </View>
 
+      {branchId && (
+        <TouchableOpacity
+          style={[s.hizliSatis, { backgroundColor: renkler.card, borderColor: renkler.primary }]}
+          onPress={() => satisAc(null)}
+        >
+          <Ionicons name="bag-add-outline" size={18} color={renkler.primary} />
+          <Text style={[s.hizliSatisText, { color: renkler.primary }]}>
+            Hızlı Satış · randevusuz ürün
+          </Text>
+        </TouchableOpacity>
+      )}
+
       {loading ? (
         <Yukleniyor />
       ) : (
@@ -234,6 +280,7 @@ export default function IslerListesi() {
         const oncekiler = fotolar.filter(f => f.tip === 'once');
         const sonrakiler = fotolar.filter(f => f.tip === 'sonra');
         const busy = mesgul === item.id || (is && mesgul === is.id);
+        const musteriFoto = avatarUrl(item.users?.avatar_url);
 
         return (
           <View style={[s.kart, { backgroundColor: renkler.card }]}>
@@ -259,14 +306,25 @@ export default function IslerListesi() {
             <Text style={[s.hizmet, { color: renkler.primary }]}>
               {item.services?.ad ?? 'Hizmet'}
             </Text>
-            <Text style={[s.detay, { color: renkler.text }]}>
-              {item.users?.ad_soyad ?? 'Müşteri'}
-              {item.users?.telefon ? ` · ${item.users.telefon}` : ''}
-            </Text>
-            <Text style={[s.detay, { color: renkler.subtext }]}>
-              {item.vehicles?.plaka ?? ''}
-              {item.vehicles ? `  ${[item.vehicles.marka, item.vehicles.model].filter(Boolean).join(' ')}` : ''}
-            </Text>
+            <View style={s.musteriRow}>
+              {musteriFoto ? (
+                <Image source={{ uri: musteriFoto }} style={[s.musteriFoto, { borderColor: renkler.border }]} />
+              ) : (
+                <View style={[s.musteriFoto, s.musteriFotoBos, { backgroundColor: renkler.rozetBg }]}>
+                  <Ionicons name="person" size={18} color={renkler.primary} />
+                </View>
+              )}
+              <View style={{ flex: 1 }}>
+                <Text style={[s.detay, { color: renkler.text }]}>
+                  {item.users?.ad_soyad ?? 'Müşteri'}
+                  {item.users?.telefon ? ` · ${item.users.telefon}` : ''}
+                </Text>
+                <Text style={[s.detay, { color: renkler.subtext }]}>
+                  {item.vehicles?.plaka ?? ''}
+                  {item.vehicles ? `  ${[item.vehicles.marka, item.vehicles.model].filter(Boolean).join(' ')}` : ''}
+                </Text>
+              </View>
+            </View>
 
             {!is ? (
               <TouchableOpacity
@@ -310,11 +368,68 @@ export default function IslerListesi() {
                 )}
               </>
             )}
+
+            {/* Dükkan satışı (hesap) + şubede ödeme tahsilatı */}
+            {(() => {
+              const dukkanlar = (item.orders ?? []).filter(o => o.kaynak === 'dukkan');
+              const hesap = dukkanlar.reduce((a, o) => a + Number(o.toplam), 0);
+              const satilanlar = dukkanlar.flatMap(o => o.order_items ?? []);
+              const subede = item.odeme_yontemi === 'subede';
+              return (
+                <View style={[s.satisBolum, { borderColor: renkler.border }]}>
+                  {hesap > 0 && (
+                    <View style={[s.hesapKutu, { backgroundColor: renkler.rozetBg }]}>
+                      {satilanlar.map((oi, i) => (
+                        <Text key={i} style={[s.hesapSatir, { color: renkler.text }]}>
+                          {oi.adet}× {oi.ad}
+                        </Text>
+                      ))}
+                      <View style={s.hesapToplamRow}>
+                        <Text style={[s.hesapToplamLabel, { color: renkler.subtext }]}>Dükkan hesabı</Text>
+                        <Text style={[s.hesapToplam, { color: renkler.primary }]}>{tl(hesap)}</Text>
+                      </View>
+                    </View>
+                  )}
+                  <View style={s.satisBtnRow}>
+                    <TouchableOpacity
+                      style={[s.satisBtn, { borderColor: renkler.primary }]}
+                      onPress={() => satisAc(item)}
+                    >
+                      <Ionicons name="cart-outline" size={17} color={renkler.primary} />
+                      <Text style={[s.satisBtnText, { color: renkler.primary }]}>Ürün Sat</Text>
+                    </TouchableOpacity>
+                    {subede && (item.odeme_alindi ? (
+                      <View style={[s.odemeRozet, { borderColor: '#16a34a' }]}>
+                        <Ionicons name="checkmark-circle" size={17} color="#16a34a" />
+                        <Text style={[s.odemeRozetText, { color: '#16a34a' }]}>Ödeme alındı</Text>
+                      </View>
+                    ) : (
+                      <TouchableOpacity
+                        style={[s.satisBtn, s.odemeBtn, { backgroundColor: renkler.primary, borderColor: renkler.primary }]}
+                        onPress={() => odemeAl(item)}
+                      >
+                        <Ionicons name="cash-outline" size={17} color={renkler.primaryText} />
+                        <Text style={[s.satisBtnText, { color: renkler.primaryText }]}>Ödeme Al</Text>
+                      </TouchableOpacity>
+                    ))}
+                  </View>
+                </View>
+              );
+            })()}
           </View>
         );
       }}
     />
       )}
+
+      <SatisModal
+        visible={!!satisHedef}
+        onClose={() => setSatisHedef(null)}
+        branchId={branchId}
+        appointmentId={satisHedef?.appointmentId ?? null}
+        baslik={satisHedef?.baslik}
+        onDone={yukle}
+      />
     </View>
   );
 }
@@ -374,9 +489,39 @@ const s = StyleSheet.create({
   rozet: { borderRadius: 6, paddingHorizontal: 8, paddingVertical: 3 },
   rozetText: { fontSize: 12, fontWeight: '700' },
   hizmet: { fontSize: 15, fontWeight: '600', marginBottom: 4 },
+  musteriRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 2 },
+  musteriFoto: { width: 38, height: 38, borderRadius: 19, borderWidth: 1 },
+  musteriFotoBos: { alignItems: 'center', justifyContent: 'center' },
   detay: { fontSize: 14, marginTop: 2 },
   anaBtn: { borderRadius: 10, padding: 13, alignItems: 'center', marginTop: 14 },
   anaBtnText: { fontSize: 15, fontWeight: '700' },
+  // Hızlı satış (randevusuz) butonu — liste üstünde
+  hizliSatis: {
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8,
+    marginHorizontal: 12, marginTop: 12, borderWidth: 1.5, borderRadius: 12, padding: 12,
+  },
+  hizliSatisText: { fontSize: 14, fontWeight: '700' },
+  // Dükkan satışı + ödeme bölümü (kart içi)
+  satisBolum: { marginTop: 14, borderTopWidth: StyleSheet.hairlineWidth, paddingTop: 12 },
+  hesapKutu: { borderRadius: 10, padding: 12, marginBottom: 10 },
+  hesapSatir: { fontSize: 13, marginBottom: 2 },
+  hesapToplamRow: {
+    flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 6,
+  },
+  hesapToplamLabel: { fontSize: 13, fontWeight: '600' },
+  hesapToplam: { fontSize: 16, fontWeight: '800' },
+  satisBtnRow: { flexDirection: 'row', gap: 10 },
+  satisBtn: {
+    flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6,
+    borderWidth: 1.5, borderRadius: 10, paddingVertical: 11,
+  },
+  satisBtnText: { fontSize: 14, fontWeight: '700' },
+  odemeBtn: { borderWidth: 0 },
+  odemeRozet: {
+    flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6,
+    borderWidth: 1.5, borderRadius: 10, paddingVertical: 11,
+  },
+  odemeRozetText: { fontSize: 14, fontWeight: '700' },
   fotoBolum: { marginTop: 12 },
   fotoBaslik: { fontSize: 12, fontWeight: '700', letterSpacing: 0.5, marginBottom: 6 },
   fotoLista: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, alignItems: 'center' },

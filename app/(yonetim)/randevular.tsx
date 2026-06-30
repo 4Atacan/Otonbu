@@ -8,7 +8,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '../../src/lib/supabase';
 import { useTheme } from '../../src/theme/ThemeContext';
 import { useSession } from '../../src/hooks/useSession';
-import { Appointment, MusaitSlot, RandevuDurum } from '../../src/types';
+import { Appointment, MusaitSlot, RandevuDurum, YONETICI_ROLLER } from '../../src/types';
 import IslerListesi from '../../src/components/IslerListesi';
 import { Yukleniyor } from '../../src/components/Yukleniyor';
 
@@ -58,8 +58,11 @@ function gunBasligi(key: string): string {
 export default function RandevularScreen() {
   const { renkler } = useTheme();
   const { profile } = useSession();
-  // Sahada çalışan roller hem randevuları hem işleri görür → iki sekmeli geçiş
-  const isGoren = profile ? ['usta', 'kasa', 'sube_sahibi'].includes(profile.rol) : false;
+  // Şube personeli (yönetici + çalışan) hem randevuları hem işleri görür → iki sekmeli geçiş
+  const isGoren = profile ? ['calisan', 'yonetici'].includes(profile.rol) : false;
+  // Randevu YÖNETİMİ (onay/iptal/saat değişikliği) yalnızca yöneticide; çalışan
+  // randevuyu yalnızca görür (RLS appt_branch_manage de bunu zorlar).
+  const yonetebilir = profile ? YONETICI_ROLLER.includes(profile.rol) : false;
   const [gorunum, setGorunum] = useState<'randevular' | 'isler'>('randevular');
   const [randevular, setRandevular] = useState<Appointment[]>([]);
   const [loading, setLoading] = useState(true);
@@ -293,6 +296,16 @@ export default function RandevularScreen() {
                 {item.vehicles?.plaka ?? ''}
                 {item.vehicles ? `  ${[item.vehicles.marka, item.vehicles.model].filter(Boolean).join(' ')}` : ''}
               </Text>
+              <View style={s.odemeSatir}>
+                <Ionicons
+                  name={item.odeme_yontemi === 'online' ? 'card-outline' : 'storefront-outline'}
+                  size={14}
+                  color={renkler.subtext}
+                />
+                <Text style={[s.detay, { color: renkler.subtext }]}>
+                  {item.odeme_yontemi === 'online' ? 'Online ödeme' : 'Şubede ödeme'}
+                </Text>
+              </View>
 
               {/* Bekleyen değişiklik talebi durumu */}
               {bekleyen && (
@@ -311,32 +324,34 @@ export default function RandevularScreen() {
                 </Text>
               )}
 
-              <View style={s.eylemler}>
-                {item.durum === 'beklemede' && (
-                  <TouchableOpacity
-                    style={[s.eylemBtn, { borderColor: '#16a34a' }]}
-                    onPress={() => onaylaOnayi(item)}
-                  >
-                    <Text style={[s.eylemText, { color: '#16a34a' }]}>Onayla</Text>
-                  </TouchableOpacity>
-                )}
-                {degistirilebilir && (
-                  <>
+              {yonetebilir && (
+                <View style={s.eylemler}>
+                  {item.durum === 'beklemede' && (
                     <TouchableOpacity
-                      style={[s.eylemBtn, { borderColor: renkler.primary }]}
-                      onPress={() => saatDegistirAc(item)}
+                      style={[s.eylemBtn, { borderColor: '#16a34a' }]}
+                      onPress={() => onaylaOnayi(item)}
                     >
-                      <Text style={[s.eylemText, { color: renkler.primary }]}>Saati Değiştir</Text>
+                      <Text style={[s.eylemText, { color: '#16a34a' }]}>Onayla</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity
-                      style={[s.eylemBtn, { borderColor: renkler.danger }]}
-                      onPress={() => iptalTalebiOnayi(item)}
-                    >
-                      <Text style={[s.eylemText, { color: renkler.danger }]}>İptal İste</Text>
-                    </TouchableOpacity>
-                  </>
-                )}
-              </View>
+                  )}
+                  {degistirilebilir && (
+                    <>
+                      <TouchableOpacity
+                        style={[s.eylemBtn, { borderColor: renkler.primary }]}
+                        onPress={() => saatDegistirAc(item)}
+                      >
+                        <Text style={[s.eylemText, { color: renkler.primary }]}>Saati Değiştir</Text>
+                      </TouchableOpacity>
+                      <TouchableOpacity
+                        style={[s.eylemBtn, { borderColor: renkler.danger }]}
+                        onPress={() => iptalTalebiOnayi(item)}
+                      >
+                        <Text style={[s.eylemText, { color: renkler.danger }]}>İptal İste</Text>
+                      </TouchableOpacity>
+                    </>
+                  )}
+                </View>
+              )}
             </View>
           );
         }}
@@ -466,6 +481,7 @@ const s = StyleSheet.create({
   durumText: { fontSize: 12, fontWeight: '700' },
   hizmet: { fontSize: 15, fontWeight: '600', marginBottom: 4 },
   detay: { fontSize: 14, marginTop: 2 },
+  odemeSatir: { flexDirection: 'row', alignItems: 'center', gap: 5, marginTop: 4 },
   bilgiSatir: {
     flexDirection: 'row', alignItems: 'center', gap: 6,
     borderWidth: 1, borderRadius: 8, padding: 10, marginTop: 12,

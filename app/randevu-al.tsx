@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
-  ActivityIndicator, Alert, ScrollView, StyleSheet,
+  ActivityIndicator, Alert, Image, ScrollView, StyleSheet,
   Text, TouchableOpacity, View,
 } from 'react-native';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
@@ -8,8 +8,9 @@ import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '../src/lib/supabase';
 import { useSession } from '../src/hooks/useSession';
 import { useTheme } from '../src/theme/ThemeContext';
-import { Branch, FiyatSonuc, MusaitSlot, Vehicle } from '../src/types';
+import { Branch, FiyatSonuc, MusaitSlot, OdemeYontemi, Product, Vehicle } from '../src/types';
 import { cinsLabel } from '../src/data/arac-katalogu';
+import { tl, urunGorselUrl } from '../src/lib/urun';
 import { Yukleniyor } from '../src/components/Yukleniyor';
 
 const GUN_SAYISI = 14;
@@ -51,6 +52,13 @@ export default function RandevuAlScreen() {
   // Abonelik hakkı: seçili şube + hizmet + dönem için kalan hak adedi
   const [hakKalan, setHakKalan] = useState(0);
   const [hakKullan, setHakKullan] = useState(false);
+
+  // Ödeme yöntemi: şimdilik yalnız 'subede' (online iyzico ile açılacak).
+  const [odemeYontemi, setOdemeYontemi] = useState<OdemeYontemi>('subede');
+
+  // Seçili şubenin çok satan ürünleri + randevuyla birlikte sepete eklenenler
+  const [urunler, setUrunler] = useState<Product[]>([]);
+  const [urunSepet, setUrunSepet] = useState<Record<string, number>>({});
 
   // Temalı modal başlığı (üst navigator kök Stack).
   // useMemo şart: her render'da yeni nesne olursa <Stack.Screen options>
@@ -157,12 +165,45 @@ export default function RandevuAlScreen() {
     return () => { iptal = true; };
   }, [subeId, serviceId, gun]);
 
+  // Seçili şubenin çok satan ürünleri (randevuyla birlikte ekleme için).
+  // Şube değişince sepet sıfırlanır (ürünler şubeye özel).
+  useEffect(() => {
+    setUrunSepet({});
+    if (!subeId) { setUrunler([]); return; }
+    let iptal = false;
+    supabase
+      .from('products')
+      .select('*')
+      .eq('branch_id', subeId)
+      .eq('aktif', true)
+      .eq('silindi_mi', false)
+      .gt('stok', 0)
+      .order('one_cikan', { ascending: false })
+      .order('satis_adedi', { ascending: false })
+      .limit(8)
+      .then(({ data }) => {
+        if (iptal) return;
+        setUrunler((data as Product[]) ?? []);
+      });
+    return () => { iptal = true; };
+  }, [subeId]);
+
+  function urunAdetDegis(p: Product, delta: number) {
+    setUrunSepet(prev => {
+      const yeni = Math.min(Math.max((prev[p.id] ?? 0) + delta, 0), p.stok);
+      const kopya = { ...prev };
+      if (yeni <= 0) delete kopya[p.id];
+      else kopya[p.id] = yeni;
+      return kopya;
+    });
+  }
+
   async function randevuOlustur() {
     if (!session?.user || !subeId || !aracId || !secilenBaslangic || !serviceId) return;
     setGonderiliyor(true);
     // Hakla randevu: sunucu hakkı atomik düşer + saati programa karşı doğrular.
     // Ücretli randevu: randevu_olustur. İkisi de sunucu doğrulamalı (kural 2).
-    const { error } = hakKullan
+    const { data: randevuId, error } = hakKullan
       ? await supabase.rpc('hak_ile_randevu', {
           p_branch_id: subeId,
           p_service_id: serviceId,
@@ -175,14 +216,28 @@ export default function RandevuAlScreen() {
           p_vehicle_id: aracId,
           p_baslangic: secilenBaslangic,
         });
+    if (error) { setGonderiliyor(false); Alert.alert('Randevu alınamadı', error.message); return; }
+
+    // Randevuya ürün eklendiyse aynı şubeye sipariş talebi oluştur (sunucu fiyatı okur).
+    // Sipariş hatası randevuyu geçersiz kılmaz — randevu zaten alındı, ürünü ayrıca bildiririz.
+    const items = Object.entries(urunSepet).map(([product_id, adet]) => ({ product_id, adet }));
+    let urunUyari = '';
+    if (items.length > 0) {
+      const { error: sErr } = await supabase.rpc('siparis_olustur', {
+        p_branch_id: subeId,
+        p_items: items,
+        p_appointment_id: randevuId,
+      });
+      if (sErr) urunUyari = '\n\nNot: Ürün siparişin alınamadı (' + sErr.message + '). Mağaza sekmesinden tekrar deneyebilirsin.';
+    }
     setGonderiliyor(false);
-    if (error) { Alert.alert('Randevu alınamadı', error.message); return; }
+
     Alert.alert(
       'Randevu talebin alındı',
-      (hakKullan
-        ? 'Abonelik hakkınla randevu oluşturuldu. '
-        : '') +
-        'Şube onayladığında randevun kesinleşir. Randevularım sekmesinden durumunu takip edebilirsin.',
+      (hakKullan ? 'Abonelik hakkınla randevu oluşturuldu. ' : '') +
+        'Şube onayladığında randevun kesinleşir. Randevularım sekmesinden durumunu takip edebilirsin.' +
+        (items.length > 0 && !urunUyari ? '\n\nSeçtiğin ürünler de siparişe eklendi.' : '') +
+        urunUyari,
       [{ text: 'Tamam', onPress: () => router.replace('/randevularim') }],
     );
   }
@@ -190,6 +245,15 @@ export default function RandevuAlScreen() {
   const secilenSlot = slotlar.find(sl => sl.baslangic === secilenBaslangic);
   const gunlukMod = slotlar.some(sl => sl.mod === 'gunluk');
   const tamam = subeId && aracId && secilenBaslangic;
+
+  // Eklenen ürünlerin ara toplamı (ürünler abonelik hakkına dahil değil, daima ücretli)
+  const urunToplam = useMemo(
+    () => urunler.reduce((acc, p) => acc + p.fiyat * (urunSepet[p.id] ?? 0), 0),
+    [urunler, urunSepet],
+  );
+  // Hizmet ücreti: hakla alınırsa 0 (abonelik), değilse sunucudan gelen fiyat
+  const hizmetUcret = hakKullan ? 0 : (fiyat?.fiyat ?? 0);
+  const genelToplam = hizmetUcret + urunToplam;
 
   if (ilkYukleme) {
     return (
@@ -418,6 +482,88 @@ export default function RandevuAlScreen() {
             </TouchableOpacity>
           )}
 
+          {/* Çok satan ürünler — randevuyla birlikte sipariş (opsiyonel) */}
+          {urunler.length > 0 && (
+            <>
+              <Text style={[s.bolum, { color: renkler.subtext }]}>ÜRÜN EKLE (opsiyonel)</Text>
+              <Text style={[s.urunIpucu, { color: renkler.subtext }]}>
+                Şubenin çok satan ürünleri. Randevunla birlikte sipariş et, teslimde al.
+              </Text>
+              <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={s.urunSerit}>
+                {urunler.map(p => {
+                  const adet = urunSepet[p.id] ?? 0;
+                  return (
+                    <View key={p.id} style={[s.urunKart, { backgroundColor: renkler.card, borderColor: renkler.border }]}>
+                      {p.gorsel ? (
+                        <Image source={{ uri: urunGorselUrl(p.gorsel)! }} style={s.urunGorsel} resizeMode="cover" />
+                      ) : (
+                        <View style={[s.urunGorsel, s.urunGorselBos, { backgroundColor: renkler.rozetBg }]}>
+                          <Ionicons name="cube-outline" size={22} color={renkler.subtext} />
+                        </View>
+                      )}
+                      <Text style={[s.urunAd, { color: renkler.text }]} numberOfLines={2}>{p.ad}</Text>
+                      <Text style={[s.urunFiyat, { color: renkler.primary }]}>{tl(p.fiyat)}</Text>
+                      {adet === 0 ? (
+                        <TouchableOpacity
+                          style={[s.urunEkle, { backgroundColor: renkler.primary }]}
+                          onPress={() => urunAdetDegis(p, 1)}
+                        >
+                          <Ionicons name="add" size={16} color={renkler.primaryText} />
+                          <Text style={[s.urunEkleText, { color: renkler.primaryText }]}>Ekle</Text>
+                        </TouchableOpacity>
+                      ) : (
+                        <View style={s.urunAdetRow}>
+                          <TouchableOpacity style={[s.urunAdetBtn, { borderColor: renkler.primary }]} onPress={() => urunAdetDegis(p, -1)}>
+                            <Ionicons name="remove" size={16} color={renkler.primary} />
+                          </TouchableOpacity>
+                          <Text style={[s.urunAdetText, { color: renkler.text }]}>{adet}</Text>
+                          <TouchableOpacity
+                            style={[s.urunAdetBtn, { borderColor: renkler.primary }, adet >= p.stok && { opacity: 0.4 }]}
+                            disabled={adet >= p.stok}
+                            onPress={() => urunAdetDegis(p, 1)}
+                          >
+                            <Ionicons name="add" size={16} color={renkler.primary} />
+                          </TouchableOpacity>
+                        </View>
+                      )}
+                    </View>
+                  );
+                })}
+              </ScrollView>
+            </>
+          )}
+
+          {/* Ödeme yöntemi — hakla alımda ücret yok, gizli. Şimdilik yalnız
+              "şubede"; "online" iyzico ile açılacak (o zaman değer randevu_olustur'a
+              parametre olarak taşınacak, şu an default 'subede' kaydedilir). */}
+          {!hakKullan && (
+            <>
+              <Text style={[s.bolum, { color: renkler.subtext }]}>ÖDEME YÖNTEMİ</Text>
+              <View style={s.odemeRow}>
+                <TouchableOpacity
+                  style={[
+                    s.odemeBtn,
+                    { backgroundColor: renkler.card, borderColor: odemeYontemi === 'subede' ? renkler.primary : renkler.border },
+                  ]}
+                  onPress={() => setOdemeYontemi('subede')}
+                >
+                  <Ionicons
+                    name="storefront-outline"
+                    size={20}
+                    color={odemeYontemi === 'subede' ? renkler.primary : renkler.subtext}
+                  />
+                  <Text style={[s.odemeBaslik, { color: renkler.text }]}>Şubede öde</Text>
+                  <Text style={[s.odemeAlt, { color: renkler.subtext }]}>Nakit / kart · teslimde</Text>
+                </TouchableOpacity>
+                <View style={[s.odemeBtn, s.odemePasif, { backgroundColor: renkler.card, borderColor: renkler.border }]}>
+                  <Ionicons name="card-outline" size={20} color={renkler.subtext} />
+                  <Text style={[s.odemeBaslik, { color: renkler.subtext }]}>Online öde</Text>
+                  <Text style={[s.odemeAlt, { color: renkler.subtext }]}>Yakında</Text>
+                </View>
+              </View>
+            </>
+          )}
+
           {/* 5) Özet + fiyat */}
           <View style={[s.ozet, { backgroundColor: renkler.card, borderColor: renkler.border }]}>
             <View style={s.ozetSatir}>
@@ -443,6 +589,23 @@ export default function RandevuAlScreen() {
                 <Text style={[s.ozetAlt, { color: renkler.subtext }]}>Şube ve araç seç</Text>
               )}
             </View>
+
+            {/* Eklenen ürünler — toplama yansır (abonelik hakkı ürünleri kapsamaz) */}
+            {urunToplam > 0 && (
+              <>
+                <View style={[s.ozetSatir, s.ozetSatirAlt]}>
+                  <Text style={[s.ozetLabel, { color: renkler.subtext }]}>Ürünler</Text>
+                  <Text style={[s.ozetUrun, { color: renkler.text }]}>{tl(urunToplam)}</Text>
+                </View>
+                {(hakKullan || fiyat) && (
+                  <View style={[s.ozetGenel, { borderColor: renkler.border }]}>
+                    <Text style={[s.ozetGenelLabel, { color: renkler.text }]}>Genel toplam</Text>
+                    <Text style={[s.ozetFiyat, { color: renkler.primary }]}>{tl(genelToplam)}</Text>
+                  </View>
+                )}
+              </>
+            )}
+
             {secilenSlot && (
               <Text style={[s.ozetAlt, { color: renkler.subtext }]}>
                 {new Date(secilenSlot.baslangic).toLocaleString('tr-TR', {
@@ -521,10 +684,37 @@ const s = StyleSheet.create({
   hakKartMetin: { flex: 1 },
   hakKartBaslik: { fontSize: 15, fontWeight: '700' },
   hakKartAlt: { fontSize: 13, marginTop: 2 },
+  odemeRow: { flexDirection: 'row', gap: 12 },
+  odemeBtn: { flex: 1, borderWidth: 1.5, borderRadius: 12, padding: 14, gap: 4 },
+  odemePasif: { opacity: 0.5 },
+  odemeBaslik: { fontSize: 15, fontWeight: '700', marginTop: 4 },
+  odemeAlt: { fontSize: 12 },
+  urunIpucu: { fontSize: 12, lineHeight: 17, marginTop: -4, marginBottom: 10 },
+  urunSerit: { gap: 10, paddingVertical: 2, paddingRight: 4 },
+  urunKart: { width: 130, borderWidth: 1, borderRadius: 12, padding: 8 },
+  urunGorsel: { width: '100%', height: 80, borderRadius: 8, marginBottom: 6 },
+  urunGorselBos: { alignItems: 'center', justifyContent: 'center' },
+  urunAd: { fontSize: 13, fontWeight: '600', minHeight: 34 },
+  urunFiyat: { fontSize: 15, fontWeight: '800', marginTop: 2, marginBottom: 8 },
+  urunEkle: {
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 3,
+    borderRadius: 8, paddingVertical: 7,
+  },
+  urunEkleText: { fontSize: 13, fontWeight: '700' },
+  urunAdetRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 12 },
+  urunAdetBtn: { borderWidth: 1.5, borderRadius: 7, width: 30, height: 30, alignItems: 'center', justifyContent: 'center' },
+  urunAdetText: { fontSize: 15, fontWeight: '700', minWidth: 18, textAlign: 'center' },
   ozet: {
     borderWidth: 1, borderRadius: 12, padding: 16, marginTop: 16,
   },
   ozetSatir: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  ozetSatirAlt: { marginTop: 10 },
+  ozetUrun: { fontSize: 16, fontWeight: '700' },
+  ozetGenel: {
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
+    borderTopWidth: 1, marginTop: 12, paddingTop: 12,
+  },
+  ozetGenelLabel: { fontSize: 15, fontWeight: '700' },
   ozetLabel: { fontSize: 14 },
   ozetFiyat: { fontSize: 22, fontWeight: '800' },
   ozetFiyatGrup: { flexDirection: 'row', alignItems: 'center', gap: 8 },

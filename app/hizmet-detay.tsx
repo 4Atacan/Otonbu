@@ -8,8 +8,12 @@ import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '../src/lib/supabase';
 import { useTheme } from '../src/theme/ThemeContext';
 import { Service } from '../src/types';
-import { fiyatMetni, gorselUrl, indirimliMetni } from '../src/lib/hizmet';
+import { fiyatAraligi, fiyatMetni, gorselUrl } from '../src/lib/hizmet';
+import { indirimliFiyat } from '../src/lib/kampanya';
 import { Yukleniyor } from '../src/components/Yukleniyor';
+
+const tl = (n: number) =>
+  n.toLocaleString('tr-TR', { style: 'currency', currency: 'TRY', maximumFractionDigits: 0 });
 
 export default function HizmetDetayScreen() {
   const { serviceId } = useLocalSearchParams<{ serviceId: string }>();
@@ -17,6 +21,7 @@ export default function HizmetDetayScreen() {
   const router = useRouter();
 
   const [hizmet, setHizmet] = useState<Service | null>(null);
+  const [kampInd, setKampInd] = useState(0);  // bu hizmete bağlı aktif kampanya indirimi %
   const [loading, setLoading] = useState(true);
   const [fiyatNotAcik, setFiyatNotAcik] = useState(false);
 
@@ -31,6 +36,9 @@ export default function HizmetDetayScreen() {
         setHizmet((data as Service) ?? null);
         setLoading(false);
       });
+    // Kampanya indirimi (tek doğruluk kaynağı SQL kampanya_indirim).
+    supabase.rpc('kampanya_indirim', { p_hizmet: serviceId, p_urun: null })
+      .then(({ data }) => setKampInd(Number(data ?? 0)));
   }, [serviceId]);
 
   // useMemo: her render'da yeni nesne <Stack.Screen options>'ı sürekli
@@ -73,36 +81,59 @@ export default function HizmetDetayScreen() {
                 </Text>
                 <Text style={[s.ad, { color: renkler.text }]}>{hizmet.ad}</Text>
 
-                <View style={[s.fiyatKutu, { backgroundColor: renkler.card }]}>
-                  <Pressable
-                    style={s.fiyatBasSatir}
-                    onPress={() => setFiyatNotAcik(a => !a)}
-                    hitSlop={6}
-                  >
-                    <Text style={[s.fiyatLabel, { color: renkler.subtext }]}>Fiyat</Text>
-                    <Ionicons
-                      name={fiyatNotAcik ? 'information-circle' : 'information-circle-outline'}
-                      size={16}
-                      color={renkler.subtext}
-                    />
-                  </Pressable>
-                  {indirimliMetni(hizmet) ? (
-                    <View style={s.fiyatSatir}>
-                      <Text style={[s.fiyatEski, { color: renkler.subtext }]}>{fiyatMetni(hizmet)}</Text>
-                      <Text style={[s.fiyat, { color: renkler.primary }]}>{indirimliMetni(hizmet)}</Text>
-                      <View style={s.indirimRozet}>
-                        <Text style={s.indirimRozetText}>%{hizmet.kampanya_indirim_yuzde} indirim</Text>
-                      </View>
+                {hizmet.teklif_usulu ? (
+                  <View style={[s.fiyatKutu, { backgroundColor: renkler.card }]}>
+                    <View style={s.teklifBasSatir}>
+                      <Ionicons name="chatbubble-ellipses-outline" size={18} color={renkler.accent} />
+                      <Text style={[s.teklifBaslik, { color: renkler.text }]}>Araca özel fiyat</Text>
                     </View>
-                  ) : (
-                    <Text style={[s.fiyat, { color: renkler.primary }]}>{fiyatMetni(hizmet)}</Text>
-                  )}
-                  {fiyatNotAcik && (
                     <Text style={[s.fiyatNot, { color: renkler.subtext }]}>
-                      Araç boyutuna göre değişir · kesin fiyat aracını seçince
+                      Bu hizmette fiyat aracına göre değişir. Bilgilerini bırak, en uygun
+                      teklifi hazırlayıp sana dönelim.
                     </Text>
-                  )}
-                </View>
+                  </View>
+                ) : (
+                  <View style={[s.fiyatKutu, { backgroundColor: renkler.card }]}>
+                    <Pressable
+                      style={s.fiyatBasSatir}
+                      onPress={() => setFiyatNotAcik(a => !a)}
+                      hitSlop={6}
+                    >
+                      <Text style={[s.fiyatLabel, { color: renkler.subtext }]}>Fiyat</Text>
+                      <Ionicons
+                        name={fiyatNotAcik ? 'information-circle' : 'information-circle-outline'}
+                        size={16}
+                        color={renkler.subtext}
+                      />
+                    </Pressable>
+                    {(() => {
+                      // Hizmetin kendi 'fiyat' kampanyası + bağlı kampanya indirimi → büyük olan (stacklemez).
+                      const ownPct = hizmet.kampanya_tip === 'fiyat' ? (hizmet.kampanya_indirim_yuzde ?? 0) : 0;
+                      const effPct = Math.max(ownPct, kampInd);
+                      if (effPct <= 0) {
+                        return <Text style={[s.fiyat, { color: renkler.primary }]}>{fiyatMetni(hizmet)}</Text>;
+                      }
+                      const { min, max, tekil } = fiyatAraligi(hizmet);
+                      const dMin = indirimliFiyat(min, effPct);
+                      const dMax = indirimliFiyat(max, effPct);
+                      const indMetni = tekil ? tl(dMin) : `${tl(dMin)} – ${tl(dMax)}`;
+                      return (
+                        <View style={s.fiyatSatir}>
+                          <Text style={[s.fiyatEski, { color: renkler.subtext }]}>{fiyatMetni(hizmet)}</Text>
+                          <Text style={[s.fiyat, { color: renkler.primary }]}>{indMetni}</Text>
+                          <View style={s.indirimRozet}>
+                            <Text style={s.indirimRozetText}>%{effPct} indirim</Text>
+                          </View>
+                        </View>
+                      );
+                    })()}
+                    {fiyatNotAcik && (
+                      <Text style={[s.fiyatNot, { color: renkler.subtext }]}>
+                        Araç boyutuna göre değişir · kesin fiyat aracını seçince
+                      </Text>
+                    )}
+                  </View>
+                )}
 
                 <Text style={[s.baslik, { color: renkler.text }]}>Bu hizmette neler yapıyoruz?</Text>
                 <Text style={[s.aciklama, { color: renkler.subtext }]}>
@@ -117,11 +148,13 @@ export default function HizmetDetayScreen() {
               <TouchableOpacity
                 style={[s.randevuBtn, { backgroundColor: renkler.primary }]}
                 onPress={() => router.push({
-                  pathname: '/randevu-al',
+                  pathname: hizmet.teklif_usulu ? '/teklif-al' : '/randevu-al',
                   params: { serviceId: hizmet.id, serviceAd: hizmet.ad },
                 })}
               >
-                <Text style={[s.randevuText, { color: renkler.primaryText }]}>Randevu Al</Text>
+                <Text style={[s.randevuText, { color: renkler.primaryText }]}>
+                  {hizmet.teklif_usulu ? 'Teklif Al' : 'Randevu Al'}
+                </Text>
               </TouchableOpacity>
             </View>
           </>
@@ -150,6 +183,8 @@ const s = StyleSheet.create({
   indirimRozetText: { color: '#fff', fontSize: 12, fontWeight: '700' },
   fiyat: { fontSize: 22, fontWeight: '800', marginTop: 2 },
   fiyatNot: { fontSize: 12, marginTop: 6, lineHeight: 17 },
+  teklifBasSatir: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  teklifBaslik: { fontSize: 17, fontWeight: '800' },
   baslik: { fontSize: 17, fontWeight: '700', marginTop: 24, marginBottom: 8 },
   aciklama: { fontSize: 15, lineHeight: 23 },
   altBar: { borderTopWidth: 1, padding: 16, paddingBottom: 28 },

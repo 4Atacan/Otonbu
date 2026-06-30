@@ -18,8 +18,9 @@ Tek geliştirici tarafından geliştirilmektedir. Öncelik: **hız ve düşük m
 ## Teknoloji yığını
 
 - **Mobil:** React Native + Expo (TypeScript). Tek kod tabanı, iOS + Android.
-  Müşteri, şube yöneticisi, kasa/usta ve admin **aynı uygulamada**; ekranlar
-  kullanıcının rolüne göre değişir.
+  Müşteri, şube yöneticisi (çoklu), çalışan ve admin **aynı uygulamada**; ekranlar
+  kullanıcının rolüne göre değişir. Roller: `musteri`, `yonetici` (şube başına
+  çoklu, tam panel), `calisan` (yalnız randevu + iş), `admin` (merkez).
 - **Backend:** Supabase — PostgreSQL, Auth (e-posta + şifre, e-posta doğrulama
   linkli), Storage, Realtime, Edge Functions. Ayrı bir sunucu kodu yazılmaz;
   sunucu mantığı Edge Functions'ta.

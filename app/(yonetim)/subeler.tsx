@@ -9,6 +9,14 @@ import { useTheme } from '../../src/theme/ThemeContext';
 import { Branch } from '../../src/types';
 import { Yukleniyor } from '../../src/components/Yukleniyor';
 
+// Bir şubeye atanmış personel satırı (yönetici veya çalışan)
+type PersonelSatir = {
+  id: string;
+  email: string | null;     // KİŞİSEL VERİ
+  ad_soyad: string | null;  // KİŞİSEL VERİ
+  rol: 'yonetici' | 'calisan';
+};
+
 export default function SubelerScreen() {
   const { renkler } = useTheme();
   const [subeler, setSubeler] = useState<Branch[]>([]);
@@ -18,9 +26,11 @@ export default function SubelerScreen() {
   const [ad, setAd] = useState('');
   const [adres, setAdres] = useState('');
   const [aktif, setAktif] = useState(true);
-  const [sahibiEmail, setSahibiEmail] = useState('');
-  const [mevcutSahibi, setMevcutSahibi] = useState<string | null>(null);
   const [kayit, setKayit] = useState(false);
+  // Şube personeli (çoklu yönetici + çoklu çalışan)
+  const [personel, setPersonel] = useState<PersonelSatir[]>([]);
+  const [yoneticiEmail, setYoneticiEmail] = useState('');
+  const [calisanEmail, setCalisanEmail] = useState('');
 
   useFocusEffect(useCallback(() => { yukle(); }, []));
 
@@ -35,7 +45,7 @@ export default function SubelerScreen() {
   function formuSifirla() {
     setDuzenlenen(null);
     setAd(''); setAdres(''); setAktif(true);
-    setSahibiEmail(''); setMevcutSahibi(null);
+    setPersonel([]); setYoneticiEmail(''); setCalisanEmail('');
   }
 
   function yeni() {
@@ -48,17 +58,20 @@ export default function SubelerScreen() {
     setAd(item.ad);
     setAdres(item.adres ?? '');
     setAktif(item.aktif);
-    setSahibiEmail('');
+    setYoneticiEmail(''); setCalisanEmail('');
     setModalAcik(true);
-    // Mevcut şube sahibini göster (admin tüm kullanıcıları okuyabilir)
+    personelYukle(item.id);
+  }
+
+  // Bu şubeye atanmış yönetici + çalışanları getir (admin tüm kullanıcıları okur)
+  async function personelYukle(branchId: string) {
     const { data } = await supabase
       .from('users')
-      .select('email, ad_soyad')
-      .eq('branch_id', item.id)
-      .eq('rol', 'sube_sahibi')
-      .limit(1)
-      .maybeSingle();
-    setMevcutSahibi(data ? (data.ad_soyad ?? data.email) : null);
+      .select('id, email, ad_soyad, rol')
+      .eq('branch_id', branchId)
+      .in('rol', ['yonetici', 'calisan'])
+      .order('rol');
+    setPersonel((data as PersonelSatir[]) ?? []);
   }
 
   async function kaydet() {
@@ -67,26 +80,32 @@ export default function SubelerScreen() {
     const veri = { ad: ad.trim(), adres: adres.trim() || null, aktif };
 
     setKayit(true);
-    const { error } = duzenlenen
-      ? await supabase.from('branches').update(veri).eq('id', duzenlenen.id)
-      : await supabase.from('branches').insert(veri);
+    const { data, error } = duzenlenen
+      ? await supabase.from('branches').update(veri).eq('id', duzenlenen.id).select().single()
+      : await supabase.from('branches').insert(veri).select().single();
     setKayit(false);
 
     if (error) { Alert.alert('Hata', error.message); return; }
-    setModalAcik(false);
-    formuSifirla();
+    // Yeni şube eklendiyse modalı kapatmadan düzenleme moduna geç ki personel
+    // ataması yapılabilsin (personel atama mevcut şube gerektirir).
+    if (!duzenlenen && data) {
+      setDuzenlenen(data as Branch);
+      personelYukle((data as Branch).id);
+    }
     yukle();
+    if (duzenlenen) { setModalAcik(false); formuSifirla(); }
   }
 
-  async function sahibiAta() {
+  // E-postayla kullanıcı bul, ilgili role + bu şubeye ata (çoklu atama)
+  async function rolAta(email: string, rol: 'yonetici' | 'calisan', temizle: () => void) {
     if (!duzenlenen) return;
-    const mail = sahibiEmail.trim().toLowerCase();
+    const mail = email.trim().toLowerCase();
     if (!mail) { Alert.alert('Hata', 'Kullanıcının e-postasını gir'); return; }
 
     setKayit(true);
     const { data: kullanici } = await supabase
       .from('users')
-      .select('id, ad_soyad, rol')
+      .select('id, ad_soyad')
       .eq('email', mail)
       .maybeSingle();
 
@@ -99,14 +118,37 @@ export default function SubelerScreen() {
 
     const { error } = await supabase
       .from('users')
-      .update({ rol: 'sube_sahibi', branch_id: duzenlenen.id })
+      .update({ rol, branch_id: duzenlenen.id })
       .eq('id', kullanici.id);
     setKayit(false);
 
     if (error) { Alert.alert('Hata', error.message); return; }
-    setMevcutSahibi(kullanici.ad_soyad ?? mail);
-    setSahibiEmail('');
-    Alert.alert('Tamam', `${kullanici.ad_soyad ?? mail} bu şubenin sahibi yapıldı`);
+    temizle();
+    personelYukle(duzenlenen.id);
+  }
+
+  // Personeli şubeden çıkar → müşteriye düşür (şube erişimi kalkar)
+  function personelCikar(item: PersonelSatir) {
+    if (!duzenlenen) return;
+    Alert.alert(
+      'Şubeden Çıkar',
+      `${item.ad_soyad ?? item.email ?? 'Kişi'} bu şubeden çıkarılacak ve müşteriye düşürülecek. Emin misin?`,
+      [
+        { text: 'Vazgeç', style: 'cancel' },
+        {
+          text: 'Çıkar',
+          style: 'destructive',
+          onPress: async () => {
+            const { error } = await supabase
+              .from('users')
+              .update({ rol: 'musteri', branch_id: null })
+              .eq('id', item.id);
+            if (error) { Alert.alert('Hata', error.message); return; }
+            personelYukle(duzenlenen.id);
+          },
+        },
+      ],
+    );
   }
 
   if (loading) return <Yukleniyor />;
@@ -182,27 +224,32 @@ export default function SubelerScreen() {
           </TouchableOpacity>
 
           {duzenlenen && (
-            <View style={[s.sahibiKutu, { borderColor: renkler.border }]}>
-              <Text style={[s.sahibiBaslik, { color: renkler.text }]}>Şube Sahibi</Text>
-              <Text style={[s.sahibiMevcut, { color: renkler.subtext }]}>
-                {mevcutSahibi ? `Mevcut: ${mevcutSahibi}` : 'Henüz atanmadı'}
-              </Text>
-              <TextInput
-                style={[s.input, { borderColor: renkler.border, backgroundColor: renkler.input, color: renkler.text }]}
-                placeholder="kullanici@email.com"
-                placeholderTextColor={renkler.subtext}
-                autoCapitalize="none"
-                keyboardType="email-address"
-                value={sahibiEmail} onChangeText={setSahibiEmail}
+            <>
+              <PersonelGrup
+                baslik="Yöneticiler"
+                alt="Tam şube paneli yönetimi · şube başına birden çok olabilir"
+                liste={personel.filter(p => p.rol === 'yonetici')}
+                email={yoneticiEmail}
+                setEmail={setYoneticiEmail}
+                ekleEtiket="Yönetici Ata"
+                onEkle={() => rolAta(yoneticiEmail, 'yonetici', () => setYoneticiEmail(''))}
+                onCikar={personelCikar}
+                kayit={kayit}
+                renkler={renkler}
               />
-              <TouchableOpacity
-                style={[s.ataBtn, { borderColor: renkler.primary }]}
-                onPress={sahibiAta}
-                disabled={kayit}
-              >
-                <Text style={[s.ataText, { color: renkler.primary }]}>Sahibi Ata</Text>
-              </TouchableOpacity>
-            </View>
+              <PersonelGrup
+                baslik="Çalışanlar"
+                alt="Yalnızca randevu + iş paneli görür"
+                liste={personel.filter(p => p.rol === 'calisan')}
+                email={calisanEmail}
+                setEmail={setCalisanEmail}
+                ekleEtiket="Çalışan Ata"
+                onEkle={() => rolAta(calisanEmail, 'calisan', () => setCalisanEmail(''))}
+                onCikar={personelCikar}
+                kayit={kayit}
+                renkler={renkler}
+              />
+            </>
           )}
 
           <TouchableOpacity
@@ -213,6 +260,63 @@ export default function SubelerScreen() {
           </TouchableOpacity>
         </ScrollView>
       </Modal>
+    </View>
+  );
+}
+
+// Bir rol grubu (Yöneticiler / Çalışanlar): mevcut liste + e-postayla atama
+function PersonelGrup({
+  baslik, alt, liste, email, setEmail, ekleEtiket, onEkle, onCikar, kayit, renkler,
+}: {
+  baslik: string;
+  alt: string;
+  liste: PersonelSatir[];
+  email: string;
+  setEmail: (v: string) => void;
+  ekleEtiket: string;
+  onEkle: () => void;
+  onCikar: (item: PersonelSatir) => void;
+  kayit: boolean;
+  renkler: any;
+}) {
+  return (
+    <View style={[s.personelKutu, { borderColor: renkler.border }]}>
+      <Text style={[s.personelBaslik, { color: renkler.text }]}>{baslik}</Text>
+      <Text style={[s.personelAlt, { color: renkler.subtext }]}>{alt}</Text>
+
+      {liste.length === 0 ? (
+        <Text style={[s.personelBos, { color: renkler.subtext }]}>Henüz atanmadı</Text>
+      ) : (
+        liste.map(p => (
+          <View key={p.id} style={[s.personelSatir, { borderColor: renkler.border }]}>
+            <View style={{ flex: 1 }}>
+              <Text style={[s.personelAd, { color: renkler.text }]}>
+                {p.ad_soyad ?? '(isimsiz)'}
+              </Text>
+              <Text style={[s.personelMail, { color: renkler.subtext }]}>{p.email ?? '—'}</Text>
+            </View>
+            <TouchableOpacity onPress={() => onCikar(p)} disabled={kayit} style={s.cikarBtn}>
+              <Text style={[s.cikarText, { color: renkler.danger }]}>Çıkar</Text>
+            </TouchableOpacity>
+          </View>
+        ))
+      )}
+
+      <TextInput
+        style={[s.input, { borderColor: renkler.border, backgroundColor: renkler.input, color: renkler.text, marginTop: 12 }]}
+        placeholder="kullanici@email.com"
+        placeholderTextColor={renkler.subtext}
+        autoCapitalize="none"
+        keyboardType="email-address"
+        value={email} onChangeText={setEmail}
+      />
+      <TouchableOpacity
+        style={[s.ataBtn, { borderColor: renkler.primary }]}
+        onPress={onEkle}
+        disabled={kayit}
+      >
+        <Text style={[s.ataText, { color: renkler.primary }]}>{ekleEtiket}</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -234,9 +338,19 @@ const s = StyleSheet.create({
   switchText: { fontSize: 15 },
   btn: { borderRadius: 10, padding: 16, alignItems: 'center', marginBottom: 12 },
   btnText: { fontSize: 16, fontWeight: '600' },
-  sahibiKutu: { borderWidth: 1, borderRadius: 12, padding: 16, marginTop: 8 },
-  sahibiBaslik: { fontSize: 15, fontWeight: '700', marginBottom: 4 },
-  sahibiMevcut: { fontSize: 13, marginBottom: 12 },
+  // Personel grupları
+  personelKutu: { borderWidth: 1, borderRadius: 12, padding: 16, marginTop: 12 },
+  personelBaslik: { fontSize: 16, fontWeight: '700' },
+  personelAlt: { fontSize: 12, marginTop: 2, marginBottom: 8 },
+  personelBos: { fontSize: 13, fontStyle: 'italic', marginTop: 4 },
+  personelSatir: {
+    flexDirection: 'row', alignItems: 'center',
+    borderTopWidth: StyleSheet.hairlineWidth, paddingVertical: 10, gap: 8,
+  },
+  personelAd: { fontSize: 15, fontWeight: '600' },
+  personelMail: { fontSize: 12, marginTop: 1 },
+  cikarBtn: { paddingVertical: 6, paddingHorizontal: 10 },
+  cikarText: { fontSize: 13, fontWeight: '700' },
   ataBtn: { borderWidth: 1, borderRadius: 10, padding: 12, alignItems: 'center' },
   ataText: { fontWeight: '600' },
   iptal: { alignItems: 'center', padding: 12, marginTop: 8 },

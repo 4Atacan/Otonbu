@@ -40,7 +40,7 @@ const KAMPANYA_SECENEK: { value: KampanyaTip | null; label: string }[] = [
 export default function HizmetlerScreen() {
   const { profile } = useSession();
   const { renkler } = useTheme();
-  const admin = profile?.rol === 'admin';   // admin = katalog, şube sahibi = program
+  const admin = profile?.rol === 'admin';   // admin = katalog, yönetici = fiyat + program
   const [hizmetler, setHizmetler] = useState<Service[]>([]);
   const [loading, setLoading] = useState(true);
   const [modalAcik, setModalAcik] = useState(false);
@@ -54,10 +54,12 @@ export default function HizmetlerScreen() {
   const [indirim, setIndirim] = useState('');  // yüzde, yalnızca 'fiyat'
   const [gorsel, setGorsel] = useState<string | null>(null);  // storage yolu
   const [gorselYukleniyor, setGorselYukleniyor] = useState(false);
+  const [teklifUsulu, setTeklifUsulu] = useState(false);  // sabit fiyat yok → teklif talebi
+  const [puan, setPuan] = useState('');                   // tamamlanınca kazandıracağı puan
   const [aktif, setAktif] = useState(true);
   const [kayit, setKayit] = useState(false);
 
-  // Şube sahibi: hizmet bazlı fiyat + randevu programı düzenleyici (tek modal)
+  // Yönetici: hizmet bazlı fiyat + randevu programı düzenleyici (tek modal)
   const [programHizmet, setProgramHizmet] = useState<Service | null>(null);
   const [mod, setMod] = useState<ProgramMod>('saatli');
   const [pencereler, setPencereler] = useState<CalismaPenceresi[]>([]);
@@ -69,7 +71,7 @@ export default function HizmetlerScreen() {
   const [programYukleniyor, setProgramYukleniyor] = useState(false);
   const [programKayit, setProgramKayit] = useState(false);
 
-  // Şube fiyatları (sube_sahibi): tüm branch_prices haritası + seçilen hizmetin girdileri
+  // Şube fiyatları (yönetici): tüm branch_prices haritası + seçilen hizmetin girdileri
   const [branchFiyatlar, setBranchFiyatlar] = useState<Record<string, BranchPrice>>({});
   const [fiyatGirdiler, setFiyatGirdiler] = useState<Record<string, string>>({});
 
@@ -101,7 +103,7 @@ export default function HizmetlerScreen() {
     setDuzenlenen(null);
     setAd(''); setKategori(''); setFiyatKucuk(''); setFiyatBuyuk('');
     setAciklama(''); setKampanyaTip(null); setIndirim('');
-    setGorsel(null); setAktif(true);
+    setGorsel(null); setTeklifUsulu(false); setPuan(''); setAktif(true);
   }
 
   function yeni() {
@@ -121,6 +123,8 @@ export default function HizmetlerScreen() {
     setKampanyaTip(item.kampanya_tip ?? null);
     setIndirim(item.kampanya_indirim_yuzde ? String(item.kampanya_indirim_yuzde) : '');
     setGorsel(item.gorsel ?? null);
+    setTeklifUsulu(item.teklif_usulu ?? false);
+    setPuan(String(item.puan ?? 0));
     setAktif(item.aktif);
     setModalAcik(true);
   }
@@ -309,9 +313,12 @@ export default function HizmetlerScreen() {
     const fb = parseFloat(fiyatBuyuk.replace(',', '.'));
     if (!ad.trim()) { Alert.alert('Hata', 'Hizmet adı zorunlu'); return; }
     if (!kategori.trim()) { Alert.alert('Hata', 'Kategori zorunlu'); return; }
-    if (!Number.isFinite(fk) || fk <= 0) { Alert.alert('Hata', 'Küçük araç için geçerli bir fiyat girin'); return; }
-    if (!Number.isFinite(fb) || fb <= 0) { Alert.alert('Hata', 'Büyük araç için geçerli bir fiyat girin'); return; }
-    if (fb < fk) { Alert.alert('Hata', 'Büyük araç fiyatı küçükten az olamaz'); return; }
+    // Teklif usulü hizmette sabit fiyat yok → fiyat doğrulamasını atla.
+    if (!teklifUsulu) {
+      if (!Number.isFinite(fk) || fk <= 0) { Alert.alert('Hata', 'Küçük araç için geçerli bir fiyat girin'); return; }
+      if (!Number.isFinite(fb) || fb <= 0) { Alert.alert('Hata', 'Büyük araç için geçerli bir fiyat girin'); return; }
+      if (fb < fk) { Alert.alert('Hata', 'Büyük araç fiyatı küçükten az olamaz'); return; }
+    }
 
     let indirimYuzde: number | null = null;
     if (kampanyaTip === 'fiyat') {
@@ -325,12 +332,14 @@ export default function HizmetlerScreen() {
     const veri = {
       ad: ad.trim(),
       kategori: kategori.trim().toLocaleLowerCase('tr'),
-      taban_fiyat: fk,                                  // fallback = küçük taban
-      segment_fiyatlari: { kucuk: fk, buyuk: fb },
+      taban_fiyat: teklifUsulu ? 0 : fk,                // fallback = küçük taban
+      segment_fiyatlari: teklifUsulu ? {} : { kucuk: fk, buyuk: fb },
       aciklama: aciklama.trim() || null,
       kampanya_tip: kampanyaTip,
       kampanya_indirim_yuzde: indirimYuzde,
       gorsel,
+      teklif_usulu: teklifUsulu,
+      puan: parseInt(puan || '0', 10) || 0,
       aktif,
     };
 
@@ -457,26 +466,41 @@ export default function HizmetlerScreen() {
             value={kategori} onChangeText={setKategori}
           />
 
-          <Text style={[s.label, { color: renkler.subtext }]}>Küçük Araç Fiyatı (TL) *</Text>
-          <TextInput
-            style={[s.input, { borderColor: renkler.border, backgroundColor: renkler.input, color: renkler.text }]}
-            placeholder="600"
-            placeholderTextColor={renkler.subtext}
-            keyboardType="decimal-pad"
-            value={fiyatKucuk} onChangeText={setFiyatKucuk}
-          />
+          <View style={s.switchRow}>
+            <Switch value={teklifUsulu} onValueChange={setTeklifUsulu} />
+            <Text style={[s.switchText, { color: renkler.text }]}>
+              Fiyat teklif usulü (araca göre değişir)
+            </Text>
+          </View>
+          <Text style={[s.ipucu, { color: renkler.subtext }]}>
+            Açıkken sabit fiyat girilmez. Müşteri randevu almak yerine bir teklif
+            talebi bırakır; talep "Hizmet Teklifleri"nde görünür.
+          </Text>
 
-          <Etiket
-            zorunlu
-            bilgi={'SUV, pickup, MPV, crossover ve panelvan "büyük" sayılır; diğerleri "küçük".'}
-          >Büyük Araç Fiyatı (TL)</Etiket>
-          <TextInput
-            style={[s.input, { borderColor: renkler.border, backgroundColor: renkler.input, color: renkler.text }]}
-            placeholder="700"
-            placeholderTextColor={renkler.subtext}
-            keyboardType="decimal-pad"
-            value={fiyatBuyuk} onChangeText={setFiyatBuyuk}
-          />
+          {!teklifUsulu && (
+            <>
+              <Text style={[s.label, { color: renkler.subtext }]}>Küçük Araç Fiyatı (TL) *</Text>
+              <TextInput
+                style={[s.input, { borderColor: renkler.border, backgroundColor: renkler.input, color: renkler.text }]}
+                placeholder="600"
+                placeholderTextColor={renkler.subtext}
+                keyboardType="decimal-pad"
+                value={fiyatKucuk} onChangeText={setFiyatKucuk}
+              />
+
+              <Etiket
+                zorunlu
+                bilgi={'SUV, pickup, MPV, crossover ve panelvan "büyük" sayılır; diğerleri "küçük".'}
+              >Büyük Araç Fiyatı (TL)</Etiket>
+              <TextInput
+                style={[s.input, { borderColor: renkler.border, backgroundColor: renkler.input, color: renkler.text }]}
+                placeholder="700"
+                placeholderTextColor={renkler.subtext}
+                keyboardType="decimal-pad"
+                value={fiyatBuyuk} onChangeText={setFiyatBuyuk}
+              />
+            </>
+          )}
 
           <Text style={[s.label, { color: renkler.subtext }]}>Kampanya</Text>
           <View style={s.kampanyaRow}>
@@ -527,6 +551,18 @@ export default function HizmetlerScreen() {
             multiline
             value={aciklama} onChangeText={setAciklama}
           />
+
+          <Text style={[s.label, { color: renkler.subtext }]}>Kazandıracağı Puan</Text>
+          <TextInput
+            style={[s.input, { borderColor: renkler.border, backgroundColor: renkler.input, color: renkler.text }]}
+            placeholder="0"
+            placeholderTextColor={renkler.subtext}
+            keyboardType="number-pad"
+            value={puan} onChangeText={setPuan}
+          />
+          <Text style={[s.ipucu, { color: renkler.subtext }]}>
+            Müşteri bu hizmeti yaptırınca (abonelikle bile) kazandığı sadakat puanı. 0 = puan yok.
+          </Text>
 
           <View style={s.switchRow}>
             <Switch value={aktif} onValueChange={setAktif} />

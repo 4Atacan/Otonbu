@@ -24,8 +24,8 @@ insert into auth.users (id, email, email_confirmed_at, role, aud) values
   ('ad000000-0000-0000-0000-000000000099'::uuid, 'admin@test.local', now(), 'authenticated', 'authenticated');
 
 insert into public.users (id, branch_id, email, rol) values
-  ('a1000000-0000-0000-0000-000000000001'::uuid, 'a0000000-0000-0000-0000-000000000001'::uuid, 'sahibi-a@test.local', 'sube_sahibi'),
-  ('b1000000-0000-0000-0000-000000000002'::uuid, 'b0000000-0000-0000-0000-000000000002'::uuid, 'sahibi-b@test.local', 'sube_sahibi'),
+  ('a1000000-0000-0000-0000-000000000001'::uuid, 'a0000000-0000-0000-0000-000000000001'::uuid, 'sahibi-a@test.local', 'yonetici'),
+  ('b1000000-0000-0000-0000-000000000002'::uuid, 'b0000000-0000-0000-0000-000000000002'::uuid, 'sahibi-b@test.local', 'yonetici'),
   ('c1000000-0000-0000-0000-000000000003'::uuid, null, 'musteri@test.local', 'musteri'),
   ('ad000000-0000-0000-0000-000000000099'::uuid, null, 'admin@test.local', 'admin')
 on conflict (id) do update

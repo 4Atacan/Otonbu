@@ -1,15 +1,15 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import {
   ActivityIndicator, Alert, FlatList, Image, RefreshControl,
   StyleSheet, Text, TouchableOpacity, View,
 } from 'react-native';
-import { useFocusEffect } from 'expo-router';
+import { Stack, useFocusEffect } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { supabase } from '../../src/lib/supabase';
-import { useSession } from '../../src/hooks/useSession';
-import { useTheme } from '../../src/theme/ThemeContext';
-import { Appointment, IsDurum, RandevuDurum } from '../../src/types';
-import { Yukleniyor } from '../../src/components/Yukleniyor';
+import { supabase } from '../src/lib/supabase';
+import { useSession } from '../src/hooks/useSession';
+import { useTheme } from '../src/theme/ThemeContext';
+import { Appointment, IsDurum, RandevuDurum } from '../src/types';
+import { Yukleniyor } from '../src/components/Yukleniyor';
 
 const RANDEVU_ETIKET: Record<RandevuDurum, string> = {
   beklemede: 'Beklemede',
@@ -40,6 +40,15 @@ export default function RandevularimScreen() {
   const [signedMap, setSignedMap] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
   const [yenileniyor, setYenileniyor] = useState(false);
+
+  const headerOpts = useMemo(() => ({
+    title: 'Hizmetlerim',
+    headerShown: true,
+    headerStyle: { backgroundColor: renkler.card },
+    headerTitleStyle: { color: renkler.text },
+    headerTintColor: renkler.primary,
+    headerShadowVisible: false,
+  }), [renkler]);
 
   useFocusEffect(useCallback(() => { yukle(); }, [session?.user?.id]));
 
@@ -145,10 +154,18 @@ export default function RandevularimScreen() {
     return '#d97706';
   }
 
-  if (loading) return <Yukleniyor />;
+  if (loading) {
+    return (
+      <>
+        <Stack.Screen options={headerOpts} />
+        <Yukleniyor />
+      </>
+    );
+  }
 
   return (
     <View style={[s.container, { backgroundColor: renkler.bg }]}>
+      <Stack.Screen options={headerOpts} />
       <FlatList
         data={randevular}
         keyExtractor={r => r.id}
@@ -200,10 +217,11 @@ export default function RandevularimScreen() {
                 {item.services?.ad ?? 'Hizmet'}
               </Text>
               <Text style={[s.detay, { color: renkler.subtext }]}>
-                {item.branches?.ad ?? ''}
+                {[item.branches?.ad, item.odeme_yontemi === 'online' ? 'Online ödeme' : 'Şubede ödeme']
+                  .filter(Boolean).join(' · ')}
               </Text>
 
-              {/* İş durumu (usta güncelledikçe) */}
+              {/* İş durumu (çalışan güncelledikçe) */}
               {is && (
                 <View style={[s.isKutu, { borderColor: renkler.border }]}>
                   <Ionicons

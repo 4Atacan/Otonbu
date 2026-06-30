@@ -100,13 +100,24 @@ Deno.serve(async (req) => {
       kaynak = "sube";
     }
 
-    // 'fiyat' kampanyası: indirim yüzdesini banttan SONRA uygula. İndirim
-    // yüzdesi sunucu kaydından okunur — istemciye güvenilmez.
-    let indirimYuzde = 0;
+    // İndirim: (1) hizmetin kendi 'fiyat' kampanyası + (2) bu hizmete bağlı
+    // aktif kampanya (campaigns tip='indirim'). İkisi STACKLEMEZ — büyük olan
+    // uygulanır. Yüzdeler sunucu kaydından okunur (istemciye güvenilmez).
+    let hizmetYuzde = 0;
     if (hizmet.kampanya_tip === "fiyat" && hizmet.kampanya_indirim_yuzde) {
-      indirimYuzde = Math.min(Math.max(Number(hizmet.kampanya_indirim_yuzde), 0), 90);
-      fiyat = fiyat * (1 - indirimYuzde / 100);
+      hizmetYuzde = Math.min(Math.max(Number(hizmet.kampanya_indirim_yuzde), 0), 90);
     }
+    // campaigns indirimini SQL'in tek doğruluk kaynağı kampanya_indirim()'den al.
+    let kampanyaYuzde = 0;
+    const { data: kampInd } = await supabase.rpc("kampanya_indirim", {
+      p_hizmet: service_id,
+      p_urun: null,
+    });
+    if (kampInd != null) {
+      kampanyaYuzde = Math.min(Math.max(Number(kampInd), 0), 90);
+    }
+    const indirimYuzde = Math.max(hizmetYuzde, kampanyaYuzde);
+    if (indirimYuzde > 0) fiyat = fiyat * (1 - indirimYuzde / 100);
 
     // Kuruş hassasiyetinde yuvarla.
     fiyat = Math.round(fiyat * 100) / 100;

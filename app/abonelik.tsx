@@ -86,6 +86,25 @@ export default function AbonelikScreen() {
     return haklar.filter(h => h.subscription_id === subId);
   }
 
+  // Abonelik iptali (eskiden profil ekranındaydı; tek yerde toplandı)
+  function abonelikIptalOnayi(ab: Subscription) {
+    Alert.alert(
+      'Aboneliği İptal Et',
+      `${ab.plans?.ad ?? 'Paket'} aboneliğin iptal edilecek. Kalan hakların kullanılamaz hale gelir. Emin misin?`,
+      [
+        { text: 'Vazgeç', style: 'cancel' },
+        {
+          text: 'İptal Et', style: 'destructive',
+          onPress: async () => {
+            const { error } = await supabase.rpc('abonelik_iptal', { p_subscription_id: ab.id });
+            if (error) Alert.alert('Hata', error.message);
+            else yukle();
+          },
+        },
+      ],
+    );
+  }
+
   function aboneOlOnayi(plan: Plan) {
     if (!session?.user) {
       Alert.alert('Giriş gerekli', 'Abone olmak için giriş yapmalısın.');
@@ -183,6 +202,12 @@ export default function AbonelikScreen() {
                         ))
                       )}
                     </View>
+                    <TouchableOpacity
+                      style={[s.iptalBtn, { borderColor: renkler.danger }]}
+                      onPress={() => abonelikIptalOnayi(ab)}
+                    >
+                      <Text style={[s.iptalBtnText, { color: renkler.danger }]}>Aboneliği İptal Et</Text>
+                    </TouchableOpacity>
                   </View>
                 );
               })}
@@ -301,6 +326,11 @@ const s = StyleSheet.create({
   hakText: { fontSize: 14, flex: 1 },
   hakAdet: { fontSize: 14, fontWeight: '700' },
   hakBos: { fontSize: 13 },
+  iptalBtn: {
+    borderWidth: 1, borderRadius: 10, padding: 12,
+    alignItems: 'center', marginTop: 14,
+  },
+  iptalBtnText: { fontSize: 14, fontWeight: '600' },
   subeKart: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
     borderWidth: 1.5, borderRadius: 12, padding: 14, marginBottom: 8,

@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import {
-  ActivityIndicator, Alert, ScrollView, StyleSheet,
+  ActivityIndicator, Alert, ScrollView, StyleSheet, Switch,
   Text, TextInput, TouchableOpacity, View,
 } from 'react-native';
 import { Link, useRouter } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '../../src/lib/supabase';
+import { KVKK_VERSIYON } from '../../src/lib/kvkk';
 import { Logo } from '../../src/components/Logo';
 import { CaptchaWidget } from '../../src/components/CaptchaWidget';
 import { PhoneInput, toE164, isValidTrPhone } from '../../src/components/PhoneInput';
@@ -21,6 +23,8 @@ export default function KayitScreen() {
   const [sifre2, setSifre2] = useState('');
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [captchaKey, setCaptchaKey] = useState(0);    // token tek kullanımlık; hatada remount
+  const [riza, setRiza] = useState(false);            // KVKK açık rıza (zorunlu)
+  const [ticari, setTicari] = useState(false);        // ticari ileti izni (ayrı, opsiyonel)
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
@@ -41,13 +45,23 @@ export default function KayitScreen() {
     if (CAPTCHA_SITE_KEY && !captchaToken) {
       Alert.alert('Doğrulama', 'CAPTCHA doğrulamasını tamamlayın'); return;
     }
+    if (!riza) {
+      Alert.alert('Onay gerekli', 'Devam etmek için KVKK Aydınlatma Metni\'ni okuyup açık rıza vermelisin.');
+      return;
+    }
 
     setLoading(true);
     const { data, error } = await supabase.auth.signUp({
       email: mail,
       password: sifre,
       options: {
-        data: { ad_soyad: ad, telefon: toE164(telefon) },  // handle_new_user trigger kullanır
+        // handle_new_user trigger kullanır: ad/telefon + kayıt rızaları (consents)
+        data: {
+          ad_soyad: ad,
+          telefon: toE164(telefon),
+          kvkk_versiyon: KVKK_VERSIYON,
+          ticari_ileti: ticari,
+        },
         ...(captchaToken ? { captchaToken } : {}),
       },
     });
@@ -122,6 +136,27 @@ export default function KayitScreen() {
         />
       ) : null}
 
+      {/* KVKK açık rıza (zorunlu) */}
+      <TouchableOpacity style={s.rizaRow} activeOpacity={0.8} onPress={() => setRiza(v => !v)}>
+        <Ionicons
+          name={riza ? 'checkbox' : 'square-outline'}
+          size={22}
+          color={riza ? '#0b7bb5' : '#94a3b8'}
+        />
+        <Text style={s.rizaText}>
+          <Text style={s.rizaLink} onPress={() => router.push('/kvkk')}>KVKK Aydınlatma Metni</Text>
+          'ni okudum; kişisel verilerimin işlenmesine açık rıza veriyorum.
+        </Text>
+      </TouchableOpacity>
+
+      {/* Ticari ileti (ayrı, opsiyonel) */}
+      <View style={s.ticariRow}>
+        <Switch value={ticari} onValueChange={setTicari} />
+        <Text style={s.ticariText}>
+          Kampanya ve fırsatlardan e-posta/SMS ile haberdar olmak istiyorum (opsiyonel).
+        </Text>
+      </View>
+
       <TouchableOpacity style={s.btn} onPress={kaydol} disabled={loading}>
         {loading
           ? <ActivityIndicator color="#fff" />
@@ -148,6 +183,11 @@ const s = StyleSheet.create({
   },
   inputError: { borderColor: '#dc2626' },
   errorText: { color: '#dc2626', fontSize: 12, marginTop: -10, marginBottom: 12 },
+  rizaRow: { flexDirection: 'row', gap: 10, alignItems: 'flex-start', marginTop: 8 },
+  rizaText: { flex: 1, fontSize: 13, lineHeight: 19, color: '#475569' },
+  rizaLink: { color: '#0b7bb5', fontWeight: '700', textDecorationLine: 'underline' },
+  ticariRow: { flexDirection: 'row', gap: 10, alignItems: 'center', marginTop: 14 },
+  ticariText: { flex: 1, fontSize: 13, lineHeight: 19, color: '#475569' },
   btn: {
     backgroundColor: '#0b7bb5', borderRadius: 10,
     padding: 16, alignItems: 'center', marginTop: 8,

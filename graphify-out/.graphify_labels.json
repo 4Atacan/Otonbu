@@ -1,1 +1,23 @@
-{"0": "Tema, Oturum & Randevu Ekranlari", "1": "Paket Bagimliliklari (npm)", "2": "Uygulama Plani (Fazlar)", "3": "Supabase Istemci & Ana Ekranlar", "4": "Kimlik Dogrulama Ekranlari", "5": "Tipler & Randevu/Paket Akisi", "6": "Edge Functions (iyzico/odeme)", "7": "Hizmet Yonetimi & Calisma Duzeni", "8": "Expo Yapilandirmasi (app.json)", "9": "Arac Katalogu & Secim", "10": "Proje Talimatlari (CLAUDE.md)", "11": "Urun Ozellikleri Dokumani", "12": "Obsidian Export Script", "13": "Ikon Uretim Script", "14": "RLS Test Script", "15": "TypeScript Yapilandirmasi", "16": "Claude Code Ayarlari", "17": "Auth Layout"}
+{
+  "0": "Community 0",
+  "1": "Paket Bagimliliklari (npm)",
+  "2": "Community 2",
+  "3": "Supabase Istemci & Ana Ekranlar",
+  "4": "Kimlik Dogrulama Ekranlari",
+  "5": "Tipler & Randevu/Paket Akisi",
+  "6": "Edge Functions (iyzico/odeme)",
+  "7": "Hizmet Yonetimi & Calisma Duzeni",
+  "8": "Expo Yapilandirmasi (app.json)",
+  "9": "Arac Katalogu & Secim",
+  "10": "Proje Talimatlari (CLAUDE.md)",
+  "11": "Urun Ozellikleri Dokumani",
+  "12": "Obsidian Export Script",
+  "13": "Community 13",
+  "16": "Community 16",
+  "18": "Community 18",
+  "19": "Community 19",
+  "20": "Community 20",
+  "21": "Community 21",
+  "25": "Community 25",
+  "26": "Community 26"
+}

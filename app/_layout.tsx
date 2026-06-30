@@ -6,6 +6,8 @@ import { initSentry } from '../src/lib/sentry';
 import { useSession } from '../src/hooks/useSession';
 import { supabase } from '../src/lib/supabase';
 import { ThemeProvider } from '../src/theme/ThemeContext';
+import { SepetProvider } from '../src/context/SepetContext';
+import { GeriLogo } from '../src/components/GeriLogo';
 import { PERSONEL_ROLLER } from '../src/types';
 
 const REMEMBER_KEY = 'otonbu_remember_me';
@@ -51,21 +53,46 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider>
-      {/* headerBackButtonDisplayMode: 'minimal' → sekme üstüne açılan ekranlarda
-          geri butonunda "(main)" gibi grup adı görünmez, sadece ok kalır */}
-      <Stack screenOptions={{ headerShown: false, headerBackButtonDisplayMode: 'minimal' }}>
+      <SepetProvider>
+      {/* Başlığı olan (itilen) ekranlarda varsayılan geri okunun yerine OTONBU
+          logolu geri butonu (headerLeft). Grup ekranlarında header kapalı olduğu
+          için yalnız itilen kart/modal ekranlarda görünür. */}
+      <Stack
+        screenOptions={{
+          headerShown: false,
+          headerBackButtonDisplayMode: 'minimal',
+          headerLeft: () => <GeriLogo />,
+        }}
+      >
         <Stack.Screen name="(auth)" />
         <Stack.Screen name="(main)" />
         <Stack.Screen name="(yonetim)" />
         {/* Hizmet detayı — sekmelerin üzerinde kart; başlık ekranın kendi
             Stack.Screen'inde ayarlanır */}
         <Stack.Screen name="hizmet-detay" />
+        {/* Ürün detayı — Mağaza ürün kartına dokununca açılır kart */}
+        <Stack.Screen name="urun-detay" />
         {/* Randevu alma akışı — sekmelerin üzerinde modal; başlık/tema
             ekranın kendi Stack.Screen'inde ayarlanır */}
         <Stack.Screen name="randevu-al" options={{ presentation: 'modal' }} />
+        {/* Teklif usulü hizmet için "iletişime geç" formu — modal */}
+        <Stack.Screen name="teklif-al" options={{ presentation: 'modal' }} />
         {/* Abonelik / paketler — sekmelerin üzerinde kart */}
         <Stack.Screen name="abonelik" />
+        {/* iyzico ödeme sayfası (WebView) — gerçek modda abonelik akışından açılır */}
+        <Stack.Screen name="odeme" options={{ presentation: 'modal' }} />
+        {/* Araçlarım / Hizmetlerim — profilden açılır, sekmelerin üzerinde kart */}
+        <Stack.Screen name="araclar" />
+        <Stack.Screen name="randevularim" />
+        {/* Yönetim: sipariş / sigorta teklifi — Panel'den açılır kartlar.
+            (Ürünler ve Kampanyalar artık (yonetim) altında sekme.) */}
+        <Stack.Screen name="siparisler" />
+        <Stack.Screen name="teklifler" />
+        <Stack.Screen name="hizmet-teklifleri" />
+        {/* KVKK aydınlatma metni — kayıt ve profilden açılır */}
+        <Stack.Screen name="kvkk" />
       </Stack>
+      </SepetProvider>
     </ThemeProvider>
   );
 }

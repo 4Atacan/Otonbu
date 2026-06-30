@@ -1,7 +1,16 @@
-export type Rol = 'musteri' | 'sube_sahibi' | 'kasa' | 'usta' | 'admin';
+// Roller:
+//   admin    — OTONBU merkez (tüm şubeler, katalog, paketler) → Admin Paneli
+//   yonetici — şube yöneticisi (şube başına ÇOKLU; tam yönetim paneli)
+//   calisan  — saha çalışanı (yalnız randevu + iş; kısıtlı panel)
+//   musteri  — son kullanıcı
+export type Rol = 'musteri' | 'yonetici' | 'calisan' | 'admin';
 
-// Bu roller yönetici paneline erişir (müşteri paneline de geçebilirler)
-export const PERSONEL_ROLLER: Rol[] = ['admin', 'sube_sahibi', 'kasa', 'usta'];
+// Bu roller yönetim/çalışan paneline erişir (müşteri paneline de geçebilirler)
+export const PERSONEL_ROLLER: Rol[] = ['admin', 'yonetici', 'calisan'];
+
+// Tam yönetim yetkisi olan roller (sipariş/sigorta/ürün/fiyat/program, randevu
+// onayı, çoklu personel atama). calisan bunlara giremez.
+export const YONETICI_ROLLER: Rol[] = ['admin', 'yonetici'];
 
 export interface UserProfile {
   id: string;
@@ -10,6 +19,7 @@ export interface UserProfile {
   telefon: string | null;  // KİŞİSEL VERİ (iletişim, opsiyonel)
   rol: Rol;
   ad_soyad: string | null; // KİŞİSEL VERİ
+  avatar_url: string | null; // KİŞİSEL VERİ (profil foto yolu — avatars bucket)
   silindi_mi: boolean;
   created_at: string;
 }
@@ -54,6 +64,9 @@ export interface ServiceSchedule {
 
 export type RandevuDurum = 'beklemede' | 'onayli' | 'iptal';
 
+// Randevu ödeme yöntemi: şubede (nakit/kart, teslimde) | online (iyzico, ileride)
+export type OdemeYontemi = 'subede' | 'online';
+
 export interface Appointment {
   id: string;
   branch_id: string;
@@ -63,15 +76,27 @@ export interface Appointment {
   slot_id: string | null;     // (eski model — artık kullanılmıyor)
   baslangic: string | null;   // randevu başlangıç zamanı (timestamptz)
   durum: RandevuDurum;
+  odeme_yontemi: OdemeYontemi;
+  odeme_alindi: boolean;        // şubede ödeme tahsil edildi mi (personel işaretler)
   created_at: string;
   // PostgREST embed'leri (select '*, users(...), vehicles(...), ...')
-  users?: { ad_soyad: string | null; telefon: string | null } | null;
+  users?: { ad_soyad: string | null; telefon: string | null; avatar_url?: string | null } | null;
   vehicles?: { plaka: string; marka: string | null; model: string | null } | null;
   services?: { ad: string; sure_dk?: number } | null;
   time_slots?: { baslangic: string } | null;
   branches?: { ad: string } | null;
   jobs?: Job[];
+  orders?: DukkanSatisOzet[];   // bu randevuya yazılan dükkan satışları (hesap)
   appointment_changes?: AppointmentChange[];
+}
+
+// İşler ekranında randevuya bağlı dükkan satışı özeti (embed)
+export interface DukkanSatisOzet {
+  id: string;
+  toplam: number;
+  kaynak: 'uygulama' | 'dukkan';
+  durum: string;
+  order_items?: { ad: string; adet: number }[];
 }
 
 export type DegisiklikTip = 'iptal' | 'saat';
@@ -135,11 +160,22 @@ export interface FiyatSonuc {
   indirim_yuzde?: number;  // 'fiyat' kampanyası uygulandıysa > 0
 }
 
+// Kampanya mekaniği: ne sunuyor (abonelikten bağımsız — yalnız pazarlama/bilgi)
+//   'duyuru' = sade banner, 'indirim' = % fiyat, 'puan' = ekstra puan, 'hediye' = yan fayda
+export type KampanyaKategori = 'duyuru' | 'indirim' | 'puan' | 'hediye';
+
 export interface Campaign {
   id: string;
   branch_id: string | null;   // null = tüm şubelerde geçerli
   baslik: string;
   aciklama: string | null;
+  tip: KampanyaKategori;
+  hizmet_id: string | null;   // bağlı hizmet (null = genel)
+  urun_id: string | null;     // bağlı ürün (null = genel); hizmet_id ile birlikte tek hedef
+  indirim_yuzde: number | null;  // tip='indirim'
+  bonus_puan: number | null;     // tip='puan'
+  hediye: string | null;         // tip='hediye' (örn. "Cam suyu hediye")
+  gorsel: string | null;         // campaign-images bucket'ındaki obje yolu
   baslangic: string | null;
   bitis: string | null;
   aktif: boolean;
@@ -162,7 +198,31 @@ export interface Service {
   sure_dk: number;             // (eski model — artık randevu/slot mantığında kullanılmıyor)
   kampanya_tip: KampanyaTip | null;
   kampanya_indirim_yuzde: number | null;  // yalnızca kampanya_tip = 'fiyat'
+  teklif_usulu: boolean;       // true = sabit fiyat yok; randevu yerine teklif talebi (service_quotes)
+  puan: number;                // bu hizmet tamamlanınca kazandırılan sadakat puanı
   aktif: boolean;
+}
+
+// Hizmet teklif talebi (teklif_usulu hizmetler için — sigorta talebiyle aynı akış).
+// durum değerleri SigortaDurum ile aynı (yeni → arandi → teklif_verildi → kapandi).
+export interface ServiceQuote {
+  id: string;
+  branch_id: string;
+  user_id: string;
+  service_id: string;
+  vehicle_id: string | null;
+  ad_soyad: string | null;   // KİŞİSEL VERİ
+  telefon: string | null;    // KİŞİSEL VERİ
+  plaka: string | null;      // KİŞİSEL VERİ
+  arac_detay: string | null;
+  musteri_not: string | null;
+  durum: SigortaDurum;
+  kvkk_riza_at: string | null;
+  ticari_ileti_izni: boolean;
+  silindi_mi: boolean;
+  created_at: string;
+  services?: { ad: string } | null;   // embed
+  branches?: { ad: string } | null;   // embed
 }
 
 // --- Faz 3: Abonelik + paket ---
@@ -219,4 +279,84 @@ export interface Vehicle {
   model: string | null;
   segment: string;       // fiyatlama Faz 2+ kararı; formdan sorulmaz
   created_at: string;
+}
+
+// --- Mağaza: şube bazlı perakende ürün + sipariş ---
+export interface Product {
+  id: string;
+  branch_id: string;
+  ad: string;
+  kategori: string | null;
+  aciklama: string | null;
+  fiyat: number;
+  stok: number;
+  min_esik: number;             // düşük stok eşiği (stok <= min_esik & >0 → uyarı)
+  gorsel: string | null;        // product-images bucket'ındaki obje yolu
+  one_cikan: boolean;           // manuel "öne çıkar" rozeti
+  satis_adedi: number;          // otomatik sayaç (çok satan sıralama)
+  puan: number;                 // bu ürün alınınca kazandırılan sadakat puanı
+  aktif: boolean;
+  silindi_mi: boolean;
+  created_at: string;
+}
+
+// Sarf / iç malzeme stoğu (müşteriye satılmaz; serviste kullanılır)
+export interface StockItem {
+  id: string;
+  branch_id: string;
+  ad: string;
+  tip: 'sarf' | 'perakende';
+  miktar: number;
+  min_esik: number;
+  birim: string | null;
+  created_at: string;
+}
+
+export type SiparisDurum = 'talep' | 'hazirlaniyor' | 'hazir' | 'teslim' | 'iptal';
+
+export interface OrderItem {
+  id: string;
+  order_id: string;
+  product_id: string | null;
+  ad: string;            // sipariş anındaki ürün adı (snapshot)
+  adet: number;
+  birim_fiyat: number;
+}
+
+export interface Order {
+  id: string;
+  branch_id: string;
+  user_id: string;
+  appointment_id: string | null;
+  durum: SiparisDurum;
+  toplam: number;
+  musteri_not: string | null;
+  silindi_mi: boolean;
+  created_at: string;
+  order_items?: OrderItem[];          // embed
+  branches?: { ad: string } | null;   // embed
+  users?: { ad_soyad: string | null; telefon: string | null } | null;  // embed
+}
+
+// --- Sigorta teklif talebi ---
+export type SigortaTip = 'trafik' | 'kasko';
+export type SigortaDurum = 'yeni' | 'arandi' | 'teklif_verildi' | 'kapandi';
+
+export interface InsuranceRequest {
+  id: string;
+  branch_id: string | null;
+  user_id: string;
+  vehicle_id: string | null;
+  tip: SigortaTip;
+  ad_soyad: string | null;   // KİŞİSEL VERİ
+  telefon: string | null;    // KİŞİSEL VERİ
+  plaka: string | null;      // KİŞİSEL VERİ
+  arac_detay: string | null;
+  musteri_not: string | null;
+  durum: SigortaDurum;
+  kvkk_riza_at: string | null;
+  ticari_ileti_izni: boolean;
+  silindi_mi: boolean;
+  created_at: string;
+  branches?: { ad: string } | null;  // embed
 }

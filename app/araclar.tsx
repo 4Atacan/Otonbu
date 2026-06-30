@@ -1,16 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   View, Text, FlatList, TouchableOpacity, TextInput,
   StyleSheet, Alert, ActivityIndicator, Modal, ScrollView,
 } from 'react-native';
-import { supabase } from '../../src/lib/supabase';
-import { Vehicle } from '../../src/types';
-import { AutocompleteInput } from '../../src/components/AutocompleteInput';
-import { Yukleniyor } from '../../src/components/Yukleniyor';
-import { useTheme } from '../../src/theme/ThemeContext';
+import { Stack } from 'expo-router';
+import { supabase } from '../src/lib/supabase';
+import { Vehicle } from '../src/types';
+import { AutocompleteInput } from '../src/components/AutocompleteInput';
+import { Yukleniyor } from '../src/components/Yukleniyor';
+import { useTheme } from '../src/theme/ThemeContext';
 import {
   ARAC_CINSLERI, MARKALAR, MARKA_ADLARI, cinsLabel, segmentLabel,
-} from '../../src/data/arac-katalogu';
+} from '../src/data/arac-katalogu';
 
 export default function AraclarScreen() {
   const { renkler } = useTheme();
@@ -23,6 +24,15 @@ export default function AraclarScreen() {
   const [marka, setMarka] = useState('');
   const [model, setModel] = useState('');
   const [kayit, setKayit] = useState(false);
+
+  const headerOpts = useMemo(() => ({
+    title: 'Araçlarım',
+    headerShown: true,
+    headerStyle: { backgroundColor: renkler.card },
+    headerTitleStyle: { color: renkler.text },
+    headerTintColor: renkler.primary,
+    headerShadowVisible: false,
+  }), [renkler]);
 
   useEffect(() => { yukle(); }, []);
 
@@ -128,44 +138,47 @@ export default function AraclarScreen() {
   // Seçilen markanın model listesi; katalog dışı marka yazıldıysa boş
   const modelListesi = MARKALAR[marka.trim()] ?? [];
 
-  if (loading) return <Yukleniyor />;
-
   return (
     <View style={[s.container, { backgroundColor: renkler.bg }]}>
-      <FlatList
-        data={araclar}
-        keyExtractor={a => a.id}
-        ListEmptyComponent={
-          <Text style={[s.bos, { color: renkler.subtext }]}>Henüz araç eklenmedi.</Text>
-        }
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            style={[s.kart, { backgroundColor: renkler.card }]}
-            onPress={() => aracAc(item)}
-          >
-            <View style={s.kartUst}>
-              <Text style={[s.plaka, { color: renkler.text }]}>{item.plaka}</Text>
-              {item.arac_cinsi && (
-                <View style={[s.rozet, { backgroundColor: renkler.rozetBg }]}>
-                  <Text style={[s.rozetText, { color: renkler.primary }]}>
-                    {cinsLabel(item.arac_cinsi)}
-                  </Text>
+      <Stack.Screen options={headerOpts} />
+      {loading ? <Yukleniyor /> : (
+        <>
+          <FlatList
+            data={araclar}
+            keyExtractor={a => a.id}
+            ListEmptyComponent={
+              <Text style={[s.bos, { color: renkler.subtext }]}>Henüz araç eklenmedi.</Text>
+            }
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                style={[s.kart, { backgroundColor: renkler.card }]}
+                onPress={() => aracAc(item)}
+              >
+                <View style={s.kartUst}>
+                  <Text style={[s.plaka, { color: renkler.text }]}>{item.plaka}</Text>
+                  {item.arac_cinsi && (
+                    <View style={[s.rozet, { backgroundColor: renkler.rozetBg }]}>
+                      <Text style={[s.rozetText, { color: renkler.primary }]}>
+                        {cinsLabel(item.arac_cinsi)}
+                      </Text>
+                    </View>
+                  )}
                 </View>
-              )}
-            </View>
-            <Text style={[s.alt, { color: renkler.subtext }]}>
-              {[item.marka, item.model].filter(Boolean).join(' ') || '—'}
-              {item.segment ? `  ·  ${segmentLabel(item.segment)} fiyat` : ''}
-            </Text>
+                <Text style={[s.alt, { color: renkler.subtext }]}>
+                  {[item.marka, item.model].filter(Boolean).join(' ') || '—'}
+                  {item.segment ? `  ·  ${segmentLabel(item.segment)} fiyat` : ''}
+                </Text>
+              </TouchableOpacity>
+            )}
+          />
+          <TouchableOpacity
+            style={[s.ekleBtn, { backgroundColor: renkler.primary }]}
+            onPress={yeniArac}
+          >
+            <Text style={[s.ekleBtnText, { color: renkler.primaryText }]}>+ Araç Ekle</Text>
           </TouchableOpacity>
-        )}
-      />
-      <TouchableOpacity
-        style={[s.ekleBtn, { backgroundColor: renkler.primary }]}
-        onPress={yeniArac}
-      >
-        <Text style={[s.ekleBtnText, { color: renkler.primaryText }]}>+ Araç Ekle</Text>
-      </TouchableOpacity>
+        </>
+      )}
 
       <Modal visible={modalAcik} animationType="slide" presentationStyle="pageSheet">
         <ScrollView

@@ -2,7 +2,7 @@ import { Tabs } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../src/theme/ThemeContext';
-import { UstBosluk } from '../../src/components/UstBosluk';
+import { UstNavbar } from '../../src/components/UstNavbar';
 
 export default function MainLayout() {
   const { tema, renkler } = useTheme();
@@ -12,8 +12,8 @@ export default function MainLayout() {
       <StatusBar style={tema === 'koyu' ? 'light' : 'dark'} />
       <Tabs
         screenOptions={{
-          // Başlık barı yok — yalnızca durum çubuğu kadar bg şeridi (UstBosluk)
-          header: () => <UstBosluk />,
+          // Sabit üst navbar (logo + bildirim + profil) — içerik altından kayar.
+          header: () => <UstNavbar />,
           tabBarActiveTintColor: renkler.primary,
           tabBarInactiveTintColor: renkler.subtext,
           tabBarStyle: { backgroundColor: renkler.card, borderTopColor: renkler.border },
@@ -27,22 +27,42 @@ export default function MainLayout() {
           }}
         />
         <Tabs.Screen
-          name="araclar"
+          name="magaza"
           options={{
-            title: 'Araçlarım',
-            tabBarIcon: ({ color, size }) => <Ionicons name="car" size={size} color={color} />,
+            title: 'Mağaza',
+            tabBarIcon: ({ color, size }) => <Ionicons name="bag-handle" size={size} color={color} />,
           }}
         />
         <Tabs.Screen
-          name="randevularim"
+          name="hizmetler"
           options={{
-            title: 'Randevularım',
-            tabBarIcon: ({ color, size }) => <Ionicons name="calendar" size={size} color={color} />,
+            title: 'Hizmetler',
+            tabBarIcon: ({ color, size }) => <Ionicons name="car-sport" size={size} color={color} />,
           }}
         />
+        <Tabs.Screen
+          name="kampanyalar"
+          options={{
+            title: 'Kampanyalar',
+            tabBarIcon: ({ color, size }) => <Ionicons name="pricetags" size={size} color={color} />,
+          }}
+        />
+        {/* Sigorta navbardan kaldırıldı — ana sayfadaki "Sigorta" hızlı işleminden
+            açılır. Rota korunur (href: null). */}
+        <Tabs.Screen
+          name="sigorta"
+          options={{
+            href: null,
+            title: 'Sigorta',
+            tabBarIcon: ({ color, size }) => <Ionicons name="shield-checkmark" size={size} color={color} />,
+          }}
+        />
+        {/* Profil alt navbardan kaldırıldı — ana sayfada üst sağdaki profil
+            ikonundan açılır (Starbucks düzeni). Rota korunur (href: null). */}
         <Tabs.Screen
           name="profil"
           options={{
+            href: null,
             title: 'Profil',
             tabBarIcon: ({ color, size }) => <Ionicons name="person" size={size} color={color} />,
           }}
