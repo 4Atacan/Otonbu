@@ -60,8 +60,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\_layout.tsx": {
-    "mtime": 1782822786.2463148,
-    "ast_hash": "c148347edf9733a3542725455fd687ff",
+    "mtime": 1782825768.3450215,
+    "ast_hash": "d3e105b992f37b2bfc58e7dfc8556947",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\package.json": {
@@ -105,8 +105,8 @@
     "semantic_hash": "aaffdc77f03ce776dcaae930edf3f454"
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\types\\index.ts": {
-    "mtime": 1782821896.7842343,
-    "ast_hash": "9bb1ae8cbcaf8be5788d2e27670e82b8",
+    "mtime": 1782825752.2688193,
+    "ast_hash": "aa3c31181508ce19caee7ba9a4f51403",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\functions\\_shared\\sentry.ts": {
@@ -140,7 +140,7 @@
     "semantic_hash": "927c34c923bc509e235ccb37874acc02"
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\graphify-out\\converted\\OTONBU_Uygulama_Ozellikleri_9e87f775.md": {
-    "mtime": 1782823437.1182067,
+    "mtime": 1782826306.4599729,
     "ast_hash": "f7b8e32b29a1ec6303d2e1127139fd4b",
     "semantic_hash": "f7b8e32b29a1ec6303d2e1127139fd4b"
   },
@@ -230,8 +230,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(yonetim)\\index.tsx": {
-    "mtime": 1782811650.8739347,
-    "ast_hash": "3d63790013a75ecc98ea9053ccd5592e",
+    "mtime": 1782825788.123804,
+    "ast_hash": "b9f9547e52404dbc1ca9bfa535f9ebb0",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(yonetim)\\profil.tsx": {
@@ -330,8 +330,8 @@
     "semantic_hash": "c39a91de43245abdc8ea1655f8e94962"
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\components\\IslerListesi.tsx": {
-    "mtime": 1782822078.048796,
-    "ast_hash": "bbbc8cc270131da3af6b5a783ab7c9f8",
+    "mtime": 1782826052.0366879,
+    "ast_hash": "a0a3465c42f6beccfd0d89f60c429d58",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\migrations\\20260620000002_gunluk_mod.sql": {
@@ -594,11 +594,6 @@
     "ast_hash": "9b2cadea695bfb887445043aebece7be",
     "semantic_hash": ""
   },
-  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\stok.tsx": {
-    "mtime": 1782731486.886487,
-    "ast_hash": "a59a38d52af5b664e4b13fa8dc8f12e3",
-    "semantic_hash": ""
-  },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\migrations\\20260629000004_faz4_stok.sql": {
     "mtime": 1782731351.6560805,
     "ast_hash": "db69296a8a8fbe065273a67b86cf9612",
@@ -702,6 +697,21 @@
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\context\\SepetContext.tsx": {
     "mtime": 1782822760.2277365,
     "ast_hash": "aee4e98974ac7a5a0eefbd64fd52181f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\components\\SatisModal.tsx": {
+    "mtime": 1782825928.3926086,
+    "ast_hash": "fa499ed140c4fe4c53613fddca411aa9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\migrations\\20260630000004_dukkanda_satis.sql": {
+    "mtime": 1782825736.444221,
+    "ast_hash": "7f72e7c37033c1fba52f152ccdaf345c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\tests\\rls_dukkan_satis.test.sql": {
+    "mtime": 1782826280.41032,
+    "ast_hash": "bd8179beadf955e3f2e17251ea710bfa",
     "semantic_hash": ""
   }
 }

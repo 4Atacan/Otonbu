@@ -1,3 +1,4 @@
+import { uyari } from '../../src/lib/uyari';
 import { useState } from 'react';
 import {
   Alert, ActivityIndicator, ScrollView, StyleSheet, Switch,
@@ -9,6 +10,7 @@ import { supabase } from '../../src/lib/supabase';
 import { Logo } from '../../src/components/Logo';
 import { CaptchaWidget } from '../../src/components/CaptchaWidget';
 import { toE164, isValidTrPhone } from '../../src/components/PhoneInput';
+import { KlavyeKapsa } from '../../src/components/KlavyeKapsa';
 
 const CAPTCHA_SITE_KEY = process.env.EXPO_PUBLIC_HCAPTCHA_SITE_KEY;
 const REMEMBER_KEY = 'otonbu_remember_me';
@@ -30,9 +32,9 @@ export default function GirisScreen() {
 
   async function girisYap() {
     const k = kimlik.trim();
-    if (!k || !sifre) { Alert.alert('Hata', 'E-posta/telefon ve şifre gerekli'); return; }
+    if (!k || !sifre) { uyari('Hata', 'E-posta/telefon ve şifre gerekli'); return; }
     if (CAPTCHA_SITE_KEY && !captchaToken) {
-      Alert.alert('Doğrulama', 'CAPTCHA doğrulamasını tamamlayın'); return;
+      uyari('Doğrulama', 'CAPTCHA doğrulamasını tamamlayın'); return;
     }
 
     let email: string;
@@ -42,7 +44,7 @@ export default function GirisScreen() {
       // Telefon olarak yorumla: sadece rakamları al, 10 hane Türkiye numarası bekle
       const digits = k.replace(/\D/g, '').replace(/^90/, '');
       if (!isValidTrPhone(digits)) {
-        Alert.alert('Hata', 'Geçerli bir e-posta veya 10 haneli telefon girin');
+        uyari('Hata', 'Geçerli bir e-posta veya 10 haneli telefon girin');
         return;
       }
       const tel = toE164(digits);
@@ -50,7 +52,7 @@ export default function GirisScreen() {
       const { data, error } = await supabase.rpc('telefon_to_email', { t: tel });
       if (error || !data) {
         setLoading(false);
-        Alert.alert('Hata', 'Bu telefonla kayıt bulunamadı');
+        uyari('Hata', 'Bu telefonla kayıt bulunamadı');
         return;
       }
       email = data;
@@ -66,7 +68,7 @@ export default function GirisScreen() {
 
     if (error) {
       captchaSifirla();
-      Alert.alert('Giriş başarısız', error.message);
+      uyari('Giriş başarısız', error.message);
       return;
     }
 
@@ -75,6 +77,7 @@ export default function GirisScreen() {
   }
 
   return (
+    <KlavyeKapsa>
     <ScrollView contentContainerStyle={s.container} keyboardShouldPersistTaps="handled">
       <View style={s.markaKutu}><Logo width={230} sabitAcik /></View>
 
@@ -130,6 +133,7 @@ export default function GirisScreen() {
         </TouchableOpacity>
       </Link>
     </ScrollView>
+    </KlavyeKapsa>
   );
 }
 

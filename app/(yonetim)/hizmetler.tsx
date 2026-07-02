@@ -1,3 +1,5 @@
+import { uyari } from '../../src/lib/uyari';
+import { UyariKatmani } from '../../src/components/UyariProvider';
 import { useCallback, useState } from 'react';
 import {
   ActivityIndicator, Alert, FlatList, Image, Modal, ScrollView,
@@ -12,6 +14,7 @@ import { useTheme } from '../../src/theme/ThemeContext';
 import { BranchPrice, CalismaPenceresi, KampanyaTip, ProgramMod, Service } from '../../src/types';
 import { fiyatMetni, gorselUrl, SERVICE_BUCKET } from '../../src/lib/hizmet';
 import { Etiket, Bilgi } from '../../src/components/Bilgi';
+import { KlavyeKapsa } from '../../src/components/KlavyeKapsa';
 import { Yukleniyor } from '../../src/components/Yukleniyor';
 import {
   GUNLER, TUM_GUNLER, VARSAYILAN_PENCERELER, saatGecerli, saatDk,
@@ -56,6 +59,7 @@ export default function HizmetlerScreen() {
   const [gorselYukleniyor, setGorselYukleniyor] = useState(false);
   const [teklifUsulu, setTeklifUsulu] = useState(false);  // sabit fiyat yok → teklif talebi
   const [puan, setPuan] = useState('');                   // tamamlanınca kazandıracağı puan
+  const [puanBedeli, setPuanBedeli] = useState('');       // kaç puana alınabilir (0 = alınamaz)
   const [aktif, setAktif] = useState(true);
   const [kayit, setKayit] = useState(false);
 
@@ -83,7 +87,7 @@ export default function HizmetlerScreen() {
       .select('*')
       .order('kategori')
       .order('ad');
-    if (error) Alert.alert('Hata', error.message);
+    if (error) uyari('Hata', error.message);
     else setHizmetler(data ?? []);
 
     // Şube sahibi: kendi şube fiyatlarını da getir (birleşik editör için)
@@ -103,7 +107,7 @@ export default function HizmetlerScreen() {
     setDuzenlenen(null);
     setAd(''); setKategori(''); setFiyatKucuk(''); setFiyatBuyuk('');
     setAciklama(''); setKampanyaTip(null); setIndirim('');
-    setGorsel(null); setTeklifUsulu(false); setPuan(''); setAktif(true);
+    setGorsel(null); setTeklifUsulu(false); setPuan(''); setPuanBedeli(''); setAktif(true);
   }
 
   function yeni() {
@@ -125,6 +129,7 @@ export default function HizmetlerScreen() {
     setGorsel(item.gorsel ?? null);
     setTeklifUsulu(item.teklif_usulu ?? false);
     setPuan(String(item.puan ?? 0));
+    setPuanBedeli(String(item.puan_bedeli ?? 0));
     setAktif(item.aktif);
     setModalAcik(true);
   }
@@ -132,7 +137,7 @@ export default function HizmetlerScreen() {
   // --- Şube sahibi: hizmet bazlı fiyat + randevu programı (tek modal) ---
   async function programAc(item: Service) {
     if (!profile?.branch_id) {
-      Alert.alert('Şube yok', 'Ayar için hesabına bağlı bir şube gerekli.');
+      uyari('Şube yok', 'Ayar için hesabına bağlı bir şube gerekli.');
       return;
     }
     setProgramHizmet(item);
@@ -196,32 +201,32 @@ export default function HizmetlerScreen() {
     let ar = 40;
     let gs = 1;
     if (mod === 'saatli') {
-      if (pencereler.length === 0) { Alert.alert('Hata', 'En az bir saat aralığı ekle'); return; }
+      if (pencereler.length === 0) { uyari('Hata', 'En az bir saat aralığı ekle'); return; }
       for (const w of pencereler) {
         if (!saatGecerli(w.bas) || !saatGecerli(w.son)) {
-          Alert.alert('Hata', 'Saatleri SS:DD biçiminde gir (örn. 09:00)'); return;
+          uyari('Hata', 'Saatleri SS:DD biçiminde gir (örn. 09:00)'); return;
         }
         if (saatDk(w.bas) >= saatDk(w.son)) {
-          Alert.alert('Hata', `Bitiş saati başlangıçtan sonra olmalı (${w.bas}–${w.son})`); return;
+          uyari('Hata', `Bitiş saati başlangıçtan sonra olmalı (${w.bas}–${w.son})`); return;
         }
       }
       ar = parseInt(aralik, 10);
-      if (!Number.isFinite(ar) || ar < 5 || ar > 600) { Alert.alert('Hata', 'Aralık 5–600 dk olmalı'); return; }
+      if (!Number.isFinite(ar) || ar < 5 || ar > 600) { uyari('Hata', 'Aralık 5–600 dk olmalı'); return; }
       windows = pencereler;
     } else {
       // günlük: tek bırakma saati, windows[0]'a yazılır
       if (!saatGecerli(brakmaSaati)) {
-        Alert.alert('Hata', 'Bırakma saatini SS:DD biçiminde gir (örn. 09:00)'); return;
+        uyari('Hata', 'Bırakma saatini SS:DD biçiminde gir (örn. 09:00)'); return;
       }
       gs = parseInt(gunSayisi, 10);
       if (!Number.isFinite(gs) || gs < 1 || gs > 30) {
-        Alert.alert('Hata', 'İşin süresi 1–30 gün arası olmalı'); return;
+        uyari('Hata', 'İşin süresi 1–30 gün arası olmalı'); return;
       }
       windows = [{ bas: brakmaSaati, son: brakmaSaati }];
     }
     const kap = parseInt(kapasite, 10);
-    if (!Number.isFinite(kap) || kap < 1 || kap > 50) { Alert.alert('Hata', 'Kapasite 1–50 olmalı'); return; }
-    if (gunler.length === 0) { Alert.alert('Hata', 'En az bir gün seç'); return; }
+    if (!Number.isFinite(kap) || kap < 1 || kap > 50) { uyari('Hata', 'Kapasite 1–50 olmalı'); return; }
+    if (gunler.length === 0) { uyari('Hata', 'En az bir gün seç'); return; }
 
     // --- 2) Şube fiyatları doğrula (banda göre) → eklenecek/silinecek ---
     const eklenecek: Array<Pick<BranchPrice, 'branch_id' | 'service_id' | 'segment' | 'fiyat'>> = [];
@@ -235,11 +240,11 @@ export default function HizmetlerScreen() {
       }
       const f = parseFloat(ham.replace(',', '.'));
       if (!Number.isFinite(f) || f <= 0) {
-        Alert.alert('Hata', `${seg.label} için geçerli bir fiyat girin`); return;
+        uyari('Hata', `${seg.label} için geçerli bir fiyat girin`); return;
       }
       const { alt, ust, taban } = fiyatBandi(programHizmet, seg.value);
       if (f < alt || f > ust) {
-        Alert.alert('Banda uymuyor',
+        uyari('Banda uymuyor',
           `${seg.label} fiyatı ${tl(alt)} – ${tl(ust)} aralığında olmalı ` +
           `(marka tabanı ${tl(taban)} ± %${Math.round(programHizmet.oynama_orani * 100)}).`);
         return;
@@ -260,16 +265,16 @@ export default function HizmetlerScreen() {
       gunler: gunler.length === 7 ? null : gunler,   // hepsi = her gün
       updated_at: new Date().toISOString(),
     }, { onConflict: 'branch_id,service_id' });
-    if (pErr) { setProgramKayit(false); Alert.alert('Hata', pErr.message); return; }
+    if (pErr) { setProgramKayit(false); uyari('Hata', pErr.message); return; }
 
     if (eklenecek.length) {
       const { error } = await supabase.from('branch_prices')
         .upsert(eklenecek, { onConflict: 'branch_id,service_id,segment' });
-      if (error) { setProgramKayit(false); Alert.alert('Hata', error.message); return; }
+      if (error) { setProgramKayit(false); uyari('Hata', error.message); return; }
     }
     if (silinecek.length) {
       const { error } = await supabase.from('branch_prices').delete().in('id', silinecek);
-      if (error) { setProgramKayit(false); Alert.alert('Hata', error.message); return; }
+      if (error) { setProgramKayit(false); uyari('Hata', error.message); return; }
     }
     setProgramKayit(false);
     setProgramHizmet(null);
@@ -281,7 +286,7 @@ export default function HizmetlerScreen() {
     try {
       const izin = await ImagePicker.requestMediaLibraryPermissionsAsync();
       if (!izin.granted) {
-        Alert.alert('İzin gerekli', 'Görsel seçmek için galeri erişimi gerekli.');
+        uyari('İzin gerekli', 'Görsel seçmek için galeri erişimi gerekli.');
         return;
       }
       const sonuc = await ImagePicker.launchImageLibraryAsync({
@@ -300,31 +305,31 @@ export default function HizmetlerScreen() {
       const { error } = await supabase.storage
         .from(SERVICE_BUCKET).upload(yol, buf, { contentType: mime, upsert: false });
       setGorselYukleniyor(false);
-      if (error) { Alert.alert('Yüklenemedi', error.message); return; }
+      if (error) { uyari('Yüklenemedi', error.message); return; }
       setGorsel(yol);
     } catch (e: any) {
       setGorselYukleniyor(false);
-      Alert.alert('Hata', e?.message ?? 'Görsel yüklenemedi');
+      uyari('Hata', e?.message ?? 'Görsel yüklenemedi');
     }
   }
 
   async function kaydet() {
     const fk = parseFloat(fiyatKucuk.replace(',', '.'));
     const fb = parseFloat(fiyatBuyuk.replace(',', '.'));
-    if (!ad.trim()) { Alert.alert('Hata', 'Hizmet adı zorunlu'); return; }
-    if (!kategori.trim()) { Alert.alert('Hata', 'Kategori zorunlu'); return; }
+    if (!ad.trim()) { uyari('Hata', 'Hizmet adı zorunlu'); return; }
+    if (!kategori.trim()) { uyari('Hata', 'Kategori zorunlu'); return; }
     // Teklif usulü hizmette sabit fiyat yok → fiyat doğrulamasını atla.
     if (!teklifUsulu) {
-      if (!Number.isFinite(fk) || fk <= 0) { Alert.alert('Hata', 'Küçük araç için geçerli bir fiyat girin'); return; }
-      if (!Number.isFinite(fb) || fb <= 0) { Alert.alert('Hata', 'Büyük araç için geçerli bir fiyat girin'); return; }
-      if (fb < fk) { Alert.alert('Hata', 'Büyük araç fiyatı küçükten az olamaz'); return; }
+      if (!Number.isFinite(fk) || fk <= 0) { uyari('Hata', 'Küçük araç için geçerli bir fiyat girin'); return; }
+      if (!Number.isFinite(fb) || fb <= 0) { uyari('Hata', 'Büyük araç için geçerli bir fiyat girin'); return; }
+      if (fb < fk) { uyari('Hata', 'Büyük araç fiyatı küçükten az olamaz'); return; }
     }
 
     let indirimYuzde: number | null = null;
     if (kampanyaTip === 'fiyat') {
       indirimYuzde = parseInt(indirim, 10);
       if (!Number.isFinite(indirimYuzde) || indirimYuzde < 1 || indirimYuzde > 90) {
-        Alert.alert('Hata', 'Fiyat kampanyası için %1–90 arası bir indirim girin');
+        uyari('Hata', 'Fiyat kampanyası için %1–90 arası bir indirim girin');
         return;
       }
     }
@@ -340,6 +345,7 @@ export default function HizmetlerScreen() {
       gorsel,
       teklif_usulu: teklifUsulu,
       puan: parseInt(puan || '0', 10) || 0,
+      puan_bedeli: parseInt(puanBedeli || '0', 10) || 0,
       aktif,
     };
 
@@ -349,7 +355,7 @@ export default function HizmetlerScreen() {
       : await supabase.from('services').insert(veri);
     setKayit(false);
 
-    if (error) { Alert.alert('Hata', error.message); return; }
+    if (error) { uyari('Hata', error.message); return; }
     setModalAcik(false);
     formuSifirla();
     yukle();
@@ -415,6 +421,7 @@ export default function HizmetlerScreen() {
       )}
 
       <Modal visible={modalAcik} animationType="slide" presentationStyle="pageSheet">
+        <KlavyeKapsa style={{ backgroundColor: renkler.card }}>
         <ScrollView
           style={{ backgroundColor: renkler.card }}
           contentContainerStyle={s.modal}
@@ -564,6 +571,18 @@ export default function HizmetlerScreen() {
             Müşteri bu hizmeti yaptırınca (abonelikle bile) kazandığı sadakat puanı. 0 = puan yok.
           </Text>
 
+          <Text style={[s.label, { color: renkler.subtext }]}>Puanla Alım Bedeli</Text>
+          <TextInput
+            style={[s.input, { borderColor: renkler.border, backgroundColor: renkler.input, color: renkler.text }]}
+            placeholder="0"
+            placeholderTextColor={renkler.subtext}
+            keyboardType="number-pad"
+            value={puanBedeli} onChangeText={setPuanBedeli}
+          />
+          <Text style={[s.ipucu, { color: renkler.subtext }]}>
+            Bu hizmet Puan Mağazası'nda kaç puana alınır. 0 = puanla alınamaz.
+          </Text>
+
           <View style={s.switchRow}>
             <Switch value={aktif} onValueChange={setAktif} />
             <Text style={[s.switchText, { color: renkler.text }]}>
@@ -587,10 +606,13 @@ export default function HizmetlerScreen() {
             <Text style={[s.iptalText, { color: renkler.subtext }]}>Vazgeç</Text>
           </TouchableOpacity>
         </ScrollView>
+        </KlavyeKapsa>
+        <UyariKatmani />
       </Modal>
 
       {/* Şube sahibi: hizmet bazlı FİYAT + randevu programı (tek modal) */}
       <Modal visible={!!programHizmet} animationType="slide" presentationStyle="pageSheet">
+        <KlavyeKapsa style={{ backgroundColor: renkler.card }}>
         <ScrollView
           style={{ backgroundColor: renkler.card }}
           contentContainerStyle={s.modal}
@@ -784,6 +806,8 @@ export default function HizmetlerScreen() {
             <Text style={[s.iptalText, { color: renkler.subtext }]}>Vazgeç</Text>
           </TouchableOpacity>
         </ScrollView>
+        </KlavyeKapsa>
+        <UyariKatmani />
       </Modal>
     </View>
   );

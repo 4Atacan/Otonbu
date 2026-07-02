@@ -1,3 +1,5 @@
+import { uyari } from '../../src/lib/uyari';
+import { UyariKatmani } from '../../src/components/UyariProvider';
 import { useCallback, useState } from 'react';
 import {
   ActivityIndicator, Alert, FlatList, Image, Modal, ScrollView,
@@ -11,6 +13,7 @@ import { useSession } from '../../src/hooks/useSession';
 import { useTheme } from '../../src/theme/ThemeContext';
 import { Campaign, KampanyaKategori } from '../../src/types';
 import { CAMPAIGN_BUCKET, kampanyaGorselUrl, kampanyaRozet } from '../../src/lib/kampanya';
+import { KlavyeKapsa } from '../../src/components/KlavyeKapsa';
 import { Yukleniyor } from '../../src/components/Yukleniyor';
 
 // Kampanya tip seçenekleri (admin formundaki buton grubu)
@@ -58,7 +61,7 @@ export default function KampanyalarYonetimScreen() {
       supabase.from('services').select('id, ad').eq('aktif', true).order('ad'),
       supabase.from('products').select('id, ad').eq('silindi_mi', false).order('ad'),
     ]);
-    if (error) Alert.alert('Hata', error.message);
+    if (error) uyari('Hata', error.message);
     else setKampanyalar((kdata as Campaign[]) ?? []);
     setHizmetler((hdata as { id: string; ad: string }[]) ?? []);
     setUrunlerListe((udata as { id: string; ad: string }[]) ?? []);
@@ -97,7 +100,7 @@ export default function KampanyalarYonetimScreen() {
     try {
       const izin = await ImagePicker.requestMediaLibraryPermissionsAsync();
       if (!izin.granted) {
-        Alert.alert('İzin gerekli', 'Görsel seçmek için galeri erişimi gerekli.');
+        uyari('İzin gerekli', 'Görsel seçmek için galeri erişimi gerekli.');
         return;
       }
       const sonuc = await ImagePicker.launchImageLibraryAsync({
@@ -116,11 +119,11 @@ export default function KampanyalarYonetimScreen() {
       const { error } = await supabase.storage
         .from(CAMPAIGN_BUCKET).upload(yol, buf, { contentType: mime, upsert: false });
       setGorselYukleniyor(false);
-      if (error) { Alert.alert('Yüklenemedi', error.message); return; }
+      if (error) { uyari('Yüklenemedi', error.message); return; }
       setGorsel(yol);
     } catch (e: any) {
       setGorselYukleniyor(false);
-      Alert.alert('Hata', e?.message ?? 'Görsel yüklenemedi');
+      uyari('Hata', e?.message ?? 'Görsel yüklenemedi');
     }
   }
 
@@ -131,7 +134,7 @@ export default function KampanyalarYonetimScreen() {
   }
 
   async function kaydet() {
-    if (!baslik.trim()) { Alert.alert('Hata', 'Başlık zorunlu'); return; }
+    if (!baslik.trim()) { uyari('Hata', 'Başlık zorunlu'); return; }
 
     // Hedefi (hizmet/ürün) hedef seçimine göre çöz — biri seçiliyse diğeri null.
     const kHizmet = hedef === 'hizmet' ? hizmetId : null;
@@ -144,24 +147,24 @@ export default function KampanyalarYonetimScreen() {
     if (tip === 'indirim') {
       indirimYuzde = parseInt(indirim, 10);
       if (!Number.isFinite(indirimYuzde) || indirimYuzde < 1 || indirimYuzde > 90) {
-        Alert.alert('Hata', 'İndirim için %1–90 arası bir değer girin'); return;
+        uyari('Hata', 'İndirim için %1–90 arası bir değer girin'); return;
       }
       // İndirim sunucuda yalnız hedefe (hizmet/ürün) uygulanır → hedef zorunlu.
       if (!kHizmet && !kUrun) {
-        Alert.alert('Hata', 'İndirim kampanyası bir hizmete veya ürüne bağlanmalı'); return;
+        uyari('Hata', 'İndirim kampanyası bir hizmete veya ürüne bağlanmalı'); return;
       }
     } else if (tip === 'puan') {
       bonus = parseInt(bonusPuan, 10);
       if (!Number.isFinite(bonus) || bonus <= 0) {
-        Alert.alert('Hata', 'Puan için 0\'dan büyük bir değer girin'); return;
+        uyari('Hata', 'Puan için 0\'dan büyük bir değer girin'); return;
       }
     } else if (tip === 'hediye') {
       hed = hediye.trim();
-      if (!hed) { Alert.alert('Hata', 'Hediye açıklaması girin (örn. "Cam suyu hediye")'); return; }
+      if (!hed) { uyari('Hata', 'Hediye açıklaması girin (örn. "Cam suyu hediye")'); return; }
     }
 
     if (!tarihGecerli(baslangic) || !tarihGecerli(bitis)) {
-      Alert.alert('Hata', 'Tarihleri YYYY-AA-GG biçiminde girin (örn. 2026-07-01)'); return;
+      uyari('Hata', 'Tarihleri YYYY-AA-GG biçiminde girin (örn. 2026-07-01)'); return;
     }
 
     const veri = {
@@ -185,20 +188,20 @@ export default function KampanyalarYonetimScreen() {
       : await supabase.from('campaigns').insert(veri);
     setKayit(false);
 
-    if (error) { Alert.alert('Hata', error.message); return; }
+    if (error) { uyari('Hata', error.message); return; }
     setModalAcik(false);
     formuSifirla();
     yukle();
   }
 
   function sil(k: Campaign) {
-    Alert.alert('Kampanyayı sil', `"${k.baslik}" silinsin mi?`, [
+    uyari('Kampanyayı sil', `"${k.baslik}" silinsin mi?`, [
       { text: 'Vazgeç', style: 'cancel' },
       {
         text: 'Sil', style: 'destructive',
         onPress: async () => {
           const { error } = await supabase.from('campaigns').delete().eq('id', k.id);
-          if (error) Alert.alert('Hata', error.message);
+          if (error) uyari('Hata', error.message);
           else yukle();
         },
       },
@@ -269,6 +272,7 @@ export default function KampanyalarYonetimScreen() {
       </TouchableOpacity>
 
       <Modal visible={modalAcik} animationType="slide" presentationStyle="pageSheet">
+        <KlavyeKapsa style={{ backgroundColor: renkler.card }}>
         <ScrollView
           style={{ backgroundColor: renkler.card }}
           contentContainerStyle={s.modal}
@@ -507,6 +511,8 @@ export default function KampanyalarYonetimScreen() {
             <Text style={[s.iptalText, { color: renkler.subtext }]}>Vazgeç</Text>
           </TouchableOpacity>
         </ScrollView>
+        </KlavyeKapsa>
+        <UyariKatmani />
       </Modal>
     </View>
   );

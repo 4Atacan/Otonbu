@@ -1,3 +1,5 @@
+import { uyari } from '../src/lib/uyari';
+import { UyariKatmani } from '../src/components/UyariProvider';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator, Alert, ScrollView, StyleSheet,
@@ -10,6 +12,7 @@ import { useSession } from '../src/hooks/useSession';
 import { useTheme } from '../src/theme/ThemeContext';
 import { Branch, Vehicle } from '../src/types';
 import { cinsLabel } from '../src/data/arac-katalogu';
+import { KlavyeKapsa } from '../src/components/KlavyeKapsa';
 
 // teklif_usulu hizmetler için "iletişime geç" formu. Müşteri bilgilerini
 // bırakır, service_quotes'a düşer, şube telefonla döner. (Sigorta akışıyla aynı.)
@@ -70,15 +73,15 @@ export default function TeklifAlScreen() {
   async function gonder() {
     if (!session?.user) return;
     if (!subeId) {
-      Alert.alert('Şube seç', 'Teklifi hangi şubeden almak istediğini seç.');
+      uyari('Şube seç', 'Teklifi hangi şubeden almak istediğini seç.');
       return;
     }
     if (!riza) {
-      Alert.alert('Onay gerekli', 'Devam etmek için kişisel verilerinin işlenmesine açık rıza vermelisin.');
+      uyari('Onay gerekli', 'Devam etmek için kişisel verilerinin işlenmesine açık rıza vermelisin.');
       return;
     }
     if (!adSoyad.trim() || !telefon.trim()) {
-      Alert.alert('Eksik bilgi', 'Ad soyad ve telefon zorunludur (sana dönebilmemiz için).');
+      uyari('Eksik bilgi', 'Ad soyad ve telefon zorunludur (sana dönebilmemiz için).');
       return;
     }
     const aracDetayMetni = secilenArac
@@ -101,9 +104,9 @@ export default function TeklifAlScreen() {
       ticari_ileti_izni: ticari,
     });
     setGonderiliyor(false);
-    if (error) { Alert.alert('Gönderilemedi', error.message); return; }
+    if (error) { uyari('Gönderilemedi', error.message); return; }
 
-    Alert.alert(
+    uyari(
       'Teklif talebin alındı',
       'En kısa sürede sana dönüp bu hizmet için uygun fiyat teklifini ileteceğiz.',
       [{ text: 'Tamam', onPress: () => router.back() }],
@@ -113,7 +116,8 @@ export default function TeklifAlScreen() {
   return (
     <>
       <Stack.Screen options={headerOpts} />
-      <ScrollView style={{ backgroundColor: renkler.bg }} contentContainerStyle={s.container}>
+      <KlavyeKapsa style={{ backgroundColor: renkler.bg }}>
+      <ScrollView style={{ backgroundColor: renkler.bg }} contentContainerStyle={s.container} keyboardShouldPersistTaps="handled">
         <View style={[s.ustKart, { backgroundColor: renkler.card }]}>
           <Ionicons name="chatbubble-ellipses" size={28} color={renkler.primary} />
           <Text style={[s.ustBaslik, { color: renkler.text }]}>{serviceAd ?? 'Fiyat Teklifi'}</Text>
@@ -233,6 +237,8 @@ export default function TeklifAlScreen() {
             : <Text style={[s.gonderBtnText, { color: riza ? renkler.primaryText : renkler.subtext }]}>Teklif İste</Text>}
         </TouchableOpacity>
       </ScrollView>
+      </KlavyeKapsa>
+      <UyariKatmani />
     </>
   );
 }

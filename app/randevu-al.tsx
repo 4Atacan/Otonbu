@@ -1,3 +1,5 @@
+import { uyari } from '../src/lib/uyari';
+import { UyariKatmani } from '../src/components/UyariProvider';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ActivityIndicator, Alert, Image, ScrollView, StyleSheet,
@@ -12,6 +14,7 @@ import { Branch, FiyatSonuc, MusaitSlot, OdemeYontemi, Product, Vehicle } from '
 import { cinsLabel } from '../src/data/arac-katalogu';
 import { tl, urunGorselUrl } from '../src/lib/urun';
 import { Yukleniyor } from '../src/components/Yukleniyor';
+import { PuanLogo } from '../src/components/PuanLogo';
 
 const GUN_SAYISI = 14;
 
@@ -53,8 +56,14 @@ export default function RandevuAlScreen() {
   const [hakKalan, setHakKalan] = useState(0);
   const [hakKullan, setHakKullan] = useState(false);
 
-  // Ödeme yöntemi: şimdilik yalnız 'subede' (online iyzico ile açılacak).
+  // Ödeme yöntemi: 'subede' (varsayılan), 'puan' (puanla al) — 'online' iyzico ile açılacak.
   const [odemeYontemi, setOdemeYontemi] = useState<OdemeYontemi>('subede');
+
+  // Puanla alım: hizmetin puan bedeli + kullanıcının puan bakiyesi
+  const [puanBedeli, setPuanBedeli] = useState(0);
+  const [puanBakiye, setPuanBakiye] = useState(0);
+  // Bu hizmet tamamlanınca kazandıracağı sadakat puanı (bilgilendirme)
+  const [puanKazanc, setPuanKazanc] = useState(0);
 
   // Seçili şubenin çok satan ürünleri + randevuyla birlikte sepete eklenenler
   const [urunler, setUrunler] = useState<Product[]>([]);
@@ -112,7 +121,7 @@ export default function RandevuAlScreen() {
       })
       .then(({ data, error }) => {
         if (iptal) return;
-        if (error) Alert.alert('Hata', error.message);
+        if (error) uyari('Hata', error.message);
         else setSlotlar((data as MusaitSlot[]) ?? []);
         setSlotYukleniyor(false);
       });
@@ -188,6 +197,29 @@ export default function RandevuAlScreen() {
     return () => { iptal = true; };
   }, [subeId]);
 
+  // Puan bedeli (hizmet) + kullanıcının puan bakiyesi. Hizmet değişince ödeme
+  // yöntemini varsayılana çek (puan seçiliyken puanla alınamaz hizmete geçmeyi önle).
+  useEffect(() => {
+    setOdemeYontemi('subede');
+    if (!serviceId) { setPuanBedeli(0); return; }
+    const uid = session?.user?.id;
+    let iptal = false;
+    Promise.all([
+      supabase.from('services').select('puan, puan_bedeli').eq('id', serviceId).single(),
+      uid
+        ? supabase.from('loyalty_ledger').select('puan_degisim').eq('user_id', uid)
+        : Promise.resolve({ data: [] as { puan_degisim: number }[] }),
+    ]).then(([svcRes, puanRes]) => {
+      if (iptal) return;
+      const svc = svcRes.data as { puan: number; puan_bedeli: number } | null;
+      setPuanKazanc(svc?.puan ?? 0);
+      setPuanBedeli(svc?.puan_bedeli ?? 0);
+      setPuanBakiye(((puanRes.data as { puan_degisim: number }[]) ?? [])
+        .reduce((a, r) => a + (r.puan_degisim ?? 0), 0));
+    });
+    return () => { iptal = true; };
+  }, [serviceId, session?.user?.id]);
+
   function urunAdetDegis(p: Product, delta: number) {
     setUrunSepet(prev => {
       const yeni = Math.min(Math.max((prev[p.id] ?? 0) + delta, 0), p.stok);
@@ -215,8 +247,9 @@ export default function RandevuAlScreen() {
           p_service_id: serviceId,
           p_vehicle_id: aracId,
           p_baslangic: secilenBaslangic,
+          p_odeme_yontemi: odemeYontemi,
         });
-    if (error) { setGonderiliyor(false); Alert.alert('Randevu alınamadı', error.message); return; }
+    if (error) { setGonderiliyor(false); uyari('Randevu alınamadı', error.message); return; }
 
     // Randevuya ürün eklendiyse aynı şubeye sipariş talebi oluştur (sunucu fiyatı okur).
     // Sipariş hatası randevuyu geçersiz kılmaz — randevu zaten alındı, ürünü ayrıca bildiririz.
@@ -232,9 +265,10 @@ export default function RandevuAlScreen() {
     }
     setGonderiliyor(false);
 
-    Alert.alert(
+    uyari(
       'Randevu talebin alındı',
       (hakKullan ? 'Abonelik hakkınla randevu oluşturuldu. ' : '') +
+        (odemeYontemi === 'puan' ? `${puanBedeli} puan kullanıldı (iptal edersen iade edilir). ` : '') +
         'Şube onayladığında randevun kesinleşir. Randevularım sekmesinden durumunu takip edebilirsin.' +
         (items.length > 0 && !urunUyari ? '\n\nSeçtiğin ürünler de siparişe eklendi.' : '') +
         urunUyari,
@@ -251,9 +285,13 @@ export default function RandevuAlScreen() {
     () => urunler.reduce((acc, p) => acc + p.fiyat * (urunSepet[p.id] ?? 0), 0),
     [urunler, urunSepet],
   );
-  // Hizmet ücreti: hakla alınırsa 0 (abonelik), değilse sunucudan gelen fiyat
-  const hizmetUcret = hakKullan ? 0 : (fiyat?.fiyat ?? 0);
+  // Hizmet ücreti: hakla ya da puanla alınırsa 0 (para alınmaz), değilse sunucu fiyatı.
+  // (Eklenen ürünler her zaman ayrıca ücretlidir.)
+  const puanlaOde = odemeYontemi === 'puan';
+  const hizmetUcret = (hakKullan || puanlaOde) ? 0 : (fiyat?.fiyat ?? 0);
   const genelToplam = hizmetUcret + urunToplam;
+  const puanlaAlinabilir = puanBedeli > 0;
+  const puanYeterli = puanBakiye >= puanBedeli;
 
   if (ilkYukleme) {
     return (
@@ -270,6 +308,18 @@ export default function RandevuAlScreen() {
       <View style={[s.container, { backgroundColor: renkler.bg }]}>
         <ScrollView contentContainerStyle={s.icerik}>
           <Text style={[s.hizmetAd, { color: renkler.text }]}>{serviceAd}</Text>
+
+          {/* Bu hizmet size kaç OTONBU Puanı kazandıracak */}
+          {puanKazanc > 0 && (
+            <View style={[s.puanKazancKart, { backgroundColor: renkler.rozetBg }]}>
+              <PuanLogo size={20} renk={renkler.primary} />
+              <Text style={[s.puanKazancText, { color: renkler.text }]}>
+                Bu hizmet size{' '}
+                <Text style={{ fontWeight: '800', color: renkler.primary }}>{puanKazanc} OTONBU Puanı</Text>
+                {' '}kazandıracak
+              </Text>
+            </View>
+          )}
 
           {/* 1) Şube */}
           <Text style={[s.bolum, { color: renkler.subtext }]}>ŞUBE</Text>
@@ -561,6 +611,44 @@ export default function RandevuAlScreen() {
                   <Text style={[s.odemeAlt, { color: renkler.subtext }]}>Yakında</Text>
                 </View>
               </View>
+
+              {/* Puanla al — hizmetin puan bedeli varsa. Bakiye yeterliyse seçilebilir. */}
+              {puanlaAlinabilir && (
+                <TouchableOpacity
+                  activeOpacity={0.85}
+                  disabled={!puanYeterli}
+                  style={[
+                    s.puanOde,
+                    {
+                      backgroundColor: renkler.card,
+                      borderColor: puanlaOde ? renkler.primary : renkler.border,
+                      opacity: puanYeterli ? 1 : 0.6,
+                    },
+                  ]}
+                  onPress={() => setOdemeYontemi(puanlaOde ? 'subede' : 'puan')}
+                >
+                  <View style={[s.puanOdeIkon, { backgroundColor: renkler.rozetBg }]}>
+                    <PuanLogo size={28} renk={renkler.primary} />
+                  </View>
+                  <View style={{ flex: 1 }}>
+                    <Text style={[s.odemeBaslik, { color: renkler.text, marginTop: 0 }]}>Puanla Al</Text>
+                    <Text style={[s.odemeAlt, { color: renkler.subtext }]}>
+                      {puanBedeli} puan · bakiyen {puanBakiye}
+                    </Text>
+                  </View>
+                  {puanYeterli ? (
+                    <Ionicons
+                      name={puanlaOde ? 'checkmark-circle' : 'ellipse-outline'}
+                      size={22}
+                      color={puanlaOde ? renkler.primary : renkler.subtext}
+                    />
+                  ) : (
+                    <Text style={[s.puanEksik, { color: renkler.subtext }]}>
+                      {puanBedeli - puanBakiye} puan daha
+                    </Text>
+                  )}
+                </TouchableOpacity>
+              )}
             </>
           )}
 
@@ -568,10 +656,15 @@ export default function RandevuAlScreen() {
           <View style={[s.ozet, { backgroundColor: renkler.card, borderColor: renkler.border }]}>
             <View style={s.ozetSatir}>
               <Text style={[s.ozetLabel, { color: renkler.subtext }]}>
-                {hakKullan ? 'Ödeme' : 'Tahmini ücret'}
+                {hakKullan || puanlaOde ? 'Ödeme' : 'Tahmini ücret'}
               </Text>
               {hakKullan ? (
                 <Text style={[s.ozetFiyat, { color: '#16a34a' }]}>Abonelik hakkı</Text>
+              ) : puanlaOde ? (
+                <View style={s.ozetFiyatGrup}>
+                  <PuanLogo size={26} renk={renkler.primary} />
+                  <Text style={[s.ozetFiyat, { color: renkler.primary }]}>{puanBedeli} puan</Text>
+                </View>
               ) : fiyatYukleniyor ? (
                 <ActivityIndicator color={renkler.primary} />
               ) : fiyat ? (
@@ -629,11 +722,12 @@ export default function RandevuAlScreen() {
             <ActivityIndicator color={renkler.primaryText} />
           ) : (
             <Text style={[s.onayText, { color: tamam ? renkler.primaryText : renkler.subtext }]}>
-              {hakKullan ? 'Hakla Randevu Al' : 'Randevu Talebi Gönder'}
+              {hakKullan ? 'Hakla Randevu Al' : puanlaOde ? 'Puanla Randevu Al' : 'Randevu Talebi Gönder'}
             </Text>
           )}
         </TouchableOpacity>
       </View>
+      <UyariKatmani />
     </>
   );
 }
@@ -642,6 +736,11 @@ const s = StyleSheet.create({
   container: { flex: 1 },
   icerik: { padding: 16, paddingBottom: 24 },
   hizmetAd: { fontSize: 20, fontWeight: '800', marginBottom: 4 },
+  puanKazancKart: {
+    flexDirection: 'row', alignItems: 'center', gap: 10,
+    borderRadius: 12, paddingVertical: 11, paddingHorizontal: 14, marginTop: 10,
+  },
+  puanKazancText: { flex: 1, fontSize: 14, lineHeight: 20 },
   bolum: {
     fontSize: 11, fontWeight: '700', letterSpacing: 1,
     marginTop: 20, marginBottom: 8,
@@ -689,6 +788,12 @@ const s = StyleSheet.create({
   odemePasif: { opacity: 0.5 },
   odemeBaslik: { fontSize: 15, fontWeight: '700', marginTop: 4 },
   odemeAlt: { fontSize: 12 },
+  puanOde: {
+    flexDirection: 'row', alignItems: 'center', gap: 12,
+    borderWidth: 1.5, borderRadius: 12, padding: 14, marginTop: 12,
+  },
+  puanOdeIkon: { width: 40, height: 40, borderRadius: 20, alignItems: 'center', justifyContent: 'center' },
+  puanEksik: { fontSize: 12, fontWeight: '700', maxWidth: 80, textAlign: 'right' },
   urunIpucu: { fontSize: 12, lineHeight: 17, marginTop: -4, marginBottom: 10 },
   urunSerit: { gap: 10, paddingVertical: 2, paddingRight: 4 },
   urunKart: { width: 130, borderWidth: 1, borderRadius: 12, padding: 8 },

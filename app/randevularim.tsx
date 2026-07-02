@@ -1,3 +1,4 @@
+import { uyari } from '../src/lib/uyari';
 import { useCallback, useMemo, useState } from 'react';
 import {
   ActivityIndicator, Alert, FlatList, Image, RefreshControl,
@@ -67,7 +68,7 @@ export default function RandevularimScreen() {
       .order('created_at', { ascending: false });
 
     if (error) {
-      Alert.alert('Hata', error.message);
+      uyari('Hata', error.message);
       setLoading(false);
       return;
     }
@@ -103,7 +104,7 @@ export default function RandevularimScreen() {
   }
 
   function iptalOnayi(r: Appointment) {
-    Alert.alert(
+    uyari(
       'Randevuyu İptal Et',
       'Bu randevuyu iptal etmek istediğine emin misin?',
       [
@@ -115,7 +116,7 @@ export default function RandevularimScreen() {
               .from('appointments')
               .update({ durum: 'iptal' })
               .eq('id', r.id);
-            if (error) Alert.alert('Hata', error.message);
+            if (error) uyari('Hata', error.message);
             else yukle();
           },
         },
@@ -126,7 +127,7 @@ export default function RandevularimScreen() {
   // Yöneticiden gelen değişiklik talebine yanıt (onay/ret). Uygulama adımı
   // SECURITY DEFINER RPC içinde sahiplik doğrulanarak yapılır.
   function talebeYanitVer(talepId: string, onay: boolean) {
-    Alert.alert(
+    uyari(
       onay ? 'Talebi Onayla' : 'Talebi Reddet',
       onay
         ? 'Yöneticinin önerdiği değişikliği onaylıyor musun?'
@@ -140,7 +141,7 @@ export default function RandevularimScreen() {
             const { error } = await supabase.rpc('randevu_talep_yanitla', {
               p_talep_id: talepId, p_onay: onay,
             });
-            if (error) Alert.alert('Hata', error.message);
+            if (error) uyari('Hata', error.message);
             else yukle();
           },
         },

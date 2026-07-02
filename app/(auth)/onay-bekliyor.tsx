@@ -1,3 +1,4 @@
+import { uyari } from '../../src/lib/uyari';
 import { useState } from 'react';
 import { Alert, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Link, useLocalSearchParams } from 'expo-router';
@@ -16,7 +17,7 @@ export default function OnayBekliyorScreen() {
   async function tekrarGonder() {
     if (!email) return;
     if (CAPTCHA_SITE_KEY && !captchaToken) {
-      Alert.alert('Doğrulama', 'CAPTCHA doğrulamasını tamamlayın'); return;
+      uyari('Doğrulama', 'CAPTCHA doğrulamasını tamamlayın'); return;
     }
     setGonderiliyor(true);
     const { error } = await supabase.auth.resend({
@@ -27,8 +28,8 @@ export default function OnayBekliyorScreen() {
     setGonderiliyor(false);
     setCaptchaToken(null);
     setCaptchaKey(k => k + 1);
-    if (error) Alert.alert('Hata', error.message);
-    else Alert.alert('Gönderildi', 'Doğrulama e-postası tekrar gönderildi');
+    if (error) uyari('Hata', error.message);
+    else uyari('Gönderildi', 'Doğrulama e-postası tekrar gönderildi');
   }
 
   return (

@@ -1,3 +1,4 @@
+import { uyari } from '../../src/lib/uyari';
 import { useCallback, useEffect, useState } from 'react';
 import {
   ActivityIndicator, Alert, ScrollView, StyleSheet,
@@ -10,6 +11,7 @@ import { useSession } from '../../src/hooks/useSession';
 import { useTheme } from '../../src/theme/ThemeContext';
 import { Branch, SigortaTip, Vehicle } from '../../src/types';
 import { cinsLabel } from '../../src/data/arac-katalogu';
+import { KlavyeKapsa } from '../../src/components/KlavyeKapsa';
 
 const TIPLER: { value: SigortaTip; label: string; alt: string }[] = [
   { value: 'kasko', label: 'Kasko', alt: 'Aracın için tam koruma' },
@@ -59,11 +61,11 @@ export default function SigortaScreen() {
   async function gonder() {
     if (!session?.user) return;
     if (!riza) {
-      Alert.alert('Onay gerekli', 'Devam etmek için kişisel verilerin işlenmesine açık rıza vermelisin.');
+      uyari('Onay gerekli', 'Devam etmek için kişisel verilerin işlenmesine açık rıza vermelisin.');
       return;
     }
     if (!adSoyad.trim() || !telefon.trim()) {
-      Alert.alert('Eksik bilgi', 'Ad soyad ve telefon zorunludur (sana dönebilmemiz için).');
+      uyari('Eksik bilgi', 'Ad soyad ve telefon zorunludur (sana dönebilmemiz için).');
       return;
     }
     const aracDetayMetni = secilenArac
@@ -86,17 +88,18 @@ export default function SigortaScreen() {
       ticari_ileti_izni: ticari,
     });
     setGonderiliyor(false);
-    if (error) { Alert.alert('Gönderilemedi', error.message); return; }
+    if (error) { uyari('Gönderilemedi', error.message); return; }
 
     setNot(''); setAracId(null); setAracDetay(''); setTicari(false); setRiza(false);
-    Alert.alert(
+    uyari(
       'Teklif talebin alındı',
       'En kısa sürede sana dönüp uygun sigorta/kasko teklifini ileteceğiz.',
     );
   }
 
   return (
-    <ScrollView style={{ backgroundColor: renkler.bg }} contentContainerStyle={s.container}>
+    <KlavyeKapsa style={{ backgroundColor: renkler.bg }}>
+    <ScrollView style={{ backgroundColor: renkler.bg }} contentContainerStyle={s.container} keyboardShouldPersistTaps="handled">
       <View style={[s.ustKart, { backgroundColor: renkler.card }]}>
         <Ionicons name="shield-checkmark" size={28} color={renkler.primary} />
         <Text style={[s.ustBaslik, { color: renkler.text }]}>Sigorta / Kasko Teklifi</Text>
@@ -235,6 +238,7 @@ export default function SigortaScreen() {
           : <Text style={[s.gonderBtnText, { color: riza ? renkler.primaryText : renkler.subtext }]}>Teklif İste</Text>}
       </TouchableOpacity>
     </ScrollView>
+    </KlavyeKapsa>
   );
 }
 

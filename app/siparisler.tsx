@@ -1,3 +1,4 @@
+import { uyari } from '../src/lib/uyari';
 import { useCallback, useState } from 'react';
 import {
   Alert, FlatList, RefreshControl, StyleSheet, Text, TouchableOpacity, View,
@@ -56,7 +57,7 @@ export default function SiparislerScreen() {
       `)
       .eq('silindi_mi', false)
       .order('created_at', { ascending: false });
-    if (error) Alert.alert('Hata', error.message);
+    if (error) uyari('Hata', error.message);
     else setSiparisler((data as Order[]) ?? []);
     setLoading(false);
   }
@@ -69,12 +70,12 @@ export default function SiparislerScreen() {
 
   async function durumGuncelle(o: Order, yeni: SiparisDurum) {
     const { error } = await supabase.from('orders').update({ durum: yeni }).eq('id', o.id);
-    if (error) Alert.alert('Hata', error.message);
+    if (error) uyari('Hata', error.message);
     else yukle();
   }
 
   function iptalOnayi(o: Order) {
-    Alert.alert('Siparişi İptal Et', 'Bu sipariş talebini iptal etmek istediğine emin misin?', [
+    uyari('Siparişi İptal Et', 'Bu sipariş talebini iptal etmek istediğine emin misin?', [
       { text: 'Vazgeç', style: 'cancel' },
       { text: 'İptal Et', style: 'destructive', onPress: () => durumGuncelle(o, 'iptal') },
     ]);

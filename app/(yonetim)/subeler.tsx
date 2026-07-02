@@ -1,3 +1,5 @@
+import { uyari } from '../../src/lib/uyari';
+import { UyariKatmani } from '../../src/components/UyariProvider';
 import { useCallback, useState } from 'react';
 import {
   ActivityIndicator, Alert, FlatList, Modal, ScrollView,
@@ -7,6 +9,7 @@ import { useFocusEffect } from 'expo-router';
 import { supabase } from '../../src/lib/supabase';
 import { useTheme } from '../../src/theme/ThemeContext';
 import { Branch } from '../../src/types';
+import { KlavyeKapsa } from '../../src/components/KlavyeKapsa';
 import { Yukleniyor } from '../../src/components/Yukleniyor';
 
 // Bir şubeye atanmış personel satırı (yönetici veya çalışan)
@@ -37,7 +40,7 @@ export default function SubelerScreen() {
   async function yukle() {
     const { data, error } = await supabase
       .from('branches').select('*').order('ad');
-    if (error) Alert.alert('Hata', error.message);
+    if (error) uyari('Hata', error.message);
     else setSubeler(data ?? []);
     setLoading(false);
   }
@@ -75,7 +78,7 @@ export default function SubelerScreen() {
   }
 
   async function kaydet() {
-    if (!ad.trim()) { Alert.alert('Hata', 'Şube adı zorunlu'); return; }
+    if (!ad.trim()) { uyari('Hata', 'Şube adı zorunlu'); return; }
 
     const veri = { ad: ad.trim(), adres: adres.trim() || null, aktif };
 
@@ -85,7 +88,7 @@ export default function SubelerScreen() {
       : await supabase.from('branches').insert(veri).select().single();
     setKayit(false);
 
-    if (error) { Alert.alert('Hata', error.message); return; }
+    if (error) { uyari('Hata', error.message); return; }
     // Yeni şube eklendiyse modalı kapatmadan düzenleme moduna geç ki personel
     // ataması yapılabilsin (personel atama mevcut şube gerektirir).
     if (!duzenlenen && data) {
@@ -100,7 +103,7 @@ export default function SubelerScreen() {
   async function rolAta(email: string, rol: 'yonetici' | 'calisan', temizle: () => void) {
     if (!duzenlenen) return;
     const mail = email.trim().toLowerCase();
-    if (!mail) { Alert.alert('Hata', 'Kullanıcının e-postasını gir'); return; }
+    if (!mail) { uyari('Hata', 'Kullanıcının e-postasını gir'); return; }
 
     setKayit(true);
     const { data: kullanici } = await supabase
@@ -111,7 +114,7 @@ export default function SubelerScreen() {
 
     if (!kullanici) {
       setKayit(false);
-      Alert.alert('Bulunamadı',
+      uyari('Bulunamadı',
         'Bu e-postayla kayıtlı kullanıcı yok. Kişi önce uygulamaya kayıt olmalı.');
       return;
     }
@@ -122,7 +125,7 @@ export default function SubelerScreen() {
       .eq('id', kullanici.id);
     setKayit(false);
 
-    if (error) { Alert.alert('Hata', error.message); return; }
+    if (error) { uyari('Hata', error.message); return; }
     temizle();
     personelYukle(duzenlenen.id);
   }
@@ -130,7 +133,7 @@ export default function SubelerScreen() {
   // Personeli şubeden çıkar → müşteriye düşür (şube erişimi kalkar)
   function personelCikar(item: PersonelSatir) {
     if (!duzenlenen) return;
-    Alert.alert(
+    uyari(
       'Şubeden Çıkar',
       `${item.ad_soyad ?? item.email ?? 'Kişi'} bu şubeden çıkarılacak ve müşteriye düşürülecek. Emin misin?`,
       [
@@ -143,7 +146,7 @@ export default function SubelerScreen() {
               .from('users')
               .update({ rol: 'musteri', branch_id: null })
               .eq('id', item.id);
-            if (error) { Alert.alert('Hata', error.message); return; }
+            if (error) { uyari('Hata', error.message); return; }
             personelYukle(duzenlenen.id);
           },
         },
@@ -183,6 +186,7 @@ export default function SubelerScreen() {
       </TouchableOpacity>
 
       <Modal visible={modalAcik} animationType="slide" presentationStyle="pageSheet">
+        <KlavyeKapsa style={{ backgroundColor: renkler.card }}>
         <ScrollView
           style={{ backgroundColor: renkler.card }}
           contentContainerStyle={s.modal}
@@ -259,6 +263,8 @@ export default function SubelerScreen() {
             <Text style={[s.iptalText, { color: renkler.subtext }]}>Kapat</Text>
           </TouchableOpacity>
         </ScrollView>
+        </KlavyeKapsa>
+        <UyariKatmani />
       </Modal>
     </View>
   );

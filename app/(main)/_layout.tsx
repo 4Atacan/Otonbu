@@ -3,17 +3,19 @@ import { StatusBar } from 'expo-status-bar';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../src/theme/ThemeContext';
 import { UstNavbar } from '../../src/components/UstNavbar';
+import { PuanRozeti } from '../../src/components/PuanRozeti';
 
 export default function MainLayout() {
-  const { tema, renkler } = useTheme();
+  const { renkler } = useTheme();
 
   return (
     <>
-      <StatusBar style={tema === 'koyu' ? 'light' : 'dark'} />
+      {/* Üst navbar her sekmede marka mavisi → status bar ikonları beyaz. */}
+      <StatusBar style="light" />
       <Tabs
         screenOptions={{
-          // Sabit üst navbar (logo + bildirim + profil) — içerik altından kayar.
-          header: () => <UstNavbar />,
+          // Sabit üst navbar (marka mavisi, her sekmede aynı) — içerik altından kayar.
+          header: () => <UstNavbar mavi />,
           tabBarActiveTintColor: renkler.primary,
           tabBarInactiveTintColor: renkler.subtext,
           tabBarStyle: { backgroundColor: renkler.card, borderTopColor: renkler.border },
@@ -68,6 +70,8 @@ export default function MainLayout() {
           }}
         />
       </Tabs>
+      {/* Alt navbarın sol üstünde sabit "OTONBU Puanı" butonu — her sekmede. */}
+      <PuanRozeti />
     </>
   );
 }

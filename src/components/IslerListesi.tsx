@@ -1,3 +1,4 @@
+import { uyari } from '../lib/uyari';
 import { useCallback, useState } from 'react';
 import {
   ActivityIndicator, Alert, FlatList, Image, RefreshControl, ScrollView,
@@ -69,7 +70,7 @@ export default function IslerListesi() {
 
   // Şubede ödeme tahsil edildi işareti (yalnız 'subede' ödeme yöntemli randevuda)
   function odemeAl(r: Appointment) {
-    Alert.alert(
+    uyari(
       'Ödeme Alındı',
       `${r.users?.ad_soyad ?? 'Müşteri'} için şubede ödeme tahsil edildi olarak işaretlensin mi?`,
       [
@@ -78,7 +79,7 @@ export default function IslerListesi() {
           text: 'Ödeme Alındı',
           onPress: async () => {
             const { error } = await supabase.rpc('randevu_odeme_al', { p_appointment_id: r.id });
-            if (error) { Alert.alert('Hata', error.message); return; }
+            if (error) { uyari('Hata', error.message); return; }
             yukle();
           },
         },
@@ -111,7 +112,7 @@ export default function IslerListesi() {
       .order('baslangic', { ascending: true })
       .limit(200);
 
-    if (error) { Alert.alert('Hata', error.message); setLoading(false); return; }
+    if (error) { uyari('Hata', error.message); setLoading(false); return; }
 
     const liste = (data as Appointment[]) ?? [];
     setRandevular(liste);
@@ -149,7 +150,7 @@ export default function IslerListesi() {
       durum: 'basladi',
     });
     setMesgul(null);
-    if (error) { Alert.alert('Hata', error.message); return; }
+    if (error) { uyari('Hata', error.message); return; }
     yukle();
   }
 
@@ -159,13 +160,13 @@ export default function IslerListesi() {
     setMesgul(jobId);
     const { error } = await supabase.from('jobs').update({ durum: yeni }).eq('id', jobId);
     setMesgul(null);
-    if (error) { Alert.alert('Hata', error.message); return; }
+    if (error) { uyari('Hata', error.message); return; }
     yukle();
   }
 
   // Kamera / galeri seçtir, seçilen görseli storage'a yükle, job_photos'a yaz
   function fotoSec(jobId: string, tip: 'once' | 'sonra') {
-    Alert.alert('Fotoğraf Ekle', tip === 'once' ? 'Önce fotoğrafı' : 'Sonra fotoğrafı', [
+    uyari('Fotoğraf Ekle', tip === 'once' ? 'Önce fotoğrafı' : 'Sonra fotoğrafı', [
       { text: 'Kamera', onPress: () => fotoCekVeYukle(jobId, tip, 'kamera') },
       { text: 'Galeri', onPress: () => fotoCekVeYukle(jobId, tip, 'galeri') },
       { text: 'Vazgeç', style: 'cancel' },
@@ -178,7 +179,7 @@ export default function IslerListesi() {
         ? await ImagePicker.requestCameraPermissionsAsync()
         : await ImagePicker.requestMediaLibraryPermissionsAsync();
       if (!izin.granted) {
-        Alert.alert('İzin gerekli', 'Fotoğraf eklemek için erişim izni vermelisin.');
+        uyari('İzin gerekli', 'Fotoğraf eklemek için erişim izni vermelisin.');
         return;
       }
 
@@ -200,17 +201,17 @@ export default function IslerListesi() {
       const { error: upErr } = await supabase.storage
         .from(PHOTO_BUCKET)
         .upload(yol, buf, { contentType: mime, upsert: false });
-      if (upErr) { setMesgul(null); Alert.alert('Yüklenemedi', upErr.message); return; }
+      if (upErr) { setMesgul(null); uyari('Yüklenemedi', upErr.message); return; }
 
       const { error: dbErr } = await supabase
         .from('job_photos')
         .insert({ job_id: jobId, tip, url: yol });
       setMesgul(null);
-      if (dbErr) { Alert.alert('Hata', dbErr.message); return; }
+      if (dbErr) { uyari('Hata', dbErr.message); return; }
       yukle();
     } catch (e: any) {
       setMesgul(null);
-      Alert.alert('Hata', e?.message ?? 'Fotoğraf eklenemedi');
+      uyari('Hata', e?.message ?? 'Fotoğraf eklenemedi');
     }
   }
 

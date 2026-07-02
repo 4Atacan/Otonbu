@@ -1,3 +1,5 @@
+import { uyari } from '../../src/lib/uyari';
+import { UyariKatmani } from '../../src/components/UyariProvider';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator, Alert, Modal, RefreshControl, ScrollView,
@@ -91,7 +93,7 @@ export default function RandevularScreen() {
       `)
       .order('baslangic', { ascending: false, nullsFirst: false })
       .limit(100);
-    if (error) Alert.alert('Hata', error.message);
+    if (error) uyari('Hata', error.message);
     else setRandevular((data as Appointment[]) ?? []);
     setLoading(false);
   }
@@ -104,14 +106,14 @@ export default function RandevularScreen() {
 
   // Beklemede randevuyu doğrudan onayla (değişiklik değil — ilk onay)
   function onaylaOnayi(r: Appointment) {
-    Alert.alert('Randevuyu Onayla', 'Randevu onaylanacak. Emin misin?', [
+    uyari('Randevuyu Onayla', 'Randevu onaylanacak. Emin misin?', [
       { text: 'Vazgeç', style: 'cancel' },
       {
         text: 'Onayla',
         onPress: async () => {
           const { error } = await supabase
             .from('appointments').update({ durum: 'onayli' }).eq('id', r.id);
-          if (error) Alert.alert('Hata', error.message);
+          if (error) uyari('Hata', error.message);
           else yukle();
         },
       },
@@ -130,18 +132,18 @@ export default function RandevularScreen() {
     });
     if (error) {
       // 23505 = tek bekleyen talep unique ihlali
-      Alert.alert('Gönderilemedi', error.code === '23505'
+      uyari('Gönderilemedi', error.code === '23505'
         ? 'Bu randevu için zaten bekleyen bir talep var.'
         : error.message);
       return false;
     }
-    Alert.alert('Talep gönderildi', 'Değişiklik isteği müşteriye iletildi, onayı bekleniyor.');
+    uyari('Talep gönderildi', 'Değişiklik isteği müşteriye iletildi, onayı bekleniyor.');
     yukle();
     return true;
   }
 
   function iptalTalebiOnayi(r: Appointment) {
-    Alert.alert(
+    uyari(
       'İptal Talebi',
       'Bu randevunun iptali için müşteriye onay isteği gönderilecek. Onaylarsa randevu iptal olur.',
       [
@@ -173,7 +175,7 @@ export default function RandevularScreen() {
       })
       .then(({ data, error }) => {
         if (iptal) return;
-        if (error) Alert.alert('Hata', error.message);
+        if (error) uyari('Hata', error.message);
         else setDegisSlotlar((data as MusaitSlot[]) ?? []);
         setDegisYukleniyor(false);
       });
@@ -449,6 +451,7 @@ export default function RandevularScreen() {
             </TouchableOpacity>
           </View>
         </View>
+        <UyariKatmani />
       </Modal>
     </View>
   );

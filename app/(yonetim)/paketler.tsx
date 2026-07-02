@@ -1,3 +1,5 @@
+import { uyari } from '../../src/lib/uyari';
+import { UyariKatmani } from '../../src/components/UyariProvider';
 import { useCallback, useState } from 'react';
 import {
   ActivityIndicator, Alert, FlatList, Modal, ScrollView,
@@ -9,6 +11,7 @@ import { supabase } from '../../src/lib/supabase';
 import { useSession } from '../../src/hooks/useSession';
 import { useTheme } from '../../src/theme/ThemeContext';
 import { Plan, PlanHak, PlanKademe, Service } from '../../src/types';
+import { KlavyeKapsa } from '../../src/components/KlavyeKapsa';
 import { Yukleniyor } from '../../src/components/Yukleniyor';
 
 const KADEMELER: { deger: PlanKademe; etiket: string }[] = [
@@ -79,8 +82,8 @@ export default function PaketlerScreen() {
 
   async function planiKaydet() {
     const ucret = Number(form.aylik_ucret.replace(',', '.'));
-    if (!form.ad.trim()) { Alert.alert('Eksik', 'Paket adı gir.'); return; }
-    if (!Number.isFinite(ucret) || ucret < 0) { Alert.alert('Hatalı', 'Geçerli bir aylık ücret gir.'); return; }
+    if (!form.ad.trim()) { uyari('Eksik', 'Paket adı gir.'); return; }
+    if (!Number.isFinite(ucret) || ucret < 0) { uyari('Hatalı', 'Geçerli bir aylık ücret gir.'); return; }
 
     setKaydediliyor(true);
     const govde = {
@@ -101,24 +104,24 @@ export default function PaketlerScreen() {
       if (!error && data) setDuzenlenen(data as Plan);
     }
     setKaydediliyor(false);
-    if (hata) { Alert.alert('Hata', hata.message); return; }
+    if (hata) { uyari('Hata', hata.message); return; }
     await yukle();
     if (duzenlenen) setModalAcik(false);
-    else Alert.alert('Kaydedildi', 'Paket oluşturuldu. Şimdi aylık hakları ekleyebilirsin.');
+    else uyari('Kaydedildi', 'Paket oluşturuldu. Şimdi aylık hakları ekleyebilirsin.');
   }
 
   async function hakEkle() {
-    if (!duzenlenen) { Alert.alert('Önce kaydet', 'Hak eklemek için paketi kaydet.'); return; }
-    if (!yeniHakService) { Alert.alert('Hizmet seç', 'Hangi hizmet için hak vereceğini seç.'); return; }
+    if (!duzenlenen) { uyari('Önce kaydet', 'Hak eklemek için paketi kaydet.'); return; }
+    if (!yeniHakService) { uyari('Hizmet seç', 'Hangi hizmet için hak vereceğini seç.'); return; }
     const adet = Number(yeniHakAdet);
-    if (!Number.isInteger(adet) || adet < 1) { Alert.alert('Hatalı', 'Adet en az 1 olmalı.'); return; }
+    if (!Number.isInteger(adet) || adet < 1) { uyari('Hatalı', 'Adet en az 1 olmalı.'); return; }
 
     const { error } = await supabase.from('plan_haklari').insert({
       plan_id: duzenlenen.id,
       service_id: yeniHakService,
       aylik_adet: adet,
     });
-    if (error) { Alert.alert('Hata', error.message); return; }
+    if (error) { uyari('Hata', error.message); return; }
     setYeniHakService(null);
     setYeniHakAdet('1');
     await yukleVeModaliTazele();
@@ -126,7 +129,7 @@ export default function PaketlerScreen() {
 
   async function hakSil(hak: PlanHak) {
     const { error } = await supabase.from('plan_haklari').delete().eq('id', hak.id);
-    if (error) { Alert.alert('Hata', error.message); return; }
+    if (error) { uyari('Hata', error.message); return; }
     await yukleVeModaliTazele();
   }
 
@@ -224,7 +227,8 @@ export default function PaketlerScreen() {
             </TouchableOpacity>
           </View>
 
-          <ScrollView contentContainerStyle={s.modalIcerik}>
+          <KlavyeKapsa>
+          <ScrollView contentContainerStyle={s.modalIcerik} keyboardShouldPersistTaps="handled">
             <Text style={[s.etiket, { color: renkler.subtext }]}>PAKET ADI</Text>
             <TextInput
               style={[s.input, { backgroundColor: renkler.card, color: renkler.text, borderColor: renkler.border }]}
@@ -365,7 +369,9 @@ export default function PaketlerScreen() {
               </>
             )}
           </ScrollView>
+          </KlavyeKapsa>
         </View>
+        <UyariKatmani />
       </Modal>
     </View>
   );

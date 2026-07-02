@@ -1,3 +1,4 @@
+import { uyari } from '../src/lib/uyari';
 import { useCallback, useState } from 'react';
 import {
   Alert, FlatList, Linking, RefreshControl, StyleSheet, Text, TouchableOpacity, View,
@@ -47,7 +48,7 @@ export default function TekliflerScreen() {
       .select('*, branches ( ad )')
       .eq('silindi_mi', false)
       .order('created_at', { ascending: false });
-    if (error) Alert.alert('Hata', error.message);
+    if (error) uyari('Hata', error.message);
     else setTalepler((data as InsuranceRequest[]) ?? []);
     setLoading(false);
   }
@@ -61,7 +62,7 @@ export default function TekliflerScreen() {
   async function durumGuncelle(t: InsuranceRequest, yeni: SigortaDurum) {
     const { error } = await supabase
       .from('insurance_requests').update({ durum: yeni }).eq('id', t.id);
-    if (error) Alert.alert('Hata', error.message);
+    if (error) uyari('Hata', error.message);
     else yukle();
   }
 

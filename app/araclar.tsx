@@ -1,3 +1,5 @@
+import { uyari } from '../src/lib/uyari';
+import { UyariKatmani } from '../src/components/UyariProvider';
 import { useEffect, useMemo, useState } from 'react';
 import {
   View, Text, FlatList, TouchableOpacity, TextInput,
@@ -7,6 +9,7 @@ import { Stack } from 'expo-router';
 import { supabase } from '../src/lib/supabase';
 import { Vehicle } from '../src/types';
 import { AutocompleteInput } from '../src/components/AutocompleteInput';
+import { KlavyeKapsa } from '../src/components/KlavyeKapsa';
 import { Yukleniyor } from '../src/components/Yukleniyor';
 import { useTheme } from '../src/theme/ThemeContext';
 import {
@@ -48,7 +51,7 @@ export default function AraclarScreen() {
       .select('*')
       .eq('user_id', user.id)
       .order('created_at', { ascending: false });
-    if (error) Alert.alert('Hata', error.message);
+    if (error) uyari('Hata', error.message);
     else setAraclar(data ?? []);
     setLoading(false);
   }
@@ -78,9 +81,9 @@ export default function AraclarScreen() {
   }
 
   async function kaydet() {
-    if (!plaka.trim()) { Alert.alert('Hata', 'Plaka zorunlu'); return; }
-    if (!aracCinsi) { Alert.alert('Hata', 'Araç cinsi seçin'); return; }
-    if (!marka.trim()) { Alert.alert('Hata', 'Marka zorunlu'); return; }
+    if (!plaka.trim()) { uyari('Hata', 'Plaka zorunlu'); return; }
+    if (!aracCinsi) { uyari('Hata', 'Araç cinsi seçin'); return; }
+    if (!marka.trim()) { uyari('Hata', 'Marka zorunlu'); return; }
 
     const veri = {
       plaka: plaka.trim().toUpperCase(),
@@ -98,9 +101,9 @@ export default function AraclarScreen() {
     if (error) {
       // 23505 = unique ihlali (vehicles_plaka_unique)
       if (error.code === '23505') {
-        Alert.alert('Hata', 'Bu plaka sistemde zaten kayıtlı');
+        uyari('Hata', 'Bu plaka sistemde zaten kayıtlı');
       } else {
-        Alert.alert('Hata', error.message);
+        uyari('Hata', error.message);
       }
       return;
     }
@@ -111,7 +114,7 @@ export default function AraclarScreen() {
 
   function silOnayi() {
     if (!duzenlenen) return;
-    Alert.alert(
+    uyari(
       'Aracı Sil',
       `${duzenlenen.plaka} plakalı araç silinecek. Emin misin?`,
       [
@@ -129,7 +132,7 @@ export default function AraclarScreen() {
       .delete()
       .eq('id', duzenlenen.id);
     setKayit(false);
-    if (error) { Alert.alert('Hata', error.message); return; }
+    if (error) { uyari('Hata', error.message); return; }
     setModalAcik(false);
     formuSifirla();
     yukle();
@@ -181,6 +184,7 @@ export default function AraclarScreen() {
       )}
 
       <Modal visible={modalAcik} animationType="slide" presentationStyle="pageSheet">
+        <KlavyeKapsa style={{ backgroundColor: renkler.card }}>
         <ScrollView
           style={{ backgroundColor: renkler.card }}
           contentContainerStyle={s.modal}
@@ -286,6 +290,8 @@ export default function AraclarScreen() {
             <Text style={[s.iptalText, { color: renkler.subtext }]}>Vazgeç</Text>
           </TouchableOpacity>
         </ScrollView>
+        </KlavyeKapsa>
+        <UyariKatmani />
       </Modal>
     </View>
   );

@@ -1,3 +1,4 @@
+import { uyari } from '../src/lib/uyari';
 import { useCallback, useState } from 'react';
 import {
   Alert, FlatList, Linking, RefreshControl, StyleSheet, Text, TouchableOpacity, View,
@@ -47,7 +48,7 @@ export default function HizmetTeklifleriScreen() {
       .select('*, services ( ad ), branches ( ad )')
       .eq('silindi_mi', false)
       .order('created_at', { ascending: false });
-    if (error) Alert.alert('Hata', error.message);
+    if (error) uyari('Hata', error.message);
     else setTalepler((data as ServiceQuote[]) ?? []);
     setLoading(false);
   }
@@ -61,7 +62,7 @@ export default function HizmetTeklifleriScreen() {
   async function durumGuncelle(t: ServiceQuote, yeni: SigortaDurum) {
     const { error } = await supabase
       .from('service_quotes').update({ durum: yeni }).eq('id', t.id);
-    if (error) Alert.alert('Hata', error.message);
+    if (error) uyari('Hata', error.message);
     else yukle();
   }
 

@@ -1,3 +1,4 @@
+import { uyari } from '../../src/lib/uyari';
 import { useState } from 'react';
 import {
   ActivityIndicator, Alert, ScrollView, StyleSheet,
@@ -8,6 +9,7 @@ import * as SecureStore from 'expo-secure-store';
 import { supabase } from '../../src/lib/supabase';
 import { Logo } from '../../src/components/Logo';
 import { CaptchaWidget } from '../../src/components/CaptchaWidget';
+import { KlavyeKapsa } from '../../src/components/KlavyeKapsa';
 
 const CAPTCHA_SITE_KEY = process.env.EXPO_PUBLIC_HCAPTCHA_SITE_KEY;
 const REMEMBER_KEY = 'otonbu_remember_me';
@@ -34,9 +36,9 @@ export default function SifremiUnuttumScreen() {
 
   async function kodGonder() {
     const mail = email.trim().toLowerCase();
-    if (!EMAIL_REGEX.test(mail)) { Alert.alert('Hata', 'Geçerli bir e-posta girin'); return; }
+    if (!EMAIL_REGEX.test(mail)) { uyari('Hata', 'Geçerli bir e-posta girin'); return; }
     if (CAPTCHA_SITE_KEY && !captchaToken) {
-      Alert.alert('Doğrulama', 'CAPTCHA doğrulamasını tamamlayın'); return;
+      uyari('Doğrulama', 'CAPTCHA doğrulamasını tamamlayın'); return;
     }
 
     setLoading(true);
@@ -46,18 +48,18 @@ export default function SifremiUnuttumScreen() {
     setLoading(false);
     captchaSifirla();
 
-    if (error) { Alert.alert('Hata', error.message); return; }
+    if (error) { uyari('Hata', error.message); return; }
     setAdim('kod');
   }
 
   async function sifreYenile() {
     const mail = email.trim().toLowerCase();
-    if (kod.trim().length !== 6) { Alert.alert('Hata', 'E-postadaki 6 haneli kodu girin'); return; }
-    if (sifre.length < SIFRE_MIN) { Alert.alert('Hata', `Şifre en az ${SIFRE_MIN} karakter olmalı`); return; }
+    if (kod.trim().length !== 6) { uyari('Hata', 'E-postadaki 6 haneli kodu girin'); return; }
+    if (sifre.length < SIFRE_MIN) { uyari('Hata', `Şifre en az ${SIFRE_MIN} karakter olmalı`); return; }
     if (!/[A-Za-z]/.test(sifre) || !/\d/.test(sifre)) {
-      Alert.alert('Hata', 'Şifre harf ve rakam içermeli'); return;
+      uyari('Hata', 'Şifre harf ve rakam içermeli'); return;
     }
-    if (sifre !== sifre2) { Alert.alert('Hata', 'Şifreler eşleşmiyor'); return; }
+    if (sifre !== sifre2) { uyari('Hata', 'Şifreler eşleşmiyor'); return; }
 
     setLoading(true);
     const { error: otpError } = await supabase.auth.verifyOtp({
@@ -67,22 +69,23 @@ export default function SifremiUnuttumScreen() {
     });
     if (otpError) {
       setLoading(false);
-      Alert.alert('Hata', 'Kod geçersiz veya süresi dolmuş');
+      uyari('Hata', 'Kod geçersiz veya süresi dolmuş');
       return;
     }
 
     const { error: updError } = await supabase.auth.updateUser({ password: sifre });
     setLoading(false);
 
-    if (updError) { Alert.alert('Hata', updError.message); return; }
+    if (updError) { uyari('Hata', updError.message); return; }
 
     // verifyOtp oturum açtı; startup signOut'una takılmasın
     await SecureStore.setItemAsync(REMEMBER_KEY, '1');
-    Alert.alert('Tamam', 'Şifren güncellendi, giriş yapıldı');
+    uyari('Tamam', 'Şifren güncellendi, giriş yapıldı');
     // _layout onAuthStateChange ile (main)'e yönlendirir
   }
 
   return (
+    <KlavyeKapsa>
     <ScrollView contentContainerStyle={s.container} keyboardShouldPersistTaps="handled">
       <View style={{ alignItems: 'center', marginBottom: 18 }}><Logo width={150} sabitAcik /></View>
       <Text style={s.baslik}>Şifremi Unuttum</Text>
@@ -172,6 +175,7 @@ export default function SifremiUnuttumScreen() {
         </TouchableOpacity>
       </Link>
     </ScrollView>
+    </KlavyeKapsa>
   );
 }
 

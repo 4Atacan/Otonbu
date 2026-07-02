@@ -1,3 +1,5 @@
+import { uyari } from '../../src/lib/uyari';
+import { UyariKatmani } from '../../src/components/UyariProvider';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator, Alert, FlatList, Image, Modal, ScrollView,
@@ -12,6 +14,7 @@ import { useSepet } from '../../src/context/SepetContext';
 import { Branch, Product } from '../../src/types';
 import { tl, urunGorselUrl } from '../../src/lib/urun';
 import { IndirimHaritasi, indirimliFiyat, kampanyaIndirimHaritasi } from '../../src/lib/kampanya';
+import { KlavyeKapsa } from '../../src/components/KlavyeKapsa';
 import { Yukleniyor } from '../../src/components/Yukleniyor';
 
 export default function MagazaScreen() {
@@ -100,11 +103,11 @@ export default function MagazaScreen() {
       p_not: musteriNot.trim() || null,
     });
     setGonderiliyor(false);
-    if (error) { Alert.alert('Sipariş alınamadı', error.message); return; }
+    if (error) { uyari('Sipariş alınamadı', error.message); return; }
     sepet.temizle();
     setMusteriNot('');
     setSepetAcik(false);
-    Alert.alert(
+    uyari(
       'Sipariş talebin alındı',
       'Şube siparişini hazırlayıp seninle iletişime geçecek. Ödeme şubede yapılır.',
     );
@@ -250,6 +253,7 @@ export default function MagazaScreen() {
       )}
 
       <Modal visible={sepetAcik} animationType="slide" presentationStyle="pageSheet">
+        <KlavyeKapsa style={{ backgroundColor: renkler.card }}>
         <ScrollView
           style={{ backgroundColor: renkler.card }}
           contentContainerStyle={s.modal}
@@ -312,6 +316,8 @@ export default function MagazaScreen() {
             <Text style={[s.iptalText, { color: renkler.subtext }]}>Alışverişe devam et</Text>
           </TouchableOpacity>
         </ScrollView>
+        </KlavyeKapsa>
+        <UyariKatmani />
       </Modal>
     </View>
   );
@@ -319,7 +325,7 @@ export default function MagazaScreen() {
 
 const s = StyleSheet.create({
   container: { flex: 1 },
-  liste: { padding: 12, paddingBottom: 96 },
+  liste: { padding: 12, paddingBottom: 140 },
   satir: { gap: 12 },
   bolum: { fontSize: 11, fontWeight: '700', letterSpacing: 1, marginBottom: 8, marginLeft: 4 },
   subeSerit: { gap: 8, paddingVertical: 2 },
@@ -351,7 +357,9 @@ const s = StyleSheet.create({
   adetBtnPasif: { opacity: 0.4 },
   adetText: { fontSize: 16, fontWeight: '700', minWidth: 20, textAlign: 'center' },
   sepetBar: {
-    position: 'absolute', left: 16, right: 16, bottom: 16,
+    // Sol-altta sabit duran global "OTONBU Puanı" rozetinin (PuanRozeti,
+    // tab barın ~12px üstünde, yükseklik ~42) ÜSTÜNde dur ki çakışmasınlar.
+    position: 'absolute', left: 16, right: 16, bottom: 64,
     flexDirection: 'row', alignItems: 'center', gap: 12,
     borderRadius: 12, padding: 16,
   },

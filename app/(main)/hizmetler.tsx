@@ -8,7 +8,9 @@ import { supabase } from '../../src/lib/supabase';
 import { useTheme } from '../../src/theme/ThemeContext';
 import { Service } from '../../src/types';
 import { fiyatMetni, gorselUrl, indirimliMetni } from '../../src/lib/hizmet';
+import { kampanyaPuanHaritasi } from '../../src/lib/kampanya';
 import { Yukleniyor } from '../../src/components/Yukleniyor';
+import { PuanLogo } from '../../src/components/PuanLogo';
 
 // Kategori anahtarı → görünen ad (bilinmeyen için baş harf büyük)
 const KATEGORI_AD: Record<string, string> = {
@@ -26,18 +28,22 @@ export default function HizmetlerSekmesi() {
   const { renkler } = useTheme();
   const router = useRouter();
   const [hizmetler, setHizmetler] = useState<Service[]>([]);
+  // service_id → aktif 'puan' kampanyasının ekstra bonus puanı (toplam gösterimi için)
+  const [puanBonus, setPuanBonus] = useState<Record<string, number>>({});
   const [kategori, setKategori] = useState<string>('hepsi');
   const [loading, setLoading] = useState(true);
 
   useFocusEffect(useCallback(() => {
     let iptal = false;
-    supabase.from('services').select('*').eq('aktif', true)
-      .order('kategori').order('ad')
-      .then(({ data }) => {
-        if (iptal) return;
-        setHizmetler((data as Service[]) ?? []);
-        setLoading(false);
-      });
+    Promise.all([
+      supabase.from('services').select('*').eq('aktif', true).order('kategori').order('ad'),
+      kampanyaPuanHaritasi(),
+    ]).then(([{ data }, puanHarita]) => {
+      if (iptal) return;
+      setHizmetler((data as Service[]) ?? []);
+      setPuanBonus(puanHarita);
+      setLoading(false);
+    });
     return () => { iptal = true; };
   }, []));
 
@@ -95,6 +101,8 @@ export default function HizmetlerSekmesi() {
               const uri = gorselUrl(item.gorsel);
               const indirimli = indirimliMetni(item);
               const yildiz = item.kampanya_tip === 'yildiz';
+              const bonus = puanBonus[item.id] ?? 0;
+              const toplamPuan = item.puan + bonus;
               return (
                 <TouchableOpacity
                   key={item.id}
@@ -119,6 +127,20 @@ export default function HizmetlerSekmesi() {
                         <Ionicons name={yildiz ? 'star' : 'pricetag'} size={11} color="#fff" />
                         <Text style={s.hizmetEtiketText}>
                           {yildiz ? 'Öne çıkan' : `%${item.kampanya_indirim_yuzde}`}
+                        </Text>
+                      </View>
+                    )}
+                    {/* Sol üst: kazandıracağı OTONBU Puanı. Kampanya bonusu varsa
+                        TOPLAM puanı "+" ile ve accent renkte göster (öne çıksın). */}
+                    {toplamPuan > 0 && (
+                      <View style={[
+                        s.puanRozet,
+                        { backgroundColor: renkler.card },
+                        bonus > 0 && { borderWidth: 1.5, borderColor: renkler.accent },
+                      ]}>
+                        <PuanLogo size={13} renk={bonus > 0 ? renkler.accent : renkler.primary} />
+                        <Text style={[s.puanRozetText, { color: bonus > 0 ? renkler.accent : renkler.primary }]}>
+                          {bonus > 0 ? `+${toplamPuan}` : item.puan}
                         </Text>
                       </View>
                     )}
@@ -162,12 +184,21 @@ const s = StyleSheet.create({
   hizmetKart: { width: '100%', borderRadius: 16, marginBottom: 14, overflow: 'hidden' },
   hizmetGorsel: { width: '100%', aspectRatio: 16 / 9, justifyContent: 'flex-start' },
   hizmetGorselBos: { ...StyleSheet.absoluteFillObject, alignItems: 'center', justifyContent: 'center' },
+  // Kampanya etiketi sağ üste alındı; sol üst puan rozetine bırakıldı.
   hizmetEtiket: {
-    position: 'absolute', top: 8, left: 8,
+    position: 'absolute', top: 8, right: 8,
     flexDirection: 'row', alignItems: 'center', gap: 3,
     paddingVertical: 3, paddingHorizontal: 7, borderRadius: 8,
   },
   hizmetEtiketText: { color: '#fff', fontSize: 11, fontWeight: '700' },
+  puanRozet: {
+    position: 'absolute', top: 8, left: 8,
+    flexDirection: 'row', alignItems: 'center', gap: 3,
+    paddingVertical: 3, paddingHorizontal: 7, borderRadius: 8,
+    shadowColor: '#000', shadowOpacity: 0.15, shadowRadius: 3,
+    shadowOffset: { width: 0, height: 1 }, elevation: 2,
+  },
+  puanRozetText: { fontSize: 12, fontWeight: '800' },
   hizmetBody: { padding: 11 },
   hizmetAd: { fontSize: 15, fontWeight: '700', minHeight: 38 },
   fiyat: { fontSize: 15, fontWeight: '800', marginTop: 4 },

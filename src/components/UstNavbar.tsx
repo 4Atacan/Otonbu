@@ -1,3 +1,4 @@
+import { uyari } from '../lib/uyari';
 import { View, Image, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -9,33 +10,38 @@ import { useTheme } from '../theme/ThemeContext';
 // Sağda: bildirim + profil ikonları (müşteri ve yönetim panelinde aynı).
 const LOGO = require('../../assets/android-icon-foreground.png');
 
-export function UstNavbar() {
+// mavi=true → koyu marka hero'suyla kesintisiz görünüm için navbar marka mavisi
+// zeminli, amblem + ikonlar beyaz (yalnız ana sayfada kullanılır).
+export function UstNavbar({ mavi = false }: { mavi?: boolean }) {
   const insets = useSafeAreaInsets();
   const { renkler } = useTheme();
   const router = useRouter();
   const geri = router.canGoBack();
+  const bg = mavi ? renkler.primary : renkler.bg;
+  const ikon = mavi ? '#ffffff' : renkler.text;
+  const logoStil = mavi ? { tintColor: '#ffffff' } : null;
 
   return (
-    <View style={{ paddingTop: insets.top, backgroundColor: renkler.bg }}>
+    <View style={{ paddingTop: insets.top, backgroundColor: bg }}>
       <View style={s.bar}>
         {geri ? (
           <TouchableOpacity onPress={() => router.back()} hitSlop={10} style={s.sol}>
-            <Ionicons name="chevron-back" size={26} color={renkler.text} />
-            <Image source={LOGO} style={s.logoKucuk} resizeMode="contain" />
+            <Ionicons name="chevron-back" size={26} color={ikon} />
+            <Image source={LOGO} style={[s.logoKucuk, logoStil]} resizeMode="contain" />
           </TouchableOpacity>
         ) : (
-          <Image source={LOGO} style={s.logo} resizeMode="contain" />
+          <Image source={LOGO} style={[s.logo, logoStil]} resizeMode="contain" />
         )}
 
         <View style={s.sag}>
           <TouchableOpacity
             style={s.ikonBtn}
-            onPress={() => Alert.alert('Bildirimler', 'Bildirimler yakında burada olacak.')}
+            onPress={() => uyari('Bildirimler', 'Bildirimler yakında burada olacak.')}
           >
-            <Ionicons name="notifications-outline" size={24} color={renkler.text} />
+            <Ionicons name="notifications-outline" size={24} color={ikon} />
           </TouchableOpacity>
           <TouchableOpacity style={s.ikonBtn} onPress={() => router.push('/profil')}>
-            <Ionicons name="person-circle-outline" size={30} color={renkler.text} />
+            <Ionicons name="person-circle-outline" size={30} color={ikon} />
           </TouchableOpacity>
         </View>
       </View>

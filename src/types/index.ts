@@ -65,7 +65,7 @@ export interface ServiceSchedule {
 export type RandevuDurum = 'beklemede' | 'onayli' | 'iptal';
 
 // Randevu ödeme yöntemi: şubede (nakit/kart, teslimde) | online (iyzico, ileride)
-export type OdemeYontemi = 'subede' | 'online';
+export type OdemeYontemi = 'subede' | 'online' | 'puan';
 
 export interface Appointment {
   id: string;
@@ -200,6 +200,7 @@ export interface Service {
   kampanya_indirim_yuzde: number | null;  // yalnızca kampanya_tip = 'fiyat'
   teklif_usulu: boolean;       // true = sabit fiyat yok; randevu yerine teklif talebi (service_quotes)
   puan: number;                // bu hizmet tamamlanınca kazandırılan sadakat puanı
+  puan_bedeli: number;         // bu hizmet kaç puana alınabilir (0 = puanla alınamaz)
   aktif: boolean;
 }
 
@@ -295,6 +296,7 @@ export interface Product {
   one_cikan: boolean;           // manuel "öne çıkar" rozeti
   satis_adedi: number;          // otomatik sayaç (çok satan sıralama)
   puan: number;                 // bu ürün alınınca kazandırılan sadakat puanı
+  puan_bedeli: number;          // bu ürün kaç puana alınabilir (0 = puanla alınamaz)
   aktif: boolean;
   silindi_mi: boolean;
   created_at: string;

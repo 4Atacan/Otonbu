@@ -1,3 +1,5 @@
+import { uyari } from '../../src/lib/uyari';
+import { UyariKatmani } from '../../src/components/UyariProvider';
 import { useCallback, useState } from 'react';
 import {
   ActivityIndicator, Alert, FlatList, Image, Modal, ScrollView,
@@ -11,6 +13,7 @@ import { useSession } from '../../src/hooks/useSession';
 import { useTheme } from '../../src/theme/ThemeContext';
 import { Product } from '../../src/types';
 import { PRODUCT_BUCKET, tl, urunGorselUrl } from '../../src/lib/urun';
+import { KlavyeKapsa } from '../../src/components/KlavyeKapsa';
 import { Yukleniyor } from '../../src/components/Yukleniyor';
 
 export default function UrunlerScreen() {
@@ -29,6 +32,7 @@ export default function UrunlerScreen() {
   const [stok, setStok] = useState('');
   const [minEsik, setMinEsik] = useState('');
   const [puan, setPuan] = useState('');
+  const [puanBedeli, setPuanBedeli] = useState('');
   const [gorsel, setGorsel] = useState<string | null>(null);
   const [gorselYukleniyor, setGorselYukleniyor] = useState(false);
   const [oneCikan, setOneCikan] = useState(false);
@@ -46,14 +50,14 @@ export default function UrunlerScreen() {
       .eq('silindi_mi', false)
       .order('one_cikan', { ascending: false })
       .order('ad');
-    if (error) Alert.alert('Hata', error.message);
+    if (error) uyari('Hata', error.message);
     else setUrunler((data as Product[]) ?? []);
     setLoading(false);
   }
 
   function formuSifirla() {
     setDuzenlenen(null);
-    setAd(''); setKategori(''); setAciklama(''); setFiyat(''); setStok(''); setMinEsik(''); setPuan('');
+    setAd(''); setKategori(''); setAciklama(''); setFiyat(''); setStok(''); setMinEsik(''); setPuan(''); setPuanBedeli('');
     setGorsel(null); setOneCikan(false); setAktif(true);
   }
 
@@ -68,6 +72,7 @@ export default function UrunlerScreen() {
     setStok(String(item.stok));
     setMinEsik(String(item.min_esik ?? 0));
     setPuan(String(item.puan ?? 0));
+    setPuanBedeli(String(item.puan_bedeli ?? 0));
     setGorsel(item.gorsel);
     setOneCikan(item.one_cikan);
     setAktif(item.aktif);
@@ -78,7 +83,7 @@ export default function UrunlerScreen() {
     try {
       const izin = await ImagePicker.requestMediaLibraryPermissionsAsync();
       if (!izin.granted) {
-        Alert.alert('İzin gerekli', 'Görsel seçmek için galeri erişimi gerekli.');
+        uyari('İzin gerekli', 'Görsel seçmek için galeri erişimi gerekli.');
         return;
       }
       const sonuc = await ImagePicker.launchImageLibraryAsync({
@@ -95,11 +100,11 @@ export default function UrunlerScreen() {
       const { error } = await supabase.storage
         .from(PRODUCT_BUCKET).upload(yol, buf, { contentType: mime, upsert: false });
       setGorselYukleniyor(false);
-      if (error) { Alert.alert('Yüklenemedi', error.message); return; }
+      if (error) { uyari('Yüklenemedi', error.message); return; }
       setGorsel(yol);
     } catch (e: any) {
       setGorselYukleniyor(false);
-      Alert.alert('Hata', e?.message ?? 'Görsel yüklenemedi');
+      uyari('Hata', e?.message ?? 'Görsel yüklenemedi');
     }
   }
 
@@ -107,12 +112,12 @@ export default function UrunlerScreen() {
     if (!branchId) return;
     const f = parseFloat(fiyat.replace(',', '.'));
     const st = parseInt(stok, 10);
-    if (!ad.trim()) { Alert.alert('Hata', 'Ürün adı zorunlu'); return; }
-    if (!Number.isFinite(f) || f < 0) { Alert.alert('Hata', 'Geçerli bir fiyat girin'); return; }
-    if (!Number.isFinite(st) || st < 0) { Alert.alert('Hata', 'Geçerli bir stok adedi girin'); return; }
+    if (!ad.trim()) { uyari('Hata', 'Ürün adı zorunlu'); return; }
+    if (!Number.isFinite(f) || f < 0) { uyari('Hata', 'Geçerli bir fiyat girin'); return; }
+    if (!Number.isFinite(st) || st < 0) { uyari('Hata', 'Geçerli bir stok adedi girin'); return; }
 
     const me = parseInt(minEsik || '0', 10);
-    if (!Number.isFinite(me) || me < 0) { Alert.alert('Hata', 'Min. stok 0 veya üzeri olmalı'); return; }
+    if (!Number.isFinite(me) || me < 0) { uyari('Hata', 'Min. stok 0 veya üzeri olmalı'); return; }
 
     const veri = {
       branch_id: branchId,
@@ -123,6 +128,7 @@ export default function UrunlerScreen() {
       stok: st,
       min_esik: me,
       puan: parseInt(puan || '0', 10) || 0,
+      puan_bedeli: parseInt(puanBedeli || '0', 10) || 0,
       gorsel,
       one_cikan: oneCikan,
       aktif,
@@ -133,7 +139,7 @@ export default function UrunlerScreen() {
       ? await supabase.from('products').update(veri).eq('id', duzenlenen.id)
       : await supabase.from('products').insert(veri);
     setKayit(false);
-    if (error) { Alert.alert('Hata', error.message); return; }
+    if (error) { uyari('Hata', error.message); return; }
     setModalAcik(false);
     formuSifirla();
     yukle();
@@ -141,7 +147,7 @@ export default function UrunlerScreen() {
 
   function silOnayi() {
     if (!duzenlenen) return;
-    Alert.alert('Ürünü Sil', `${duzenlenen.ad} silinecek. Emin misin?`, [
+    uyari('Ürünü Sil', `${duzenlenen.ad} silinecek. Emin misin?`, [
       { text: 'Vazgeç', style: 'cancel' },
       { text: 'Sil', style: 'destructive', onPress: sil },
     ]);
@@ -154,7 +160,7 @@ export default function UrunlerScreen() {
     const { error } = await supabase
       .from('products').update({ silindi_mi: true, aktif: false }).eq('id', duzenlenen.id);
     setKayit(false);
-    if (error) { Alert.alert('Hata', error.message); return; }
+    if (error) { uyari('Hata', error.message); return; }
     setModalAcik(false);
     formuSifirla();
     yukle();
@@ -225,6 +231,7 @@ export default function UrunlerScreen() {
       </TouchableOpacity>
 
       <Modal visible={modalAcik} animationType="slide" presentationStyle="pageSheet">
+        <KlavyeKapsa style={{ backgroundColor: renkler.card }}>
         <ScrollView
           style={{ backgroundColor: renkler.card }}
           contentContainerStyle={s.modal}
@@ -322,6 +329,18 @@ export default function UrunlerScreen() {
             Sipariş teslim edilince adet başına bu kadar sadakat puanı verilir (0 = puan yok).
           </Text>
 
+          <Text style={[s.label, { color: renkler.subtext }]}>Puanla Alım Bedeli</Text>
+          <TextInput
+            style={[s.input, { borderColor: renkler.border, backgroundColor: renkler.input, color: renkler.text }]}
+            placeholder="0"
+            placeholderTextColor={renkler.subtext}
+            keyboardType="number-pad"
+            value={puanBedeli} onChangeText={setPuanBedeli}
+          />
+          <Text style={[s.ipucu, { color: renkler.subtext }]}>
+            Bu ürün Puan Mağazası'nda kaç puana alınır. 0 = puanla alınamaz.
+          </Text>
+
           <Text style={[s.label, { color: renkler.subtext }]}>Açıklama</Text>
           <TextInput
             style={[s.input, s.cokSatir, { borderColor: renkler.border, backgroundColor: renkler.input, color: renkler.text }]}
@@ -358,6 +377,8 @@ export default function UrunlerScreen() {
             <Text style={[s.iptalText, { color: renkler.subtext }]}>Vazgeç</Text>
           </TouchableOpacity>
         </ScrollView>
+        </KlavyeKapsa>
+        <UyariKatmani />
       </Modal>
     </View>
   );

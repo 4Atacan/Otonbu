@@ -69,3 +69,27 @@ export async function kampanyaIndirimHaritasi(): Promise<IndirimHaritasi> {
     });
   return harita;
 }
+
+// Aktif 'puan' kampanyalarının hizmet başına EKSTRA bonus puanı (yalnız gösterim).
+// service_id → en yüksek aktif bonus_puan. Müşteri, hizmetin kazandıracağı toplam
+// puanı (services.puan + bonus) görsün diye kullanılır. Tarih sınırı istemcide süzülür.
+export async function kampanyaPuanHaritasi(): Promise<Record<string, number>> {
+  const bugun = new Date().toISOString().slice(0, 10);
+  const { data } = await supabase
+    .from('campaigns')
+    .select('hizmet_id, bonus_puan, baslangic, bitis')
+    .eq('tip', 'puan')
+    .eq('aktif', true)
+    .not('bonus_puan', 'is', null)
+    .not('hizmet_id', 'is', null);
+
+  const harita: Record<string, number> = {};
+  ((data as Pick<Campaign, 'hizmet_id' | 'bonus_puan' | 'baslangic' | 'bitis'>[]) ?? [])
+    .forEach(k => {
+      if (k.baslangic && k.baslangic > bugun) return;
+      if (k.bitis && k.bitis < bugun) return;
+      if (!k.hizmet_id) return;
+      harita[k.hizmet_id] = Math.max(harita[k.hizmet_id] ?? 0, k.bonus_puan ?? 0);
+    });
+  return harita;
+}

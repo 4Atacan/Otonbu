@@ -250,7 +250,7 @@
       "label": "GirisScreen()",
       "file_type": "code",
       "source_file": "app/(auth)/index.tsx",
-      "source_location": "L17",
+      "source_location": "L19",
       "id": "auth_index_girisscreen",
       "community": 3,
       "norm_label": "girisscreen()"
@@ -259,7 +259,7 @@
       "label": "s",
       "file_type": "code",
       "source_file": "app/(auth)/index.tsx",
-      "source_location": "L136",
+      "source_location": "L140",
       "id": "auth_index_s",
       "community": 3,
       "norm_label": "s"
@@ -277,7 +277,7 @@
       "label": "KayitScreen()",
       "file_type": "code",
       "source_file": "app/(auth)/kayit.tsx",
-      "source_location": "L18",
+      "source_location": "L20",
       "id": "auth_kayit_kayitscreen",
       "community": 3,
       "norm_label": "kayitscreen()"
@@ -286,7 +286,7 @@
       "label": "s",
       "file_type": "code",
       "source_file": "app/(auth)/kayit.tsx",
-      "source_location": "L175",
+      "source_location": "L179",
       "id": "auth_kayit_s",
       "community": 3,
       "norm_label": "s"
@@ -304,7 +304,7 @@
       "label": "OnayBekliyorScreen()",
       "file_type": "code",
       "source_file": "app/(auth)/onay-bekliyor.tsx",
-      "source_location": "L10",
+      "source_location": "L11",
       "id": "auth_onay_bekliyor_onaybekliyorscreen",
       "community": 3,
       "norm_label": "onaybekliyorscreen()"
@@ -313,7 +313,7 @@
       "label": "s",
       "file_type": "code",
       "source_file": "app/(auth)/onay-bekliyor.tsx",
-      "source_location": "L65",
+      "source_location": "L66",
       "id": "auth_onay_bekliyor_s",
       "community": 3,
       "norm_label": "s"
@@ -331,7 +331,7 @@
       "label": "SifremiUnuttumScreen()",
       "file_type": "code",
       "source_file": "app/(auth)/sifremi-unuttum.tsx",
-      "source_location": "L20",
+      "source_location": "L22",
       "id": "auth_sifremi_unuttum_sifremiunuttumscreen",
       "community": 3,
       "norm_label": "sifremiunuttumscreen()"
@@ -340,7 +340,7 @@
       "label": "s",
       "file_type": "code",
       "source_file": "app/(auth)/sifremi-unuttum.tsx",
-      "source_location": "L178",
+      "source_location": "L182",
       "id": "auth_sifremi_unuttum_s",
       "community": 3,
       "norm_label": "s"
@@ -351,16 +351,16 @@
       "source_file": "app/(main)/_layout.tsx",
       "source_location": "L1",
       "id": "main_layout",
-      "community": 6,
+      "community": 17,
       "norm_label": "_layout.tsx"
     },
     {
       "label": "MainLayout()",
       "file_type": "code",
       "source_file": "app/(main)/_layout.tsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "id": "main_layout_mainlayout",
-      "community": 6,
+      "community": 17,
       "norm_label": "mainlayout()"
     },
     {
@@ -369,43 +369,43 @@
       "source_file": "app/(main)/hizmetler.tsx",
       "source_location": "L1",
       "id": "main_hizmetler",
-      "community": 16,
+      "community": 2,
       "norm_label": "hizmetler.tsx"
     },
     {
       "label": "KATEGORI_AD",
       "file_type": "code",
       "source_file": "app/(main)/hizmetler.tsx",
-      "source_location": "L14",
+      "source_location": "L16",
       "id": "main_hizmetler_kategori_ad",
-      "community": 16,
+      "community": 2,
       "norm_label": "kategori_ad"
     },
     {
       "label": "katAd()",
       "file_type": "code",
       "source_file": "app/(main)/hizmetler.tsx",
-      "source_location": "L19",
+      "source_location": "L21",
       "id": "main_hizmetler_katad",
-      "community": 16,
+      "community": 2,
       "norm_label": "katad()"
     },
     {
       "label": "HizmetlerSekmesi()",
       "file_type": "code",
       "source_file": "app/(main)/hizmetler.tsx",
-      "source_location": "L25",
+      "source_location": "L27",
       "id": "main_hizmetler_hizmetlersekmesi",
-      "community": 16,
+      "community": 2,
       "norm_label": "hizmetlersekmesi()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/(main)/hizmetler.tsx",
-      "source_location": "L154",
+      "source_location": "L176",
       "id": "main_hizmetler_s",
-      "community": 16,
+      "community": 2,
       "norm_label": "s"
     },
     {
@@ -414,52 +414,70 @@
       "source_file": "app/(main)/index.tsx",
       "source_location": "L1",
       "id": "main_index",
-      "community": 16,
+      "community": 9,
       "norm_label": "index.tsx"
+    },
+    {
+      "label": "SIGORTA_BANNER",
+      "file_type": "code",
+      "source_file": "app/(main)/index.tsx",
+      "source_location": "L23",
+      "id": "main_index_sigorta_banner",
+      "community": 9,
+      "norm_label": "sigorta_banner"
+    },
+    {
+      "label": "WORDMARK",
+      "file_type": "code",
+      "source_file": "app/(main)/index.tsx",
+      "source_location": "L28",
+      "id": "main_index_wordmark",
+      "community": 9,
+      "norm_label": "wordmark"
     },
     {
       "label": "buDonem()",
       "file_type": "code",
       "source_file": "app/(main)/index.tsx",
-      "source_location": "L24",
+      "source_location": "L31",
       "id": "main_index_budonem",
-      "community": 16,
+      "community": 9,
       "norm_label": "budonem()"
     },
     {
       "label": "selamlama()",
       "file_type": "code",
       "source_file": "app/(main)/index.tsx",
-      "source_location": "L29",
+      "source_location": "L36",
       "id": "main_index_selamlama",
-      "community": 16,
+      "community": 9,
       "norm_label": "selamlama()"
     },
     {
       "label": "Baslik()",
       "file_type": "code",
       "source_file": "app/(main)/index.tsx",
-      "source_location": "L38",
+      "source_location": "L45",
       "id": "main_index_baslik",
-      "community": 16,
+      "community": 9,
       "norm_label": "baslik()"
     },
     {
       "label": "AnaSayfa()",
       "file_type": "code",
       "source_file": "app/(main)/index.tsx",
-      "source_location": "L57",
+      "source_location": "L64",
       "id": "main_index_anasayfa",
-      "community": 16,
+      "community": 9,
       "norm_label": "anasayfa()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/(main)/index.tsx",
-      "source_location": "L356",
+      "source_location": "L377",
       "id": "main_index_s",
-      "community": 16,
+      "community": 9,
       "norm_label": "s"
     },
     {
@@ -468,7 +486,7 @@
       "source_file": "app/(main)/kampanyalar.tsx",
       "source_location": "L1",
       "id": "main_kampanyalar",
-      "community": 8,
+      "community": 9,
       "norm_label": "kampanyalar.tsx"
     },
     {
@@ -477,7 +495,7 @@
       "source_file": "app/(main)/kampanyalar.tsx",
       "source_location": "L17",
       "id": "main_kampanyalar_kampanyalarsekmesi",
-      "community": 8,
+      "community": 9,
       "norm_label": "kampanyalarsekmesi()"
     },
     {
@@ -486,7 +504,7 @@
       "source_file": "app/(main)/kampanyalar.tsx",
       "source_location": "L100",
       "id": "main_kampanyalar_s",
-      "community": 8,
+      "community": 9,
       "norm_label": "s"
     },
     {
@@ -495,25 +513,25 @@
       "source_file": "app/(main)/magaza.tsx",
       "source_location": "L1",
       "id": "main_magaza",
-      "community": 2,
+      "community": 9,
       "norm_label": "magaza.tsx"
     },
     {
       "label": "MagazaScreen()",
       "file_type": "code",
       "source_file": "app/(main)/magaza.tsx",
-      "source_location": "L17",
+      "source_location": "L20",
       "id": "main_magaza_magazascreen",
-      "community": 2,
+      "community": 9,
       "norm_label": "magazascreen()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/(main)/magaza.tsx",
-      "source_location": "L320",
+      "source_location": "L326",
       "id": "main_magaza_s",
-      "community": 2,
+      "community": 9,
       "norm_label": "s"
     },
     {
@@ -522,52 +540,52 @@
       "source_file": "app/(main)/profil.tsx",
       "source_location": "L1",
       "id": "main_profil",
-      "community": 6,
+      "community": 22,
       "norm_label": "profil.tsx"
     },
     {
       "label": "ROL_ADLARI",
       "file_type": "code",
       "source_file": "app/(main)/profil.tsx",
-      "source_location": "L15",
+      "source_location": "L17",
       "id": "main_profil_rol_adlari",
-      "community": 6,
+      "community": 22,
       "norm_label": "rol_adlari"
     },
     {
       "label": "ProfilScreen()",
       "file_type": "code",
       "source_file": "app/(main)/profil.tsx",
-      "source_location": "L22",
+      "source_location": "L24",
       "id": "main_profil_profilscreen",
-      "community": 6,
+      "community": 22,
       "norm_label": "profilscreen()"
     },
     {
       "label": "MenuSatir()",
       "file_type": "code",
       "source_file": "app/(main)/profil.tsx",
-      "source_location": "L271",
+      "source_location": "L278",
       "id": "main_profil_menusatir",
-      "community": 6,
+      "community": 22,
       "norm_label": "menusatir()"
     },
     {
       "label": "Ayrac()",
       "file_type": "code",
       "source_file": "app/(main)/profil.tsx",
-      "source_location": "L292",
+      "source_location": "L299",
       "id": "main_profil_ayrac",
-      "community": 6,
+      "community": 22,
       "norm_label": "ayrac()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/(main)/profil.tsx",
-      "source_location": "L296",
+      "source_location": "L303",
       "id": "main_profil_s",
-      "community": 6,
+      "community": 22,
       "norm_label": "s"
     },
     {
@@ -576,34 +594,34 @@
       "source_file": "app/(main)/sigorta.tsx",
       "source_location": "L1",
       "id": "main_sigorta",
-      "community": 0,
+      "community": 6,
       "norm_label": "sigorta.tsx"
     },
     {
       "label": "TIPLER",
       "file_type": "code",
       "source_file": "app/(main)/sigorta.tsx",
-      "source_location": "L14",
+      "source_location": "L16",
       "id": "main_sigorta_tipler",
-      "community": 0,
+      "community": 6,
       "norm_label": "tipler"
     },
     {
       "label": "SigortaScreen()",
       "file_type": "code",
       "source_file": "app/(main)/sigorta.tsx",
-      "source_location": "L19",
+      "source_location": "L21",
       "id": "main_sigorta_sigortascreen",
-      "community": 0,
+      "community": 6,
       "norm_label": "sigortascreen()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/(main)/sigorta.tsx",
-      "source_location": "L241",
+      "source_location": "L245",
       "id": "main_sigorta_s",
-      "community": 0,
+      "community": 6,
       "norm_label": "s"
     },
     {
@@ -612,7 +630,7 @@
       "source_file": "app/(yonetim)/_layout.tsx",
       "source_location": "L1",
       "id": "yonetim_layout",
-      "community": 6,
+      "community": 17,
       "norm_label": "_layout.tsx"
     },
     {
@@ -621,7 +639,7 @@
       "source_file": "app/(yonetim)/_layout.tsx",
       "source_location": "L9",
       "id": "yonetim_layout_yonetimlayout",
-      "community": 6,
+      "community": 17,
       "norm_label": "yonetimlayout()"
     },
     {
@@ -637,7 +655,7 @@
       "label": "tl()",
       "file_type": "code",
       "source_file": "app/(yonetim)/hizmetler.tsx",
-      "source_location": "L21",
+      "source_location": "L24",
       "id": "yonetim_hizmetler_tl",
       "community": 13,
       "norm_label": "tl()"
@@ -646,7 +664,7 @@
       "label": "tl0()",
       "file_type": "code",
       "source_file": "app/(yonetim)/hizmetler.tsx",
-      "source_location": "L22",
+      "source_location": "L25",
       "id": "yonetim_hizmetler_tl0",
       "community": 13,
       "norm_label": "tl0()"
@@ -655,7 +673,7 @@
       "label": "fiyatBandi()",
       "file_type": "code",
       "source_file": "app/(yonetim)/hizmetler.tsx",
-      "source_location": "L26",
+      "source_location": "L29",
       "id": "yonetim_hizmetler_fiyatbandi",
       "community": 13,
       "norm_label": "fiyatbandi()"
@@ -664,7 +682,7 @@
       "label": "fiyatAnahtar()",
       "file_type": "code",
       "source_file": "app/(yonetim)/hizmetler.tsx",
-      "source_location": "L31",
+      "source_location": "L34",
       "id": "yonetim_hizmetler_fiyatanahtar",
       "community": 13,
       "norm_label": "fiyatanahtar()"
@@ -673,7 +691,7 @@
       "label": "KAMPANYA_SECENEK",
       "file_type": "code",
       "source_file": "app/(yonetim)/hizmetler.tsx",
-      "source_location": "L34",
+      "source_location": "L37",
       "id": "yonetim_hizmetler_kampanya_secenek",
       "community": 13,
       "norm_label": "kampanya_secenek"
@@ -682,16 +700,16 @@
       "label": "HizmetlerScreen()",
       "file_type": "code",
       "source_file": "app/(yonetim)/hizmetler.tsx",
-      "source_location": "L40",
+      "source_location": "L43",
       "id": "yonetim_hizmetler_hizmetlerscreen",
-      "community": 16,
+      "community": 2,
       "norm_label": "hizmetlerscreen()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/(yonetim)/hizmetler.tsx",
-      "source_location": "L792",
+      "source_location": "L816",
       "id": "yonetim_hizmetler_s",
       "community": 13,
       "norm_label": "s"
@@ -756,34 +774,34 @@
       "source_file": "app/(yonetim)/kampanyalar.tsx",
       "source_location": "L1",
       "id": "yonetim_kampanyalar",
-      "community": 8,
+      "community": 9,
       "norm_label": "kampanyalar.tsx"
     },
     {
       "label": "TIP_SECENEK",
       "file_type": "code",
       "source_file": "app/(yonetim)/kampanyalar.tsx",
-      "source_location": "L17",
+      "source_location": "L20",
       "id": "yonetim_kampanyalar_tip_secenek",
-      "community": 8,
+      "community": 9,
       "norm_label": "tip_secenek"
     },
     {
       "label": "KampanyalarYonetimScreen()",
       "file_type": "code",
       "source_file": "app/(yonetim)/kampanyalar.tsx",
-      "source_location": "L25",
+      "source_location": "L28",
       "id": "yonetim_kampanyalar_kampanyalaryonetimscreen",
-      "community": 8,
+      "community": 9,
       "norm_label": "kampanyalaryonetimscreen()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/(yonetim)/kampanyalar.tsx",
-      "source_location": "L515",
+      "source_location": "L521",
       "id": "yonetim_kampanyalar_s",
-      "community": 8,
+      "community": 9,
       "norm_label": "s"
     },
     {
@@ -799,7 +817,7 @@
       "label": "KADEMELER",
       "file_type": "code",
       "source_file": "app/(yonetim)/paketler.tsx",
-      "source_location": "L14",
+      "source_location": "L17",
       "id": "yonetim_paketler_kademeler",
       "community": 0,
       "norm_label": "kademeler"
@@ -808,7 +826,7 @@
       "label": "bosForm()",
       "file_type": "code",
       "source_file": "app/(yonetim)/paketler.tsx",
-      "source_location": "L21",
+      "source_location": "L24",
       "id": "yonetim_paketler_bosform",
       "community": 0,
       "norm_label": "bosform()"
@@ -817,7 +835,7 @@
       "label": "PaketlerScreen()",
       "file_type": "code",
       "source_file": "app/(yonetim)/paketler.tsx",
-      "source_location": "L25",
+      "source_location": "L28",
       "id": "yonetim_paketler_paketlerscreen",
       "community": 0,
       "norm_label": "paketlerscreen()"
@@ -826,7 +844,7 @@
       "label": "s",
       "file_type": "code",
       "source_file": "app/(yonetim)/paketler.tsx",
-      "source_location": "L374",
+      "source_location": "L380",
       "id": "yonetim_paketler_s",
       "community": 0,
       "norm_label": "s"
@@ -837,7 +855,7 @@
       "source_file": "app/(yonetim)/profil.tsx",
       "source_location": "L1",
       "id": "yonetim_profil",
-      "community": 6,
+      "community": 22,
       "norm_label": "profil.tsx"
     },
     {
@@ -846,70 +864,70 @@
       "source_file": "app/(yonetim)/randevular.tsx",
       "source_location": "L1",
       "id": "yonetim_randevular",
-      "community": 19,
+      "community": 8,
       "norm_label": "randevular.tsx"
     },
     {
       "label": "DURUM_ETIKET",
       "file_type": "code",
       "source_file": "app/(yonetim)/randevular.tsx",
-      "source_location": "L15",
+      "source_location": "L17",
       "id": "yonetim_randevular_durum_etiket",
-      "community": 19,
+      "community": 8,
       "norm_label": "durum_etiket"
     },
     {
       "label": "gunler()",
       "file_type": "code",
       "source_file": "app/(yonetim)/randevular.tsx",
-      "source_location": "L24",
+      "source_location": "L26",
       "id": "yonetim_randevular_gunler",
-      "community": 19,
+      "community": 8,
       "norm_label": "gunler()"
     },
     {
       "label": "dakikaKala()",
       "file_type": "code",
       "source_file": "app/(yonetim)/randevular.tsx",
-      "source_location": "L33",
+      "source_location": "L35",
       "id": "yonetim_randevular_dakikakala",
-      "community": 19,
+      "community": 8,
       "norm_label": "dakikakala()"
     },
     {
       "label": "gunKey()",
       "file_type": "code",
       "source_file": "app/(yonetim)/randevular.tsx",
-      "source_location": "L39",
+      "source_location": "L41",
       "id": "yonetim_randevular_gunkey",
-      "community": 19,
+      "community": 8,
       "norm_label": "gunkey()"
     },
     {
       "label": "gunBasligi()",
       "file_type": "code",
       "source_file": "app/(yonetim)/randevular.tsx",
-      "source_location": "L46",
+      "source_location": "L48",
       "id": "yonetim_randevular_gunbasligi",
-      "community": 19,
+      "community": 8,
       "norm_label": "gunbasligi()"
     },
     {
       "label": "RandevularScreen()",
       "file_type": "code",
       "source_file": "app/(yonetim)/randevular.tsx",
-      "source_location": "L58",
+      "source_location": "L60",
       "id": "yonetim_randevular_randevularscreen",
-      "community": 19,
+      "community": 8,
       "norm_label": "randevularscreen()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/(yonetim)/randevular.tsx",
-      "source_location": "L457",
+      "source_location": "L460",
       "id": "yonetim_randevular_s",
-      "community": 19,
+      "community": 8,
       "norm_label": "s"
     },
     {
@@ -925,7 +943,7 @@
       "label": "PersonelSatir",
       "file_type": "code",
       "source_file": "app/(yonetim)/subeler.tsx",
-      "source_location": "L13",
+      "source_location": "L16",
       "id": "yonetim_subeler_personelsatir",
       "community": 8,
       "norm_label": "personelsatir"
@@ -934,7 +952,7 @@
       "label": "SubelerScreen()",
       "file_type": "code",
       "source_file": "app/(yonetim)/subeler.tsx",
-      "source_location": "L20",
+      "source_location": "L23",
       "id": "yonetim_subeler_subelerscreen",
       "community": 8,
       "norm_label": "subelerscreen()"
@@ -943,7 +961,7 @@
       "label": "PersonelGrup()",
       "file_type": "code",
       "source_file": "app/(yonetim)/subeler.tsx",
-      "source_location": "L268",
+      "source_location": "L274",
       "id": "yonetim_subeler_personelgrup",
       "community": 8,
       "norm_label": "personelgrup()"
@@ -952,7 +970,7 @@
       "label": "s",
       "file_type": "code",
       "source_file": "app/(yonetim)/subeler.tsx",
-      "source_location": "L324",
+      "source_location": "L330",
       "id": "yonetim_subeler_s",
       "community": 8,
       "norm_label": "s"
@@ -963,25 +981,25 @@
       "source_file": "app/(yonetim)/urunler.tsx",
       "source_location": "L1",
       "id": "yonetim_urunler",
-      "community": 2,
+      "community": 9,
       "norm_label": "urunler.tsx"
     },
     {
       "label": "UrunlerScreen()",
       "file_type": "code",
       "source_file": "app/(yonetim)/urunler.tsx",
-      "source_location": "L16",
+      "source_location": "L19",
       "id": "yonetim_urunler_urunlerscreen",
-      "community": 2,
+      "community": 9,
       "norm_label": "urunlerscreen()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/(yonetim)/urunler.tsx",
-      "source_location": "L366",
+      "source_location": "L387",
       "id": "yonetim_urunler_s",
-      "community": 2,
+      "community": 9,
       "norm_label": "s"
     },
     {
@@ -990,16 +1008,16 @@
       "source_file": "app/_layout.tsx",
       "source_location": "L1",
       "id": "app_layout",
-      "community": 6,
+      "community": 17,
       "norm_label": "_layout.tsx"
     },
     {
       "label": "RootLayout()",
       "file_type": "code",
       "source_file": "app/_layout.tsx",
-      "source_location": "L18",
+      "source_location": "L19",
       "id": "app_layout_rootlayout",
-      "community": 6,
+      "community": 17,
       "norm_label": "rootlayout()"
     },
     {
@@ -1008,43 +1026,43 @@
       "source_file": "app/abonelik.tsx",
       "source_location": "L1",
       "id": "app_abonelik",
-      "community": 0,
+      "community": 22,
       "norm_label": "abonelik.tsx"
     },
     {
       "label": "KADEME_ETIKET",
       "file_type": "code",
       "source_file": "app/abonelik.tsx",
-      "source_location": "L15",
+      "source_location": "L16",
       "id": "app_abonelik_kademe_etiket",
-      "community": 0,
+      "community": 22,
       "norm_label": "kademe_etiket"
     },
     {
       "label": "buDonem()",
       "file_type": "code",
       "source_file": "app/abonelik.tsx",
-      "source_location": "L20",
+      "source_location": "L21",
       "id": "app_abonelik_budonem",
-      "community": 0,
+      "community": 22,
       "norm_label": "budonem()"
     },
     {
       "label": "AbonelikScreen()",
       "file_type": "code",
       "source_file": "app/abonelik.tsx",
-      "source_location": "L25",
+      "source_location": "L26",
       "id": "app_abonelik_abonelikscreen",
-      "community": 0,
+      "community": 6,
       "norm_label": "abonelikscreen()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/abonelik.tsx",
-      "source_location": "L305",
+      "source_location": "L306",
       "id": "app_abonelik_s",
-      "community": 0,
+      "community": 22,
       "norm_label": "s"
     },
     {
@@ -1053,25 +1071,25 @@
       "source_file": "app/araclar.tsx",
       "source_location": "L1",
       "id": "app_araclar",
-      "community": 9,
+      "community": 8,
       "norm_label": "araclar.tsx"
     },
     {
       "label": "AraclarScreen()",
       "file_type": "code",
       "source_file": "app/araclar.tsx",
-      "source_location": "L16",
+      "source_location": "L19",
       "id": "app_araclar_araclarscreen",
-      "community": 9,
+      "community": 8,
       "norm_label": "araclarscreen()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/araclar.tsx",
-      "source_location": "L294",
+      "source_location": "L300",
       "id": "app_araclar_s",
-      "community": 9,
+      "community": 8,
       "norm_label": "s"
     },
     {
@@ -1080,7 +1098,7 @@
       "source_file": "app/hizmet-detay.tsx",
       "source_location": "L1",
       "id": "app_hizmet_detay",
-      "community": 16,
+      "community": 2,
       "norm_label": "hizmet-detay.tsx"
     },
     {
@@ -1089,7 +1107,7 @@
       "source_file": "app/hizmet-detay.tsx",
       "source_location": "L15",
       "id": "app_hizmet_detay_tl",
-      "community": 16,
+      "community": 2,
       "norm_label": "tl()"
     },
     {
@@ -1098,7 +1116,7 @@
       "source_file": "app/hizmet-detay.tsx",
       "source_location": "L18",
       "id": "app_hizmet_detay_hizmetdetayscreen",
-      "community": 16,
+      "community": 2,
       "norm_label": "hizmetdetayscreen()"
     },
     {
@@ -1107,7 +1125,7 @@
       "source_file": "app/hizmet-detay.tsx",
       "source_location": "L167",
       "id": "app_hizmet_detay_s",
-      "community": 16,
+      "community": 2,
       "norm_label": "s"
     },
     {
@@ -1116,43 +1134,43 @@
       "source_file": "app/hizmet-teklifleri.tsx",
       "source_location": "L1",
       "id": "app_hizmet_teklifleri",
-      "community": 0,
+      "community": 6,
       "norm_label": "hizmet-teklifleri.tsx"
     },
     {
       "label": "DURUM_ETIKET",
       "file_type": "code",
       "source_file": "app/hizmet-teklifleri.tsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "id": "app_hizmet_teklifleri_durum_etiket",
-      "community": 0,
+      "community": 6,
       "norm_label": "durum_etiket"
     },
     {
       "label": "SONRAKI",
       "file_type": "code",
       "source_file": "app/hizmet-teklifleri.tsx",
-      "source_location": "L20",
+      "source_location": "L21",
       "id": "app_hizmet_teklifleri_sonraki",
-      "community": 0,
+      "community": 6,
       "norm_label": "sonraki"
     },
     {
       "label": "HizmetTeklifleriScreen()",
       "file_type": "code",
       "source_file": "app/hizmet-teklifleri.tsx",
-      "source_location": "L26",
+      "source_location": "L27",
       "id": "app_hizmet_teklifleri_hizmetteklifleriscreen",
-      "community": 0,
+      "community": 6,
       "norm_label": "hizmetteklifleriscreen()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/hizmet-teklifleri.tsx",
-      "source_location": "L165",
+      "source_location": "L166",
       "id": "app_hizmet_teklifleri_s",
-      "community": 0,
+      "community": 6,
       "norm_label": "s"
     },
     {
@@ -1161,7 +1179,7 @@
       "source_file": "app/kvkk.tsx",
       "source_location": "L1",
       "id": "app_kvkk",
-      "community": 6,
+      "community": 17,
       "norm_label": "kvkk.tsx"
     },
     {
@@ -1170,7 +1188,7 @@
       "source_file": "app/kvkk.tsx",
       "source_location": "L10",
       "id": "app_kvkk_bolumler",
-      "community": 6,
+      "community": 17,
       "norm_label": "bolumler"
     },
     {
@@ -1179,7 +1197,7 @@
       "source_file": "app/kvkk.tsx",
       "source_location": "L64",
       "id": "app_kvkk_kvkkscreen",
-      "community": 6,
+      "community": 17,
       "norm_label": "kvkkscreen()"
     },
     {
@@ -1188,7 +1206,7 @@
       "source_file": "app/kvkk.tsx",
       "source_location": "L96",
       "id": "app_kvkk_s",
-      "community": 6,
+      "community": 17,
       "norm_label": "s"
     },
     {
@@ -1197,7 +1215,7 @@
       "source_file": "app/odeme.tsx",
       "source_location": "L1",
       "id": "app_odeme",
-      "community": 6,
+      "community": 17,
       "norm_label": "odeme.tsx"
     },
     {
@@ -1206,7 +1224,7 @@
       "source_file": "app/odeme.tsx",
       "source_location": "L14",
       "id": "app_odeme_odemescreen",
-      "community": 6,
+      "community": 17,
       "norm_label": "odemescreen()"
     },
     {
@@ -1215,7 +1233,43 @@
       "source_file": "app/odeme.tsx",
       "source_location": "L70",
       "id": "app_odeme_s",
-      "community": 6,
+      "community": 17,
+      "norm_label": "s"
+    },
+    {
+      "label": "puan-magaza.tsx",
+      "file_type": "code",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L1",
+      "id": "app_puan_magaza",
+      "community": 2,
+      "norm_label": "puan-magaza.tsx"
+    },
+    {
+      "label": "PuanMagazaScreen()",
+      "file_type": "code",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L19",
+      "id": "app_puan_magaza_puanmagazascreen",
+      "community": 2,
+      "norm_label": "puanmagazascreen()"
+    },
+    {
+      "label": "Baslik()",
+      "file_type": "code",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L139",
+      "id": "app_puan_magaza_baslik",
+      "community": 2,
+      "norm_label": "baslik()"
+    },
+    {
+      "label": "s",
+      "file_type": "code",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L148",
+      "id": "app_puan_magaza_s",
+      "community": 2,
       "norm_label": "s"
     },
     {
@@ -1224,34 +1278,34 @@
       "source_file": "app/randevu-al.tsx",
       "source_location": "L1",
       "id": "app_randevu_al",
-      "community": 2,
+      "community": 8,
       "norm_label": "randevu-al.tsx"
     },
     {
       "label": "gunler()",
       "file_type": "code",
       "source_file": "app/randevu-al.tsx",
-      "source_location": "L18",
+      "source_location": "L21",
       "id": "app_randevu_al_gunler",
-      "community": 2,
+      "community": 8,
       "norm_label": "gunler()"
     },
     {
       "label": "RandevuAlScreen()",
       "file_type": "code",
       "source_file": "app/randevu-al.tsx",
-      "source_location": "L27",
+      "source_location": "L30",
       "id": "app_randevu_al_randevualscreen",
-      "community": 2,
+      "community": 8,
       "norm_label": "randevualscreen()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/randevu-al.tsx",
-      "source_location": "L641",
+      "source_location": "L735",
       "id": "app_randevu_al_s",
-      "community": 2,
+      "community": 8,
       "norm_label": "s"
     },
     {
@@ -1260,61 +1314,61 @@
       "source_file": "app/randevularim.tsx",
       "source_location": "L1",
       "id": "app_randevularim",
-      "community": 19,
+      "community": 15,
       "norm_label": "randevularim.tsx"
     },
     {
       "label": "RANDEVU_ETIKET",
       "file_type": "code",
       "source_file": "app/randevularim.tsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "id": "app_randevularim_randevu_etiket",
-      "community": 19,
+      "community": 15,
       "norm_label": "randevu_etiket"
     },
     {
       "label": "IS_ETIKET",
       "file_type": "code",
       "source_file": "app/randevularim.tsx",
-      "source_location": "L20",
+      "source_location": "L21",
       "id": "app_randevularim_is_etiket",
-      "community": 19,
+      "community": 15,
       "norm_label": "is_etiket"
     },
     {
       "label": "dakikaKala()",
       "file_type": "code",
       "source_file": "app/randevularim.tsx",
-      "source_location": "L31",
+      "source_location": "L32",
       "id": "app_randevularim_dakikakala",
-      "community": 19,
+      "community": 15,
       "norm_label": "dakikakala()"
     },
     {
       "label": "RandevularimScreen()",
       "file_type": "code",
       "source_file": "app/randevularim.tsx",
-      "source_location": "L36",
+      "source_location": "L37",
       "id": "app_randevularim_randevularimscreen",
-      "community": 19,
+      "community": 15,
       "norm_label": "randevularimscreen()"
     },
     {
       "label": "FotoSatiri()",
       "file_type": "code",
       "source_file": "app/randevularim.tsx",
-      "source_location": "L317",
+      "source_location": "L318",
       "id": "app_randevularim_fotosatiri",
-      "community": 19,
+      "community": 15,
       "norm_label": "fotosatiri()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/randevularim.tsx",
-      "source_location": "L345",
+      "source_location": "L346",
       "id": "app_randevularim_s",
-      "community": 19,
+      "community": 15,
       "norm_label": "s"
     },
     {
@@ -1323,43 +1377,43 @@
       "source_file": "app/siparisler.tsx",
       "source_location": "L1",
       "id": "app_siparisler",
-      "community": 0,
+      "community": 28,
       "norm_label": "siparisler.tsx"
     },
     {
       "label": "DURUM_ETIKET",
       "file_type": "code",
       "source_file": "app/siparisler.tsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "id": "app_siparisler_durum_etiket",
-      "community": 0,
+      "community": 28,
       "norm_label": "durum_etiket"
     },
     {
       "label": "SONRAKI",
       "file_type": "code",
       "source_file": "app/siparisler.tsx",
-      "source_location": "L23",
+      "source_location": "L24",
       "id": "app_siparisler_sonraki",
-      "community": 0,
+      "community": 28,
       "norm_label": "sonraki"
     },
     {
       "label": "SiparislerScreen()",
       "file_type": "code",
       "source_file": "app/siparisler.tsx",
-      "source_location": "L29",
+      "source_location": "L30",
       "id": "app_siparisler_siparislerscreen",
-      "community": 0,
+      "community": 28,
       "norm_label": "siparislerscreen()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/siparisler.tsx",
-      "source_location": "L186",
+      "source_location": "L187",
       "id": "app_siparisler_s",
-      "community": 0,
+      "community": 28,
       "norm_label": "s"
     },
     {
@@ -1368,25 +1422,25 @@
       "source_file": "app/teklif-al.tsx",
       "source_location": "L1",
       "id": "app_teklif_al",
-      "community": 9,
+      "community": 8,
       "norm_label": "teklif-al.tsx"
     },
     {
       "label": "TeklifAlScreen()",
       "file_type": "code",
       "source_file": "app/teklif-al.tsx",
-      "source_location": "L16",
+      "source_location": "L19",
       "id": "app_teklif_al_teklifalscreen",
-      "community": 9,
+      "community": 8,
       "norm_label": "teklifalscreen()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/teklif-al.tsx",
-      "source_location": "L240",
+      "source_location": "L246",
       "id": "app_teklif_al_s",
-      "community": 9,
+      "community": 8,
       "norm_label": "s"
     },
     {
@@ -1395,43 +1449,43 @@
       "source_file": "app/teklifler.tsx",
       "source_location": "L1",
       "id": "app_teklifler",
-      "community": 0,
+      "community": 6,
       "norm_label": "teklifler.tsx"
     },
     {
       "label": "DURUM_ETIKET",
       "file_type": "code",
       "source_file": "app/teklifler.tsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "id": "app_teklifler_durum_etiket",
-      "community": 0,
+      "community": 6,
       "norm_label": "durum_etiket"
     },
     {
       "label": "SONRAKI",
       "file_type": "code",
       "source_file": "app/teklifler.tsx",
-      "source_location": "L20",
+      "source_location": "L21",
       "id": "app_teklifler_sonraki",
-      "community": 0,
+      "community": 6,
       "norm_label": "sonraki"
     },
     {
       "label": "TekliflerScreen()",
       "file_type": "code",
       "source_file": "app/teklifler.tsx",
-      "source_location": "L26",
+      "source_location": "L27",
       "id": "app_teklifler_tekliflerscreen",
-      "community": 0,
+      "community": 6,
       "norm_label": "tekliflerscreen()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "app/teklifler.tsx",
-      "source_location": "L165",
+      "source_location": "L166",
       "id": "app_teklifler_s",
-      "community": 0,
+      "community": 6,
       "norm_label": "s"
     },
     {
@@ -1440,7 +1494,7 @@
       "source_file": "app/urun-detay.tsx",
       "source_location": "L1",
       "id": "app_urun_detay",
-      "community": 2,
+      "community": 9,
       "norm_label": "urun-detay.tsx"
     },
     {
@@ -1449,7 +1503,7 @@
       "source_file": "app/urun-detay.tsx",
       "source_location": "L16",
       "id": "app_urun_detay_urundetayscreen",
-      "community": 2,
+      "community": 9,
       "norm_label": "urundetayscreen()"
     },
     {
@@ -1458,7 +1512,7 @@
       "source_file": "app/urun-detay.tsx",
       "source_location": "L190",
       "id": "app_urun_detay_s",
-      "community": 2,
+      "community": 9,
       "norm_label": "s"
     },
     {
@@ -2106,7 +2160,7 @@
       "source_file": "src/components/AutocompleteInput.tsx",
       "source_location": "L1",
       "id": "components_autocompleteinput",
-      "community": 9,
+      "community": 8,
       "norm_label": "autocompleteinput.tsx"
     },
     {
@@ -2115,7 +2169,7 @@
       "source_file": "src/components/AutocompleteInput.tsx",
       "source_location": "L8",
       "id": "components_autocompleteinput_props",
-      "community": 9,
+      "community": 8,
       "norm_label": "props"
     },
     {
@@ -2124,7 +2178,7 @@
       "source_file": "src/components/AutocompleteInput.tsx",
       "source_location": "L20",
       "id": "components_autocompleteinput_autocompleteinput",
-      "community": 9,
+      "community": 8,
       "norm_label": "autocompleteinput()"
     },
     {
@@ -2133,7 +2187,7 @@
       "source_file": "src/components/AutocompleteInput.tsx",
       "source_location": "L72",
       "id": "components_autocompleteinput_s",
-      "community": 9,
+      "community": 8,
       "norm_label": "s"
     },
     {
@@ -2241,7 +2295,7 @@
       "source_file": "src/components/GeriLogo.tsx",
       "source_location": "L1",
       "id": "components_gerilogo",
-      "community": 6,
+      "community": 17,
       "norm_label": "gerilogo.tsx"
     },
     {
@@ -2250,7 +2304,7 @@
       "source_file": "src/components/GeriLogo.tsx",
       "source_location": "L9",
       "id": "components_gerilogo_logo",
-      "community": 6,
+      "community": 17,
       "norm_label": "logo"
     },
     {
@@ -2259,7 +2313,7 @@
       "source_file": "src/components/GeriLogo.tsx",
       "source_location": "L11",
       "id": "components_gerilogo_gerilogo",
-      "community": 6,
+      "community": 17,
       "norm_label": "gerilogo()"
     },
     {
@@ -2268,7 +2322,7 @@
       "source_file": "src/components/GeriLogo.tsx",
       "source_location": "L26",
       "id": "components_gerilogo_s",
-      "community": 6,
+      "community": 17,
       "norm_label": "s"
     },
     {
@@ -2277,70 +2331,70 @@
       "source_file": "src/components/IslerListesi.tsx",
       "source_location": "L1",
       "id": "components_islerlistesi",
-      "community": 2,
+      "community": 15,
       "norm_label": "islerlistesi.tsx"
     },
     {
       "label": "SONRAKI",
       "file_type": "code",
       "source_file": "src/components/IslerListesi.tsx",
-      "source_location": "L22",
+      "source_location": "L23",
       "id": "components_islerlistesi_sonraki",
-      "community": 2,
+      "community": 15,
       "norm_label": "sonraki"
     },
     {
       "label": "SONRAKI_ETIKET",
       "file_type": "code",
       "source_file": "src/components/IslerListesi.tsx",
-      "source_location": "L27",
+      "source_location": "L28",
       "id": "components_islerlistesi_sonraki_etiket",
-      "community": 2,
+      "community": 15,
       "norm_label": "sonraki_etiket"
     },
     {
       "label": "IS_ETIKET",
       "file_type": "code",
       "source_file": "src/components/IslerListesi.tsx",
-      "source_location": "L32",
+      "source_location": "L33",
       "id": "components_islerlistesi_is_etiket",
-      "community": 2,
+      "community": 15,
       "norm_label": "is_etiket"
     },
     {
       "label": "gunListesi()",
       "file_type": "code",
       "source_file": "src/components/IslerListesi.tsx",
-      "source_location": "L39",
+      "source_location": "L40",
       "id": "components_islerlistesi_gunlistesi",
-      "community": 2,
+      "community": 15,
       "norm_label": "gunlistesi()"
     },
     {
       "label": "IslerListesi()",
       "file_type": "code",
       "source_file": "src/components/IslerListesi.tsx",
-      "source_location": "L47",
+      "source_location": "L48",
       "id": "components_islerlistesi_islerlistesi",
-      "community": 2,
+      "community": 15,
       "norm_label": "islerlistesi()"
     },
     {
       "label": "FotoBolum()",
       "file_type": "code",
       "source_file": "src/components/IslerListesi.tsx",
-      "source_location": "L437",
+      "source_location": "L438",
       "id": "components_islerlistesi_fotobolum",
-      "community": 2,
+      "community": 15,
       "norm_label": "fotobolum()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "src/components/IslerListesi.tsx",
-      "source_location": "L470",
+      "source_location": "L471",
       "id": "components_islerlistesi_s",
-      "community": 2,
+      "community": 15,
       "norm_label": "s"
     },
     {
@@ -2349,7 +2403,7 @@
       "source_file": "src/components/KampanyaKart.tsx",
       "source_location": "L1",
       "id": "components_kampanyakart",
-      "community": 8,
+      "community": 9,
       "norm_label": "kampanyakart.tsx"
     },
     {
@@ -2358,7 +2412,7 @@
       "source_file": "src/components/KampanyaKart.tsx",
       "source_location": "L10",
       "id": "components_kampanyakart_kampanya_renk",
-      "community": 8,
+      "community": 9,
       "norm_label": "kampanya_renk"
     },
     {
@@ -2367,7 +2421,7 @@
       "source_file": "src/components/KampanyaKart.tsx",
       "source_location": "L12",
       "id": "components_kampanyakart_props",
-      "community": 8,
+      "community": 9,
       "norm_label": "props"
     },
     {
@@ -2376,7 +2430,7 @@
       "source_file": "src/components/KampanyaKart.tsx",
       "source_location": "L23",
       "id": "components_kampanyakart_kampanyakart",
-      "community": 8,
+      "community": 9,
       "norm_label": "kampanyakart()"
     },
     {
@@ -2385,8 +2439,26 @@
       "source_file": "src/components/KampanyaKart.tsx",
       "source_location": "L82",
       "id": "components_kampanyakart_s",
-      "community": 8,
+      "community": 9,
       "norm_label": "s"
+    },
+    {
+      "label": "KlavyeKapsa.tsx",
+      "file_type": "code",
+      "source_file": "src/components/KlavyeKapsa.tsx",
+      "source_location": "L1",
+      "id": "components_klavyekapsa",
+      "community": 3,
+      "norm_label": "klavyekapsa.tsx"
+    },
+    {
+      "label": "KlavyeKapsa()",
+      "file_type": "code",
+      "source_file": "src/components/KlavyeKapsa.tsx",
+      "source_location": "L7",
+      "id": "components_klavyekapsa_klavyekapsa",
+      "community": 3,
+      "norm_label": "klavyekapsa()"
     },
     {
       "label": "Logo.tsx",
@@ -2439,7 +2511,7 @@
       "source_file": "src/components/OtonbuArac.tsx",
       "source_location": "L1",
       "id": "components_otonbuarac",
-      "community": 16,
+      "community": 17,
       "norm_label": "otonbuarac.tsx"
     },
     {
@@ -2448,7 +2520,7 @@
       "source_file": "src/components/OtonbuArac.tsx",
       "source_location": "L6",
       "id": "components_otonbuarac_togg",
-      "community": 16,
+      "community": 17,
       "norm_label": "togg"
     },
     {
@@ -2457,7 +2529,7 @@
       "source_file": "src/components/OtonbuArac.tsx",
       "source_location": "L7",
       "id": "components_otonbuarac_marka",
-      "community": 16,
+      "community": 17,
       "norm_label": "marka"
     },
     {
@@ -2466,7 +2538,7 @@
       "source_file": "src/components/OtonbuArac.tsx",
       "source_location": "L10",
       "id": "components_otonbuarac_props",
-      "community": 16,
+      "community": 17,
       "norm_label": "props"
     },
     {
@@ -2475,7 +2547,7 @@
       "source_file": "src/components/OtonbuArac.tsx",
       "source_location": "L14",
       "id": "components_otonbuarac_otonbuarac",
-      "community": 16,
+      "community": 17,
       "norm_label": "otonbuarac()"
     },
     {
@@ -2542,6 +2614,60 @@
       "norm_label": "s"
     },
     {
+      "label": "PuanLogo.tsx",
+      "file_type": "code",
+      "source_file": "src/components/PuanLogo.tsx",
+      "source_location": "L1",
+      "id": "components_puanlogo",
+      "community": 2,
+      "norm_label": "puanlogo.tsx"
+    },
+    {
+      "label": "AMBLEM",
+      "file_type": "code",
+      "source_file": "src/components/PuanLogo.tsx",
+      "source_location": "L6",
+      "id": "components_puanlogo_amblem",
+      "community": 2,
+      "norm_label": "amblem"
+    },
+    {
+      "label": "PuanLogo()",
+      "file_type": "code",
+      "source_file": "src/components/PuanLogo.tsx",
+      "source_location": "L8",
+      "id": "components_puanlogo_puanlogo",
+      "community": 2,
+      "norm_label": "puanlogo()"
+    },
+    {
+      "label": "PuanRozeti.tsx",
+      "file_type": "code",
+      "source_file": "src/components/PuanRozeti.tsx",
+      "source_location": "L1",
+      "id": "components_puanrozeti",
+      "community": 2,
+      "norm_label": "puanrozeti.tsx"
+    },
+    {
+      "label": "PuanRozeti()",
+      "file_type": "code",
+      "source_file": "src/components/PuanRozeti.tsx",
+      "source_location": "L13",
+      "id": "components_puanrozeti_puanrozeti",
+      "community": 17,
+      "norm_label": "puanrozeti()"
+    },
+    {
+      "label": "s",
+      "file_type": "code",
+      "source_file": "src/components/PuanRozeti.tsx",
+      "source_location": "L51",
+      "id": "components_puanrozeti_s",
+      "community": 2,
+      "norm_label": "s"
+    },
+    {
       "label": "RaporModal.tsx",
       "file_type": "code",
       "source_file": "src/components/RaporModal.tsx",
@@ -2554,7 +2680,7 @@
       "label": "RANDEVU_ETIKET",
       "file_type": "code",
       "source_file": "src/components/RaporModal.tsx",
-      "source_location": "L12",
+      "source_location": "L14",
       "id": "components_rapormodal_randevu_etiket",
       "community": 19,
       "norm_label": "randevu_etiket"
@@ -2563,7 +2689,7 @@
       "label": "IS_ETIKET",
       "file_type": "code",
       "source_file": "src/components/RaporModal.tsx",
-      "source_location": "L15",
+      "source_location": "L17",
       "id": "components_rapormodal_is_etiket",
       "community": 19,
       "norm_label": "is_etiket"
@@ -2572,7 +2698,7 @@
       "label": "ymd()",
       "file_type": "code",
       "source_file": "src/components/RaporModal.tsx",
-      "source_location": "L20",
+      "source_location": "L22",
       "id": "components_rapormodal_ymd",
       "community": 19,
       "norm_label": "ymd()"
@@ -2581,7 +2707,7 @@
       "label": "parseYmd()",
       "file_type": "code",
       "source_file": "src/components/RaporModal.tsx",
-      "source_location": "L23",
+      "source_location": "L25",
       "id": "components_rapormodal_parseymd",
       "community": 19,
       "norm_label": "parseymd()"
@@ -2590,7 +2716,7 @@
       "label": "gunOnce()",
       "file_type": "code",
       "source_file": "src/components/RaporModal.tsx",
-      "source_location": "L29",
+      "source_location": "L31",
       "id": "components_rapormodal_gunonce",
       "community": 19,
       "norm_label": "gunonce()"
@@ -2599,7 +2725,7 @@
       "label": "Props",
       "file_type": "code",
       "source_file": "src/components/RaporModal.tsx",
-      "source_location": "L33",
+      "source_location": "L35",
       "id": "components_rapormodal_props",
       "community": 19,
       "norm_label": "props"
@@ -2608,7 +2734,7 @@
       "label": "RaporModal()",
       "file_type": "code",
       "source_file": "src/components/RaporModal.tsx",
-      "source_location": "L35",
+      "source_location": "L37",
       "id": "components_rapormodal_rapormodal",
       "community": 19,
       "norm_label": "rapormodal()"
@@ -2617,7 +2743,7 @@
       "label": "s",
       "file_type": "code",
       "source_file": "src/components/RaporModal.tsx",
-      "source_location": "L289",
+      "source_location": "L292",
       "id": "components_rapormodal_s",
       "community": 19,
       "norm_label": "s"
@@ -2628,25 +2754,25 @@
       "source_file": "src/components/SatisModal.tsx",
       "source_location": "L1",
       "id": "components_satismodal",
-      "community": 2,
+      "community": 8,
       "norm_label": "satismodal.tsx"
     },
     {
       "label": "SatisModal()",
       "file_type": "code",
       "source_file": "src/components/SatisModal.tsx",
-      "source_location": "L16",
+      "source_location": "L18",
       "id": "components_satismodal_satismodal",
-      "community": 2,
+      "community": 8,
       "norm_label": "satismodal()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "src/components/SatisModal.tsx",
-      "source_location": "L187",
+      "source_location": "L190",
       "id": "components_satismodal_s",
-      "community": 2,
+      "community": 8,
       "norm_label": "s"
     },
     {
@@ -2655,7 +2781,7 @@
       "source_file": "src/components/UstBosluk.tsx",
       "source_location": "L1",
       "id": "components_ustbosluk",
-      "community": 6,
+      "community": 17,
       "norm_label": "ustbosluk.tsx"
     },
     {
@@ -2664,7 +2790,7 @@
       "source_file": "src/components/UstBosluk.tsx",
       "source_location": "L9",
       "id": "components_ustbosluk_ustbosluk",
-      "community": 6,
+      "community": 17,
       "norm_label": "ustbosluk()"
     },
     {
@@ -2673,34 +2799,70 @@
       "source_file": "src/components/UstNavbar.tsx",
       "source_location": "L1",
       "id": "components_ustnavbar",
-      "community": 6,
+      "community": 17,
       "norm_label": "ustnavbar.tsx"
     },
     {
       "label": "LOGO",
       "file_type": "code",
       "source_file": "src/components/UstNavbar.tsx",
-      "source_location": "L10",
+      "source_location": "L11",
       "id": "components_ustnavbar_logo",
-      "community": 6,
+      "community": 17,
       "norm_label": "logo"
     },
     {
       "label": "UstNavbar()",
       "file_type": "code",
       "source_file": "src/components/UstNavbar.tsx",
-      "source_location": "L12",
+      "source_location": "L15",
       "id": "components_ustnavbar_ustnavbar",
-      "community": 6,
+      "community": 17,
       "norm_label": "ustnavbar()"
     },
     {
       "label": "s",
       "file_type": "code",
       "source_file": "src/components/UstNavbar.tsx",
-      "source_location": "L46",
+      "source_location": "L52",
       "id": "components_ustnavbar_s",
-      "community": 6,
+      "community": 17,
+      "norm_label": "s"
+    },
+    {
+      "label": "UyariProvider.tsx",
+      "file_type": "code",
+      "source_file": "src/components/UyariProvider.tsx",
+      "source_location": "L1",
+      "id": "components_uyariprovider",
+      "community": 8,
+      "norm_label": "uyariprovider.tsx"
+    },
+    {
+      "label": "UyariKatmani()",
+      "file_type": "code",
+      "source_file": "src/components/UyariProvider.tsx",
+      "source_location": "L13",
+      "id": "components_uyariprovider_uyarikatmani",
+      "community": 8,
+      "norm_label": "uyarikatmani()"
+    },
+    {
+      "label": "UyariProvider()",
+      "file_type": "code",
+      "source_file": "src/components/UyariProvider.tsx",
+      "source_location": "L80",
+      "id": "components_uyariprovider_uyariprovider",
+      "community": 17,
+      "norm_label": "uyariprovider()"
+    },
+    {
+      "label": "s",
+      "file_type": "code",
+      "source_file": "src/components/UyariProvider.tsx",
+      "source_location": "L84",
+      "id": "components_uyariprovider_s",
+      "community": 8,
       "norm_label": "s"
     },
     {
@@ -2709,7 +2871,7 @@
       "source_file": "src/components/Yukleniyor.tsx",
       "source_location": "L1",
       "id": "components_yukleniyor",
-      "community": 8,
+      "community": 9,
       "norm_label": "yukleniyor.tsx"
     },
     {
@@ -2718,7 +2880,7 @@
       "source_file": "src/components/Yukleniyor.tsx",
       "source_location": "L6",
       "id": "components_yukleniyor_mark",
-      "community": 8,
+      "community": 9,
       "norm_label": "mark"
     },
     {
@@ -2727,7 +2889,7 @@
       "source_file": "src/components/Yukleniyor.tsx",
       "source_location": "L8",
       "id": "components_yukleniyor_props",
-      "community": 8,
+      "community": 9,
       "norm_label": "props"
     },
     {
@@ -2736,7 +2898,7 @@
       "source_file": "src/components/Yukleniyor.tsx",
       "source_location": "L15",
       "id": "components_yukleniyor_yukleniyor",
-      "community": 8,
+      "community": 9,
       "norm_label": "yukleniyor()"
     },
     {
@@ -2745,7 +2907,7 @@
       "source_file": "src/components/Yukleniyor.tsx",
       "source_location": "L47",
       "id": "components_yukleniyor_styles",
-      "community": 8,
+      "community": 9,
       "norm_label": "styles"
     },
     {
@@ -2754,7 +2916,7 @@
       "source_file": "src/context/SepetContext.tsx",
       "source_location": "L1",
       "id": "context_sepetcontext",
-      "community": 2,
+      "community": 9,
       "norm_label": "sepetcontext.tsx"
     },
     {
@@ -2763,7 +2925,7 @@
       "source_file": "src/context/SepetContext.tsx",
       "source_location": "L7",
       "id": "context_sepetcontext_sepetkalem",
-      "community": 2,
+      "community": 9,
       "norm_label": "sepetkalem"
     },
     {
@@ -2772,7 +2934,7 @@
       "source_file": "src/context/SepetContext.tsx",
       "source_location": "L9",
       "id": "context_sepetcontext_sepetstate",
-      "community": 2,
+      "community": 9,
       "norm_label": "sepetstate"
     },
     {
@@ -2781,7 +2943,7 @@
       "source_file": "src/context/SepetContext.tsx",
       "source_location": "L19",
       "id": "context_sepetcontext_ctx",
-      "community": 2,
+      "community": 9,
       "norm_label": "ctx"
     },
     {
@@ -2790,7 +2952,7 @@
       "source_file": "src/context/SepetContext.tsx",
       "source_location": "L21",
       "id": "context_sepetcontext_sepetprovider",
-      "community": 2,
+      "community": 9,
       "norm_label": "sepetprovider()"
     },
     {
@@ -2799,7 +2961,7 @@
       "source_file": "src/context/SepetContext.tsx",
       "source_location": "L58",
       "id": "context_sepetcontext_usesepet",
-      "community": 2,
+      "community": 9,
       "norm_label": "usesepet()"
     },
     {
@@ -2808,7 +2970,7 @@
       "source_file": "src/data/arac-katalogu.ts",
       "source_location": "L1",
       "id": "data_arac_katalogu",
-      "community": 9,
+      "community": 8,
       "norm_label": "arac-katalogu.ts"
     },
     {
@@ -2817,7 +2979,7 @@
       "source_file": "src/data/arac-katalogu.ts",
       "source_location": "L5",
       "id": "data_arac_katalogu_arac_cinsleri",
-      "community": 9,
+      "community": 8,
       "norm_label": "arac_cinsleri"
     },
     {
@@ -2826,7 +2988,7 @@
       "source_file": "src/data/arac-katalogu.ts",
       "source_location": "L18",
       "id": "data_arac_katalogu_araccinsi",
-      "community": 9,
+      "community": 8,
       "norm_label": "araccinsi"
     },
     {
@@ -2835,7 +2997,7 @@
       "source_file": "src/data/arac-katalogu.ts",
       "source_location": "L20",
       "id": "data_arac_katalogu_cinslabel",
-      "community": 9,
+      "community": 8,
       "norm_label": "cinslabel()"
     },
     {
@@ -2844,7 +3006,7 @@
       "source_file": "src/data/arac-katalogu.ts",
       "source_location": "L26",
       "id": "data_arac_katalogu_segmentler",
-      "community": 9,
+      "community": 13,
       "norm_label": "segmentler"
     },
     {
@@ -2853,7 +3015,7 @@
       "source_file": "src/data/arac-katalogu.ts",
       "source_location": "L31",
       "id": "data_arac_katalogu_segment",
-      "community": 9,
+      "community": 8,
       "norm_label": "segment"
     },
     {
@@ -2862,7 +3024,7 @@
       "source_file": "src/data/arac-katalogu.ts",
       "source_location": "L34",
       "id": "data_arac_katalogu_buyuk_cinsler",
-      "community": 9,
+      "community": 8,
       "norm_label": "buyuk_cinsler"
     },
     {
@@ -2871,7 +3033,7 @@
       "source_file": "src/data/arac-katalogu.ts",
       "source_location": "L38",
       "id": "data_arac_katalogu_aracsegment",
-      "community": 9,
+      "community": 8,
       "norm_label": "aracsegment()"
     },
     {
@@ -2880,7 +3042,7 @@
       "source_file": "src/data/arac-katalogu.ts",
       "source_location": "L42",
       "id": "data_arac_katalogu_segmentlabel",
-      "community": 9,
+      "community": 8,
       "norm_label": "segmentlabel()"
     },
     {
@@ -2889,7 +3051,7 @@
       "source_file": "src/data/arac-katalogu.ts",
       "source_location": "L47",
       "id": "data_arac_katalogu_markalar",
-      "community": 9,
+      "community": 8,
       "norm_label": "markalar"
     },
     {
@@ -2898,7 +3060,7 @@
       "source_file": "src/data/arac-katalogu.ts",
       "source_location": "L108",
       "id": "data_arac_katalogu_marka_adlari",
-      "community": 9,
+      "community": 8,
       "norm_label": "marka_adlari"
     },
     {
@@ -2907,7 +3069,7 @@
       "source_file": "src/data/arac-katalogu.ts",
       "source_location": "L111",
       "id": "data_arac_katalogu_filtrele",
-      "community": 9,
+      "community": 8,
       "norm_label": "filtrele()"
     },
     {
@@ -2970,7 +3132,7 @@
       "source_file": "src/hooks/useSession.ts",
       "source_location": "L1",
       "id": "hooks_usesession",
-      "community": 0,
+      "community": 6,
       "norm_label": "usesession.ts"
     },
     {
@@ -2979,7 +3141,7 @@
       "source_file": "src/hooks/useSession.ts",
       "source_location": "L7",
       "id": "hooks_usesession_usesession",
-      "community": 0,
+      "community": 6,
       "norm_label": "usesession()"
     },
     {
@@ -2988,7 +3150,7 @@
       "source_file": "src/lib/abonelik.ts",
       "source_location": "L1",
       "id": "lib_abonelik",
-      "community": 0,
+      "community": 22,
       "norm_label": "abonelik.ts"
     },
     {
@@ -2997,7 +3159,7 @@
       "source_file": "src/lib/abonelik.ts",
       "source_location": "L16",
       "id": "lib_abonelik_aboneolsonuc",
-      "community": 0,
+      "community": 22,
       "norm_label": "aboneolsonuc"
     },
     {
@@ -3006,7 +3168,7 @@
       "source_file": "src/lib/abonelik.ts",
       "source_location": "L23",
       "id": "lib_abonelik_aboneol",
-      "community": 0,
+      "community": 22,
       "norm_label": "aboneol()"
     },
     {
@@ -3015,7 +3177,7 @@
       "source_file": "src/lib/avatar.ts",
       "source_location": "L1",
       "id": "lib_avatar",
-      "community": 2,
+      "community": 22,
       "norm_label": "avatar.ts"
     },
     {
@@ -3024,7 +3186,7 @@
       "source_file": "src/lib/avatar.ts",
       "source_location": "L9",
       "id": "lib_avatar_avatarurl",
-      "community": 6,
+      "community": 22,
       "norm_label": "avatarurl()"
     },
     {
@@ -3033,7 +3195,7 @@
       "source_file": "src/lib/hizmet.ts",
       "source_location": "L1",
       "id": "lib_hizmet",
-      "community": 16,
+      "community": 2,
       "norm_label": "hizmet.ts"
     },
     {
@@ -3042,7 +3204,7 @@
       "source_file": "src/lib/hizmet.ts",
       "source_location": "L9",
       "id": "lib_hizmet_gorselurl",
-      "community": 16,
+      "community": 2,
       "norm_label": "gorselurl()"
     },
     {
@@ -3051,7 +3213,7 @@
       "source_file": "src/lib/hizmet.ts",
       "source_location": "L14",
       "id": "lib_hizmet_tl",
-      "community": 16,
+      "community": 2,
       "norm_label": "tl()"
     },
     {
@@ -3060,7 +3222,7 @@
       "source_file": "src/lib/hizmet.ts",
       "source_location": "L18",
       "id": "lib_hizmet_fiyataraligi",
-      "community": 16,
+      "community": 2,
       "norm_label": "fiyataraligi()"
     },
     {
@@ -3069,7 +3231,7 @@
       "source_file": "src/lib/hizmet.ts",
       "source_location": "L26",
       "id": "lib_hizmet_fiyatmetni",
-      "community": 16,
+      "community": 2,
       "norm_label": "fiyatmetni()"
     },
     {
@@ -3078,7 +3240,7 @@
       "source_file": "src/lib/hizmet.ts",
       "source_location": "L31",
       "id": "lib_hizmet_kampanyapick",
-      "community": 16,
+      "community": 2,
       "norm_label": "kampanyapick"
     },
     {
@@ -3087,7 +3249,7 @@
       "source_file": "src/lib/hizmet.ts",
       "source_location": "L36",
       "id": "lib_hizmet_indirimlimetni",
-      "community": 16,
+      "community": 2,
       "norm_label": "indirimlimetni()"
     },
     {
@@ -3096,7 +3258,7 @@
       "source_file": "src/lib/hizmet.ts",
       "source_location": "L46",
       "id": "lib_hizmet_suremetni",
-      "community": 16,
+      "community": 2,
       "norm_label": "suremetni()"
     },
     {
@@ -3105,7 +3267,7 @@
       "source_file": "src/lib/kampanya.ts",
       "source_location": "L1",
       "id": "lib_kampanya",
-      "community": 2,
+      "community": 9,
       "norm_label": "kampanya.ts"
     },
     {
@@ -3114,7 +3276,7 @@
       "source_file": "src/lib/kampanya.ts",
       "source_location": "L9",
       "id": "lib_kampanya_kampanyagorselurl",
-      "community": 8,
+      "community": 9,
       "norm_label": "kampanyagorselurl()"
     },
     {
@@ -3123,7 +3285,7 @@
       "source_file": "src/lib/kampanya.ts",
       "source_location": "L15",
       "id": "lib_kampanya_kampanyarozet",
-      "community": 8,
+      "community": 9,
       "norm_label": "kampanyarozet()"
     },
     {
@@ -3132,7 +3294,7 @@
       "source_file": "src/lib/kampanya.ts",
       "source_location": "L31",
       "id": "lib_kampanya_kampanyatarih",
-      "community": 8,
+      "community": 9,
       "norm_label": "kampanyatarih()"
     },
     {
@@ -3141,7 +3303,7 @@
       "source_file": "src/lib/kampanya.ts",
       "source_location": "L39",
       "id": "lib_kampanya_indirimlifiyat",
-      "community": 2,
+      "community": 9,
       "norm_label": "indirimlifiyat()"
     },
     {
@@ -3150,7 +3312,7 @@
       "source_file": "src/lib/kampanya.ts",
       "source_location": "L44",
       "id": "lib_kampanya_indirimharitasi",
-      "community": 2,
+      "community": 9,
       "norm_label": "indirimharitasi"
     },
     {
@@ -3159,8 +3321,17 @@
       "source_file": "src/lib/kampanya.ts",
       "source_location": "L52",
       "id": "lib_kampanya_kampanyaindirimharitasi",
-      "community": 2,
+      "community": 9,
       "norm_label": "kampanyaindirimharitasi()"
+    },
+    {
+      "label": "kampanyaPuanHaritasi()",
+      "file_type": "code",
+      "source_file": "src/lib/kampanya.ts",
+      "source_location": "L76",
+      "id": "lib_kampanya_kampanyapuanharitasi",
+      "community": 2,
+      "norm_label": "kampanyapuanharitasi()"
     },
     {
       "label": "kvkk.ts",
@@ -3177,7 +3348,7 @@
       "source_file": "src/lib/sentry.ts",
       "source_location": "L1",
       "id": "lib_sentry",
-      "community": 6,
+      "community": 17,
       "norm_label": "sentry.ts"
     },
     {
@@ -3186,7 +3357,7 @@
       "source_file": "src/lib/sentry.ts",
       "source_location": "L3",
       "id": "lib_sentry_initsentry",
-      "community": 6,
+      "community": 17,
       "norm_label": "initsentry()"
     },
     {
@@ -3195,7 +3366,7 @@
       "source_file": "src/lib/supabase.ts",
       "source_location": "L1",
       "id": "lib_supabase",
-      "community": 2,
+      "community": 22,
       "norm_label": "supabase.ts"
     },
     {
@@ -3204,7 +3375,7 @@
       "source_file": "src/lib/supabase.ts",
       "source_location": "L17",
       "id": "lib_supabase_supabase",
-      "community": 2,
+      "community": 22,
       "norm_label": "supabase"
     },
     {
@@ -3213,7 +3384,7 @@
       "source_file": "src/lib/urun.ts",
       "source_location": "L1",
       "id": "lib_urun",
-      "community": 2,
+      "community": 9,
       "norm_label": "urun.ts"
     },
     {
@@ -3222,7 +3393,7 @@
       "source_file": "src/lib/urun.ts",
       "source_location": "L9",
       "id": "lib_urun_urungorselurl",
-      "community": 2,
+      "community": 9,
       "norm_label": "urungorselurl()"
     },
     {
@@ -3231,8 +3402,89 @@
       "source_file": "src/lib/urun.ts",
       "source_location": "L14",
       "id": "lib_urun_tl",
-      "community": 2,
+      "community": 9,
       "norm_label": "tl()"
+    },
+    {
+      "label": "uyari.ts",
+      "file_type": "code",
+      "source_file": "src/lib/uyari.ts",
+      "source_location": "L1",
+      "id": "lib_uyari",
+      "community": 8,
+      "norm_label": "uyari.ts"
+    },
+    {
+      "label": "UyariButonStil",
+      "file_type": "code",
+      "source_file": "src/lib/uyari.ts",
+      "source_location": "L12",
+      "id": "lib_uyari_uyaributonstil",
+      "community": 8,
+      "norm_label": "uyaributonstil"
+    },
+    {
+      "label": "UyariButon",
+      "file_type": "code",
+      "source_file": "src/lib/uyari.ts",
+      "source_location": "L13",
+      "id": "lib_uyari_uyaributon",
+      "community": 8,
+      "norm_label": "uyaributon"
+    },
+    {
+      "label": "UyariConfig",
+      "file_type": "code",
+      "source_file": "src/lib/uyari.ts",
+      "source_location": "L18",
+      "id": "lib_uyari_uyariconfig",
+      "community": 8,
+      "norm_label": "uyariconfig"
+    },
+    {
+      "label": "dinleyiciler",
+      "file_type": "code",
+      "source_file": "src/lib/uyari.ts",
+      "source_location": "L25",
+      "id": "lib_uyari_dinleyiciler",
+      "community": 8,
+      "norm_label": "dinleyiciler"
+    },
+    {
+      "label": "yayinla()",
+      "file_type": "code",
+      "source_file": "src/lib/uyari.ts",
+      "source_location": "L27",
+      "id": "lib_uyari_yayinla",
+      "community": 8,
+      "norm_label": "yayinla()"
+    },
+    {
+      "label": "_uyariDinle()",
+      "file_type": "code",
+      "source_file": "src/lib/uyari.ts",
+      "source_location": "L32",
+      "id": "lib_uyari_uyaridinle",
+      "community": 8,
+      "norm_label": "_uyaridinle()"
+    },
+    {
+      "label": "uyari()",
+      "file_type": "code",
+      "source_file": "src/lib/uyari.ts",
+      "source_location": "L38",
+      "id": "lib_uyari_uyari",
+      "community": 8,
+      "norm_label": "uyari()"
+    },
+    {
+      "label": "_uyariKapat()",
+      "file_type": "code",
+      "source_file": "src/lib/uyari.ts",
+      "source_location": "L49",
+      "id": "lib_uyari_uyarikapat",
+      "community": 8,
+      "norm_label": "_uyarikapat()"
     },
     {
       "label": "ThemeContext.tsx",
@@ -3240,7 +3492,7 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L1",
       "id": "theme_themecontext",
-      "community": 6,
+      "community": 17,
       "norm_label": "themecontext.tsx"
     },
     {
@@ -3249,7 +3501,7 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L7",
       "id": "theme_themecontext_tema",
-      "community": 6,
+      "community": 22,
       "norm_label": "tema"
     },
     {
@@ -3258,7 +3510,7 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L9",
       "id": "theme_themecontext_renkler",
-      "community": 8,
+      "community": 9,
       "norm_label": "renkler"
     },
     {
@@ -3267,7 +3519,7 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L26",
       "id": "theme_themecontext_acik",
-      "community": 6,
+      "community": 17,
       "norm_label": "acik"
     },
     {
@@ -3276,7 +3528,7 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L40",
       "id": "theme_themecontext_koyu",
-      "community": 6,
+      "community": 17,
       "norm_label": "koyu"
     },
     {
@@ -3285,7 +3537,7 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L57",
       "id": "theme_themecontext_temaoku",
-      "community": 6,
+      "community": 17,
       "norm_label": "temaoku()"
     },
     {
@@ -3294,7 +3546,7 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L66",
       "id": "theme_themecontext_temayaz",
-      "community": 6,
+      "community": 17,
       "norm_label": "temayaz()"
     },
     {
@@ -3303,7 +3555,7 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L73",
       "id": "theme_themecontext_themecontextvalue",
-      "community": 6,
+      "community": 17,
       "norm_label": "themecontextvalue"
     },
     {
@@ -3312,7 +3564,7 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L79",
       "id": "theme_themecontext_themecontext",
-      "community": 6,
+      "community": 17,
       "norm_label": "themecontext"
     },
     {
@@ -3321,7 +3573,7 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L85",
       "id": "theme_themecontext_themeprovider",
-      "community": 6,
+      "community": 17,
       "norm_label": "themeprovider()"
     },
     {
@@ -3330,7 +3582,7 @@
       "source_file": "src/theme/ThemeContext.tsx",
       "source_location": "L106",
       "id": "theme_themecontext_usetheme",
-      "community": 6,
+      "community": 17,
       "norm_label": "usetheme()"
     },
     {
@@ -3357,7 +3609,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L9",
       "id": "types_index_personel_roller",
-      "community": 6,
+      "community": 17,
       "norm_label": "personel_roller"
     },
     {
@@ -3366,7 +3618,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L13",
       "id": "types_index_yonetici_roller",
-      "community": 19,
+      "community": 8,
       "norm_label": "yonetici_roller"
     },
     {
@@ -3375,7 +3627,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L15",
       "id": "types_index_userprofile",
-      "community": 0,
+      "community": 6,
       "norm_label": "userprofile"
     },
     {
@@ -3438,7 +3690,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L68",
       "id": "types_index_odemeyontemi",
-      "community": 2,
+      "community": 8,
       "norm_label": "odemeyontemi"
     },
     {
@@ -3447,7 +3699,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L70",
       "id": "types_index_appointment",
-      "community": 19,
+      "community": 15,
       "norm_label": "appointment"
     },
     {
@@ -3492,7 +3744,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L119",
       "id": "types_index_isdurum",
-      "community": 19,
+      "community": 15,
       "norm_label": "isdurum"
     },
     {
@@ -3528,7 +3780,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L147",
       "id": "types_index_musaitslot",
-      "community": 2,
+      "community": 8,
       "norm_label": "musaitslot"
     },
     {
@@ -3537,7 +3789,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L156",
       "id": "types_index_fiyatsonuc",
-      "community": 2,
+      "community": 8,
       "norm_label": "fiyatsonuc"
     },
     {
@@ -3546,7 +3798,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L165",
       "id": "types_index_kampanyakategori",
-      "community": 8,
+      "community": 9,
       "norm_label": "kampanyakategori"
     },
     {
@@ -3555,7 +3807,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L167",
       "id": "types_index_campaign",
-      "community": 8,
+      "community": 9,
       "norm_label": "campaign"
     },
     {
@@ -3573,23 +3825,23 @@
       "source_file": "src/types/index.ts",
       "source_location": "L188",
       "id": "types_index_service",
-      "community": 16,
+      "community": 2,
       "norm_label": "service"
     },
     {
       "label": "ServiceQuote",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L208",
+      "source_location": "L209",
       "id": "types_index_servicequote",
-      "community": 0,
+      "community": 6,
       "norm_label": "servicequote"
     },
     {
       "label": "PlanKademe",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L229",
+      "source_location": "L230",
       "id": "types_index_plankademe",
       "community": 0,
       "norm_label": "plankademe"
@@ -3598,7 +3850,7 @@
       "label": "PlanHak",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L231",
+      "source_location": "L232",
       "id": "types_index_planhak",
       "community": 0,
       "norm_label": "planhak"
@@ -3607,7 +3859,7 @@
       "label": "Plan",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L239",
+      "source_location": "L240",
       "id": "types_index_plan",
       "community": 0,
       "norm_label": "plan"
@@ -3616,7 +3868,7 @@
       "label": "AbonelikDurum",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L249",
+      "source_location": "L250",
       "id": "types_index_abonelikdurum",
       "community": 0,
       "norm_label": "abonelikdurum"
@@ -3625,43 +3877,43 @@
       "label": "Subscription",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L251",
+      "source_location": "L252",
       "id": "types_index_subscription",
-      "community": 0,
+      "community": 22,
       "norm_label": "subscription"
     },
     {
       "label": "Entitlement",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L264",
+      "source_location": "L265",
       "id": "types_index_entitlement",
-      "community": 0,
+      "community": 22,
       "norm_label": "entitlement"
     },
     {
       "label": "Vehicle",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L273",
+      "source_location": "L274",
       "id": "types_index_vehicle",
-      "community": 9,
+      "community": 8,
       "norm_label": "vehicle"
     },
     {
       "label": "Product",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L285",
+      "source_location": "L286",
       "id": "types_index_product",
-      "community": 2,
+      "community": 9,
       "norm_label": "product"
     },
     {
       "label": "StockItem",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L304",
+      "source_location": "L306",
       "id": "types_index_stockitem",
       "community": 0,
       "norm_label": "stockitem"
@@ -3670,16 +3922,16 @@
       "label": "SiparisDurum",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L315",
+      "source_location": "L317",
       "id": "types_index_siparisdurum",
-      "community": 0,
+      "community": 28,
       "norm_label": "siparisdurum"
     },
     {
       "label": "OrderItem",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L317",
+      "source_location": "L319",
       "id": "types_index_orderitem",
       "community": 0,
       "norm_label": "orderitem"
@@ -3688,36 +3940,36 @@
       "label": "Order",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L326",
+      "source_location": "L328",
       "id": "types_index_order",
-      "community": 0,
+      "community": 28,
       "norm_label": "order"
     },
     {
       "label": "SigortaTip",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L342",
+      "source_location": "L344",
       "id": "types_index_sigortatip",
-      "community": 0,
+      "community": 6,
       "norm_label": "sigortatip"
     },
     {
       "label": "SigortaDurum",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L343",
+      "source_location": "L345",
       "id": "types_index_sigortadurum",
-      "community": 0,
+      "community": 6,
       "norm_label": "sigortadurum"
     },
     {
       "label": "InsuranceRequest",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L345",
+      "source_location": "L347",
       "id": "types_index_insurancerequest",
-      "community": 0,
+      "community": 6,
       "norm_label": "insurancerequest"
     },
     {
@@ -3942,6 +4194,33 @@
       "source_file": "supabase/functions/fiyat-hesapla/index.ts",
       "source_location": "L26",
       "id": "fiyat_hesapla_index_json",
+      "community": 4,
+      "norm_label": "json()"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "supabase/functions/hesap-sil/index.ts",
+      "source_location": "L1",
+      "id": "hesap_sil_index",
+      "community": 4,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "cors",
+      "file_type": "code",
+      "source_file": "supabase/functions/hesap-sil/index.ts",
+      "source_location": "L25",
+      "id": "hesap_sil_index_cors",
+      "community": 4,
+      "norm_label": "cors"
+    },
+    {
+      "label": "json()",
+      "file_type": "code",
+      "source_file": "supabase/functions/hesap-sil/index.ts",
+      "source_location": "L32",
+      "id": "hesap_sil_index_json",
       "community": 4,
       "norm_label": "json()"
     },
@@ -4549,11 +4828,47 @@
       "norm_label": "4. ozet karar tablosu"
     },
     {
+      "label": "_uyariHandlerKaydet()",
+      "file_type": "code",
+      "source_file": "src/lib/uyari.ts",
+      "source_location": "L22",
+      "community": 8,
+      "norm_label": "_uyarihandlerkaydet()",
+      "id": "lib_uyari_uyarihandlerkaydet"
+    },
+    {
+      "label": "Kupon",
+      "file_type": "code",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L16",
+      "community": 2,
+      "norm_label": "kupon",
+      "id": "app_puan_magaza_kupon"
+    },
+    {
+      "label": "PuanSatir()",
+      "file_type": "code",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L263",
+      "community": 2,
+      "norm_label": "puansatir()",
+      "id": "app_puan_magaza_puansatir"
+    },
+    {
+      "label": "PuanKullanim",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L306",
+      "community": 2,
+      "norm_label": "puankullanim",
+      "id": "types_index_puankullanim"
+    },
+    {
       "label": "PROMO",
       "file_type": "code",
       "source_file": "app/(main)/index.tsx",
       "source_location": "L22",
-      "community": 16,
+      "community": 9,
       "norm_label": "promo",
       "id": "main_index_promo"
     },
@@ -4562,7 +4877,7 @@
       "file_type": "code",
       "source_file": "app/(main)/index.tsx",
       "source_location": "L25",
-      "community": 16,
+      "community": 9,
       "norm_label": "kategori_ad",
       "id": "main_index_kategori_ad"
     },
@@ -4571,7 +4886,7 @@
       "file_type": "code",
       "source_file": "app/(main)/index.tsx",
       "source_location": "L30",
-      "community": 16,
+      "community": 9,
       "norm_label": "katad()",
       "id": "main_index_katad"
     },
@@ -4580,7 +4895,7 @@
       "file_type": "code",
       "source_file": "app/(main)/index.tsx",
       "source_location": "L22",
-      "community": 16,
+      "community": 9,
       "norm_label": "marka",
       "id": "main_index_marka"
     },
@@ -4643,7 +4958,7 @@
       "file_type": "code",
       "source_file": "app/(main)/index.tsx",
       "source_location": "L12",
-      "community": 16,
+      "community": 9,
       "norm_label": "tl()",
       "id": "main_index_tl"
     },
@@ -5044,6 +5359,28 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/(auth)/index.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "auth_index",
+      "target": "components_klavyekapsa"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(auth)/index.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "auth_index",
+      "target": "components_klavyekapsa_klavyekapsa"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(auth)/index.tsx",
       "source_location": "L9",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -5117,6 +5454,28 @@
       "target": "lib_supabase_supabase"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(auth)/index.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "auth_index",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(auth)/index.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "auth_index",
+      "target": "lib_uyari_uyari"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/(auth)/kayit.tsx",
@@ -5157,6 +5516,28 @@
       "confidence_score": 1.0,
       "source": "auth_kayit",
       "target": "components_captchawidget_captchawidget"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(auth)/kayit.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "auth_kayit",
+      "target": "components_klavyekapsa"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(auth)/kayit.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "auth_kayit",
+      "target": "components_klavyekapsa_klavyekapsa"
     },
     {
       "relation": "imports_from",
@@ -5258,6 +5639,28 @@
       "target": "lib_supabase_supabase"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(auth)/kayit.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "auth_kayit",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(auth)/kayit.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "auth_kayit",
+      "target": "lib_uyari_uyari"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/(auth)/onay-bekliyor.tsx",
@@ -5344,6 +5747,28 @@
       "target": "lib_supabase_supabase"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(auth)/onay-bekliyor.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "auth_onay_bekliyor",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(auth)/onay-bekliyor.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "auth_onay_bekliyor",
+      "target": "lib_uyari_uyari"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/(auth)/sifremi-unuttum.tsx",
@@ -5390,6 +5815,28 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/(auth)/sifremi-unuttum.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "auth_sifremi_unuttum",
+      "target": "components_klavyekapsa"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(auth)/sifremi-unuttum.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "auth_sifremi_unuttum",
+      "target": "components_klavyekapsa_klavyekapsa"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(auth)/sifremi-unuttum.tsx",
       "source_location": "L9",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -5428,6 +5875,50 @@
       "confidence_score": 1.0,
       "source": "auth_sifremi_unuttum",
       "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(auth)/sifremi-unuttum.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "auth_sifremi_unuttum",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(auth)/sifremi-unuttum.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "auth_sifremi_unuttum",
+      "target": "lib_uyari_uyari"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/_layout.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_layout",
+      "target": "components_puanrozeti"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/_layout.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_layout",
+      "target": "components_puanrozeti_puanrozeti"
     },
     {
       "relation": "imports_from",
@@ -5521,6 +6012,28 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/(main)/hizmetler.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_hizmetler",
+      "target": "components_puanlogo"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/hizmetler.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_hizmetler",
+      "target": "components_puanlogo_puanlogo"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/hizmetler.tsx",
       "source_location": "L11",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -5581,6 +6094,28 @@
       "confidence_score": 1.0,
       "source": "main_hizmetler",
       "target": "lib_hizmet_indirimlimetni"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/hizmetler.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_hizmetler",
+      "target": "lib_kampanya"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/hizmetler.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_hizmetler",
+      "target": "lib_kampanya_kampanyapuanharitasi"
     },
     {
       "relation": "imports_from",
@@ -6002,11 +6537,31 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/(main)/index.tsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_index",
+      "target": "main_index_sigorta_banner"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/index.tsx",
       "source_location": "L12",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "main_index",
       "target": "main_index_tl"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/index.tsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_index",
+      "target": "main_index_wordmark"
     },
     {
       "relation": "imports_from",
@@ -6286,6 +6841,50 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/(main)/magaza.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_magaza",
+      "target": "components_klavyekapsa"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/magaza.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_magaza",
+      "target": "components_klavyekapsa_klavyekapsa"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/magaza.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_magaza",
+      "target": "components_uyariprovider"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/magaza.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_magaza",
+      "target": "components_uyariprovider_uyarikatmani"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/magaza.tsx",
       "source_location": "L13",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -6447,6 +7046,28 @@
       "target": "lib_urun_urungorselurl"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/magaza.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_magaza",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/magaza.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_magaza",
+      "target": "lib_uyari_uyari"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/(main)/magaza.tsx",
@@ -6570,6 +7191,28 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/(main)/profil.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_profil",
+      "target": "components_puanlogo"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/profil.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_profil",
+      "target": "components_puanlogo_puanlogo"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/profil.tsx",
       "source_location": "L8",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -6630,6 +7273,28 @@
       "confidence_score": 1.0,
       "source": "main_profil",
       "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/profil.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_profil",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/profil.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_profil",
+      "target": "lib_uyari_uyari"
     },
     {
       "relation": "contains",
@@ -6807,6 +7472,28 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/(main)/sigorta.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_sigorta",
+      "target": "components_klavyekapsa"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/sigorta.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_sigorta",
+      "target": "components_klavyekapsa_klavyekapsa"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/sigorta.tsx",
       "source_location": "L12",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -6867,6 +7554,28 @@
       "confidence_score": 1.0,
       "source": "main_sigorta",
       "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/sigorta.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_sigorta",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/sigorta.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_sigorta",
+      "target": "lib_uyari_uyari"
     },
     {
       "relation": "contains",
@@ -7166,6 +7875,50 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "components_klavyekapsa"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "components_klavyekapsa_klavyekapsa"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "components_uyariprovider"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "components_uyariprovider_uyarikatmani"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
       "source_location": "L15",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -7358,6 +8111,28 @@
       "confidence_score": 1.0,
       "source": "yonetim_hizmetler",
       "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/hizmetler.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_hizmetler",
+      "target": "lib_uyari_uyari"
     },
     {
       "relation": "imports_from",
@@ -7747,6 +8522,50 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/(yonetim)/kampanyalar.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_kampanyalar",
+      "target": "components_klavyekapsa"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/kampanyalar.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_kampanyalar",
+      "target": "components_klavyekapsa_klavyekapsa"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/kampanyalar.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_kampanyalar",
+      "target": "components_uyariprovider"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/kampanyalar.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_kampanyalar",
+      "target": "components_uyariprovider_uyarikatmani"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/kampanyalar.tsx",
       "source_location": "L14",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -7840,6 +8659,28 @@
       "confidence_score": 1.0,
       "source": "yonetim_kampanyalar",
       "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/kampanyalar.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_kampanyalar",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/kampanyalar.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_kampanyalar",
+      "target": "lib_uyari_uyari"
     },
     {
       "relation": "imports_from",
@@ -7964,6 +8805,50 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_paketler",
+      "target": "components_klavyekapsa"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_paketler",
+      "target": "components_klavyekapsa_klavyekapsa"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_paketler",
+      "target": "components_uyariprovider"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_paketler",
+      "target": "components_uyariprovider_uyarikatmani"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/paketler.tsx",
       "source_location": "L12",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -8024,6 +8909,28 @@
       "confidence_score": 1.0,
       "source": "yonetim_paketler",
       "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_paketler",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/paketler.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_paketler",
+      "target": "lib_uyari_uyari"
     },
     {
       "relation": "imports_from",
@@ -8191,6 +9098,28 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_randevular",
+      "target": "components_uyariprovider"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_randevular",
+      "target": "components_uyariprovider_uyarikatmani"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
       "source_location": "L13",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -8251,6 +9180,28 @@
       "confidence_score": 1.0,
       "source": "yonetim_randevular",
       "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_randevular",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/randevular.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_randevular",
+      "target": "lib_uyari_uyari"
     },
     {
       "relation": "imports_from",
@@ -8437,6 +9388,50 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/(yonetim)/subeler.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_subeler",
+      "target": "components_klavyekapsa"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/subeler.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_subeler",
+      "target": "components_klavyekapsa_klavyekapsa"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/subeler.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_subeler",
+      "target": "components_uyariprovider"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/subeler.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_subeler",
+      "target": "components_uyariprovider_uyarikatmani"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/subeler.tsx",
       "source_location": "L10",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -8475,6 +9470,28 @@
       "confidence_score": 1.0,
       "source": "yonetim_subeler",
       "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/subeler.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_subeler",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/subeler.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_subeler",
+      "target": "lib_uyari_uyari"
     },
     {
       "relation": "imports_from",
@@ -8576,6 +9593,50 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/(yonetim)/urunler.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_urunler",
+      "target": "components_klavyekapsa"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/urunler.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_urunler",
+      "target": "components_klavyekapsa_klavyekapsa"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/urunler.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_urunler",
+      "target": "components_uyariprovider"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/urunler.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_urunler",
+      "target": "components_uyariprovider_uyarikatmani"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/urunler.tsx",
       "source_location": "L14",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -8669,6 +9730,28 @@
       "confidence_score": 1.0,
       "source": "yonetim_urunler",
       "target": "lib_urun_urungorselurl"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/urunler.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_urunler",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(yonetim)/urunler.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "yonetim_urunler",
+      "target": "lib_uyari_uyari"
     },
     {
       "relation": "imports_from",
@@ -8798,6 +9881,28 @@
       "confidence_score": 1.0,
       "source": "app_layout",
       "target": "components_gerilogo_gerilogo"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/_layout.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_layout",
+      "target": "components_uyariprovider"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/_layout.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_layout",
+      "target": "components_uyariprovider_uyariprovider"
     },
     {
       "relation": "imports_from",
@@ -9075,6 +10180,28 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/abonelik.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_abonelik",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/abonelik.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_abonelik",
+      "target": "lib_uyari_uyari"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/abonelik.tsx",
       "source_location": "L10",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -9216,6 +10343,50 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/araclar.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_araclar",
+      "target": "components_klavyekapsa"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/araclar.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_araclar",
+      "target": "components_klavyekapsa_klavyekapsa"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/araclar.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_araclar",
+      "target": "components_uyariprovider"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/araclar.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_araclar",
+      "target": "components_uyariprovider_uyarikatmani"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/araclar.tsx",
       "source_location": "L10",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -9320,6 +10491,28 @@
       "confidence_score": 1.0,
       "source": "app_araclar",
       "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/araclar.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_araclar",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/araclar.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_araclar",
+      "target": "lib_uyari_uyari"
     },
     {
       "relation": "imports_from",
@@ -9748,6 +10941,28 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/hizmet-teklifleri.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_hizmet_teklifleri",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/hizmet-teklifleri.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_hizmet_teklifleri",
+      "target": "lib_uyari_uyari"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/hizmet-teklifleri.tsx",
       "source_location": "L9",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -9939,6 +11154,320 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L140",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "app_puan_magaza_baslik"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "app_puan_magaza_kupon"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "app_puan_magaza_puanmagazascreen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L149",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "app_puan_magaza_puansatir"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L189",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "app_puan_magaza_s"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "components_puanlogo"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "components_puanlogo_puanlogo"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "components_yukleniyor"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "components_yukleniyor_yukleniyor"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "hooks_usesession"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "hooks_usesession_usesession"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "lib_hizmet"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "lib_hizmet_gorselurl"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "lib_supabase"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "lib_urun"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "lib_urun_urungorselurl"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "lib_uyari_uyari"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "theme_themecontext"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "theme_themecontext_renkler"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "types_index"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "types_index_branch"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "types_index_product"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "types_index_puankullanim"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_puan_magaza",
+      "target": "types_index_service"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "app_puan_magaza_puanmagazascreen",
+      "target": "hooks_usesession_usesession"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/puan-magaza.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "app_puan_magaza_puanmagazascreen",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "app/randevu-al.tsx",
       "source_location": "L18",
       "weight": 1.0,
@@ -9965,6 +11494,50 @@
       "confidence_score": 1.0,
       "source": "app_randevu_al",
       "target": "app_randevu_al_s"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_randevu_al",
+      "target": "components_puanlogo"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_randevu_al",
+      "target": "components_puanlogo_puanlogo"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_randevu_al",
+      "target": "components_uyariprovider"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_randevu_al",
+      "target": "components_uyariprovider_uyarikatmani"
     },
     {
       "relation": "imports_from",
@@ -10086,6 +11659,28 @@
       "confidence_score": 1.0,
       "source": "app_randevu_al",
       "target": "lib_urun_urungorselurl"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_randevu_al",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevu-al.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_randevu_al",
+      "target": "lib_uyari_uyari"
     },
     {
       "relation": "imports_from",
@@ -10350,6 +11945,28 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/randevularim.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_randevularim",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevularim.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_randevularim",
+      "target": "lib_uyari_uyari"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/randevularim.tsx",
       "source_location": "L10",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -10566,6 +12183,28 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/siparisler.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_siparisler",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/siparisler.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_siparisler",
+      "target": "lib_uyari_uyari"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/siparisler.tsx",
       "source_location": "L9",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -10663,6 +12302,50 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/teklif-al.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_teklif_al",
+      "target": "components_klavyekapsa"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/teklif-al.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_teklif_al",
+      "target": "components_klavyekapsa_klavyekapsa"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/teklif-al.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_teklif_al",
+      "target": "components_uyariprovider"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/teklif-al.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_teklif_al",
+      "target": "components_uyariprovider_uyarikatmani"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/teklif-al.tsx",
       "source_location": "L12",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -10723,6 +12406,28 @@
       "confidence_score": 1.0,
       "source": "app_teklif_al",
       "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/teklif-al.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_teklif_al",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/teklif-al.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_teklif_al",
+      "target": "lib_uyari_uyari"
     },
     {
       "relation": "imports_from",
@@ -10906,6 +12611,28 @@
       "confidence_score": 1.0,
       "source": "app_teklifler",
       "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/teklifler.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_teklifler",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/teklifler.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_teklifler",
+      "target": "lib_uyari_uyari"
     },
     {
       "relation": "imports_from",
@@ -12297,9 +14024,9 @@
       "source_file": "src/components/IslerListesi.tsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_islerlistesi",
-      "target": "components_satismodal",
-      "confidence_score": 1.0
+      "target": "components_satismodal"
     },
     {
       "relation": "imports",
@@ -12308,9 +14035,9 @@
       "source_file": "src/components/IslerListesi.tsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_islerlistesi",
-      "target": "components_satismodal_satismodal",
-      "confidence_score": 1.0
+      "target": "components_satismodal_satismodal"
     },
     {
       "relation": "imports_from",
@@ -12407,9 +14134,9 @@
       "source_file": "src/components/IslerListesi.tsx",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_islerlistesi",
-      "target": "lib_urun",
-      "confidence_score": 1.0
+      "target": "lib_urun"
     },
     {
       "relation": "imports",
@@ -12418,9 +14145,31 @@
       "source_file": "src/components/IslerListesi.tsx",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_islerlistesi",
-      "target": "lib_urun_tl",
-      "confidence_score": 1.0
+      "target": "lib_urun_tl"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_islerlistesi",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/IslerListesi.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_islerlistesi",
+      "target": "lib_uyari_uyari"
     },
     {
       "relation": "imports_from",
@@ -12696,6 +14445,16 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/components/KlavyeKapsa.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_klavyekapsa",
+      "target": "components_klavyekapsa_klavyekapsa"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/components/Logo.tsx",
       "source_location": "L18",
       "weight": 1.0,
@@ -12923,6 +14682,156 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/components/PuanLogo.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_puanlogo",
+      "target": "components_puanlogo_amblem"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/PuanLogo.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_puanlogo",
+      "target": "components_puanlogo_puanlogo"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/PuanRozeti.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_puanrozeti",
+      "target": "components_puanlogo"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/PuanRozeti.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_puanrozeti",
+      "target": "components_puanlogo_puanlogo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/PuanRozeti.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_puanrozeti",
+      "target": "components_puanrozeti_puanrozeti"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/PuanRozeti.tsx",
+      "source_location": "L51",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_puanrozeti",
+      "target": "components_puanrozeti_s"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/PuanRozeti.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_puanrozeti",
+      "target": "hooks_usesession"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/PuanRozeti.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_puanrozeti",
+      "target": "hooks_usesession_usesession"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/PuanRozeti.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_puanrozeti",
+      "target": "lib_supabase"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/PuanRozeti.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_puanrozeti",
+      "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/PuanRozeti.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_puanrozeti",
+      "target": "theme_themecontext"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/PuanRozeti.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_puanrozeti",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/PuanRozeti.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "components_puanrozeti_puanrozeti",
+      "target": "hooks_usesession_usesession"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/PuanRozeti.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "components_puanrozeti_puanrozeti",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/components/RaporModal.tsx",
       "source_location": "L29",
       "weight": 1.0,
@@ -13005,6 +14914,28 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_rapormodal",
+      "target": "components_uyariprovider"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_rapormodal",
+      "target": "components_uyariprovider_uyarikatmani"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
       "source_location": "L9",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -13043,6 +14974,28 @@
       "confidence_score": 1.0,
       "source": "components_rapormodal",
       "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_rapormodal",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RaporModal.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_rapormodal",
+      "target": "lib_uyari_uyari"
     },
     {
       "relation": "imports_from",
@@ -13171,9 +15124,9 @@
       "source_file": "src/components/SatisModal.tsx",
       "source_location": "L187",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_satismodal",
-      "target": "components_satismodal_s",
-      "confidence_score": 1.0
+      "target": "components_satismodal_s"
     },
     {
       "relation": "contains",
@@ -13181,9 +15134,31 @@
       "source_file": "src/components/SatisModal.tsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_satismodal",
-      "target": "components_satismodal_satismodal",
-      "confidence_score": 1.0
+      "target": "components_satismodal_satismodal"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SatisModal.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_satismodal",
+      "target": "components_uyariprovider"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SatisModal.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_satismodal",
+      "target": "components_uyariprovider_uyarikatmani"
     },
     {
       "relation": "imports_from",
@@ -13192,9 +15167,9 @@
       "source_file": "src/components/SatisModal.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_satismodal",
-      "target": "lib_supabase",
-      "confidence_score": 1.0
+      "target": "lib_supabase"
     },
     {
       "relation": "imports",
@@ -13203,9 +15178,9 @@
       "source_file": "src/components/SatisModal.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_satismodal",
-      "target": "lib_supabase_supabase",
-      "confidence_score": 1.0
+      "target": "lib_supabase_supabase"
     },
     {
       "relation": "imports_from",
@@ -13214,9 +15189,9 @@
       "source_file": "src/components/SatisModal.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_satismodal",
-      "target": "lib_urun",
-      "confidence_score": 1.0
+      "target": "lib_urun"
     },
     {
       "relation": "imports",
@@ -13225,9 +15200,9 @@
       "source_file": "src/components/SatisModal.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_satismodal",
-      "target": "lib_urun_tl",
-      "confidence_score": 1.0
+      "target": "lib_urun_tl"
     },
     {
       "relation": "imports",
@@ -13236,9 +15211,31 @@
       "source_file": "src/components/SatisModal.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_satismodal",
-      "target": "lib_urun_urungorselurl",
-      "confidence_score": 1.0
+      "target": "lib_urun_urungorselurl"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SatisModal.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_satismodal",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SatisModal.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_satismodal",
+      "target": "lib_uyari_uyari"
     },
     {
       "relation": "imports_from",
@@ -13247,9 +15244,9 @@
       "source_file": "src/components/SatisModal.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_satismodal",
-      "target": "theme_themecontext",
-      "confidence_score": 1.0
+      "target": "theme_themecontext"
     },
     {
       "relation": "imports",
@@ -13258,9 +15255,9 @@
       "source_file": "src/components/SatisModal.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_satismodal",
-      "target": "theme_themecontext_usetheme",
-      "confidence_score": 1.0
+      "target": "theme_themecontext_usetheme"
     },
     {
       "relation": "imports_from",
@@ -13269,9 +15266,9 @@
       "source_file": "src/components/SatisModal.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_satismodal",
-      "target": "types_index",
-      "confidence_score": 1.0
+      "target": "types_index"
     },
     {
       "relation": "imports",
@@ -13280,9 +15277,9 @@
       "source_file": "src/components/SatisModal.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_satismodal",
-      "target": "types_index_product",
-      "confidence_score": 1.0
+      "target": "types_index_product"
     },
     {
       "relation": "calls",
@@ -13373,6 +15370,28 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/components/UstNavbar.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ustnavbar",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/UstNavbar.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ustnavbar",
+      "target": "lib_uyari_uyari"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/UstNavbar.tsx",
       "source_location": "L5",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -13399,6 +15418,146 @@
       "source_location": "L14",
       "weight": 1.0,
       "source": "components_ustnavbar_ustnavbar",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/UyariProvider.tsx",
+      "source_location": "L72",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_uyariprovider",
+      "target": "components_uyariprovider_s"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/UyariProvider.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_uyariprovider",
+      "target": "components_uyariprovider_uyarikatmani"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/UyariProvider.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_uyariprovider",
+      "target": "components_uyariprovider_uyariprovider"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/UyariProvider.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_uyariprovider",
+      "target": "lib_uyari"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/UyariProvider.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_uyariprovider",
+      "target": "lib_uyari_uyaributon"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/UyariProvider.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_uyariprovider",
+      "target": "lib_uyari_uyariconfig"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/UyariProvider.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_uyariprovider",
+      "target": "lib_uyari_uyaridinle"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/UyariProvider.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_uyariprovider",
+      "target": "lib_uyari_uyarihandlerkaydet"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/UyariProvider.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_uyariprovider",
+      "target": "lib_uyari_uyarikapat"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/UyariProvider.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_uyariprovider",
+      "target": "theme_themecontext"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/UyariProvider.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_uyariprovider",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/UyariProvider.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "components_uyariprovider_uyarikatmani",
+      "target": "theme_themecontext_usetheme"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/UyariProvider.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "components_uyariprovider_uyariprovider",
       "target": "theme_themecontext_usetheme"
     },
     {
@@ -14055,6 +16214,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/kampanya.ts",
+      "source_location": "L76",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_kampanya",
+      "target": "lib_kampanya_kampanyapuanharitasi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/kampanya.ts",
       "source_location": "L15",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -14176,6 +16345,118 @@
       "confidence_score": 1.0,
       "source": "lib_urun",
       "target": "lib_urun_urungorselurl"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/uyari.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_uyari",
+      "target": "lib_uyari_dinleyiciler"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/uyari.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_uyari",
+      "target": "lib_uyari_uyari"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/uyari.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_uyari",
+      "target": "lib_uyari_uyaributon"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/uyari.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_uyari",
+      "target": "lib_uyari_uyaributonstil"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/uyari.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_uyari",
+      "target": "lib_uyari_uyariconfig"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/uyari.ts",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_uyari",
+      "target": "lib_uyari_uyaridinle"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/uyari.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_uyari",
+      "target": "lib_uyari_uyarihandlerkaydet"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/uyari.ts",
+      "source_location": "L49",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_uyari",
+      "target": "lib_uyari_uyarikapat"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/uyari.ts",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_uyari",
+      "target": "lib_uyari_yayinla"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/uyari.ts",
+      "source_location": "L45",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_uyari_uyari",
+      "target": "lib_uyari_yayinla"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/uyari.ts",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_uyari_uyarikapat",
+      "target": "lib_uyari_yayinla"
     },
     {
       "relation": "contains",
@@ -14373,9 +16654,9 @@
       "source_file": "src/types/index.ts",
       "source_location": "L94",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "types_index",
-      "target": "types_index_dukkansatisozet",
-      "confidence_score": 1.0
+      "target": "types_index_dukkansatisozet"
     },
     {
       "relation": "contains",
@@ -14556,6 +16837,16 @@
       "confidence_score": 1.0,
       "source": "types_index",
       "target": "types_index_programmod"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L306",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_index",
+      "target": "types_index_puankullanim"
     },
     {
       "relation": "contains",
@@ -14944,6 +17235,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/hesap-sil/index.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "hesap_sil_index",
+      "target": "shared_sentry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "supabase/functions/iyzico-webhook/index.ts",
       "source_location": "L20",
       "weight": 1.0,
@@ -15023,6 +17325,17 @@
       "confidence_score": 1.0,
       "source": "fiyat_hesapla_index",
       "target": "shared_sentry_captureedgeexception"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/hesap-sil/index.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "hesap_sil_index",
+      "target": "shared_sentry_captureedgeexception",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -15115,6 +17428,26 @@
       "confidence_score": 1.0,
       "source": "fiyat_hesapla_index",
       "target": "fiyat_hesapla_index_json"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/hesap-sil/index.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "hesap_sil_index",
+      "target": "hesap_sil_index_cors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/hesap-sil/index.ts",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "hesap_sil_index",
+      "target": "hesap_sil_index_json",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -15858,5 +18191,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "198d277838478738bbdd84a2802c836d4a65a513"
+  "built_at_commit": "856258efe788b7c1103af6a269c548e16b6182dc"
 }

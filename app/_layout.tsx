@@ -7,6 +7,7 @@ import { useSession } from '../src/hooks/useSession';
 import { supabase } from '../src/lib/supabase';
 import { ThemeProvider } from '../src/theme/ThemeContext';
 import { SepetProvider } from '../src/context/SepetContext';
+import { UyariProvider } from '../src/components/UyariProvider';
 import { GeriLogo } from '../src/components/GeriLogo';
 import { PERSONEL_ROLLER } from '../src/types';
 
@@ -91,7 +92,10 @@ export default function RootLayout() {
         <Stack.Screen name="hizmet-teklifleri" />
         {/* KVKK aydınlatma metni — kayıt ve profilden açılır */}
         <Stack.Screen name="kvkk" />
+        {/* Puan mağazası — müşteri alt navbardaki puan rozetinden açılır */}
+        <Stack.Screen name="puan-magaza" />
       </Stack>
+      <UyariProvider />
       </SepetProvider>
     </ThemeProvider>
   );

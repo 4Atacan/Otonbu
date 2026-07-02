@@ -1,3 +1,5 @@
+import { uyari } from '../lib/uyari';
+import { UyariKatmani } from './UyariProvider';
 import { useEffect, useState } from 'react';
 import {
   ActivityIndicator, Alert, FlatList, Modal, ScrollView, StyleSheet,
@@ -75,8 +77,8 @@ export function RaporModal({ visible, onClose }: Props) {
   async function getir(bs?: string, sn?: string, branchId?: string | null) {
     const b = parseYmd(bs ?? basMetin);
     const s = parseYmd(sn ?? sonMetin);
-    if (!b || !s) { Alert.alert('Tarih', 'Tarihleri YYYY-AA-GG biçiminde gir (örn. 2026-06-01).'); return; }
-    if (b.getTime() > s.getTime()) { Alert.alert('Tarih', 'Başlangıç, bitişten sonra olamaz.'); return; }
+    if (!b || !s) { uyari('Tarih', 'Tarihleri YYYY-AA-GG biçiminde gir (örn. 2026-06-01).'); return; }
+    if (b.getTime() > s.getTime()) { uyari('Tarih', 'Başlangıç, bitişten sonra olamaz.'); return; }
     const sonExcl = new Date(s); sonExcl.setDate(sonExcl.getDate() + 1);
     // branchId açıkça verilmezse mevcut seçimi kullan (null = tüm şubeler)
     const sube = branchId === undefined ? secilenSube : branchId;
@@ -103,7 +105,7 @@ export function RaporModal({ visible, onClose }: Props) {
     const { data, error } = await sorgu;
     setYukleniyor(false);
     setGetirildi(true);
-    if (error) { Alert.alert('Hata', error.message); return; }
+    if (error) { uyari('Hata', error.message); return; }
     setKayitlar((data as Appointment[]) ?? []);
   }
 
@@ -128,7 +130,7 @@ export function RaporModal({ visible, onClose }: Props) {
   }
 
   async function disaAktar() {
-    if (kayitlar.length === 0) { Alert.alert('Veri yok', 'Aktarılacak kayıt yok.'); return; }
+    if (kayitlar.length === 0) { uyari('Veri yok', 'Aktarılacak kayıt yok.'); return; }
     setAktariliyor(true);
     try {
       // Native modüller yalnızca aktarım anında yüklenir (yoksa app çökmesin diye)
@@ -138,7 +140,7 @@ export function RaporModal({ visible, onClose }: Props) {
       const uri = (FileSystem.cacheDirectory ?? '') + `otonbu-rapor-${basMetin}_${sonMetin}.csv`;
       await FileSystem.writeAsStringAsync(uri, icerik, { encoding: 'utf8' });
       if (!(await Sharing.isAvailableAsync())) {
-        Alert.alert('Paylaşım yok', 'Bu cihazda dosya paylaşımı kullanılamıyor.');
+        uyari('Paylaşım yok', 'Bu cihazda dosya paylaşımı kullanılamıyor.');
         return;
       }
       await Sharing.shareAsync(uri, {
@@ -147,7 +149,7 @@ export function RaporModal({ visible, onClose }: Props) {
         UTI: 'public.comma-separated-values-text',
       });
     } catch (e: any) {
-      Alert.alert('Aktarılamadı',
+      uyari('Aktarılamadı',
         'Excel aktarımı için uygulamanın güncel derlemesi gerekebilir (expo-sharing). ' + (e?.message ?? ''));
     } finally {
       setAktariliyor(false);
@@ -282,6 +284,7 @@ export function RaporModal({ visible, onClose }: Props) {
           }}
         />
       </View>
+      <UyariKatmani />
     </Modal>
   );
 }

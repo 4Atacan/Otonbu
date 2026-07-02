@@ -1,3 +1,4 @@
+import { uyari } from '../../src/lib/uyari';
 import { useState } from 'react';
 import {
   ActivityIndicator, Alert, ScrollView, StyleSheet, Switch,
@@ -9,6 +10,7 @@ import { supabase } from '../../src/lib/supabase';
 import { KVKK_VERSIYON } from '../../src/lib/kvkk';
 import { Logo } from '../../src/components/Logo';
 import { CaptchaWidget } from '../../src/components/CaptchaWidget';
+import { KlavyeKapsa } from '../../src/components/KlavyeKapsa';
 import { PhoneInput, toE164, isValidTrPhone } from '../../src/components/PhoneInput';
 
 const CAPTCHA_SITE_KEY = process.env.EXPO_PUBLIC_HCAPTCHA_SITE_KEY;
@@ -32,21 +34,21 @@ export default function KayitScreen() {
     const ad = adSoyad.trim();
     const mail = email.trim().toLowerCase();
 
-    if (ad.length < 3) { Alert.alert('Hata', 'Ad Soyad zorunlu'); return; }
-    if (!isValidTrPhone(telefon)) { Alert.alert('Hata', 'Telefon 5XX XXX XX XX formatında olmalı'); return; }
-    if (!EMAIL_REGEX.test(mail)) { Alert.alert('Hata', 'Geçerli bir e-posta girin'); return; }
-    if (sifre.length < SIFRE_MIN) { Alert.alert('Hata', `Şifre en az ${SIFRE_MIN} karakter olmalı`); return; }
+    if (ad.length < 3) { uyari('Hata', 'Ad Soyad zorunlu'); return; }
+    if (!isValidTrPhone(telefon)) { uyari('Hata', 'Telefon 5XX XXX XX XX formatında olmalı'); return; }
+    if (!EMAIL_REGEX.test(mail)) { uyari('Hata', 'Geçerli bir e-posta girin'); return; }
+    if (sifre.length < SIFRE_MIN) { uyari('Hata', `Şifre en az ${SIFRE_MIN} karakter olmalı`); return; }
     if (!/[A-Za-z]/.test(sifre) || !/\d/.test(sifre)) {
-      Alert.alert('Hata', 'Şifre harf ve rakam içermeli'); return;
+      uyari('Hata', 'Şifre harf ve rakam içermeli'); return;
     }
     if (sifre !== sifre2) {
-      Alert.alert('Hata', 'Şifreler eşleşmiyor'); return;
+      uyari('Hata', 'Şifreler eşleşmiyor'); return;
     }
     if (CAPTCHA_SITE_KEY && !captchaToken) {
-      Alert.alert('Doğrulama', 'CAPTCHA doğrulamasını tamamlayın'); return;
+      uyari('Doğrulama', 'CAPTCHA doğrulamasını tamamlayın'); return;
     }
     if (!riza) {
-      Alert.alert('Onay gerekli', 'Devam etmek için KVKK Aydınlatma Metni\'ni okuyup açık rıza vermelisin.');
+      uyari('Onay gerekli', 'Devam etmek için KVKK Aydınlatma Metni\'ni okuyup açık rıza vermelisin.');
       return;
     }
 
@@ -70,7 +72,7 @@ export default function KayitScreen() {
     if (error) {
       setCaptchaToken(null);
       setCaptchaKey(k => k + 1);
-      Alert.alert('Kayıt başarısız', error.message);
+      uyari('Kayıt başarısız', error.message);
       return;
     }
     // E-posta doğrulama linki gönderildi
@@ -78,6 +80,7 @@ export default function KayitScreen() {
   }
 
   return (
+    <KlavyeKapsa>
     <ScrollView contentContainerStyle={s.container} keyboardShouldPersistTaps="handled">
       <View style={{ alignItems: 'center', marginBottom: 18 }}><Logo width={150} sabitAcik /></View>
       <Text style={s.baslik}>Hesap Oluştur</Text>
@@ -169,6 +172,7 @@ export default function KayitScreen() {
         </TouchableOpacity>
       </Link>
     </ScrollView>
+    </KlavyeKapsa>
   );
 }
 

@@ -30,38 +30,38 @@
     "semantic_hash": "1ef4e867d0345aee5ad71e1beae76aec"
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(auth)\\index.tsx": {
-    "mtime": 1782117567.8041737,
-    "ast_hash": "e5f9ce88b300303de742fa7feaed6eef",
-    "semantic_hash": "e5f9ce88b300303de742fa7feaed6eef"
+    "mtime": 1782828064.6457405,
+    "ast_hash": "dc520020ef8a86eee6f7de45b79f486f",
+    "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(auth)\\kayit.tsx": {
-    "mtime": 1782730648.2630892,
-    "ast_hash": "b6c1b775a0690a3a2a8bf07f2547a284",
+    "mtime": 1782828044.1080062,
+    "ast_hash": "58b8e6c7e590e7778ab7ca1d18c0a7a7",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(auth)\\onay-bekliyor.tsx": {
-    "mtime": 1781984757.773341,
-    "ast_hash": "64f4a5822ba504ef10b5560cc50e2558",
-    "semantic_hash": "64f4a5822ba504ef10b5560cc50e2558"
+    "mtime": 1782827799.60423,
+    "ast_hash": "051c602e202c0c4031152fe599c36a04",
+    "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(auth)\\sifremi-unuttum.tsx": {
-    "mtime": 1781984756.5665493,
-    "ast_hash": "fd148db263c156e629116ee5532c0e5d",
-    "semantic_hash": "fd148db263c156e629116ee5532c0e5d"
+    "mtime": 1782828090.534161,
+    "ast_hash": "7ec03e43195a70bfdf86f12f51be5e04",
+    "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(main)\\_layout.tsx": {
-    "mtime": 1782811607.6010094,
-    "ast_hash": "bb344e07e7e991f44e3d459142b7e419",
+    "mtime": 1782912919.3663495,
+    "ast_hash": "e48cd08ec60d3a9c502eebf7e45e82e4",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(main)\\index.tsx": {
-    "mtime": 1782823412.2018368,
-    "ast_hash": "97ed764c572dcecf7933c72dc50d0c80",
+    "mtime": 1782912936.3830805,
+    "ast_hash": "4e1724599376e500ad77d5e69fcd6f33",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\_layout.tsx": {
-    "mtime": 1782825768.3450215,
-    "ast_hash": "d3e105b992f37b2bfc58e7dfc8556947",
+    "mtime": 1782894624.399951,
+    "ast_hash": "869d1a7f16754656adc4ed28b99c7eba",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\package.json": {
@@ -105,8 +105,8 @@
     "semantic_hash": "aaffdc77f03ce776dcaae930edf3f454"
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\types\\index.ts": {
-    "mtime": 1782825752.2688193,
-    "ast_hash": "aa3c31181508ce19caee7ba9a4f51403",
+    "mtime": 1782894527.7316113,
+    "ast_hash": "f7b02949c28c9dd38a319ad964f2119b",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\functions\\_shared\\sentry.ts": {
@@ -140,7 +140,7 @@
     "semantic_hash": "927c34c923bc509e235ccb37874acc02"
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\graphify-out\\converted\\OTONBU_Uygulama_Ozellikleri_9e87f775.md": {
-    "mtime": 1782826306.4599729,
+    "mtime": 1782995900.0977466,
     "ast_hash": "f7b8e32b29a1ec6303d2e1127139fd4b",
     "semantic_hash": "f7b8e32b29a1ec6303d2e1127139fd4b"
   },
@@ -205,8 +205,8 @@
     "semantic_hash": "345e60557c93625f45d817d6ae6ba140"
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(main)\\profil.tsx": {
-    "mtime": 1782822013.7398434,
-    "ast_hash": "3efde4467dbf1e6ae01378dbfea11630",
+    "mtime": 1782995854.997613,
+    "ast_hash": "be0d512672f6965f784a1664ae8add98",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\theme\\ThemeContext.tsx": {
@@ -225,12 +225,12 @@
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(yonetim)\\hizmetler.tsx": {
-    "mtime": 1782733605.3873637,
-    "ast_hash": "a657c8e74fd2c182d90390628bbc7ed9",
+    "mtime": 1782900227.6968875,
+    "ast_hash": "f36bf2bd0b1413d8de7d14d5485ca01c",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(yonetim)\\index.tsx": {
-    "mtime": 1782825788.123804,
+    "mtime": 1782894630.9521925,
     "ast_hash": "b9f9547e52404dbc1ca9bfa535f9ebb0",
     "semantic_hash": ""
   },
@@ -240,13 +240,13 @@
     "semantic_hash": "c1733c6a344299ca767dd45acb0a8959"
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(yonetim)\\randevular.tsx": {
-    "mtime": 1782726247.4308784,
-    "ast_hash": "4671cae2332017277cfcb850cafb4a0d",
+    "mtime": 1782900261.3914819,
+    "ast_hash": "4ba995004619c51df2134fca7ee2ef2a",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(yonetim)\\subeler.tsx": {
-    "mtime": 1782564792.2242882,
-    "ast_hash": "8bc863f10deaeeaea72867fd6a590df4",
+    "mtime": 1782900252.6519868,
+    "ast_hash": "f7558b525b3ed2aa2284fa6006101e9a",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\data\\calisma-duzeni.ts": {
@@ -265,8 +265,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\randevu-al.tsx": {
-    "mtime": 1782726171.740635,
-    "ast_hash": "ccc5e7d7961404810784ace976a2935e",
+    "mtime": 1782905700.6615753,
+    "ast_hash": "f59da8e6ef6bd2c91b15c4d62e613200",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\functions\\fiyat-hesapla\\index.ts": {
@@ -330,8 +330,8 @@
     "semantic_hash": "c39a91de43245abdc8ea1655f8e94962"
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\components\\IslerListesi.tsx": {
-    "mtime": 1782826052.0366879,
-    "ast_hash": "a0a3465c42f6beccfd0d89f60c429d58",
+    "mtime": 1782827801.2245169,
+    "ast_hash": "c086ad47393d6bf6026204d8fe8ac20e",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\migrations\\20260620000002_gunluk_mod.sql": {
@@ -355,9 +355,9 @@
     "semantic_hash": "fa42a2dfe4b59831d8e2a5c14afa4457"
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\components\\RaporModal.tsx": {
-    "mtime": 1782117015.9010117,
-    "ast_hash": "d0fa7d6c16a2c45e795ced18ed1cd67b",
-    "semantic_hash": "d0fa7d6c16a2c45e795ced18ed1cd67b"
+    "mtime": 1782900161.608534,
+    "ast_hash": "680150b885d536efda5f45eb84d0a072",
+    "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\otonbu-garage-dark.png": {
     "mtime": 1781960906.2210226,
@@ -435,13 +435,13 @@
     "semantic_hash": "c2bfe1b704f963f921b3cd89f29969b5"
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(yonetim)\\paketler.tsx": {
-    "mtime": 1782116718.6148746,
-    "ast_hash": "d3ae6195fd7a3bd64ac0cf1092f93177",
-    "semantic_hash": "d3ae6195fd7a3bd64ac0cf1092f93177"
+    "mtime": 1782900238.632193,
+    "ast_hash": "bcc8dc42368d314d81085dee27d3361c",
+    "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\abonelik.tsx": {
-    "mtime": 1782822038.7377703,
-    "ast_hash": "64025b67124761f256cd5a27c7b76535",
+    "mtime": 1782827798.3915243,
+    "ast_hash": "cbbeced11f677c9552c9d8012f52d4fb",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\lib\\abonelik.ts": {
@@ -485,33 +485,33 @@
     "semantic_hash": "c1e359bab73f8fc1eea2573d759eeea3"
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\araclar.tsx": {
-    "mtime": 1782472659.891484,
-    "ast_hash": "05e40547e540b777059613be32c2d685",
-    "semantic_hash": "05e40547e540b777059613be32c2d685"
+    "mtime": 1782900150.6538646,
+    "ast_hash": "6b36db702a159b0477484aa49505b3f3",
+    "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\randevularim.tsx": {
-    "mtime": 1782726210.2543342,
-    "ast_hash": "8d89366c24cde8e0905642b197b58617",
+    "mtime": 1782827799.0130875,
+    "ast_hash": "d5f4003d4ad77257c9a5020a31e7a299",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(main)\\magaza.tsx": {
-    "mtime": 1782822881.7325768,
-    "ast_hash": "d05e4d8e343f2d29b194f8db40665298",
+    "mtime": 1782904884.4143653,
+    "ast_hash": "e6baa6ce7356a59fdbff459ab51d77db",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(main)\\sigorta.tsx": {
-    "mtime": 1782474811.4625642,
-    "ast_hash": "11063a6fdb1d6c47fb6b7d195b2da2cc",
-    "semantic_hash": "11063a6fdb1d6c47fb6b7d195b2da2cc"
+    "mtime": 1782828450.9935677,
+    "ast_hash": "117a1a12760490c7751fdc4664c2b063",
+    "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\siparisler.tsx": {
-    "mtime": 1782564660.5841134,
-    "ast_hash": "faa8ac936541349f14deca84f5573a3d",
+    "mtime": 1782827798.710718,
+    "ast_hash": "53d0d94e947dd4bedcf123f1bc22e512",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\teklifler.tsx": {
-    "mtime": 1782564655.2947354,
-    "ast_hash": "74ad5d91a5cf114b2cf6c3541bd232b4",
+    "mtime": 1782827798.1083298,
+    "ast_hash": "0aca73e8b41b3809169b33de120bc41d",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\lib\\urun.ts": {
@@ -540,13 +540,13 @@
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\hizmet-teklifleri.tsx": {
-    "mtime": 1782721648.4181263,
-    "ast_hash": "6e484aaa9afc15c882154e2da8837371",
+    "mtime": 1782827798.2536497,
+    "ast_hash": "af77b7f011aa7c1ca51f7b1d34042d3e",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\teklif-al.tsx": {
-    "mtime": 1782721590.4227417,
-    "ast_hash": "56f06610d8fade8e467a041c6a5165c6",
+    "mtime": 1782900353.4326308,
+    "ast_hash": "92a0d595ed683294b048353b784c9c4c",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\migrations\\20260629000001_hizmet_teklif.sql": {
@@ -625,8 +625,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(main)\\hizmetler.tsx": {
-    "mtime": 1782823339.1045835,
-    "ast_hash": "aa7f7eb62ed9836c0b69168fd8438aa5",
+    "mtime": 1782907663.454672,
+    "ast_hash": "83f896c30001fa50b7e53e9411832aef",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(main)\\kampanyalar.tsx": {
@@ -640,8 +640,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\lib\\kampanya.ts": {
-    "mtime": 1782808230.0875757,
-    "ast_hash": "9473b82d592281f5297d21d2c061d825",
+    "mtime": 1782907629.6569462,
+    "ast_hash": "8b6bbfc1f50f3ba5af41ece7f2942e07",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\migrations\\20260630000001_kampanya_genislet.sql": {
@@ -660,13 +660,13 @@
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(yonetim)\\kampanyalar.tsx": {
-    "mtime": 1782810890.1338143,
-    "ast_hash": "2cee42b103282e63f1814659f54ff741",
+    "mtime": 1782900244.5714953,
+    "ast_hash": "78664a292dd073034a900a1068ca0e45",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\(yonetim)\\urunler.tsx": {
-    "mtime": 1782811025.6700852,
-    "ast_hash": "f6f4b5c26ddf979f11831e5b62cbf84b",
+    "mtime": 1782900145.3104806,
+    "ast_hash": "df7f84c67e6b9ae0d350f59e5e93374d",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\components\\GeriLogo.tsx": {
@@ -675,8 +675,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\components\\UstNavbar.tsx": {
-    "mtime": 1782811590.0723724,
-    "ast_hash": "e403f0c1505a4d454d5815103c149454",
+    "mtime": 1782911126.5533106,
+    "ast_hash": "d791b6465b930ccf94a72ea968ea925a",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\lib\\avatar.ts": {
@@ -690,7 +690,7 @@
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\urun-detay.tsx": {
-    "mtime": 1782823327.8927221,
+    "mtime": 1782900187.5277464,
     "ast_hash": "00d17d227cbf12cabf9daa00eb759153",
     "semantic_hash": ""
   },
@@ -700,8 +700,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\components\\SatisModal.tsx": {
-    "mtime": 1782825928.3926086,
-    "ast_hash": "fa499ed140c4fe4c53613fddca411aa9",
+    "mtime": 1782900156.4712756,
+    "ast_hash": "a36f35cee1517df991fd4ced7856b531",
     "semantic_hash": ""
   },
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\migrations\\20260630000004_dukkanda_satis.sql": {
@@ -712,6 +712,71 @@
   "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\tests\\rls_dukkan_satis.test.sql": {
     "mtime": 1782826280.41032,
     "ast_hash": "bd8179beadf955e3f2e17251ea710bfa",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\components\\KlavyeKapsa.tsx": {
+    "mtime": 1782827866.2011025,
+    "ast_hash": "8492049b905a8039dd11d4e56932e98d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\components\\UyariProvider.tsx": {
+    "mtime": 1782899996.723968,
+    "ast_hash": "d4cf5c43cfe3abb3cb24b2e45c7c5a5d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\lib\\uyari.ts": {
+    "mtime": 1782899973.1398187,
+    "ast_hash": "addbe5fce6281f5512d46104cfad57a5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\app\\puan-magaza.tsx": {
+    "mtime": 1782896157.0021174,
+    "ast_hash": "40bf5db7bc85031cf560671fb4c8f148",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\components\\PuanRozeti.tsx": {
+    "mtime": 1782896145.5977898,
+    "ast_hash": "2b390ab3684c1717d276def7ab5d5db7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\migrations\\20260701000001_puan_harcama.sql": {
+    "mtime": 1782894513.505291,
+    "ast_hash": "a8157937de85a4b1e71791861224d163",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\tests\\rls_puan_harcama.test.sql": {
+    "mtime": 1782894896.9067283,
+    "ast_hash": "b9645e9317caa356881a861e07c1f486",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\src\\components\\PuanLogo.tsx": {
+    "mtime": 1782895661.684325,
+    "ast_hash": "1cb07b3fd2282a286d424efdb35886c1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\migrations\\20260701000002_puan_randevu_odeme.sql": {
+    "mtime": 1782896696.995903,
+    "ast_hash": "4f44e3262fd44a725dfcb69b48e86fb5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\assets\\sigorta-banner.png": {
+    "mtime": 1782906707.3296354,
+    "ast_hash": "3f812a76b8ab9c4d2028841594177c5a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\migrations\\20260701000003_kampanya_puan_award.sql": {
+    "mtime": 1782907788.0320313,
+    "ast_hash": "b39c3f13ae5747511a6aa1b892ac7e7b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\tests\\rls_kampanya_puan.test.sql": {
+    "mtime": 1782909044.6569886,
+    "ast_hash": "baaba3f549c7d9f4c6976bbcba2eb3e3",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Ayurd\\OneDrive\\Masa\u00fcst\u00fc\\Otonbu\\supabase\\functions\\hesap-sil\\index.ts": {
+    "mtime": 1782995827.2378416,
+    "ast_hash": "96fd5be0ca264ea2c9b401b34508244f",
     "semantic_hash": ""
   }
 }

@@ -1,3 +1,5 @@
+import { uyari } from '../lib/uyari';
+import { UyariKatmani } from './UyariProvider';
 import { useCallback, useMemo, useState } from 'react';
 import {
   ActivityIndicator, Alert, FlatList, Image, Modal,
@@ -76,11 +78,11 @@ export function SatisModal({
       p_appointment_id: appointmentId ?? null,
     });
     setGonderiliyor(false);
-    if (error) { Alert.alert('Satış kaydedilemedi', error.message); return; }
+    if (error) { uyari('Satış kaydedilemedi', error.message); return; }
     setSepet({});
     onDone();
     onClose();
-    Alert.alert('Satış kaydedildi', `${toplamAdet} ürün · ${tl(toplam)} — stok güncellendi.`);
+    uyari('Satış kaydedildi', `${toplamAdet} ürün · ${tl(toplam)} — stok güncellendi.`);
   }
 
   function kapat() { setSepet({}); onClose(); }
@@ -180,6 +182,7 @@ export function SatisModal({
           </View>
         )}
       </View>
+      <UyariKatmani />
     </Modal>
   );
 }

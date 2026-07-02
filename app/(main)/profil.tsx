@@ -1,3 +1,4 @@
+import { uyari } from '../../src/lib/uyari';
 import { useCallback, useEffect, useState } from 'react';
 import {
   ActivityIndicator, Alert, Image, ScrollView, StyleSheet, Text,
@@ -11,6 +12,7 @@ import { useSession } from '../../src/hooks/useSession';
 import { Tema, useTheme } from '../../src/theme/ThemeContext';
 import { PERSONEL_ROLLER } from '../../src/types';
 import { AVATAR_BUCKET, avatarUrl } from '../../src/lib/avatar';
+import { PuanLogo } from '../../src/components/PuanLogo';
 
 const ROL_ADLARI: Record<string, string> = {
   musteri: 'Müşteri',
@@ -49,7 +51,7 @@ export default function ProfilScreen() {
   }
 
   function avatarSec() {
-    Alert.alert('Profil Fotoğrafı', undefined, [
+    uyari('Profil Fotoğrafı', undefined, [
       { text: 'Kamera', onPress: () => avatarYukle('kamera') },
       { text: 'Galeriden Seç', onPress: () => avatarYukle('galeri') },
       ...(avatarYol
@@ -66,7 +68,7 @@ export default function ProfilScreen() {
         ? await ImagePicker.requestCameraPermissionsAsync()
         : await ImagePicker.requestMediaLibraryPermissionsAsync();
       if (!izin.granted) {
-        Alert.alert('İzin gerekli', 'Fotoğraf eklemek için erişim izni vermelisin.');
+        uyari('İzin gerekli', 'Fotoğraf eklemek için erişim izni vermelisin.');
         return;
       }
       const sonuc = kaynak === 'kamera'
@@ -88,16 +90,16 @@ export default function ProfilScreen() {
 
       const { error: upErr } = await supabase.storage
         .from(AVATAR_BUCKET).upload(yol, buf, { contentType: mime, upsert: true });
-      if (upErr) { setFotoYukleniyor(false); Alert.alert('Yüklenemedi', upErr.message); return; }
+      if (upErr) { setFotoYukleniyor(false); uyari('Yüklenemedi', upErr.message); return; }
 
       const { error: dbErr } = await supabase
         .from('users').update({ avatar_url: yol }).eq('id', profile.id);
       setFotoYukleniyor(false);
-      if (dbErr) { Alert.alert('Hata', dbErr.message); return; }
+      if (dbErr) { uyari('Hata', dbErr.message); return; }
       setAvatarYol(yol);
     } catch (e: any) {
       setFotoYukleniyor(false);
-      Alert.alert('Hata', e?.message ?? 'Fotoğraf yüklenemedi');
+      uyari('Hata', e?.message ?? 'Fotoğraf yüklenemedi');
     }
   }
 
@@ -107,21 +109,22 @@ export default function ProfilScreen() {
     const { error } = await supabase
       .from('users').update({ avatar_url: null }).eq('id', profile.id);
     setFotoYukleniyor(false);
-    if (error) { Alert.alert('Hata', error.message); return; }
+    if (error) { uyari('Hata', error.message); return; }
     setAvatarYol(null);
   }
 
   function cikisOnayi() {
-    Alert.alert('Çıkış Yap', 'Hesabından çıkış yapılacak. Emin misin?', [
+    uyari('Çıkış Yap', 'Hesabından çıkış yapılacak. Emin misin?', [
       { text: 'Vazgeç', style: 'cancel' },
       { text: 'Çıkış Yap', style: 'destructive', onPress: () => supabase.auth.signOut() },
     ]);
   }
 
   // KVKK silme hakkı: kişisel veriler anonimleştirilir (geri alınamaz),
-  // muhasebe kaydı kişiye bağlanamaz halde kalır. Sunucu RPC yapar.
+  // muhasebe kaydı kişiye bağlanamaz halde kalır. hesap-sil Edge Function'ı
+  // hem public şemayı (hesabimi_sil RPC) hem auth.users e-postasını temizler.
   function verileriSilOnayi() {
-    Alert.alert(
+    uyari(
       'Verilerimi Sil',
       'Kişisel verilerin (ad, e-posta, telefon, araç plakası, profil fotoğrafı) kalıcı olarak ' +
         'anonimleştirilecek, aktif aboneliklerin ve gelecekteki randevuların iptal edilecek. ' +
@@ -131,9 +134,13 @@ export default function ProfilScreen() {
         {
           text: 'Verilerimi Sil', style: 'destructive',
           onPress: async () => {
-            const { error } = await supabase.rpc('hesabimi_sil');
-            if (error) { Alert.alert('Hata', error.message); return; }
-            Alert.alert(
+            const { data, error } = await supabase.functions.invoke('hesap-sil');
+            const govde = data as { ok?: boolean; hata?: string } | null;
+            if (error || !govde?.ok) {
+              uyari('Hata', govde?.hata ?? error?.message ?? 'Hesap silinemedi, lütfen tekrar dene');
+              return;
+            }
+            uyari(
               'Verilerin silindi',
               'Kişisel verilerin anonimleştirildi. Hesabından çıkış yapılıyor.',
               [{ text: 'Tamam', onPress: () => supabase.auth.signOut() }],
@@ -189,7 +196,7 @@ export default function ProfilScreen() {
       {/* Sadakat puanı — hizmet/ürün tamamlanınca birikir */}
       <Text style={[s.bolumBaslik, { color: renkler.subtext }]}>SADAKAT PUANIM</Text>
       <View style={[s.puanKart, { backgroundColor: renkler.primary }]}>
-        <Ionicons name="star" size={28} color="#fff" />
+        <PuanLogo size={40} renk="#fff" />
         <View style={{ flex: 1 }}>
           <Text style={s.puanSayi}>{puan}</Text>
           <Text style={s.puanAlt}>puan</Text>

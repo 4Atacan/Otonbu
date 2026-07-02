@@ -1,3 +1,4 @@
+import { uyari } from '../src/lib/uyari';
 import { useCallback, useMemo, useState } from 'react';
 import {
   ActivityIndicator, Alert, ScrollView, StyleSheet,
@@ -88,7 +89,7 @@ export default function AbonelikScreen() {
 
   // Abonelik iptali (eskiden profil ekranındaydı; tek yerde toplandı)
   function abonelikIptalOnayi(ab: Subscription) {
-    Alert.alert(
+    uyari(
       'Aboneliği İptal Et',
       `${ab.plans?.ad ?? 'Paket'} aboneliğin iptal edilecek. Kalan hakların kullanılamaz hale gelir. Emin misin?`,
       [
@@ -97,7 +98,7 @@ export default function AbonelikScreen() {
           text: 'İptal Et', style: 'destructive',
           onPress: async () => {
             const { error } = await supabase.rpc('abonelik_iptal', { p_subscription_id: ab.id });
-            if (error) Alert.alert('Hata', error.message);
+            if (error) uyari('Hata', error.message);
             else yukle();
           },
         },
@@ -107,15 +108,15 @@ export default function AbonelikScreen() {
 
   function aboneOlOnayi(plan: Plan) {
     if (!session?.user) {
-      Alert.alert('Giriş gerekli', 'Abone olmak için giriş yapmalısın.');
+      uyari('Giriş gerekli', 'Abone olmak için giriş yapmalısın.');
       return;
     }
     if (!subeId) {
-      Alert.alert('Şube seç', 'Hakların yalnızca seçtiğin şubede geçerli olur. Önce bir şube seç.');
+      uyari('Şube seç', 'Hakların yalnızca seçtiğin şubede geçerli olur. Önce bir şube seç.');
       return;
     }
     const sube = subeler.find(b => b.id === subeId);
-    Alert.alert(
+    uyari(
       `${plan.ad} paketi`,
       `${sube?.ad ?? 'Seçili şube'} şubesinde aylık ${plan.aylik_ucret.toLocaleString('tr-TR', { style: 'currency', currency: 'TRY' })} — abone olmak istiyor musun?` +
         (TASLAK_MODU ? '\n\n(Test modu: ödeme alınmadan abonelik başlar.)' : ''),
@@ -133,11 +134,11 @@ export default function AbonelikScreen() {
     setGonderiliyor(null);
 
     if (!sonuc.ok) {
-      Alert.alert('Abonelik başlatılamadı', sonuc.hata ?? 'Bilinmeyen hata');
+      uyari('Abonelik başlatılamadı', sonuc.hata ?? 'Bilinmeyen hata');
       return;
     }
     if (sonuc.taslak) {
-      Alert.alert(
+      uyari(
         'Aboneliğin başladı 🎉',
         'Bu ayın hakları tanımlandı. Randevu alırken "Abonelik hakkı" ile ücretsiz randevu oluşturabilirsin.',
         [{ text: 'Tamam', onPress: () => yukle() }],

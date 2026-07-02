@@ -400,6 +400,10 @@ verify_jwt = true
 [functions.abonelik-baslat]
 verify_jwt = true
 
+# KVKK hesap silme çağıranın oturumuyla çalışır — yalnız kendi hesabına etki eder.
+[functions.hesap-sil]
+verify_jwt = true
+
 # iyzico ödeme bitince callback/webhook ile çağırır — kullanıcı JWT'si YOKTUR.
 # Güvenlik, token'ın iyzico'ya sunucu-sunucu yeniden sorgulanmasıyla sağlanır.
 [functions.iyzico-webhook]
