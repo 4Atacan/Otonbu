@@ -12,6 +12,7 @@ import {
   Campaign, Subscription, Entitlement, Product, Service,
 } from '../../src/types';
 import { tl, urunGorselUrl } from '../../src/lib/urun';
+import { ABONELIK_AKTIF } from '../../src/lib/abonelik';
 import { fiyatMetni, gorselUrl as hizmetGorselUrl } from '../../src/lib/hizmet';
 import { OtonbuArac } from '../../src/components/OtonbuArac';
 import { KampanyaKart } from '../../src/components/KampanyaKart';
@@ -153,7 +154,9 @@ export default function AnaSayfa() {
         <View style={{ height: HERO_H - HERO_OVERLAP }} />
         <View style={[s.sheet, { backgroundColor: renkler.bg }]}>
 
-        {/* Abonelik / haklar kartı (Starbucks "yıldız" karşılığı) */}
+        {/* Abonelik / haklar kartı (Starbucks "yıldız" karşılığı).
+            Ödeme sistemi (iyzico) hazır olana kadar gizli — ABONELIK_AKTIF. */}
+        {ABONELIK_AKTIF && (
         <TouchableOpacity
           activeOpacity={0.9}
           style={[s.odul, { backgroundColor: renkler.primary }]}
@@ -184,6 +187,7 @@ export default function AnaSayfa() {
             <Ionicons name="chevron-forward" size={20} color={renkler.primary} />
           </View>
         </TouchableOpacity>
+        )}
 
         {/* Hızlı işlemler */}
         <Baslik title="Hızlı İşlemler" renkler={renkler} />

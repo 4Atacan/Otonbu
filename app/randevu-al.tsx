@@ -13,6 +13,7 @@ import { useTheme } from '../src/theme/ThemeContext';
 import { Branch, FiyatSonuc, MusaitSlot, OdemeYontemi, Product, Vehicle } from '../src/types';
 import { cinsLabel } from '../src/data/arac-katalogu';
 import { tl, urunGorselUrl } from '../src/lib/urun';
+import { ABONELIK_AKTIF } from '../src/lib/abonelik';
 import { Yukleniyor } from '../src/components/Yukleniyor';
 import { PuanLogo } from '../src/components/PuanLogo';
 
@@ -535,8 +536,8 @@ export default function RandevuAlScreen() {
             </View>
           )}
 
-          {/* Abonelik hakkı varsa: hakla al seçeneği */}
-          {hakKalan > 0 && (
+          {/* Abonelik hakkı varsa: hakla al seçeneği (abonelik aktifse) */}
+          {ABONELIK_AKTIF && hakKalan > 0 && (
             <TouchableOpacity
               activeOpacity={0.85}
               style={[

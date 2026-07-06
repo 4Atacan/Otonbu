@@ -13,6 +13,16 @@ import { supabase } from './supabase';
 // Bu dosyanın dışındaki UI (paket seçim, durum, hakla randevu) aynı kalır.
 export const TASLAK_MODU = true;
 
+// ABONELİK ÖZELLİĞİ AÇIK MI — müşteriye gösterilir mi?
+//
+// Abonelik gerçek tahsilat (iyzico) olmadan tamamlanamıyor. iyzico canlıya
+// alınana kadar abonelik özelliğini müşteri arayüzünden GİZLE (giriş noktaları:
+// ana sayfa abonelik kartı, profil "Aboneliğim", randevu-al "hakla al").
+// DB/RPC ve admin paket yönetimi olduğu gibi durur (hazırlık için).
+//
+// iyzico hazır olunca: bu bayrağı true yap + TASLAK_MODU=false + fonksiyonları deploy et.
+export const ABONELIK_AKTIF = false;
+
 export interface AboneOlSonuc {
   ok: boolean;
   taslak: boolean;

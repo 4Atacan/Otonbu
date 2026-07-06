@@ -14,6 +14,7 @@ import { PERSONEL_ROLLER } from '../../src/types';
 import { AVATAR_BUCKET, avatarUrl } from '../../src/lib/avatar';
 import { yukle as dosyaYukle } from '../../src/lib/storage';
 import { pushTokenTemizle } from '../../src/lib/bildirim';
+import { ABONELIK_AKTIF } from '../../src/lib/abonelik';
 import { PuanLogo } from '../../src/components/PuanLogo';
 
 const ROL_ADLARI: Record<string, string> = {
@@ -213,9 +214,13 @@ export default function ProfilScreen() {
         <Ayrac renkler={renkler} />
         <MenuSatir ikon="construct" etiket="Hizmetlerim" renkler={renkler}
           onPress={() => router.push('/randevularim')} />
-        <Ayrac renkler={renkler} />
-        <MenuSatir ikon="ticket-outline" etiket="Aboneliğim" renkler={renkler}
-          onPress={() => router.push('/abonelik')} />
+        {ABONELIK_AKTIF && (
+          <>
+            <Ayrac renkler={renkler} />
+            <MenuSatir ikon="ticket-outline" etiket="Aboneliğim" renkler={renkler}
+              onPress={() => router.push('/abonelik')} />
+          </>
+        )}
       </View>
 
       {/* Görünüm */}
