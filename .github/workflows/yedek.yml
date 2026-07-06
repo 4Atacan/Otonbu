@@ -1,0 +1,59 @@
+# Veritabanı Yedeği → Cloudflare R2 (ÜCRETSİZ otomatik yedek)
+#
+# Supabase Free planında otomatik yedek YOKTUR. Bu iş akışı her gün pg_dump alır,
+# AES256 ile şifreler ve R2'deki private 'yedek' bucket'ına yükler. Böylece Pro'ya
+# geçmeden (Pro'nun sattığı asıl şey günlük yedektir) veri güvenliği sağlanır.
+#
+# Gerekli GitHub repo secrets (Settings → Secrets and variables → Actions):
+#   SUPABASE_DB_URL  postgres bağlantı dizesi (şifre dahil) — Supabase → Project
+#                    Settings → Database → Connection string (URI, "session"/direct)
+#   YEDEK_SIFRE      yedeği şifrelemek için güçlü bir parola (sen belirle, sakla)
+#   R2_ACCOUNT_ID    Cloudflare R2 account id
+#   R2_ACCESS_KEY    R2 API access key id
+#   R2_SECRET_KEY    R2 API secret access key
+#
+# Geri yükleme (gerekirse):
+#   gpg --batch --passphrase "<YEDEK_SIFRE>" -d yedek.dump.gpg > yedek.dump
+#   pg_restore --no-owner --no-privileges -d "<DB_URL>" yedek.dump
+#
+# Eski yedekleri otomatik silmek için R2 bucket'ına "lifecycle rule" (örn. 30 gün
+# sonra sil) ekleyebilirsin — Cloudflare paneli → yedek bucket → Settings.
+
+name: Veritabanı Yedeği (R2)
+
+on:
+  schedule:
+    - cron: '0 2 * * *'   # her gün 02:00 UTC
+  workflow_dispatch: {}    # panelden elle tetikleme
+
+jobs:
+  yedek:
+    runs-on: ubuntu-latest
+    steps:
+      - name: PostgreSQL 17 istemcisini kur
+        run: |
+          sudo sh -c 'echo "deb https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+          curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/pgdg.gpg
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client-17
+
+      - name: pg_dump al (custom format)
+        env:
+          DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+        run: pg_dump "$DB_URL" --no-owner --no-privileges -Fc -f yedek.dump
+
+      - name: Şifrele (AES256)
+        env:
+          SIFRE: ${{ secrets.YEDEK_SIFRE }}
+        run: gpg --batch --yes --passphrase "$SIFRE" -c --cipher-algo AES256 yedek.dump
+
+      - name: R2'ye yükle
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_KEY }}
+          AWS_DEFAULT_REGION: auto
+        run: |
+          TS=$(date -u +%Y%m%d-%H%M)
+          aws s3 cp yedek.dump.gpg "s3://yedek/db/$TS.dump.gpg" \
+            --endpoint-url "https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com"
+          echo "Yedek yüklendi: db/$TS.dump.gpg"
