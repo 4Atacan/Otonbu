@@ -7,6 +7,7 @@ import { useSession } from '../src/hooks/useSession';
 import { supabase } from '../src/lib/supabase';
 import { ThemeProvider } from '../src/theme/ThemeContext';
 import { SepetProvider } from '../src/context/SepetContext';
+import { BildirimProvider } from '../src/context/BildirimContext';
 import { UyariProvider } from '../src/components/UyariProvider';
 import { GeriLogo } from '../src/components/GeriLogo';
 import { PERSONEL_ROLLER } from '../src/types';
@@ -55,6 +56,7 @@ export default function RootLayout() {
   return (
     <ThemeProvider>
       <SepetProvider>
+      <BildirimProvider>
       {/* Başlığı olan (itilen) ekranlarda varsayılan geri okunun yerine OTONBU
           logolu geri butonu (headerLeft). Grup ekranlarında header kapalı olduğu
           için yalnız itilen kart/modal ekranlarda görünür. */}
@@ -94,8 +96,11 @@ export default function RootLayout() {
         <Stack.Screen name="kvkk" />
         {/* Puan mağazası — müşteri alt navbardaki puan rozetinden açılır */}
         <Stack.Screen name="puan-magaza" />
+        {/* Bildirim merkezi — navbar zilinden açılır */}
+        <Stack.Screen name="bildirimler" />
       </Stack>
       <UyariProvider />
+      </BildirimProvider>
       </SepetProvider>
     </ThemeProvider>
   );

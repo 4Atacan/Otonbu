@@ -13,6 +13,7 @@ import { useSession } from '../../src/hooks/useSession';
 import { useTheme } from '../../src/theme/ThemeContext';
 import { Campaign, KampanyaKategori } from '../../src/types';
 import { CAMPAIGN_BUCKET, kampanyaGorselUrl, kampanyaRozet } from '../../src/lib/kampanya';
+import { yukle as dosyaYukle } from '../../src/lib/storage';
 import { KlavyeKapsa } from '../../src/components/KlavyeKapsa';
 import { Yukleniyor } from '../../src/components/Yukleniyor';
 
@@ -110,16 +111,9 @@ export default function KampanyalarYonetimScreen() {
 
       const asset = sonuc.assets[0];
       setGorselYukleniyor(true);
-      const res = await fetch(asset.uri);
-      const buf = await res.arrayBuffer();
-      const mime = asset.mimeType ?? 'image/jpeg';
-      const uzanti = mime === 'image/png' ? 'png' : 'jpg';
-      const yol = `kampanya/${Date.now()}.${uzanti}`;
-
-      const { error } = await supabase.storage
-        .from(CAMPAIGN_BUCKET).upload(yol, buf, { contentType: mime, upsert: false });
+      const yol = `kampanya/${Date.now()}.jpg`; // yukle jpeg üretir
+      await dosyaYukle(CAMPAIGN_BUCKET, yol, asset.uri);
       setGorselYukleniyor(false);
-      if (error) { uyari('Yüklenemedi', error.message); return; }
       setGorsel(yol);
     } catch (e: any) {
       setGorselYukleniyor(false);

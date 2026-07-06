@@ -409,6 +409,13 @@ verify_jwt = true
 [functions.iyzico-webhook]
 verify_jwt = false
 
+# R2 yükleme proxy'si + private indirme imzası — çağıranın oturumuyla (JWT)
+# çalışır; yetki r2_yetki() ile kullanıcının kendi JWT'si üzerinden verilir.
+# JWT doğrulaması AÇIK — asla anonim yükleme kabul etmez (fonksiyon içinde de
+# ayrıca getUser ile kontrol edilir).
+[functions.r2-imza]
+verify_jwt = true
+
 [analytics]
 enabled = true
 port = 54327

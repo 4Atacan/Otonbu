@@ -13,11 +13,11 @@ import { useTheme } from '../theme/ThemeContext';
 import { Appointment, IsDurum } from '../types';
 import { avatarUrl } from '../lib/avatar';
 import { tl } from '../lib/urun';
+import { yukle as dosyaYukle, privateUrls } from '../lib/storage';
 import { SatisModal } from './SatisModal';
 import { Yukleniyor } from './Yukleniyor';
 
 const PHOTO_BUCKET = 'job-photos';
-const SIGNED_TTL = 60 * 60;
 
 // İş durumu ilerleme zinciri: basladi → tamamlandi → hazir
 const SONRAKI: Record<IsDurum, IsDurum | null> = {
@@ -126,12 +126,9 @@ export default function IslerListesi() {
       .flatMap(j => j.job_photos ?? [])
       .map(p => p.url);
     if (yollar.length === 0) { setSignedMap({}); return; }
-    const { data } = await supabase.storage
-      .from(PHOTO_BUCKET).createSignedUrls(yollar, SIGNED_TTL);
-    if (!data) return;
-    const harita: Record<string, string> = {};
-    data.forEach(d => { if (d.signedUrl && d.path) harita[d.path] = d.signedUrl; });
-    setSignedMap(harita);
+    try {
+      setSignedMap(await privateUrls(PHOTO_BUCKET, yollar));
+    } catch { /* sessiz — foto imzası alınamazsa liste yine görünür */ }
   }
 
   async function elleYenile() {
@@ -191,17 +188,8 @@ export default function IslerListesi() {
       const asset = sonuc.assets[0];
       setMesgul(jobId);
 
-      // RN: yerel uri → arrayBuffer (Supabase storage'ın önerdiği yol)
-      const res = await fetch(asset.uri);
-      const buf = await res.arrayBuffer();
-      const mime = asset.mimeType ?? 'image/jpeg';
-      const uzanti = mime === 'image/png' ? 'png' : 'jpg';
-      const yol = `${jobId}/${tip}-${Date.now()}.${uzanti}`;
-
-      const { error: upErr } = await supabase.storage
-        .from(PHOTO_BUCKET)
-        .upload(yol, buf, { contentType: mime, upsert: false });
-      if (upErr) { setMesgul(null); uyari('Yüklenemedi', upErr.message); return; }
+      const yol = `${jobId}/${tip}-${Date.now()}.jpg`; // dosyaYukle jpeg üretir
+      await dosyaYukle(PHOTO_BUCKET, yol, asset.uri);
 
       const { error: dbErr } = await supabase
         .from('job_photos')

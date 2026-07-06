@@ -6,6 +6,7 @@ import {
 import { Redirect, Stack, useFocusEffect } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '../src/lib/supabase';
+import { privateUrl } from '../src/lib/storage';
 import { useSession } from '../src/hooks/useSession';
 import { useTheme } from '../src/theme/ThemeContext';
 import { InsuranceRequest, SigortaDurum } from '../src/types';
@@ -64,6 +65,17 @@ export default function TekliflerScreen() {
       .from('insurance_requests').update({ durum: yeni }).eq('id', t.id);
     if (error) uyari('Hata', error.message);
     else yukle();
+  }
+
+  // Ruhsat private bucket'ta — kısa ömürlü presigned URL üretip aç (CLAUDE.md kural 6)
+  async function ruhsatiGor(yol: string) {
+    try {
+      const url = await privateUrl('vehicle-docs', yol);
+      if (!url) { uyari('Hata', 'Ruhsat açılamadı'); return; }
+      Linking.openURL(url);
+    } catch (e: any) {
+      uyari('Hata', e?.message ?? 'Ruhsat açılamadı');
+    }
   }
 
   function durumRenk(d: SigortaDurum): string {
@@ -136,6 +148,15 @@ export default function TekliflerScreen() {
                   </Text>
                 </View>
               )}
+              {item.ruhsat_url ? (
+                <TouchableOpacity
+                  style={[s.ruhsatBtn, { borderColor: renkler.primary }]}
+                  onPress={() => ruhsatiGor(item.ruhsat_url!)}
+                >
+                  <Ionicons name="document-text-outline" size={16} color={renkler.primary} />
+                  <Text style={[s.ruhsatText, { color: renkler.primary }]}>Ruhsatı Gör</Text>
+                </TouchableOpacity>
+              ) : null}
               {item.musteri_not ? (
                 <Text style={[s.not, { color: renkler.subtext }]}>Not: {item.musteri_not}</Text>
               ) : null}
@@ -177,6 +198,11 @@ const s = StyleSheet.create({
   tarih: { fontSize: 13, marginTop: 4, marginBottom: 8 },
   bilgiSatir: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingVertical: 4 },
   bilgi: { fontSize: 14 },
+  ruhsatBtn: {
+    flexDirection: 'row', alignItems: 'center', gap: 6, alignSelf: 'flex-start',
+    borderWidth: 1, borderRadius: 8, paddingVertical: 7, paddingHorizontal: 12, marginTop: 10,
+  },
+  ruhsatText: { fontSize: 13, fontWeight: '700' },
   not: { fontSize: 13, marginTop: 8, lineHeight: 18 },
   kvkk: { fontSize: 12, marginTop: 10 },
   ileriBtn: { borderRadius: 10, paddingVertical: 12, alignItems: 'center', marginTop: 14 },

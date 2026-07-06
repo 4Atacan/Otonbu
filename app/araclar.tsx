@@ -50,6 +50,7 @@ export default function AraclarScreen() {
       .from('vehicles')
       .select('*')
       .eq('user_id', user.id)
+      .eq('silindi_mi', false)
       .order('created_at', { ascending: false });
     if (error) uyari('Hata', error.message);
     else setAraclar(data ?? []);
@@ -127,10 +128,19 @@ export default function AraclarScreen() {
   async function sil() {
     if (!duzenlenen) return;
     setKayit(true);
-    const { error } = await supabase
+    // Önce hard delete: randevusu olmayan araç temiz silinir. Randevulu araçta
+    // appointments.vehicle_id FK'sı 23503 döner → soft delete'e düş (randevu
+    // geçmişi korunur, araç listelerden kalkar).
+    let { error } = await supabase
       .from('vehicles')
       .delete()
       .eq('id', duzenlenen.id);
+    if (error?.code === '23503') {
+      ({ error } = await supabase
+        .from('vehicles')
+        .update({ silindi_mi: true })
+        .eq('id', duzenlenen.id));
+    }
     setKayit(false);
     if (error) { uyari('Hata', error.message); return; }
     setModalAcik(false);

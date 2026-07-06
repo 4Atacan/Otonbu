@@ -12,6 +12,8 @@ import { useSession } from '../../src/hooks/useSession';
 import { Tema, useTheme } from '../../src/theme/ThemeContext';
 import { PERSONEL_ROLLER } from '../../src/types';
 import { AVATAR_BUCKET, avatarUrl } from '../../src/lib/avatar';
+import { yukle as dosyaYukle } from '../../src/lib/storage';
+import { pushTokenTemizle } from '../../src/lib/bildirim';
 import { PuanLogo } from '../../src/components/PuanLogo';
 
 const ROL_ADLARI: Record<string, string> = {
@@ -80,17 +82,9 @@ export default function ProfilScreen() {
 
       setFotoYukleniyor(true);
       const asset = sonuc.assets[0];
-      // RN: yerel uri → arrayBuffer (Supabase storage'ın önerdiği yol)
-      const res = await fetch(asset.uri);
-      const buf = await res.arrayBuffer();
-      const mime = asset.mimeType ?? 'image/jpeg';
-      const uzanti = mime === 'image/png' ? 'png' : 'jpg';
-      // Yol ilk segmenti = sahibinin uid'i (storage RLS bunu zorlar)
-      const yol = `${profile.id}/${Date.now()}.${uzanti}`;
-
-      const { error: upErr } = await supabase.storage
-        .from(AVATAR_BUCKET).upload(yol, buf, { contentType: mime, upsert: true });
-      if (upErr) { setFotoYukleniyor(false); uyari('Yüklenemedi', upErr.message); return; }
+      // Yol ilk segmenti = sahibinin uid'i (r2_yetki bunu zorlar). yukle jpeg üretir.
+      const yol = `${profile.id}/${Date.now()}.jpg`;
+      await dosyaYukle(AVATAR_BUCKET, yol, asset.uri);
 
       const { error: dbErr } = await supabase
         .from('users').update({ avatar_url: yol }).eq('id', profile.id);
@@ -116,7 +110,14 @@ export default function ProfilScreen() {
   function cikisOnayi() {
     uyari('Çıkış Yap', 'Hesabından çıkış yapılacak. Emin misin?', [
       { text: 'Vazgeç', style: 'cancel' },
-      { text: 'Çıkış Yap', style: 'destructive', onPress: () => supabase.auth.signOut() },
+      {
+        text: 'Çıkış Yap', style: 'destructive',
+        onPress: async () => {
+          // Oturumu kapanan cihaza artık push gitmesin
+          if (profile) await pushTokenTemizle(profile.id);
+          supabase.auth.signOut();
+        },
+      },
     ]);
   }
 

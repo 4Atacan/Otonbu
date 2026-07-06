@@ -64,6 +64,12 @@ export default function RandevuAlScreen() {
   const [puanBakiye, setPuanBakiye] = useState(0);
   // Bu hizmet tamamlanınca kazandıracağı sadakat puanı (bilgilendirme)
   const [puanKazanc, setPuanKazanc] = useState(0);
+  // Hizmete bağlı aktif 'puan' kampanyaları — bonus, sunucudaki puan_ver_job ile
+  // aynı kuralla (şube: null=tümü / seçili şube, tarih aralığı, en yüksek bonus)
+  // seçili şubeye göre hesaplanır; gösterim gerçek kazançla aynı kalsın diye.
+  const [puanKampanyalar, setPuanKampanyalar] = useState<
+    { branch_id: string | null; bonus_puan: number | null; baslangic: string | null; bitis: string | null }[]
+  >([]);
 
   // Seçili şubenin çok satan ürünleri + randevuyla birlikte sepete eklenenler
   const [urunler, setUrunler] = useState<Product[]>([]);
@@ -92,6 +98,7 @@ export default function RandevuAlScreen() {
         supabase.from('branches').select('*').eq('aktif', true).order('ad'),
         user
           ? supabase.from('vehicles').select('*').eq('user_id', user.id)
+              .eq('silindi_mi', false)
               .order('created_at', { ascending: false })
           : Promise.resolve({ data: [] as Vehicle[] }),
       ]);
@@ -209,16 +216,34 @@ export default function RandevuAlScreen() {
       uid
         ? supabase.from('loyalty_ledger').select('puan_degisim').eq('user_id', uid)
         : Promise.resolve({ data: [] as { puan_degisim: number }[] }),
-    ]).then(([svcRes, puanRes]) => {
+      supabase.from('campaigns')
+        .select('branch_id, bonus_puan, baslangic, bitis')
+        .eq('tip', 'puan').eq('aktif', true)
+        .eq('hizmet_id', serviceId)
+        .not('bonus_puan', 'is', null),
+    ]).then(([svcRes, puanRes, kampRes]) => {
       if (iptal) return;
       const svc = svcRes.data as { puan: number; puan_bedeli: number } | null;
       setPuanKazanc(svc?.puan ?? 0);
       setPuanBedeli(svc?.puan_bedeli ?? 0);
       setPuanBakiye(((puanRes.data as { puan_degisim: number }[]) ?? [])
         .reduce((a, r) => a + (r.puan_degisim ?? 0), 0));
+      setPuanKampanyalar((kampRes.data as typeof puanKampanyalar) ?? []);
     });
     return () => { iptal = true; };
   }, [serviceId, session?.user?.id]);
+
+  // Seçili şubede geçerli en yüksek kampanya bonusu (puan_ver_job ile aynı seçim).
+  const kampanyaBonus = useMemo(() => {
+    const bugun = new Date().toISOString().slice(0, 10);
+    return puanKampanyalar.reduce((max, k) => {
+      if (k.baslangic && k.baslangic > bugun) return max;
+      if (k.bitis && k.bitis < bugun) return max;
+      if (k.branch_id && k.branch_id !== subeId) return max;
+      return Math.max(max, k.bonus_puan ?? 0);
+    }, 0);
+  }, [puanKampanyalar, subeId]);
+  const toplamPuanKazanc = puanKazanc + kampanyaBonus;
 
   function urunAdetDegis(p: Product, delta: number) {
     setUrunSepet(prev => {
@@ -309,14 +334,19 @@ export default function RandevuAlScreen() {
         <ScrollView contentContainerStyle={s.icerik}>
           <Text style={[s.hizmetAd, { color: renkler.text }]}>{serviceAd}</Text>
 
-          {/* Bu hizmet size kaç OTONBU Puanı kazandıracak */}
-          {puanKazanc > 0 && (
+          {/* Bu hizmet size kaç OTONBU Puanı kazandıracak (kampanya bonusu dahil) */}
+          {toplamPuanKazanc > 0 && (
             <View style={[s.puanKazancKart, { backgroundColor: renkler.rozetBg }]}>
-              <PuanLogo size={20} renk={renkler.primary} />
+              <PuanLogo size={20} renk={kampanyaBonus > 0 ? renkler.accent : renkler.primary} />
               <Text style={[s.puanKazancText, { color: renkler.text }]}>
                 Bu hizmet size{' '}
-                <Text style={{ fontWeight: '800', color: renkler.primary }}>{puanKazanc} OTONBU Puanı</Text>
+                <Text style={{ fontWeight: '800', color: kampanyaBonus > 0 ? renkler.accent : renkler.primary }}>
+                  {toplamPuanKazanc} OTONBU Puanı
+                </Text>
                 {' '}kazandıracak
+                {kampanyaBonus > 0 && (
+                  <Text style={{ color: renkler.accent }}> (+{kampanyaBonus} kampanya bonusu)</Text>
+                )}
               </Text>
             </View>
           )}

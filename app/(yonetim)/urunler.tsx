@@ -13,6 +13,7 @@ import { useSession } from '../../src/hooks/useSession';
 import { useTheme } from '../../src/theme/ThemeContext';
 import { Product } from '../../src/types';
 import { PRODUCT_BUCKET, tl, urunGorselUrl } from '../../src/lib/urun';
+import { yukle as dosyaYukle } from '../../src/lib/storage';
 import { KlavyeKapsa } from '../../src/components/KlavyeKapsa';
 import { Yukleniyor } from '../../src/components/Yukleniyor';
 
@@ -92,15 +93,9 @@ export default function UrunlerScreen() {
       if (sonuc.canceled || !sonuc.assets?.[0]) return;
       const asset = sonuc.assets[0];
       setGorselYukleniyor(true);
-      const res = await fetch(asset.uri);
-      const buf = await res.arrayBuffer();
-      const mime = asset.mimeType ?? 'image/jpeg';
-      const uzanti = mime === 'image/png' ? 'png' : 'jpg';
-      const yol = `urunler/${branchId}/${Date.now()}.${uzanti}`;
-      const { error } = await supabase.storage
-        .from(PRODUCT_BUCKET).upload(yol, buf, { contentType: mime, upsert: false });
+      const yol = `urunler/${branchId}/${Date.now()}.jpg`; // dosyaYukle jpeg üretir
+      await dosyaYukle(PRODUCT_BUCKET, yol, asset.uri);
       setGorselYukleniyor(false);
-      if (error) { uyari('Yüklenemedi', error.message); return; }
       setGorsel(yol);
     } catch (e: any) {
       setGorselYukleniyor(false);

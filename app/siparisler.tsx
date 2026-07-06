@@ -53,7 +53,7 @@ export default function SiparislerScreen() {
         *,
         order_items ( id, ad, adet, birim_fiyat ),
         branches ( ad ),
-        users ( ad_soyad, telefon )
+        users!user_id ( ad_soyad, telefon )
       `)
       .eq('silindi_mi', false)
       .order('created_at', { ascending: false });

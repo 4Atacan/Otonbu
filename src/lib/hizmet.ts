@@ -1,14 +1,13 @@
 // Hizmet (servis) katalogu için paylaşılan yardımcılar: kapak görseli URL'i
 // ve segment bazlı fiyat aralığı. Anasayfa, hizmet detayı ve admin formu kullanır.
-import { supabase } from './supabase';
+import { publicUrl } from './storage';
 import { Service } from '../types';
 
 export const SERVICE_BUCKET = 'service-images';
 
 // Public bucket → obje yolundan kalıcı public URL. Yol boşsa null.
 export function gorselUrl(yol: string | null | undefined): string | null {
-  if (!yol) return null;
-  return supabase.storage.from(SERVICE_BUCKET).getPublicUrl(yol).data.publicUrl;
+  return publicUrl(SERVICE_BUCKET, yol);
 }
 
 const tl = (n: number) =>

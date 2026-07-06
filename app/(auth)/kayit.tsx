@@ -57,6 +57,13 @@ export default function KayitScreen() {
       email: mail,
       password: sifre,
       options: {
+        // E-posta doğrulama linki bu deep link'e döner → şık "Kayıt başarılı"
+        // ekranı (app/(auth)/onay.tsx). Bu adres Supabase panel redirect
+        // allowlist'inde ZATEN kayıtlı (otonbu://(auth)/onay) — panelde ek
+        // ayar gerekmez. NOT: otonbu:// şeması yalnız gerçek/dev build'de
+        // uygulamayı açar; Expo Go'da tarayıcı açamaz (Expo Go sınırı) ama
+        // e-posta yine de sunucuda doğrulanır, kullanıcı dönüp giriş yapar.
+        emailRedirectTo: 'otonbu://(auth)/onay',
         // handle_new_user trigger kullanır: ad/telefon + kayıt rızaları (consents)
         data: {
           ad_soyad: ad,

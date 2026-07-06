@@ -13,6 +13,7 @@ import { useSession } from '../../src/hooks/useSession';
 import { useTheme } from '../../src/theme/ThemeContext';
 import { BranchPrice, CalismaPenceresi, KampanyaTip, ProgramMod, Service } from '../../src/types';
 import { fiyatMetni, gorselUrl, SERVICE_BUCKET } from '../../src/lib/hizmet';
+import { yukle as dosyaYukle } from '../../src/lib/storage';
 import { Etiket, Bilgi } from '../../src/components/Bilgi';
 import { KlavyeKapsa } from '../../src/components/KlavyeKapsa';
 import { Yukleniyor } from '../../src/components/Yukleniyor';
@@ -296,16 +297,9 @@ export default function HizmetlerScreen() {
 
       const asset = sonuc.assets[0];
       setGorselYukleniyor(true);
-      const res = await fetch(asset.uri);
-      const buf = await res.arrayBuffer();
-      const mime = asset.mimeType ?? 'image/jpeg';
-      const uzanti = mime === 'image/png' ? 'png' : 'jpg';
-      const yol = `hizmetler/${Date.now()}.${uzanti}`;
-
-      const { error } = await supabase.storage
-        .from(SERVICE_BUCKET).upload(yol, buf, { contentType: mime, upsert: false });
+      const yol = `hizmetler/${Date.now()}.jpg`; // dosyaYukle jpeg üretir
+      await dosyaYukle(SERVICE_BUCKET, yol, asset.uri);
       setGorselYukleniyor(false);
-      if (error) { uyari('Yüklenemedi', error.message); return; }
       setGorsel(yol);
     } catch (e: any) {
       setGorselYukleniyor(false);

@@ -271,6 +271,18 @@ export interface Entitlement {
   services?: { ad: string } | null;  // embed
 }
 
+// Uygulama içi bildirim (notifications tablosu; RN'in Notification tipiyle
+// çakışmasın diye App öneki)
+export interface AppNotification {
+  id: string;
+  user_id: string;
+  baslik: string;
+  govde: string;
+  ref: string | null;      // 'randevu:<id>', 'siparis:<id>' ... (yönlendirme)
+  okundu_mu: boolean;
+  created_at: string;
+}
+
 export interface Vehicle {
   id: string;
   user_id: string;
@@ -279,6 +291,7 @@ export interface Vehicle {
   marka: string | null;
   model: string | null;
   segment: string;       // fiyatlama Faz 2+ kararı; formdan sorulmaz
+  silindi_mi: boolean;   // soft delete (randevulu araç hard silinemez, FK)
   created_at: string;
 }
 
@@ -354,6 +367,7 @@ export interface InsuranceRequest {
   telefon: string | null;    // KİŞİSEL VERİ
   plaka: string | null;      // KİŞİSEL VERİ
   arac_detay: string | null;
+  ruhsat_url: string | null;  // KİŞİSEL VERİ (kasko ruhsatı, vehicle-docs private bucket)
   musteri_not: string | null;
   durum: SigortaDurum;
   kvkk_riza_at: string | null;

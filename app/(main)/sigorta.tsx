@@ -4,9 +4,11 @@ import {
   ActivityIndicator, Alert, ScrollView, StyleSheet,
   Switch, Text, TextInput, TouchableOpacity, View,
 } from 'react-native';
-import { useFocusEffect } from 'expo-router';
+import { useFocusEffect, useRouter } from 'expo-router';
+import * as ImagePicker from 'expo-image-picker';
 import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '../../src/lib/supabase';
+import { yukle as dosyaYukle } from '../../src/lib/storage';
 import { useSession } from '../../src/hooks/useSession';
 import { useTheme } from '../../src/theme/ThemeContext';
 import { Branch, SigortaTip, Vehicle } from '../../src/types';
@@ -21,6 +23,7 @@ const TIPLER: { value: SigortaTip; label: string; alt: string }[] = [
 export default function SigortaScreen() {
   const { session, profile } = useSession();
   const { renkler } = useTheme();
+  const router = useRouter();
 
   const [subeler, setSubeler] = useState<Branch[]>([]);
   const [araclar, setAraclar] = useState<Vehicle[]>([]);
@@ -30,11 +33,12 @@ export default function SigortaScreen() {
   const [subeId, setSubeId] = useState<string | null>(null);
   const [adSoyad, setAdSoyad] = useState('');
   const [telefon, setTelefon] = useState('');
-  const [aracDetay, setAracDetay] = useState('');
   const [not, setNot] = useState('');
   const [riza, setRiza] = useState(false);
   const [ticari, setTicari] = useState(false);
   const [gonderiliyor, setGonderiliyor] = useState(false);
+  const [ruhsatYol, setRuhsatYol] = useState<string | null>(null);  // vehicle-docs yolu
+  const [ruhsatYukleniyor, setRuhsatYukleniyor] = useState(false);
 
   useEffect(() => {
     if (profile?.ad_soyad) setAdSoyad(profile.ad_soyad);
@@ -48,6 +52,7 @@ export default function SigortaScreen() {
         supabase.from('branches').select('*').eq('aktif', true).order('ad'),
         user
           ? supabase.from('vehicles').select('*').eq('user_id', user.id)
+              .eq('silindi_mi', false)
               .order('created_at', { ascending: false })
           : Promise.resolve({ data: [] as Vehicle[] }),
       ]);
@@ -57,6 +62,36 @@ export default function SigortaScreen() {
   }, []));
 
   const secilenArac = araclar.find(a => a.id === aracId);
+
+  // Araç değişince eski ruhsat seçimini temizle (yanlış araca bağlanmasın)
+  useEffect(() => { setRuhsatYol(null); }, [aracId]);
+
+  async function ruhsatSec() {
+    try {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+      const izin = await ImagePicker.requestMediaLibraryPermissionsAsync();
+      if (!izin.granted) {
+        uyari('İzin gerekli', 'Ruhsat görselini seçmek için galeri erişimi vermelisin.');
+        return;
+      }
+      const sonuc = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ['images'], quality: 0.6,
+      });
+      if (sonuc.canceled || !sonuc.assets?.[0]) return;
+
+      setRuhsatYukleniyor(true);
+      const asset = sonuc.assets[0];
+      // Yolun ilk klasörü = sahibinin uid'i (r2_yetki bunu zorlar). yukle jpeg üretir.
+      const yol = `${user.id}/${Date.now()}.jpg`;
+      await dosyaYukle('vehicle-docs', yol, asset.uri);
+      setRuhsatYukleniyor(false);
+      setRuhsatYol(yol);
+    } catch (e: any) {
+      setRuhsatYukleniyor(false);
+      uyari('Hata', e?.message ?? 'Ruhsat yüklenemedi');
+    }
+  }
 
   async function gonder() {
     if (!session?.user) return;
@@ -68,10 +103,18 @@ export default function SigortaScreen() {
       uyari('Eksik bilgi', 'Ad soyad ve telefon zorunludur (sana dönebilmemiz için).');
       return;
     }
+    if (!aracId) {
+      uyari('Araç seçilmedi', 'Lütfen aracını seç. Aracın kayıtlı değilse "Yeni araç ekle" ile ekleyebilirsin.');
+      return;
+    }
+    if (!ruhsatYol) {
+      uyari('Ruhsat gerekli', 'Sigorta teklifi için aracın ruhsat görselini eklemelisin.');
+      return;
+    }
     const aracDetayMetni = secilenArac
       ? [secilenArac.marka, secilenArac.model].filter(Boolean).join(' ') ||
         cinsLabel(secilenArac.arac_cinsi)
-      : aracDetay.trim() || null;
+      : null;
 
     setGonderiliyor(true);
     const { error } = await supabase.from('insurance_requests').insert({
@@ -83,6 +126,7 @@ export default function SigortaScreen() {
       telefon: telefon.trim(),
       plaka: secilenArac?.plaka ?? null,
       arac_detay: aracDetayMetni,
+      ruhsat_url: ruhsatYol,
       musteri_not: not.trim() || null,
       kvkk_riza_at: new Date().toISOString(),
       ticari_ileti_izni: ticari,
@@ -90,7 +134,7 @@ export default function SigortaScreen() {
     setGonderiliyor(false);
     if (error) { uyari('Gönderilemedi', error.message); return; }
 
-    setNot(''); setAracId(null); setAracDetay(''); setTicari(false); setRiza(false);
+    setNot(''); setAracId(null); setRuhsatYol(null); setTicari(false); setRiza(false);
     uyari(
       'Teklif talebin alındı',
       'En kısa sürede sana dönüp uygun sigorta/kasko teklifini ileteceğiz.',
@@ -151,16 +195,49 @@ export default function SigortaScreen() {
             </TouchableOpacity>
           );
         })
-      ) : null}
-      {!aracId && (
-        <TextInput
-          style={[s.input, { borderColor: renkler.border, backgroundColor: renkler.input, color: renkler.text }]}
-          placeholder="Araç (marka / model / yıl) — örn. Fiat Egea 2021"
-          placeholderTextColor={renkler.subtext}
-          value={aracDetay}
-          onChangeText={setAracDetay}
-        />
+      ) : (
+        <Text style={[s.bosArac, { color: renkler.subtext }]}>
+          Henüz kayıtlı aracın yok. Aşağıdan ekleyip buradan seçebilirsin.
+        </Text>
       )}
+      {/* Farklı/yeni araç: serbest metin yerine Araçlarım ekranına yönlendir. */}
+      <TouchableOpacity
+        style={[s.aracEkleBtn, { borderColor: renkler.primary }]}
+        onPress={() => router.push('/araclar')}
+      >
+        <Ionicons name="add-circle-outline" size={20} color={renkler.primary} />
+        <Text style={[s.aracEkleText, { color: renkler.primary }]}>Yeni araç ekle</Text>
+      </TouchableOpacity>
+
+      {/* Araç ruhsatı — hem trafik hem kasko için (KVKK: private bucket, signed URL). */}
+      <Text style={[s.bolum, { color: renkler.subtext }]}>ARAÇ RUHSATI *</Text>
+      <TouchableOpacity
+        style={[
+          s.ruhsatBtn,
+          { backgroundColor: renkler.card, borderColor: ruhsatYol ? renkler.primary : renkler.border },
+        ]}
+        onPress={ruhsatSec}
+        disabled={ruhsatYukleniyor}
+      >
+        {ruhsatYukleniyor ? (
+          <ActivityIndicator color={renkler.primary} />
+        ) : (
+          <>
+            <Ionicons
+              name={ruhsatYol ? 'checkmark-circle' : 'document-attach-outline'}
+              size={22}
+              color={ruhsatYol ? '#16a34a' : renkler.primary}
+            />
+            <Text style={[s.ruhsatText, { color: renkler.text }]}>
+              {ruhsatYol ? 'Ruhsat eklendi — değiştirmek için dokun' : 'Ruhsat görselini yükle (jpg/png)'}
+            </Text>
+          </>
+        )}
+      </TouchableOpacity>
+      <Text style={[s.ruhsatNot, { color: renkler.subtext }]}>
+        Sigorta teklifi için aracın ruhsatının fotoğrafını ekle. Belgen güvenli
+        şekilde saklanır, yalnızca teklifi hazırlayan ekip görür.
+      </Text>
 
       <Text style={[s.bolum, { color: renkler.subtext }]}>ŞUBE (opsiyonel)</Text>
       <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={s.subeSerit}>
@@ -258,6 +335,18 @@ const s = StyleSheet.create({
   },
   secimBaslik: { fontSize: 16, fontWeight: '600' },
   secimAlt: { fontSize: 13, marginTop: 2 },
+  bosArac: { fontSize: 14, lineHeight: 20, marginBottom: 4 },
+  aracEkleBtn: {
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8,
+    borderWidth: 1.5, borderStyle: 'dashed', borderRadius: 12, padding: 13, marginTop: 4,
+  },
+  aracEkleText: { fontSize: 15, fontWeight: '700' },
+  ruhsatBtn: {
+    flexDirection: 'row', alignItems: 'center', gap: 10,
+    borderWidth: 1.5, borderRadius: 12, padding: 14, minHeight: 52,
+  },
+  ruhsatText: { flex: 1, fontSize: 14, fontWeight: '600' },
+  ruhsatNot: { fontSize: 12, lineHeight: 18, marginTop: 8, marginLeft: 2 },
   subeSerit: { gap: 8, paddingVertical: 2 },
   subeBtn: { borderWidth: 1.5, borderRadius: 10, paddingVertical: 8, paddingHorizontal: 16 },
   subeBtnText: { fontSize: 14, fontWeight: '600' },

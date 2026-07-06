@@ -245,7 +245,14 @@ export default function AnaSayfa() {
                       </View>
                     )}
                     <Text style={[s.urunAd, { color: renkler.text }]} numberOfLines={2}>{h.ad}</Text>
-                    <Text style={[s.urunFiyat, { color: renkler.primary }]}>{fiyatMetni(h)}</Text>
+                    {h.teklif_usulu ? (
+                      <View style={s.teklifChip}>
+                        <Ionicons name="chatbubble-ellipses-outline" size={13} color={renkler.accent} />
+                        <Text style={[s.urunFiyat, { color: renkler.accent }]}>Teklif al</Text>
+                      </View>
+                    ) : (
+                      <Text style={[s.urunFiyat, { color: renkler.primary }]}>{fiyatMetni(h)}</Text>
+                    )}
                   </TouchableOpacity>
                 );
               })}
@@ -455,6 +462,7 @@ const s = StyleSheet.create({
   urunRozetText: { fontSize: 10, fontWeight: '700' },
   urunAd: { fontSize: 13, fontWeight: '600', minHeight: 34 },
   urunFiyat: { fontSize: 15, fontWeight: '800', marginTop: 2 },
+  teklifChip: { flexDirection: 'row', alignItems: 'center', gap: 4 },
 
   // Öne çıkan hizmet kartı (16:9 geniş kapak, yatay şerit)
   hizKart: { width: 220, borderRadius: 14, padding: 8 },

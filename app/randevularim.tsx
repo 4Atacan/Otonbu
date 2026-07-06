@@ -7,6 +7,7 @@ import {
 import { Stack, useFocusEffect } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '../src/lib/supabase';
+import { privateUrls } from '../src/lib/storage';
 import { useSession } from '../src/hooks/useSession';
 import { useTheme } from '../src/theme/ThemeContext';
 import { Appointment, IsDurum, RandevuDurum } from '../src/types';
@@ -25,7 +26,6 @@ const IS_ETIKET: Record<IsDurum, string> = {
 };
 
 const PHOTO_BUCKET = 'job-photos';
-const SIGNED_TTL = 60 * 60;  // 1 saat — signed URL süre dolunca ölür
 const IPTAL_SINIRI_DK = 60;  // randevu saatine bu kadar dakikadan az kala iptal kapanır
 
 // Slot başlangıcına kaç dakika kaldığı (geçmişse negatif). null = slot yok
@@ -87,14 +87,9 @@ export default function RandevularimScreen() {
       .map(p => p.url);
     if (yollar.length === 0) { setSignedMap({}); return; }
 
-    const { data, error } = await supabase.storage
-      .from(PHOTO_BUCKET)
-      .createSignedUrls(yollar, SIGNED_TTL);
-    if (error || !data) return;
-
-    const harita: Record<string, string> = {};
-    data.forEach(d => { if (d.signedUrl && d.path) harita[d.path] = d.signedUrl; });
-    setSignedMap(harita);
+    try {
+      setSignedMap(await privateUrls(PHOTO_BUCKET, yollar));
+    } catch { /* sessiz — foto imzası alınamazsa liste yine görünür */ }
   }
 
   async function elleYenile() {

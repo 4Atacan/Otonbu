@@ -58,6 +58,7 @@ export default function TeklifAlScreen() {
         supabase.from('branches').select('*').eq('aktif', true).order('ad'),
         user
           ? supabase.from('vehicles').select('*').eq('user_id', user.id)
+              .eq('silindi_mi', false)
               .order('created_at', { ascending: false })
           : Promise.resolve({ data: [] as Vehicle[] }),
       ]);

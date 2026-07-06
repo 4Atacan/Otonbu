@@ -1,9 +1,9 @@
-import { uyari } from '../lib/uyari';
-import { View, Image, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { useTheme } from '../theme/ThemeContext';
+import { useBildirim } from '../context/BildirimContext';
 
 // Her sekmenin üstünde SABİT navbar (içerik altından kayar, kendisi sabit kalır).
 // Solda: yuvarlak şeffaf OTONBU amblemi — alt bir ekrandaysak geri butonu olur.
@@ -15,6 +15,7 @@ const LOGO = require('../../assets/android-icon-foreground.png');
 export function UstNavbar({ mavi = false }: { mavi?: boolean }) {
   const insets = useSafeAreaInsets();
   const { renkler } = useTheme();
+  const { okunmamis } = useBildirim();
   const router = useRouter();
   const geri = router.canGoBack();
   const bg = mavi ? renkler.primary : renkler.bg;
@@ -36,9 +37,14 @@ export function UstNavbar({ mavi = false }: { mavi?: boolean }) {
         <View style={s.sag}>
           <TouchableOpacity
             style={s.ikonBtn}
-            onPress={() => uyari('Bildirimler', 'Bildirimler yakında burada olacak.')}
+            onPress={() => router.push('/bildirimler')}
           >
             <Ionicons name="notifications-outline" size={24} color={ikon} />
+            {okunmamis > 0 && (
+              <View style={[s.rozet, { backgroundColor: renkler.danger }]}>
+                <Text style={s.rozetText}>{okunmamis > 9 ? '9+' : okunmamis}</Text>
+              </View>
+            )}
           </TouchableOpacity>
           <TouchableOpacity style={s.ikonBtn} onPress={() => router.push('/profil')}>
             <Ionicons name="person-circle-outline" size={30} color={ikon} />
@@ -59,4 +65,10 @@ const s = StyleSheet.create({
   logoKucuk: { width: 34, height: 34, marginLeft: 2 },
   sag: { flexDirection: 'row', alignItems: 'center', gap: 4 },
   ikonBtn: { padding: 4 },
+  rozet: {
+    position: 'absolute', top: 0, right: 0,
+    minWidth: 16, height: 16, borderRadius: 8, paddingHorizontal: 3,
+    alignItems: 'center', justifyContent: 'center',
+  },
+  rozetText: { color: '#fff', fontSize: 10, fontWeight: '800' },
 });

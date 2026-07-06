@@ -1,14 +1,14 @@
 // Kampanya katalogu için paylaşılan yardımcılar: banner görsel URL'i ve
 // mekanik rozeti. Ana sayfa banner'ı, Kampanyalar sekmesi ve admin formu kullanır.
 import { supabase } from './supabase';
+import { publicUrl } from './storage';
 import { Campaign } from '../types';
 
 export const CAMPAIGN_BUCKET = 'campaign-images';
 
 // Public bucket → obje yolundan kalıcı public URL. Yol boşsa null.
 export function kampanyaGorselUrl(yol: string | null | undefined): string | null {
-  if (!yol) return null;
-  return supabase.storage.from(CAMPAIGN_BUCKET).getPublicUrl(yol).data.publicUrl;
+  return publicUrl(CAMPAIGN_BUCKET, yol);
 }
 
 // Kampanya mekaniğini kısa rozet metni + ikona çevirir. 'duyuru' → null (rozet yok).

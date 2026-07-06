@@ -15,7 +15,10 @@
         "foregroundImage": "./assets/android-icon-foreground.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -39,6 +42,7 @@
           "organization": "otonbu-nq"
         }
       ],
+      "expo-notifications",
       [
         "expo-image-picker",
         {
@@ -46,6 +50,18 @@
           "cameraPermission": "İş fotoğrafı çekmek için kameraya erişim gerekir."
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "1bec8f58-52a7-4259-b887-a68db5515718"
+      }
+    },
+    "owner": "atacanyurdaer",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/1bec8f58-52a7-4259-b887-a68db5515718"
+    }
   }
 }

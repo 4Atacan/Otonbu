@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Dimensions, StyleSheet, View } from 'react-native';
 import WebView, { WebViewMessageEvent } from 'react-native-webview';
 
 interface Props {
@@ -10,8 +10,10 @@ interface Props {
 
 // Görsel challenge açıldığında kutu büyütülür; 80px'te challenge kırpılıp
 // çözülemez hale geliyordu (open/close callback'leri bunun için).
+// Tablette challenge daha büyük render edilip alttaki kontrol tuşları sabit
+// 500px'in dışında kalıyordu; açık yüksekliği ekran boyuna göre veriyoruz.
 const KAPALI_YUKSEKLIK = 80;
-const ACIK_YUKSEKLIK = 500;
+const ACIK_YUKSEKLIK = Math.max(500, Math.round(Dimensions.get('window').height * 0.9));
 
 const HTML = (siteKey: string) => `<!DOCTYPE html>
 <html><head>
