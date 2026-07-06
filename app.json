@@ -48,7 +48,13 @@
           "organization": "otonbu-nq"
         }
       ],
-      "expo-notifications",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/android-icon-monochrome.png",
+          "color": "#0b7bb5"
+        }
+      ],
       [
         "expo-image-picker",
         {
