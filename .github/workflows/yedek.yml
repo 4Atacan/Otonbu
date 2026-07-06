@@ -40,7 +40,9 @@ jobs:
       - name: pg_dump al (custom format)
         env:
           DB_URL: ${{ secrets.SUPABASE_DB_URL }}
-        run: pg_dump "$DB_URL" --no-owner --no-privileges -Fc -f yedek.dump
+        # PATH'teki /usr/bin/pg_dump wrapper'ı eski sürüme (16) düşebiliyor;
+        # sunucu 17 olduğu için 17 binary'sini TAM YOL ile çağır (sürüm eşleşsin).
+        run: /usr/lib/postgresql/17/bin/pg_dump "$DB_URL" --no-owner --no-privileges -Fc -f yedek.dump
 
       - name: Şifrele (AES256)
         env:
