@@ -11,7 +11,8 @@ içerir. Uygulama giriş (auth) arkasında olduğu için hakeme çalışan bir d
 Hakem yeni kayıt + e-posta doğrulamasıyla uğraşmasın diye **önceden doğrulanmış bir
 müşteri hesabı** hazırla:
 
-1. Uygulamada normal kayıt ol (örn. `demo@otonbugarage.com` / güçlü bir şifre).
+1. Uygulamada normal kayıt ol: **`otonbugarage+demo@gmail.com`** / güçlü bir şifre.
+   (Gmail +alias — doğrulama maili `otonbugarage@gmail.com` ana kutusuna düşer.)
 2. Gelen doğrulama e-postasındaki linke tıkla → hesap doğrulanır.
 3. (Önerilir) Bu hesaba 1 araç ekle ki hakem randevu akışını görebilsin.
 4. Aşağıdaki nota bu e-posta + şifreyi yaz.
@@ -37,7 +38,7 @@ HOW TO SIGN IN
 - A hCaptcha checkbox may appear on the login screen — please complete it, then tap "Giriş Yap" (Log In).
 
 DEMO ACCOUNT (customer role)
-- E-mail: [demo@otonbugarage.com — buraya yaz]
+- E-mail: otonbugarage+demo@gmail.com
 - Password: [şifre — buraya yaz]
 
 WHAT YOU CAN REVIEW
@@ -70,7 +71,7 @@ Login is required to use the app.
 - If a hCaptcha checkbox appears, complete it, then tap "Giriş Yap".
 
 Demo account (customer):
-E-mail: [demo@otonbugarage.com — buraya yaz]
+E-mail: otonbugarage+demo@gmail.com
 Password: [şifre — buraya yaz]
 
 No real payment is charged (appointments use "pay at branch").
@@ -103,7 +104,51 @@ Hiçbir veri reklam amacıyla üçüncü tarafa **satılmaz/paylaşılmaz**.
 
 ---
 
-## 5. Yayın öncesi son kontrol
+## 5. Google Play — zorunlu anket/beyan formları
+
+Play Console "App content" altında bunları da doldurman istenir. Uygulamaya göre
+doğru cevaplar:
+
+### 5.1 Content rating (IARC anketi)
+Kategori: **Utility / Productivity / Other** (araç bakım hizmeti — oyun değil).
+Anket sorularına dürüstçe **HAYIR** de:
+- Şiddet, korku, kan: **Yok**
+- Cinsellik / müstehcenlik: **Yok**
+- Küfür / kaba dil: **Yok**
+- Kumar (gerçek/sanal): **Yok**
+- Uyuşturucu / alkol / tütün: **Yok**
+- Kullanıcılar arası iletişim (sohbet/mesajlaşma): **Yok** (uygulamada kullanıcı-kullanıcı
+  mesajlaşması yok; yalnız işletmeyle randevu/sipariş akışı)
+- Konum paylaşımı: **Yok**
+→ Sonuç genelde **PEGI 3 / Everyone** çıkar.
+
+### 5.2 Target audience & content
+- Hedef yaş grubu: **18+** (araç sahibi yetişkinler). 13 altını **işaretleme**.
+- "Uygulama çocuklara mı yönelik?" → **HAYIR** (böylece Families/COPPA yükümlülüğü
+  devreye girmez).
+- Yanlışlıkla çocuk çekmiyor: doğru.
+
+### 5.3 Ads
+- "Uygulama reklam içeriyor mu?" → **HAYIR** (reklam SDK'sı yok).
+
+### 5.4 Data deletion (App content → Data safety içinde sorulur)
+- "Kullanıcılar hesap/veri silme talep edebilir mi?" → **EVET**.
+- Silme yöntemi: **Uygulama içi** — Profil → "Verilerimi Sil".
+  (KVKK: kişisel alanlar anonimleştirilir; muhasebe kaydı kişiye bağlanamaz halde kalır.)
+- Web URL **opsiyonel** — istersen gizlilik politikasındaki "Haklarınız / silme"
+  bölümünü gösterebilirsin: https://otonbu-gizlilik.otonbugarage.workers.dev
+  Zorunlu değil; uygulama içi yol yeterli.
+
+### 5.5 Diğer beyanlar (karşına çıkarsa)
+- **Government app:** Hayır.
+- **Financial features / kredi-borç:** Hayır (uygulamada gerçek ödeme yok,
+  "şubede öde"; online ödeme kapalı).
+- **Health:** Hayır.
+- **News app:** Hayır.
+
+---
+
+## 6. Yayın öncesi son kontrol
 - [ ] Demo hesabı oluşturuldu + doğrulandı + araç eklendi, kimlik bilgileri notlara yazıldı
 - [ ] Gizlilik politikası URL'si iki mağazaya da girildi
 - [ ] Data safety / privacy labels dolduruldu
