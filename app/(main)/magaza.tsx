@@ -16,6 +16,7 @@ import { tl, urunGorselUrl } from '../../src/lib/urun';
 import { IndirimHaritasi, indirimliFiyat, kampanyaIndirimHaritasi } from '../../src/lib/kampanya';
 import { KlavyeKapsa } from '../../src/components/KlavyeKapsa';
 import { Yukleniyor } from '../../src/components/Yukleniyor';
+import { PuanLogo } from '../../src/components/PuanLogo';
 
 export default function MagazaScreen() {
   const { session } = useSession();
@@ -192,6 +193,14 @@ export default function MagazaScreen() {
                     <Text style={[s.rozetText, { color: renkler.primaryText }]}>Çok satan</Text>
                   </View>
                 ) : null}
+                {/* Sağ üst: bu ürün alınınca kazandıracağı OTONBU Puanı
+                    (hizmet kartındaki puan rozetiyle aynı tarz). */}
+                {item.puan > 0 && (
+                  <View style={[s.puanRozet, { backgroundColor: renkler.card }]}>
+                    <PuanLogo size={12} renk={renkler.primary} />
+                    <Text style={[s.puanRozetText, { color: renkler.primary }]}>{item.puan}</Text>
+                  </View>
+                )}
                 <Text style={[s.urunAd, { color: renkler.text }]} numberOfLines={2}>{item.ad}</Text>
                 {item.kategori ? (
                   <Text style={[s.urunKat, { color: renkler.subtext }]} numberOfLines={1}>{item.kategori}</Text>
@@ -341,6 +350,14 @@ const s = StyleSheet.create({
   kartGorselBos: { alignItems: 'center', justifyContent: 'center' },
   rozet: { position: 'absolute', top: 8, left: 8, borderRadius: 6, paddingHorizontal: 7, paddingVertical: 2 },
   rozetText: { fontSize: 10, fontWeight: '700' },
+  puanRozet: {
+    position: 'absolute', top: 8, right: 8,
+    flexDirection: 'row', alignItems: 'center', gap: 3,
+    paddingVertical: 3, paddingHorizontal: 7, borderRadius: 8,
+    shadowColor: '#000', shadowOpacity: 0.15, shadowRadius: 3,
+    shadowOffset: { width: 0, height: 1 }, elevation: 2,
+  },
+  puanRozetText: { fontSize: 12, fontWeight: '800' },
   urunAd: { fontSize: 14, fontWeight: '600', minHeight: 36 },
   urunKat: { fontSize: 12, marginTop: 1 },
   urunFiyat: { fontSize: 16, fontWeight: '800', marginTop: 4 },

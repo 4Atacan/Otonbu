@@ -103,11 +103,27 @@ export default function AnaSayfa() {
       if (iptal) return;
       setKampanyalar((kampRes.data as Campaign[]) ?? []);
       setUrunler((urunRes.data as Product[]) ?? []);
-      // Öne çıkan hizmetler: "yıldız" kampanyalı olanlar başta, en çok 8 tanesi.
+      // Hızlı randevu: en çok randevu alınan hizmetler sabit sırada başta gelir
+      // (iç dış yıkama → dış yıkama → iç yıkama → seramik → pasta → ppf), sonra
+      // yıldız kampanyalılar, en çok 8 tanesi. Eşleşme hizmet adına göre yapılır.
+      const oncelik = (ad: string): number => {
+        const t = ad.toLocaleLowerCase('tr-TR');
+        if (t.includes('iç') && t.includes('dış')) return 0; // iç dış yıkama
+        if (t.includes('dış')) return 1;                     // dış yıkama
+        if (t.includes('iç')) return 2;                      // iç yıkama
+        if (t.includes('seramik')) return 3;
+        if (t.includes('pasta')) return 4;
+        if (t.includes('ppf')) return 5;
+        return 99;
+      };
       const hepsi = (hizmetRes.data as Service[]) ?? [];
-      const sirali = [...hepsi].sort(
-        (a, b) => Number(b.kampanya_tip === 'yildiz') - Number(a.kampanya_tip === 'yildiz'),
-      );
+      const sirali = [...hepsi].sort((a, b) => {
+        const fark = oncelik(a.ad) - oncelik(b.ad);
+        if (fark !== 0) return fark;
+        // Aynı öncelikte: yıldız kampanyalılar önde, sonra alfabetik.
+        const yildiz = Number(b.kampanya_tip === 'yildiz') - Number(a.kampanya_tip === 'yildiz');
+        return yildiz !== 0 ? yildiz : a.ad.localeCompare(b.ad, 'tr');
+      });
       setHizmetler(sirali.slice(0, 8));
       setAbonelikler((subRes.data as Subscription[]) ?? []);
       setHaklar((hakRes.data as Entitlement[]) ?? []);
@@ -216,7 +232,7 @@ export default function AnaSayfa() {
         {hizmetler.length > 0 && (
           <>
             <Baslik
-              title="Öne Çıkan Hizmetler"
+              title="Hızlı Randevu"
               renkler={renkler}
               action="Tümü"
               onAction={() => router.push('/hizmetler')}
