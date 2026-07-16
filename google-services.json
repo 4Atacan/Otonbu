@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "939963543594",
+    "project_id": "otonbu-garage",
+    "storage_bucket": "otonbu-garage.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939963543594:android:35b5fb6f9508c5011d9353",
+        "android_client_info": {
+          "package_name": "com.otonbugarage.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBroLLCkp7YgGNKg5e4VVdVW_Ogdn-eXAY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -37,6 +37,12 @@ yarn-error.*
 .env*.local
 *.env
 
+# Firebase/FCM servis hesabı özel anahtarı — GİZLİ, yalnızca EAS'e yüklenir.
+# (google-services.json bunun aksine istemci yapılandırmasıdır, commit edilir.)
+*-firebase-adminsdk-*.json
+google-service-account*.json
+service-account*.json
+
 # typescript
 *.tsbuildinfo
 
@@ -54,3 +60,9 @@ supabase/.branches/
 # Ürün özellik notları — repoya girmez (yerel referans)
 Otonbu.pdf
 docs-obsidian/
+
+# Mağaza başvuru notları — demo hesabının canlı şifresini içerir (yerel referans)
+store/basvuru-notlari.md
+
+# Ham ekran görüntüsü aktarımları — işlenmiş hâlleri store/screenshots/ altında
+Ekran Görüntüsü/

@@ -15,6 +15,7 @@
     },
     "android": {
       "package": "com.otonbugarage.app",
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "backgroundColor": "#ffffff",
         "foregroundImage": "./assets/android-icon-foreground.png",

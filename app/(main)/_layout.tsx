@@ -29,17 +29,17 @@ export default function MainLayout() {
           }}
         />
         <Tabs.Screen
-          name="magaza"
-          options={{
-            title: 'Mağaza',
-            tabBarIcon: ({ color, size }) => <Ionicons name="bag-handle" size={size} color={color} />,
-          }}
-        />
-        <Tabs.Screen
           name="hizmetler"
           options={{
             title: 'Hizmetler',
             tabBarIcon: ({ color, size }) => <Ionicons name="car-sport" size={size} color={color} />,
+          }}
+        />
+        <Tabs.Screen
+          name="magaza"
+          options={{
+            title: 'Mağaza',
+            tabBarIcon: ({ color, size }) => <Ionicons name="bag-handle" size={size} color={color} />,
           }}
         />
         <Tabs.Screen

@@ -1,0 +1,8 @@
+# Gizlilik Politikası / KVKK Aydınlatma Metni statik yayını.
+# Yayın: npx wrangler deploy  → https://otonbu-gizlilik.otonbugarage.workers.dev
+# legal/index.html değişince bu komutu çalıştır, yoksa canlı eski sürümde kalır.
+name = "otonbu-gizlilik"
+compatibility_date = "2026-07-16"
+
+[assets]
+directory = "./legal"
