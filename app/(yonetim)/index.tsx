@@ -35,6 +35,17 @@ export default function PanelScreen() {
   const urunGoster = rol === 'yonetici';
   const siparisGoster = rol === 'yonetici' || rol === 'admin';
   const teklifGoster = rol === 'yonetici' || rol === 'admin';
+  // Randevular sekmesi admin'e kapalı (href: null) → kartlar da admin'de tıklanmaz.
+  const randevuGoster = rol === 'yonetici' || rol === 'calisan';
+
+  // Sekme zaten açıksa "İşler" görünümünde kalmış olabilir; ts damgası ekranın
+  // her dokunuşta randevu listesine dönmesini sağlar.
+  function randevularaGit() {
+    router.push({
+      pathname: '/(yonetim)/randevular',
+      params: { odak: 'randevular', ts: String(Date.now()) },
+    });
+  }
 
   useFocusEffect(useCallback(() => {
     if (!profile) return;
@@ -99,16 +110,14 @@ export default function PanelScreen() {
       </Text>
 
       <View style={s.kartRow}>
-        <View style={[s.kart, { backgroundColor: renkler.card }]}>
-          <Ionicons name="calendar-outline" size={22} color={renkler.primary} />
-          <Text style={[s.sayi, { color: renkler.text }]}>{bugunRandevu}</Text>
-          <Text style={[s.kartAlt, { color: renkler.subtext }]}>Bugünkü randevu</Text>
-        </View>
-        <View style={[s.kart, { backgroundColor: renkler.card }]}>
-          <Ionicons name="hourglass-outline" size={22} color={renkler.primary} />
-          <Text style={[s.sayi, { color: renkler.text }]}>{bekleyen}</Text>
-          <Text style={[s.kartAlt, { color: renkler.subtext }]}>Onay bekleyen</Text>
-        </View>
+        <IstatistikKart
+          ikon="calendar-outline" sayi={bugunRandevu} alt="Bugünkü randevu"
+          renkler={renkler} onPress={randevuGoster ? randevularaGit : undefined}
+        />
+        <IstatistikKart
+          ikon="hourglass-outline" sayi={bekleyen} alt="Onay bekleyen"
+          renkler={renkler} onPress={randevuGoster ? randevularaGit : undefined}
+        />
       </View>
 
       {raporGoster && (
@@ -163,6 +172,39 @@ export default function PanelScreen() {
   );
 }
 
+function IstatistikKart({
+  ikon, sayi, alt, renkler, onPress,
+}: {
+  ikon: keyof typeof Ionicons.glyphMap;
+  sayi: number;
+  alt: string;
+  renkler: { card: string; primary: string; text: string; subtext: string };
+  onPress?: () => void;
+}) {
+  const icerik = (
+    <>
+      <View style={s.kartUst}>
+        <Ionicons name={ikon} size={22} color={renkler.primary} />
+        {onPress && <Ionicons name="chevron-forward" size={16} color={renkler.subtext} />}
+      </View>
+      <Text style={[s.sayi, { color: renkler.text }]}>{sayi}</Text>
+      <Text style={[s.kartAlt, { color: renkler.subtext }]}>{alt}</Text>
+    </>
+  );
+  if (!onPress) {
+    return <View style={[s.kart, { backgroundColor: renkler.card }]}>{icerik}</View>;
+  }
+  return (
+    <TouchableOpacity
+      style={[s.kart, { backgroundColor: renkler.card }]}
+      activeOpacity={0.8}
+      onPress={onPress}
+    >
+      {icerik}
+    </TouchableOpacity>
+  );
+}
+
 function PanelKart({
   ikon, baslik, alt, renkler, onPress,
 }: {
@@ -191,6 +233,7 @@ const s = StyleSheet.create({
   rol: { fontSize: 14, marginTop: 4, marginBottom: 20 },
   kartRow: { flexDirection: 'row', gap: 12 },
   kart: { flex: 1, borderRadius: 12, padding: 16 },
+  kartUst: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   sayi: { fontSize: 28, fontWeight: '800', marginTop: 8 },
   kartAlt: { fontSize: 13, marginTop: 2 },
   raporBtn: {

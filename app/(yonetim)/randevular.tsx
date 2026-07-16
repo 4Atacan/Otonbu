@@ -5,7 +5,7 @@ import {
   ActivityIndicator, Alert, Modal, RefreshControl, ScrollView,
   SectionList, StyleSheet, Text, TouchableOpacity, View,
 } from 'react-native';
-import { useFocusEffect } from 'expo-router';
+import { useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '../../src/lib/supabase';
 import { useTheme } from '../../src/theme/ThemeContext';
@@ -66,6 +66,12 @@ export default function RandevularScreen() {
   // randevuyu yalnızca görür (RLS appt_branch_manage de bunu zorlar).
   const yonetebilir = profile ? YONETICI_ROLLER.includes(profile.rol) : false;
   const [gorunum, setGorunum] = useState<'randevular' | 'isler'>('randevular');
+  // Panel'deki istatistik kartından gelindiğinde randevu listesine dön (sekme
+  // "İşler" görünümünde kalmış olabilir). ts damgası her dokunuşta tetikler.
+  const { odak, ts } = useLocalSearchParams<{ odak?: string; ts?: string }>();
+  useEffect(() => {
+    if (odak === 'randevular') setGorunum('randevular');
+  }, [odak, ts]);
   const [randevular, setRandevular] = useState<Appointment[]>([]);
   const [loading, setLoading] = useState(true);
   const [yenileniyor, setYenileniyor] = useState(false);

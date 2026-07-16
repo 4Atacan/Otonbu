@@ -205,6 +205,28 @@ export default function AnaSayfa() {
         </TouchableOpacity>
         )}
 
+        {/* Puan mağazası kartı — abonelik kartıyla birebir aynı tasarım.
+            Abonelik pasifken (ABONELIK_AKTIF=false) bu kart onun yerini alır. */}
+        <TouchableOpacity
+          activeOpacity={0.9}
+          style={[s.odul, { backgroundColor: renkler.primary }]}
+          onPress={() => router.push('/puan-magaza')}
+        >
+          <Image source={WORDMARK} style={s.odulFiligran} resizeMode="contain" />
+          <View style={{ flex: 1 }}>
+            <Text style={s.odulUst}>PUAN MAĞAZASI</Text>
+            <Text style={s.odulBaslik}>Puanlarınla hizmet al</Text>
+            <Text style={s.odulAlt}>
+              {puan > 0
+                ? `${puan} puanın var · puanla alabileceklerini gör`
+                : 'Her hizmet ve üründen puan kazan, puanla öde'}
+            </Text>
+          </View>
+          <View style={s.odulPill}>
+            <Ionicons name="chevron-forward" size={20} color={renkler.primary} />
+          </View>
+        </TouchableOpacity>
+
         {/* Hızlı işlemler */}
         <Baslik title="Hızlı İşlemler" renkler={renkler} />
         <View style={s.hizliRow}>
