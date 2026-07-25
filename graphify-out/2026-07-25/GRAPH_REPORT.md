@@ -1,16 +1,16 @@
-# Graph Report - Otonbu  (2026-07-25)
+# Graph Report - Otonbu  (2026-07-16)
 
 ## Corpus Check
-- 156 files · ~260,628 words
+- 157 files · ~311,234 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 702 nodes · 1414 edges · 95 communities (30 shown, 65 thin omitted)
+- 708 nodes · 1428 edges · 100 communities (35 shown, 65 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `68b2c286`
+- Built from commit: `d67b991e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -34,13 +34,18 @@
 - Community 17
 - Community 18
 - Community 19
+- Community 20
 - Community 21
 - Community 22
+- Community 23
 - Community 24
 - secret-check.mjs
 - Community 28
+- expo
 - expo-asset
+- Community 31
 - Community 32
+- Community 33
 - Community 34
 - expo-image-manipulator
 - expo-image-picker
@@ -129,19 +134,19 @@
 ## Import Cycles
 - None detected.
 
-## Communities (95 total, 65 thin omitted)
+## Communities (100 total, 65 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.08
-Nodes (27): AbonelikScreen(), KADEME_ETIKET, s, bosForm(), KADEMELER, PaketlerScreen(), s, aboneOl() (+19 more)
+Cohesion: 0.10
+Nodes (20): DURUM_ETIKET, s, SONRAKI, AbonelikDurum, AppNotification, AppointmentChange, DegisiklikDurum, DegisiklikTip (+12 more)
 
 ### Community 1 - "Paket Bagimliliklari (npm)"
 Cohesion: 0.06
 Nodes (31): Abonelik mantığı (Edge Functions), Auth görevleri (e-posta + şifre — e-posta doğrulamalı), Faz 0 — Proje kurulumu, Faz 1 — Temel iskelet, Faz 2 — Randevu akışı (yayınlanabilir MVP), Faz 3 — Abonelik + ödeme, Faz 4 — Zenginleştirme + KVKK tamamlama, Fiyat hesabı (Edge Function — `fiyat-hesapla`) (+23 more)
 
 ### Community 3 - "Supabase Istemci & Ana Ekranlar"
-Cohesion: 0.09
-Nodes (19): s, s, s, s, s, BOLUMLER, KvkkScreen(), s (+11 more)
+Cohesion: 0.08
+Nodes (24): s, s, s, s, s, BOLUMLER, KvkkScreen(), s (+16 more)
 
 ### Community 4 - "Kimlik Dogrulama Ekranlari"
 Cohesion: 0.06
@@ -149,7 +154,7 @@ Nodes (27): cors, Girdi, cors, Girdi, cors, cors, IndirGovde, PrivateBucket (+19
 
 ### Community 5 - "Tipler & Randevu/Paket Akisi"
 Cohesion: 0.22
-Nodes (9): expo, expo-device, expo-modules-core, @opentelemetry/api, dependencies, expo, expo-device, expo-modules-core (+1 more)
+Nodes (9): expo-device, expo-linking, expo-modules-core, @opentelemetry/api, dependencies, expo-device, expo-linking, expo-modules-core (+1 more)
 
 ### Community 6 - "Community 6"
 Cohesion: 0.07
@@ -160,12 +165,12 @@ Cohesion: 0.05
 Nodes (36): backgroundColor, foregroundImage, monochromeImage, adaptiveIcon, blockedPermissions, googleServicesFile, package, permissions (+28 more)
 
 ### Community 8 - "Expo Yapilandirmasi (app.json)"
-Cohesion: 0.08
-Nodes (38): AnaSayfa(), buDonem(), s, selamlama(), SIGORTA_BANNER, WORDMARK, MagazaScreen(), s (+30 more)
+Cohesion: 0.10
+Nodes (29): MagazaScreen(), s, s, UrunDetayScreen(), admin, assert(), run(), temizle() (+21 more)
 
 ### Community 9 - "Community 9"
-Cohesion: 0.20
-Nodes (15): KampanyalarSekmesi(), s, KampanyalarYonetimScreen(), s, TIP_SECENEK, KAMPANYA_RENK, KampanyaKart(), Props (+7 more)
+Cohesion: 0.11
+Nodes (25): AnaSayfa(), buDonem(), s, selamlama(), SIGORTA_BANNER, WORDMARK, KampanyalarSekmesi(), s (+17 more)
 
 ### Community 10 - "Proje Talimatlari (CLAUDE.md)"
 Cohesion: 0.15
@@ -184,28 +189,40 @@ Cohesion: 0.09
 Nodes (35): HizmetDetayScreen(), s, tl(), HizmetlerSekmesi(), katAd(), KATEGORI_AD, s, fiyatBandi() (+27 more)
 
 ### Community 14 - "Community 14"
-Cohesion: 0.06
-Nodes (52): AraclarScreen(), s, s, SigortaScreen(), TIPLER, gunler(), RandevuAlScreen(), s (+44 more)
+Cohesion: 0.16
+Nodes (15): PersonelSatir, s, SubelerScreen(), s, UyariKatmani(), UyariProvider(), dinleyiciler, uyari() (+7 more)
 
 ### Community 15 - "Community 15"
-Cohesion: 0.09
-Nodes (29): dakikaKala(), IS_ETIKET, RANDEVU_ETIKET, RandevularimScreen(), s, gunListesi(), IS_ETIKET, IslerListesi() (+21 more)
+Cohesion: 0.13
+Nodes (15): dakikaKala(), IS_ETIKET, RANDEVU_ETIKET, RandevularimScreen(), s, gunOnce(), IS_ETIKET, Props (+7 more)
 
 ### Community 16 - "Community 16"
-Cohesion: 0.47
-Nodes (5): admin, assert(), run(), temizle(), SepetProvider()
+Cohesion: 0.15
+Nodes (13): DURUM_ETIKET, s, SONRAKI, DURUM_ETIKET, s, SONRAKI, MARK, Props (+5 more)
 
 ### Community 17 - "Community 17"
 Cohesion: 0.05
-Nodes (57): BildirimlerScreen(), s, DURUM_ETIKET, HizmetTeklifleriScreen(), s, SONRAKI, RootLayout(), MainLayout() (+49 more)
+Nodes (62): AbonelikScreen(), BildirimlerScreen(), s, HizmetTeklifleriScreen(), RootLayout(), MainLayout(), ProfilScreen(), ROL_ADLARI (+54 more)
 
 ### Community 18 - "Community 18"
 Cohesion: 0.33
 Nodes (6): ASSETS, kareSvg(), MARK, png(), ROOT, svg
 
+### Community 19 - "Community 19"
+Cohesion: 0.19
+Nodes (16): AraclarScreen(), s, AutocompleteInput(), Props, s, ARAC_CINSLERI, AracCinsi, aracSegment() (+8 more)
+
+### Community 20 - "Community 20"
+Cohesion: 0.29
+Nodes (7): gunler(), RandevuAlScreen(), s, FiyatSonuc, MusaitSlot, OdemeYontemi, Vehicle
+
 ### Community 21 - "Community 21"
 Cohesion: 0.25
 Nodes (7): expo/tsconfig.base, node_modules, supabase/functions, compilerOptions, strict, exclude, extends
+
+### Community 23 - "Community 23"
+Cohesion: 0.25
+Nodes (6): KADEME_ETIKET, s, aboneOl(), AboneOlSonuc, Entitlement, Subscription
 
 ### Community 24 - "Community 24"
 Cohesion: 0.13
@@ -215,25 +232,33 @@ Nodes (14): 1. Google Play — Ana mağaza kaydı, 2. App Store (iOS — ileride
 Cohesion: 0.15
 Nodes (12): 1. Demo hesabı (önce sen oluştur), 2. App Store Connect, 3. Google Play Console, 4. Data Safety (Google) / Privacy Nutrition Labels (Apple) — toplanan veri, 5.1 Content rating (IARC anketi), 5.2 Target audience & content, 5.3 Ads, 5.4 Data deletion (App content → Data safety içinde sorulur) (+4 more)
 
+### Community 31 - "Community 31"
+Cohesion: 0.36
+Nodes (8): dakikaKala(), DURUM_ETIKET, gunBasligi(), gunKey(), gunler(), RandevularScreen(), s, YONETICI_ROLLER
+
+### Community 33 - "Community 33"
+Cohesion: 0.32
+Nodes (7): bosForm(), KADEMELER, PaketlerScreen(), s, Plan, PlanHak, PlanKademe
+
 ## Knowledge Gaps
-- **328 isolated node(s):** `name`, `slug`, `version`, `orientation`, `icon` (+323 more)
+- **331 isolated node(s):** `name`, `slug`, `version`, `orientation`, `icon` (+326 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **65 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useTheme()` connect `Community 17` to `Community 0`, `Supabase Istemci & Ana Ekranlar`, `Expo Yapilandirmasi (app.json)`, `Community 9`, `Community 13`, `Community 14`, `Community 15`?**
-  _High betweenness centrality (0.057) - this node is a cross-community bridge._
-- **Why does `supabase` connect `Community 17` to `Community 0`, `Supabase Istemci & Ana Ekranlar`, `Expo Yapilandirmasi (app.json)`, `Community 9`, `Community 13`, `Community 14`, `Community 15`?**
-  _High betweenness centrality (0.017) - this node is a cross-community bridge._
-- **Why does `useSession()` connect `Community 17` to `Community 0`, `Expo Yapilandirmasi (app.json)`, `Community 9`, `Community 13`, `Community 14`, `Community 15`?**
+- **Why does `useTheme()` connect `Community 17` to `Community 0`, `Community 33`, `Supabase Istemci & Ana Ekranlar`, `Expo Yapilandirmasi (app.json)`, `Community 9`, `Community 13`, `Community 14`, `Community 15`, `Community 16`, `Community 19`, `Community 20`, `Community 23`, `Community 31`?**
+  _High betweenness centrality (0.056) - this node is a cross-community bridge._
+- **Why does `supabase` connect `Community 17` to `Community 0`, `Community 33`, `Supabase Istemci & Ana Ekranlar`, `Expo Yapilandirmasi (app.json)`, `Community 9`, `Community 13`, `Community 14`, `Community 15`, `Community 16`, `Community 19`, `Community 20`, `Community 23`, `Community 31`?**
+  _High betweenness centrality (0.019) - this node is a cross-community bridge._
+- **Why does `useSession()` connect `Community 17` to `Community 0`, `Community 33`, `Expo Yapilandirmasi (app.json)`, `Community 9`, `Community 13`, `Community 15`, `Community 16`, `Community 20`, `Community 23`, `Community 31`?**
   _High betweenness centrality (0.016) - this node is a cross-community bridge._
 - **What connects `name`, `slug`, `version` to the rest of the system?**
-  _328 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _331 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.08172043010752689 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09956709956709957 - nodes in this community are weakly interconnected._
 - **Should `Paket Bagimliliklari (npm)` be split into smaller, more focused modules?**
   _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
 - **Should `Supabase Istemci & Ana Ekranlar` be split into smaller, more focused modules?**
-  _Cohesion score 0.08912655971479501 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08205128205128205 - nodes in this community are weakly interconnected._

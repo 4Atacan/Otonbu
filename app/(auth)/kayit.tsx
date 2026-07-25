@@ -9,11 +9,9 @@ import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '../../src/lib/supabase';
 import { KVKK_VERSIYON } from '../../src/lib/kvkk';
 import { Logo } from '../../src/components/Logo';
-import { CaptchaWidget } from '../../src/components/CaptchaWidget';
 import { KlavyeKapsa } from '../../src/components/KlavyeKapsa';
 import { PhoneInput, toE164, isValidTrPhone } from '../../src/components/PhoneInput';
 
-const CAPTCHA_SITE_KEY = process.env.EXPO_PUBLIC_HCAPTCHA_SITE_KEY;
 const EMAIL_REGEX = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 const SIFRE_MIN = 8;
 
@@ -23,8 +21,6 @@ export default function KayitScreen() {
   const [email, setEmail] = useState('');
   const [sifre, setSifre] = useState('');
   const [sifre2, setSifre2] = useState('');
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
-  const [captchaKey, setCaptchaKey] = useState(0);    // token tek kullanımlık; hatada remount
   const [riza, setRiza] = useState(false);            // KVKK açık rıza (zorunlu)
   const [ticari, setTicari] = useState(false);        // ticari ileti izni (ayrı, opsiyonel)
   const [loading, setLoading] = useState(false);
@@ -43,9 +39,6 @@ export default function KayitScreen() {
     }
     if (sifre !== sifre2) {
       uyari('Hata', 'Şifreler eşleşmiyor'); return;
-    }
-    if (CAPTCHA_SITE_KEY && !captchaToken) {
-      uyari('Doğrulama', 'CAPTCHA doğrulamasını tamamlayın'); return;
     }
     if (!riza) {
       uyari('Onay gerekli', 'Devam etmek için KVKK Aydınlatma Metni\'ni okuyup açık rıza vermelisin.');
@@ -71,14 +64,11 @@ export default function KayitScreen() {
           kvkk_versiyon: KVKK_VERSIYON,
           ticari_ileti: ticari,
         },
-        ...(captchaToken ? { captchaToken } : {}),
       },
     });
     setLoading(false);
 
     if (error) {
-      setCaptchaToken(null);
-      setCaptchaKey(k => k + 1);
       uyari('Kayıt başarısız', error.message);
       return;
     }
@@ -136,15 +126,6 @@ export default function KayitScreen() {
       {sifre2.length > 0 && sifre !== sifre2 && (
         <Text style={s.errorText}>Şifreler eşleşmiyor</Text>
       )}
-
-      {CAPTCHA_SITE_KEY ? (
-        <CaptchaWidget
-          key={captchaKey}
-          siteKey={CAPTCHA_SITE_KEY}
-          onToken={setCaptchaToken}
-          onError={() => setCaptchaToken(null)}
-        />
-      ) : null}
 
       {/* KVKK açık rıza (zorunlu) */}
       <TouchableOpacity style={s.rizaRow} activeOpacity={0.8} onPress={() => setRiza(v => !v)}>

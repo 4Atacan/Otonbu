@@ -8,11 +8,9 @@ import { Link, useRouter } from 'expo-router';
 import * as SecureStore from 'expo-secure-store';
 import { supabase } from '../../src/lib/supabase';
 import { Logo } from '../../src/components/Logo';
-import { CaptchaWidget } from '../../src/components/CaptchaWidget';
 import { toE164, isValidTrPhone } from '../../src/components/PhoneInput';
 import { KlavyeKapsa } from '../../src/components/KlavyeKapsa';
 
-const CAPTCHA_SITE_KEY = process.env.EXPO_PUBLIC_HCAPTCHA_SITE_KEY;
 const REMEMBER_KEY = 'otonbu_remember_me';
 const EMAIL_REGEX = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
@@ -20,22 +18,12 @@ export default function GirisScreen() {
   const [kimlik, setKimlik] = useState('');           // email VEYA "+90..." veya 10 hane
   const [sifre, setSifre] = useState('');
   const [beniHatirla, setBeniHatirla] = useState(true);
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
-  const [captchaKey, setCaptchaKey] = useState(0);    // token tek kullanımlık; hatada remount
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-
-  function captchaSifirla() {
-    setCaptchaToken(null);
-    setCaptchaKey(k => k + 1);
-  }
 
   async function girisYap() {
     const k = kimlik.trim();
     if (!k || !sifre) { uyari('Hata', 'E-posta/telefon ve şifre gerekli'); return; }
-    if (CAPTCHA_SITE_KEY && !captchaToken) {
-      uyari('Doğrulama', 'CAPTCHA doğrulamasını tamamlayın'); return;
-    }
 
     let email: string;
     if (EMAIL_REGEX.test(k)) {
@@ -62,12 +50,10 @@ export default function GirisScreen() {
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password: sifre,
-      options: captchaToken ? { captchaToken } : undefined,
     });
     setLoading(false);
 
     if (error) {
-      captchaSifirla();
       uyari('Giriş başarısız', error.message);
       return;
     }
@@ -105,15 +91,6 @@ export default function GirisScreen() {
         <Switch value={beniHatirla} onValueChange={setBeniHatirla} />
         <Text style={s.rowText}>Beni hatırla</Text>
       </View>
-
-      {CAPTCHA_SITE_KEY ? (
-        <CaptchaWidget
-          key={captchaKey}
-          siteKey={CAPTCHA_SITE_KEY}
-          onToken={setCaptchaToken}
-          onError={() => setCaptchaToken(null)}
-        />
-      ) : null}
 
       <TouchableOpacity style={s.btn} onPress={girisYap} disabled={loading}>
         {loading

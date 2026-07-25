@@ -8,10 +8,8 @@ import { Link } from 'expo-router';
 import * as SecureStore from 'expo-secure-store';
 import { supabase } from '../../src/lib/supabase';
 import { Logo } from '../../src/components/Logo';
-import { CaptchaWidget } from '../../src/components/CaptchaWidget';
 import { KlavyeKapsa } from '../../src/components/KlavyeKapsa';
 
-const CAPTCHA_SITE_KEY = process.env.EXPO_PUBLIC_HCAPTCHA_SITE_KEY;
 const REMEMBER_KEY = 'otonbu_remember_me';
 const EMAIL_REGEX = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 const SIFRE_MIN = 8;
@@ -25,28 +23,15 @@ export default function SifremiUnuttumScreen() {
   const [kod, setKod] = useState('');
   const [sifre, setSifre] = useState('');
   const [sifre2, setSifre2] = useState('');
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
-  const [captchaKey, setCaptchaKey] = useState(0);    // token tek kullanımlık; hatada remount
   const [loading, setLoading] = useState(false);
-
-  function captchaSifirla() {
-    setCaptchaToken(null);
-    setCaptchaKey(k => k + 1);
-  }
 
   async function kodGonder() {
     const mail = email.trim().toLowerCase();
     if (!EMAIL_REGEX.test(mail)) { uyari('Hata', 'Geçerli bir e-posta girin'); return; }
-    if (CAPTCHA_SITE_KEY && !captchaToken) {
-      uyari('Doğrulama', 'CAPTCHA doğrulamasını tamamlayın'); return;
-    }
 
     setLoading(true);
-    const { error } = await supabase.auth.resetPasswordForEmail(mail, {
-      ...(captchaToken ? { captchaToken } : {}),
-    });
+    const { error } = await supabase.auth.resetPasswordForEmail(mail);
     setLoading(false);
-    captchaSifirla();
 
     if (error) { uyari('Hata', error.message); return; }
     setAdim('kod');
@@ -106,15 +91,6 @@ export default function SifremiUnuttumScreen() {
             value={email}
             onChangeText={setEmail}
           />
-
-          {CAPTCHA_SITE_KEY ? (
-            <CaptchaWidget
-              key={captchaKey}
-              siteKey={CAPTCHA_SITE_KEY}
-              onToken={setCaptchaToken}
-              onError={() => setCaptchaToken(null)}
-            />
-          ) : null}
 
           <TouchableOpacity style={s.btn} onPress={kodGonder} disabled={loading}>
             {loading

@@ -30,23 +30,23 @@
     "semantic_hash": ""
   },
   "app/(auth)/index.tsx": {
-    "mtime": 1784961501.7641487,
-    "ast_hash": "98b210051adb1dc86909722abf5c75e5",
+    "mtime": 1782828064.6457405,
+    "ast_hash": "dc520020ef8a86eee6f7de45b79f486f",
     "semantic_hash": ""
   },
   "app/(auth)/kayit.tsx": {
-    "mtime": 1784961529.5634136,
-    "ast_hash": "b77678fc73b388477ae028f6362df0cd",
+    "mtime": 1783156480.5632977,
+    "ast_hash": "7cad6dad9974d1f8bd61f6f6ef9b7f0f",
     "semantic_hash": ""
   },
   "app/(auth)/onay-bekliyor.tsx": {
-    "mtime": 1784961564.2308853,
-    "ast_hash": "c4aba6160a7bb6b42e769b78c108d62b",
+    "mtime": 1782827799.60423,
+    "ast_hash": "051c602e202c0c4031152fe599c36a04",
     "semantic_hash": ""
   },
   "app/(auth)/sifremi-unuttum.tsx": {
-    "mtime": 1784961549.6338103,
-    "ast_hash": "ecd688aafd035944abfab96b2a0ee18f",
+    "mtime": 1782828090.534161,
+    "ast_hash": "7ec03e43195a70bfdf86f12f51be5e04",
     "semantic_hash": ""
   },
   "app/(main)/_layout.tsx": {
@@ -73,6 +73,11 @@
     "mtime": 1781523256.695738,
     "ast_hash": "f800586ac2805ac7f2466b81882f592b",
     "semantic_hash": "f800586ac2805ac7f2466b81882f592b"
+  },
+  "src/components/CaptchaWidget.tsx": {
+    "mtime": 1783150742.6227076,
+    "ast_hash": "9d6d1ea282937a9bcdb5e2621f9bfb3b",
+    "semantic_hash": ""
   },
   "src/components/Logo.tsx": {
     "mtime": 1781962443.7250972,
@@ -144,10 +149,40 @@
     "ast_hash": "bb54f10b0af9abb595c6fa237c6551b7",
     "semantic_hash": "bb54f10b0af9abb595c6fa237c6551b7"
   },
+  "assets/android-icon-background.png": {
+    "mtime": 1781985036.116,
+    "ast_hash": "8c2732d3d7faf76ad0f46403d27c7d87",
+    "semantic_hash": "8c2732d3d7faf76ad0f46403d27c7d87"
+  },
+  "assets/android-icon-foreground.png": {
+    "mtime": 1781985036.1,
+    "ast_hash": "b268ed04d778f9526d3eaff8eb67ad69",
+    "semantic_hash": "b268ed04d778f9526d3eaff8eb67ad69"
+  },
+  "assets/android-icon-monochrome.png": {
+    "mtime": 1781985036.13,
+    "ast_hash": "cf63197f888f9c2f2e7e3e2c41c7758c",
+    "semantic_hash": "cf63197f888f9c2f2e7e3e2c41c7758c"
+  },
+  "assets/favicon.png": {
+    "mtime": 1781985036.087,
+    "ast_hash": "67aba275eed85d5e97563e2a1aadbca6",
+    "semantic_hash": "67aba275eed85d5e97563e2a1aadbca6"
+  },
+  "assets/icon.png": {
+    "mtime": 1781985036.079,
+    "ast_hash": "6a650a4f1d973dd5b48f8bbd9f2cec5c",
+    "semantic_hash": "6a650a4f1d973dd5b48f8bbd9f2cec5c"
+  },
   "assets/logo.png": {
     "mtime": 1780576610.297976,
     "ast_hash": "b0c541961ddde3c49fc7c4fb98e0f3b9",
     "semantic_hash": "b0c541961ddde3c49fc7c4fb98e0f3b9"
+  },
+  "assets/splash-icon.png": {
+    "mtime": 1781985036.144,
+    "ast_hash": "96c5bd0179b0f93341118270b75a469f",
+    "semantic_hash": "96c5bd0179b0f93341118270b75a469f"
   },
   "src/components/AutocompleteInput.tsx": {
     "mtime": 1781255093.1090186,
@@ -540,8 +575,8 @@
     "semantic_hash": ""
   },
   "app/kvkk.tsx": {
-    "mtime": 1784961754.0460045,
-    "ast_hash": "c57e4c302036c34e8bf6247a5997d41a",
+    "mtime": 1783336613.7881556,
+    "ast_hash": "c58c7ad995c38d51bc794ceff55fe796",
     "semantic_hash": ""
   },
   "src/lib/kvkk.ts": {
@@ -820,8 +855,8 @@
     "semantic_hash": ""
   },
   "legal/index.html": {
-    "mtime": 1784961752.1479194,
-    "ast_hash": "e92191eeae2cd52cd4d9ee4d13338daf",
+    "mtime": 1784097625.1172302,
+    "ast_hash": "9413862978a88f83f08937ba33e5f2d0",
     "semantic_hash": ""
   },
   "store/basvuru-notlari.md": {
@@ -832,6 +867,16 @@
   "store/magaza-metinleri.md": {
     "mtime": 1783417998.6423848,
     "ast_hash": "9b43ddb7300ec1bac0f1bef40b49193c",
+    "semantic_hash": ""
+  },
+  "store/feature-graphic.png": {
+    "mtime": 1783418239.943149,
+    "ast_hash": "aabd93039c923cb65e58e2f3357994a1",
+    "semantic_hash": ""
+  },
+  "store/icon-512.png": {
+    "mtime": 1783421442.0843716,
+    "ast_hash": "2bd04c70e853346d338aea9498848549",
     "semantic_hash": ""
   },
   "scripts/test-reset.sql": {
@@ -862,6 +907,41 @@
   "legal/hesap-silme/index.html": {
     "mtime": 1784205806.4561615,
     "ast_hash": "7820f932618febfeb7137c6bed4a57f9",
+    "semantic_hash": ""
+  },
+  "store/screenshots/01-ekran.jpg": {
+    "mtime": 1784191959.875,
+    "ast_hash": "9891dd73f70763f6a5bd0807b69c470c",
+    "semantic_hash": ""
+  },
+  "store/screenshots/02-ekran.jpg": {
+    "mtime": 1784191959.915,
+    "ast_hash": "4da396c54e01a4dc8ec8c807a106e2a2",
+    "semantic_hash": ""
+  },
+  "store/screenshots/03-ekran.jpg": {
+    "mtime": 1784191959.952,
+    "ast_hash": "3ff1984448ec6d35624d400e5e67170c",
+    "semantic_hash": ""
+  },
+  "store/screenshots/04-ekran.jpg": {
+    "mtime": 1784191959.988,
+    "ast_hash": "74a5b5849398098f4b09d5a9cdbb760c",
+    "semantic_hash": ""
+  },
+  "store/screenshots/05-ekran.jpg": {
+    "mtime": 1784191960.027,
+    "ast_hash": "6335114da736d70b210b5bb653debe95",
+    "semantic_hash": ""
+  },
+  "store/screenshots/06-ekran.jpg": {
+    "mtime": 1784191960.066,
+    "ast_hash": "1a94ac82b8a6a2e7e087f3a27bc71cbc",
+    "semantic_hash": ""
+  },
+  "store/screenshots/07-ekran.jpg": {
+    "mtime": 1784191960.104,
+    "ast_hash": "5a2b96a6da8a61f28b53087e076035a1",
     "semantic_hash": ""
   }
 }

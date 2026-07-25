@@ -4,30 +4,19 @@ import { Alert, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'rea
 import { Link, useLocalSearchParams } from 'expo-router';
 import { supabase } from '../../src/lib/supabase';
 import { Logo } from '../../src/components/Logo';
-import { CaptchaWidget } from '../../src/components/CaptchaWidget';
-
-const CAPTCHA_SITE_KEY = process.env.EXPO_PUBLIC_HCAPTCHA_SITE_KEY;
 
 export default function OnayBekliyorScreen() {
   const { email } = useLocalSearchParams<{ email: string }>();
   const [gonderiliyor, setGonderiliyor] = useState(false);
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
-  const [captchaKey, setCaptchaKey] = useState(0);    // token tek kullanımlık; her gönderimden sonra remount
 
   async function tekrarGonder() {
     if (!email) return;
-    if (CAPTCHA_SITE_KEY && !captchaToken) {
-      uyari('Doğrulama', 'CAPTCHA doğrulamasını tamamlayın'); return;
-    }
     setGonderiliyor(true);
     const { error } = await supabase.auth.resend({
       type: 'signup',
       email,
-      options: captchaToken ? { captchaToken } : undefined,
     });
     setGonderiliyor(false);
-    setCaptchaToken(null);
-    setCaptchaKey(k => k + 1);
     if (error) uyari('Hata', error.message);
     else uyari('Gönderildi', 'Doğrulama e-postası tekrar gönderildi');
   }
@@ -40,15 +29,6 @@ export default function OnayBekliyorScreen() {
         <Text style={s.bold}>{email}</Text> adresine bir doğrulama linki gönderdik.
         Linke tıkladıktan sonra giriş yapabilirsin.
       </Text>
-
-      {CAPTCHA_SITE_KEY ? (
-        <CaptchaWidget
-          key={captchaKey}
-          siteKey={CAPTCHA_SITE_KEY}
-          onToken={setCaptchaToken}
-          onError={() => setCaptchaToken(null)}
-        />
-      ) : null}
 
       <TouchableOpacity style={s.btn} onPress={tekrarGonder} disabled={gonderiliyor}>
         <Text style={s.btnText}>{gonderiliyor ? 'Gönderiliyor…' : 'Tekrar Gönder'}</Text>

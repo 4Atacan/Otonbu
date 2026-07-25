@@ -211,8 +211,11 @@ token_verifications = 30
 # Number of Web3 logins that can be made in a 5 minute interval per IP address.
 web3 = 30
 
+# CAPTCHA kaldırıldı: hCaptcha görsel bulmacası Google Play incelemesinde giriş
+# akışını kilitledi (Bozuk İşlevsellik reddi, 24.07.2026). Brute-force'a karşı
+# Supabase'in yerleşik rate-limit'i ([auth.rate_limit]) yeterli.
 [auth.captcha]
-enabled = true
+enabled = false
 provider = "hcaptcha"
 secret = "env(SUPABASE_AUTH_CAPTCHA_SECRET)"
 

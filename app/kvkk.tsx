@@ -43,7 +43,7 @@ const BOLUMLER: { baslik: string; metin: string }[] = [
     baslik: 'Aktarım ve Yurt Dışı',
     metin:
       'Verileriniz; hizmeti aldığınız şube, altyapı/depolama ve iletişim hizmet sağlayıcıları ' +
-      '(Supabase — Frankfurt/AB, Cloudflare R2, Brevo, Sentry, hCaptcha, Expo, Apple/Google), ' +
+      '(Supabase — Frankfurt/AB, Cloudflare R2, Brevo, Sentry, Expo, Apple/Google), ' +
       'online ödeme etkinleştirildiğinde ödeme kuruluşu iyzico ve yasal olarak yetkili kamu ' +
       'kurumlarıyla, amaçla sınırlı olarak paylaşılabilir. Bu sağlayıcıların bir kısmı yurt dışında ' +
       'olduğundan, ilgili aktarımlar KVKK’nın yurt dışına aktarım hükümlerine dayanılarak yapılır.',
